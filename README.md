@@ -1,11 +1,23 @@
-# 云开发 quickstart
+<p align="center">
+  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngxc.bmp" width="150" style="margin-bottom: 10px;">
+</p>
+<h3 align="center">专属南工学子的校车查询</h3>
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+## 介绍
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+“南工校车”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
 
-## 参考文档
+- 查询双向的***象山线班车***
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+## 版本
+
+v1.0.2_alpha
+
+- 引入vant组件
+- 优化班车信息逻辑
+
+v1.0.1
+
+- 引入colorui组件
+- 完成基础的班车显示
+
