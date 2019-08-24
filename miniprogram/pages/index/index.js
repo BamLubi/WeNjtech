@@ -36,14 +36,8 @@ Page({
             nowTime: parseInt(time.getHours())*100 + parseInt(time.getMinutes())
             // nowTime: 2107
         })
-        //
+        // 连接数据库并设置班车信息
         this.connectDB();
-        //
-        if (this.data.nowTime <= 2135 && this.data.nowTime >= 710) {
-            this.setData({
-                hasBus: true
-            })
-        }
     },
 
     /**
@@ -150,7 +144,7 @@ Page({
             let st = parseInt(parseFloat(data[i].startTime).toFixed(2) * 100);
 			let ed = parseInt(parseFloat(data[i].endTime).toFixed(2) * 100);
             // 筛选当前时间之后的班车
-			if (parseInt(st - this.data.nowTime) >= 0 || parseInt(this.data.nowTime - ed) >= 0) {
+			if (parseInt(ed - this.data.nowTime) >= 0) {
 				// 方向一致，或为循环车
                 if (data[i].direction == this.data.direction || data[i].status != 1) {
                     ans.push(new busLine(data[i]))
@@ -162,6 +156,12 @@ Page({
             busLineShow: ans
         })
 		console.log("生成班车列表成功")
+		// 若班车信息为空，则设置无班车
+		if (ans.length != 0) {
+			this.setData({
+				hasBus: true
+			})
+		}
     },
     /**
      * 更改方向
