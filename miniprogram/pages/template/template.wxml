@@ -1,0 +1,78 @@
+<!--pages/template/template.wxml-->
+
+<!-- 准点发车，参数：时间、方向 -->
+<template name='busLineOnTime'>
+    <!-- 主体 -->
+    <view class="body radius shadow-warp bg-white">
+        <!-- 时间 -->
+        <view class="time">
+            <text class="text-shadow text-red">{{startTime}}</text>
+        </view>
+        <!-- 地点/方向 -->
+        <view class="place text-shadow text-black">
+            <!-- 象山到校门口 -->
+            <block wx:if="{{direction==0}}">
+                <text>象</text>
+                <text>山</text>
+                <image src="../../images/row.png"></image>
+                <text>校</text>
+                <text>门</text>
+            </block>
+            <!-- 校门口到象山 -->
+            <block wx:if="{{direction==1}}">
+                <text>校</text>
+                <text>门</text>
+                <image src="../../images/row.png"></image>
+                <text>象</text>
+                <text>山</text>
+            </block>
+        </view>
+        <!-- 备注 -->
+        <view class="info">
+            <!-- 象山到校门口 -->
+            <block wx:if="{{direction==0}}">
+                <text>准点发车，站点:象山、东苑</text>
+            </block>
+            <!-- 校门口到象山 -->
+            <block wx:if="{{direction==1}}">
+                <text>准点发车，站点:东苑、象山</text>
+            </block>
+        </view>
+    </view>
+</template>
+
+<!-- 循环发车，参数：时间 -->
+<template name='busLineCircle'>
+    <!-- 主体 -->
+    <view class="body radius shadow-warp bg-white">
+        <!-- 时间 -->
+        <view class="time">
+            <text class="text-shadow text-red">{{startTime}}</text>
+			<text class="cuIcon-move"></text>
+			<text class="text-shadow text-red">{{endTime}}</text>
+        </view>
+        <!-- 地点/方向 -->
+        <view class="place text-shadow text-black">
+            <!-- 象山到校门口 -->
+            <block>
+                <text>象</text>
+                <text>山</text>
+				<text>(</text>
+				<text>校</text>
+                <text>门</text>
+				<text>)</text>
+                <image src="../../images/row.png"></image>
+                <text>校</text>
+                <text>门</text>
+				<text>(</text>
+				<text>象</text>
+                <text>山</text>
+				<text>)</text>
+            </block>
+        </view>
+        <!-- 备注 -->
+        <view class="info">
+            <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
+        </view>
+    </view>
+</template>

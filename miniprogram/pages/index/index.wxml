@@ -1,0 +1,44 @@
+<!--miniprogram/pages/index/index.wxml-->
+<import src="../template/template" />
+
+<!-- 顶部导航 -->
+<view class="head bg-gradual-blue">
+    <text class="destination">{{stName}}</text>
+    <image src="../../images/change.png" bindtap="changeDirection"></image>
+    <text class="destination">{{edName}}</text>
+</view>
+
+<!-- 消息 -->
+<view class="message bg-pink">
+    <text class="cuIcon-notice"></text>
+    <text>欢迎使用“南工校车”</text>
+</view>
+
+<!-- 车辆信息 -->
+<scroll-view>
+    <!-- 有班车 -->
+    <block wx:if="{{hasBus}}">
+        <!-- 列表渲染 -->
+        <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
+            <!-- 准点发车 -->
+            <block wx:if="{{item.status == 1}}">
+                <template is='busLineOnTime' data='{{...item}}' />
+            </block>
+            <!-- 循环发车 -->
+            <block wx:if="{{item.status != 1}}">
+                <template is='busLineCircle' data='{{...item}}' />
+            </block>
+        </view>
+    </block>
+    <!-- 无班车 -->
+    <block wx:if="{{!hasBus}}">
+        <view class="body radius shadow-warp bg-white">
+            <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">当前班车休息中</text>
+        </view>
+    </block>
+</scroll-view>
+
+<!-- 底部信息 -->
+<view class="bottom">
+    <text>Copyright © 2019 小陆斑比 </text>
+</view>
