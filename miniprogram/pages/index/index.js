@@ -144,7 +144,7 @@ Page({
             let st = parseInt(parseFloat(data[i].startTime).toFixed(2) * 100);
 			let ed = parseInt(parseFloat(data[i].endTime).toFixed(2) * 100);
             // 筛选当前时间之后的班车
-			if (parseInt(ed - this.data.nowTime) >= 0) {
+			if (parseInt(ed - this.data.nowTime) >= -5) {
 				// 方向一致，或为循环车
                 if (data[i].direction == this.data.direction || data[i].status != 1) {
                     ans.push(new busLine(data[i]))
