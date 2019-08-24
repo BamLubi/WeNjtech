@@ -4,15 +4,12 @@
 <!-- 顶部导航 -->
 <view class="head bg-gradual-blue">
     <text class="destination">{{stName}}</text>
-    <image src="../../images/change.png" bindtap="changeDirection"></image>
+    <image src="/images/change.png" bindtap="changeDirection"></image>
     <text class="destination">{{edName}}</text>
 </view>
 
 <!-- 消息 -->
-<view class="message bg-pink">
-    <text class="cuIcon-notice"></text>
-    <text>欢迎使用“南工校车”</text>
-</view>
+<van-notice-bar speed="20" mode="closeable" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{time.hour}}:{{time.minutes}}星期{{time.week}}" />
 
 <!-- 车辆信息 -->
 <scroll-view>
