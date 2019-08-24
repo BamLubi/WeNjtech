@@ -161,6 +161,10 @@ Page({
 			this.setData({
 				hasBus: true
 			})
+		}else {
+			this.setData({
+				hasBus: false
+			})
 		}
     },
     /**
