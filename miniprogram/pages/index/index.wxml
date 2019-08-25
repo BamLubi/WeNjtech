@@ -1,38 +1,73 @@
 <!--miniprogram/pages/index/index.wxml-->
 <import src="../template/template" />
 
+<!-- 地点选择 -->
+<block wx:if="{{isChangePlace}}">
+    <view class="mask bg-black"></view>
+    <view class="choosePosition shadow shadow-lg bg-white" style="margin-top: {{windowHeight*0.25}}px;height: {{windowHeight/2}}px">
+        <view>
+            <!-- 关闭窗口 -->
+            <view class="close">
+                <image src="/images/close.png" bindtap="hideMask"></image>
+            </view>
+            <!-- 标题 -->
+            <view class="title">更换地点</view>
+        </view>
+        <!-- 第一行地点 -->
+        <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+        </view>
+        <!-- 第二行日期 -->
+        <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
+                <text>{{dateZN}}<text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day}}" style="font-size: 18px;">(今天)</text>
+                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+1}}" style="font-size: 18px;">(明天)</text>
+                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+2}}" style="font-size: 18px;">(后天)</text></text>
+            </picker>
+        </view>
+        <!-- 第三行时间段 -->
+        <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            时间
+        </view>
+        <!-- 按钮 -->
+        <button class="cu-btn bg-orange round lg shadow shadow-blur">查询</button>
+    </view>
+</block>
+
 <!-- 顶部导航 -->
 <view class="head bg-gradual-blue">
     <text class="destination">{{stName}}</text>
     <image src="/images/change.png" bindtap="changeDirection"></image>
     <text class="destination">{{edName}}</text>
+	<image src="/images/unfold.png" style="width: 15px;height: 15px;" bindtap="chowMask"></image>
 </view>
 
 <!-- 消息 -->
-<van-notice-bar speed="20" mode="closeable" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{time.hour}}:{{time.minutes}}星期{{time.week}}" />
+<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{dateZN}}星期{{selectDate.week}}" />
 
 <!-- 车辆信息 -->
-<scroll-view>
-    <!-- 有班车 -->
-    <block wx:if="{{hasBus}}">
-        <!-- 列表渲染 -->
-        <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
-            <!-- 准点发车 -->
-            <block wx:if="{{item.status == 1}}">
-                <template is='busLineOnTime' data='{{...item}}' />
-            </block>
-            <!-- 循环发车 -->
-            <block wx:if="{{item.status != 1}}">
-                <template is='busLineCircle' data='{{...item}}' />
-            </block>
-        </view>
-    </block>
-    <!-- 无班车 -->
-    <block wx:if="{{!hasBus}}">
-        <view class="body radius shadow-warp bg-white">
-            <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">当前班车休息中</text>
-        </view>
-    </block>
+<scroll-view scroll-y style="height: {{windowHeight-100}}px;">
+    <view>
+        <!-- 有班车 -->
+        <block wx:if="{{hasBus}}">
+            <!-- 列表渲染 -->
+            <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
+                <!-- 准点发车 -->
+                <block wx:if="{{item.status == 1}}">
+                    <template is='busLineOnTime' data='{{...item}}' />
+                </block>
+                <!-- 循环发车 -->
+                <block wx:if="{{item.status != 1}}">
+                    <template is='busLineCircle' data='{{...item}}' />
+                </block>
+            </view>
+        </block>
+        <!-- 无班车 -->
+        <block wx:if="{{!hasBus}}">
+            <view class="body radius shadow-warp bg-white">
+                <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">当前班车休息中</text>
+            </view>
+        </block>
+    </view>
 </scroll-view>
 
 <!-- 底部信息 -->

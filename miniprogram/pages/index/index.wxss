@@ -1,14 +1,71 @@
 /* miniprogram/pages/index/index.wxss */
 @import "../template/template.wxss";
 
+/* 遮罩层选择地点 */
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+.choosePosition {
+    display: flex;
+	flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    width: 94%;
+    margin-left: 3%;
+	border-radius: 12px;
+	justify-content: space-between;
+	
+}
+.choosePosition .close{
+	display: flex;
+	flex-direction: row-reverse;
+	margin-top: 17px;
+}
+.choosePosition .close image{
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+}
+.choosePosition .title{
+	display: flex;	
+	justify-content: center;
+	color: black;
+	font-size: 18px;
+}
+.choosePosition .info{
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.choosePosition .info text{
+	font-size: 24px;
+	margin-left: 10px;
+}
+.choosePosition button{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
 /* 头部 */
+
 .head {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     flex-grow: 10;
-	/* margin-bottom: 4px; */
+    /* margin-bottom: 4px; */
 }
 
 .head .destination {
@@ -20,45 +77,33 @@
     height: 30px;
     margin: 5px 25px 5px 25px;
 }
-.head image :hover{
-	animation: gif 1.4s none;
-}
-
-@keyframes gif {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(180deg);
-        transform: rotate(180deg);
-    }
-}
 
 /* 消息 */
-.message{
-	width: 100%;
+
+.message {
+    width: 100%;
 }
 
-.message text{
-	font-size: 16px;
-	margin: 2px 0px 2px 4px;
+.message text {
+    font-size: 16px;
+    margin: 2px 0px 2px 4px;
 }
 
 /* 班车列表 */
+
 .busList {
     display: flex;
     flex-direction: column;
 }
 
-.bottom{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-.bottom text{
-	font-size: 15px;
-	color: #8a8a8a;
+
+.bottom text {
+    font-size: 15px;
+    color: #8a8a8a;
 }
