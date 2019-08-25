@@ -39,14 +39,14 @@
 }
 
 /* 备注信息 */
-.info{
+.remark{
 	border-bottom-left-radius: 12px;
 	border-bottom-right-radius: 12px;
 	width: 100%;
 	height: 25px;
 	background-color: #e6e6e6;
 }
-.info text{
+.remark text{
 	font-family: "宋体";
 	font-size: 15px;
 	vertical-align: middle;
