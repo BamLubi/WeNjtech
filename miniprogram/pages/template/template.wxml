@@ -28,7 +28,7 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="info">
+        <view class="remark">
             <!-- 象山到校门口 -->
             <block wx:if="{{direction==0}}">
                 <text>准点发车，站点:象山、东苑</text>
@@ -71,7 +71,7 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="info">
+        <view class="remark">
             <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
         </view>
     </view>
