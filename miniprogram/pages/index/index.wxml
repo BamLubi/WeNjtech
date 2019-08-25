@@ -36,9 +36,9 @@
 <!-- 顶部导航 -->
 <view class="head bg-gradual-blue">
     <text class="destination">{{stName}}</text>
-    <image src="/images/change.png" bindtap="changeDirection"></image>
+    <image src="/images/change.png" style="width: 30px;height: 30px;margin: 5px 10px 5px 10px;" bindtap="changeDirection"></image>
     <text class="destination">{{edName}}</text>
-	<image src="/images/unfold.png" style="width: 15px;height: 15px;" bindtap="chowMask"></image>
+	<image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;" bindtap="chowMask"></image>
 </view>
 
 <!-- 消息 -->
