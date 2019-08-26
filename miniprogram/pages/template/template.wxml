@@ -31,11 +31,15 @@
         <view class="remark">
             <!-- 象山到校门口 -->
             <block wx:if="{{direction==0}}">
-                <text>准点发车，站点:象山、东苑</text>
+                <scroll-view scroll-x="true">
+                    <text>准点发车，站点:象山、东苑</text>
+                </scroll-view>
             </block>
             <!-- 校门口到象山 -->
             <block wx:if="{{direction==1}}">
-                <text>准点发车，站点:东苑、象山</text>
+                <scroll-view scroll-x="true">
+                    <text>准点发车，站点:东苑、象山</text>
+                </scroll-view>
             </block>
         </view>
     </view>
@@ -48,8 +52,8 @@
         <!-- 时间 -->
         <view class="time">
             <text class="text-shadow text-red">{{startTime}}</text>
-			<text class="cuIcon-move"></text>
-			<text class="text-shadow text-red">{{endTime}}</text>
+            <text class="cuIcon-move"></text>
+            <text class="text-shadow text-red">{{endTime}}</text>
         </view>
         <!-- 地点/方向 -->
         <view class="place text-shadow text-black">
@@ -57,22 +61,24 @@
             <block>
                 <text>象</text>
                 <text>山</text>
-				<text>(</text>
-				<text>校</text>
+                <text>(</text>
+                <text>校</text>
                 <text>门</text>
-				<text>)</text>
+                <text>)</text>
                 <image src="../../images/row.png"></image>
                 <text>校</text>
                 <text>门</text>
-				<text>(</text>
-				<text>象</text>
+                <text>(</text>
+                <text>象</text>
                 <text>山</text>
-				<text>)</text>
+                <text>)</text>
             </block>
         </view>
         <!-- 备注 -->
         <view class="remark">
-            <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
+            <scroll-view scroll-x="true">
+                <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
+            </scroll-view>
         </view>
     </view>
 </template>
