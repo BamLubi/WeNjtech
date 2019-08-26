@@ -44,12 +44,16 @@
 	margin-right: 10px;
 	border-radius: 12px;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.test{
+	background-image: url("/images/change.png");
 }
 .choosePosition .info text{
 	font-size: 24px;
-	margin-left: 10px;
+	
 }
 .choosePosition button{
 	margin-left: 10px;

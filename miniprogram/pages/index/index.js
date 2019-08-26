@@ -13,13 +13,16 @@ Page({
 		todayDate: {},//今天
         selectDate: {},//用户选择的时间,默认为当日
 		dateZN: "",//用于展示的日期,仅包括月日
-        busLineShow: [],
-        hasBus: false,
+        busLineShow: [],//用于显示的列表
+        hasBus: false,//是否有班车
         stName: "象山",
         edName: "校门",
+		position: ["象山","校门"],
+		positionStartIndex: 0,
+		positionEndIndex: 1,
         direction: 0,
         allBusInfo: null,
-		isChangePlace: false
+		isChangePlace: true
     },
 
     /**
@@ -43,7 +46,6 @@ Page({
         })
         // 设置时间
         let nowDate = new Date()
-		// console.log(myDate)
         this.setData({
 			dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() +"日",
             selectDate: {
@@ -56,7 +58,7 @@ Page({
             }
         })
 		this.setData({
-			todayDate: this.data.selectDate
+			todayDate: JSON.parse(JSON.stringify(this.data.selectDate))//深拷贝对象
 		})
         // 连接数据库并设置班车信息
         this.connectDB();
@@ -220,22 +222,54 @@ Page({
 	 * 更改时间,更改selectDate里的年月日
 	 */
 	DateChange(e) {
-		let time = new Date(e.detail.value)
+		let selectTime = new Date(e.detail.value)
 		let date = e.detail.value.split('-')
 		// 重新设置年月日星期
 		this.setData({
 			["selectDate.year"]: date[0],
 			["selectDate.month"]: date[1],
 			["selectDate.day"]: date[2],
-			["selectDate.week"]: time.getDay(),
+			["selectDate.week"]: selectTime.getDay(),
 			dateZN: parseInt(date[1]) + "月" + date[2] + "日"
 		})
+		// 如果不是今天，则将时间设置为07:00
+		let todayTime = this.data.todayDate
+		if (date[0] != todayTime.year || date[1] != todayTime.month || date[2] != todayTime.day ){
+			this.setData({
+				["selectDate.hour"]: 7,
+				["selectDate.minutes"]: 0
+			})
+		}else{
+			let nowDate = new Date()
+			this.setData({
+				["selectDate.hour"]: nowDate.getHours(),
+				["selectDate.minutes"]: nowDate.getMinutes(),
+				["todayDate.hour"]: nowDate.getHours(),
+				["todayDate.minutes"]: nowDate.getMinutes()
+			})
+		}
 	},
-	chowMask: function() {
+	/**
+	 * 更改时间,更改selectDate里的年月日
+	 */
+	TimeChange(e) {
+		let time = e.detail.value.split(':')
+		this.setData({
+			["selectDate.hour"]: parseInt(time[0]),
+			["selectDate.minutes"]: parseInt(time[1])
+		})
+	},
+	/**
+	 * 显示遮罩层
+	 */
+	showMask: function() {
 		this.setData({
 			isChangePlace: true
 		})
 	},
+	/**
+	 * 隐藏遮罩层
+	 */
 	hideMask: function() {
 		this.setData({
 			isChangePlace: false

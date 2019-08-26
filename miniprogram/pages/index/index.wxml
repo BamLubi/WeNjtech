@@ -15,6 +15,20 @@
         </view>
         <!-- 第一行地点 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            <!-- 起点 -->
+            <view>
+                <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}">
+                    <text>{{position[positionStartIndex]}}</text>
+                </picker>
+            </view>
+            <!-- 转换 -->
+            <image src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="changeDirection"></image>
+            <!-- 终点 -->
+            <view>
+                <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}">
+                    <text>{{position[positionEndIndex]}}</text>
+                </picker>
+            </view>
         </view>
         <!-- 第二行日期 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
@@ -23,10 +37,27 @@
                 <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+1}}" style="font-size: 18px;">(明天)</text>
                 <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+2}}" style="font-size: 18px;">(后天)</text></text>
             </picker>
+            <view></view>
+            <view></view>
         </view>
         <!-- 第三行时间段 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
-            时间
+            <!-- 当天显示当前时间-22:00 -->
+            <block wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day}}">
+                <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
+                    <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
+                </picker>
+                <view></view>
+                <view></view>
+            </block>
+            <!-- 除当天，显示7:00-22:00 -->
+            <block wx:else>
+                <picker mode="time" value="{{time}}" start="07:00" end="22:00" bindchange="TimeChange">
+                    <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
+                </picker>
+                <view></view>
+                <view></view>
+            </block>
         </view>
         <!-- 按钮 -->
         <button class="cu-btn bg-orange round lg shadow shadow-blur">查询</button>
@@ -38,7 +69,7 @@
     <text class="destination">{{stName}}</text>
     <image src="/images/change.png" style="width: 30px;height: 30px;margin: 5px 10px 5px 10px;" bindtap="changeDirection"></image>
     <text class="destination">{{edName}}</text>
-	<image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;" bindtap="chowMask"></image>
+    <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;" bindtap="showMask"></image>
 </view>
 
 <!-- 消息 -->
