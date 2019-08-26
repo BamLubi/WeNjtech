@@ -52,7 +52,8 @@ Page({
                 day: nowDate.getDate() < 9 ? ("0" + nowDate.getDate()) : nowDate.getDate(),
                 hour: nowDate.getHours(),
                 minutes: nowDate.getMinutes(),
-                week: nowDate.getDay()
+                week: nowDate.getDay(),
+				weekZN: transToWeek(nowDate.getDay())
             }
         })
         this.setData({
@@ -228,6 +229,7 @@ Page({
             ["selectDate.month"]: date[1],
             ["selectDate.day"]: date[2],
             ["selectDate.week"]: selectTime.getDay(),
+			["selectDate.weekZN"]: transToWeek(selectTime.getDay()),
             dateZN: parseInt(date[1]) + "月" + date[2] + "日"
         })
         // 如果不是今天，则将时间设置为07:00
@@ -300,4 +302,24 @@ function busLine(line) {
     this.direction = line.direction;
     // 状态，1：准点发车，3：三车循环，4：四车循环
     this.status = line.status;
+}
+
+// 将数字转换为星期
+function transToWeek(week) {
+	switch(week){
+		case 1:
+			return "星期一";
+		case 2:
+			return "星期二";
+		case 3:
+			return "星期三";
+		case 4:
+			return "星期四";
+		case 5:
+			return "星期五";
+		case 6:
+			return "星期六";
+		case 0:
+			return "星期七";
+	}
 }

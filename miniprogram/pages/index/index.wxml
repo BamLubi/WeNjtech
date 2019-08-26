@@ -35,7 +35,8 @@
             <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
                 <text>{{dateZN}}<text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day}}" style="font-size: 18px;">(今天)</text>
                 <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+1}}" style="font-size: 18px;">(明天)</text>
-                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+2}}" style="font-size: 18px;">(后天)</text></text>
+                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+2}}" style="font-size: 18px;">(后天)</text>
+                <text wx:if="{{!(selectDate.year == todayDate.year && selectDate.month == todayDate.month&&(selectDate.day == todayDate.day || selectDate.day == todayDate.day+1 || selectDate.day == todayDate.day+2))}}" style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
             </picker>
             <view></view>
             <view></view>
@@ -67,14 +68,18 @@
 <!-- 顶部导航 -->
 <view class="head bg-gradual-blue" bindtap="ShowMask">
     <text class="destination">{{position[positionStartIndex]}}</text>
-    <image src="/images/row3.png" style="width: 30px;height: 23px;margin: 5px 10px 5px 10px;" ></image>
+    <image src="/images/row3.png" style="width: 30px;height: 23px;margin: 5px 10px 5px 10px;"></image>
     <text class="destination">{{position[positionEndIndex]}}</text>
-	<block wx:if="{{!isChangePlace}}"><image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image></block>
-    <block wx:else><image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image></block>
+    <block wx:if="{{!isChangePlace}}">
+        <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
+    </block>
+    <block wx:else>
+        <image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
+    </block>
 </view>
 
 <!-- 消息 -->
-<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{dateZN}}星期{{selectDate.week}}" />
+<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{dateZN}}{{todayDate.weekZN}}" />
 
 <!-- 车辆信息 -->
 <scroll-view scroll-y style="height: {{windowHeight-100}}px;">
