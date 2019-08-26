@@ -69,7 +69,8 @@
     <text class="destination">{{position[positionStartIndex]}}</text>
     <image src="/images/row3.png" style="width: 30px;height: 23px;margin: 5px 10px 5px 10px;" ></image>
     <text class="destination">{{position[positionEndIndex]}}</text>
-    <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
+	<block wx:if="{{!isChangePlace}}"><image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image></block>
+    <block wx:else><image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image></block>
 </view>
 
 <!-- 消息 -->
