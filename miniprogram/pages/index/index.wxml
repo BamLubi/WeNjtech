@@ -8,7 +8,7 @@
         <view>
             <!-- 关闭窗口 -->
             <view class="close">
-                <image src="/images/close.png" bindtap="hideMask"></image>
+                <image src="/images/close.png" bindtap="HideMask"></image>
             </view>
             <!-- 标题 -->
             <view class="title">更换地点</view>
@@ -60,16 +60,16 @@
             </block>
         </view>
         <!-- 按钮 -->
-        <button class="cu-btn bg-orange round lg shadow shadow-blur">查询</button>
+        <button class="cu-btn bg-orange round lg shadow shadow-blur" bindtap="Search">查询</button>
     </view>
 </block>
 
 <!-- 顶部导航 -->
 <view class="head bg-gradual-blue">
-    <text class="destination">{{stName}}</text>
+    <text class="destination">{{position[positionStartIndex]}}</text>
     <image src="/images/change.png" style="width: 30px;height: 30px;margin: 5px 10px 5px 10px;" bindtap="changeDirection"></image>
-    <text class="destination">{{edName}}</text>
-    <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;" bindtap="showMask"></image>
+    <text class="destination">{{position[positionEndIndex]}}</text>
+    <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;" bindtap="ShowMask"></image>
 </view>
 
 <!-- 消息 -->

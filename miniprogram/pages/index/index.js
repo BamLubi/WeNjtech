@@ -8,28 +8,26 @@ Page({
      * 页面的初始数据
      */
     data: {
-		windowHeight: null,
-		windowWidth: null,
-		todayDate: {},//今天
-        selectDate: {},//用户选择的时间,默认为当日
-		dateZN: "",//用于展示的日期,仅包括月日
-        busLineShow: [],//用于显示的列表
-        hasBus: false,//是否有班车
-        stName: "象山",
-        edName: "校门",
-		position: ["象山","校门"],
-		positionStartIndex: 0,
-		positionEndIndex: 1,
+        windowHeight: null,
+        windowWidth: null,
+        todayDate: {}, //今天
+        selectDate: {}, //用户选择的时间,默认为当日
+        dateZN: "", //用于展示的日期,仅包括月日
+        busLineShow: [], //用于显示的列表
+        hasBus: false, //是否有班车
+        position: ["象山", "校门"],
+        positionStartIndex: 0,
+        positionEndIndex: 1,
         direction: 0,
         allBusInfo: null,
-		isChangePlace: true
+        isChangePlace: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-		var that = this
+        var that = this
         // 获取手机信息
         wx.getSystemInfo({
             success: function(res) {
@@ -47,19 +45,19 @@ Page({
         // 设置时间
         let nowDate = new Date()
         this.setData({
-			dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() +"日",
+            dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日",
             selectDate: {
-				year: nowDate.getFullYear(),
-				month: (nowDate.getMonth() + 1) < 9 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1),
-				day: nowDate.getDate() < 9 ? ("0" + nowDate.getDate()) : nowDate.getDate(),
-				hour: nowDate.getHours(),
-				minutes: nowDate.getMinutes(),
-				week: nowDate.getDay()
+                year: nowDate.getFullYear(),
+                month: (nowDate.getMonth() + 1) < 9 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1),
+                day: nowDate.getDate() < 9 ? ("0" + nowDate.getDate()) : nowDate.getDate(),
+                hour: nowDate.getHours(),
+                minutes: nowDate.getMinutes(),
+                week: nowDate.getDay()
             }
         })
-		this.setData({
-			todayDate: JSON.parse(JSON.stringify(this.data.selectDate))//深拷贝对象
-		})
+        this.setData({
+            todayDate: JSON.parse(JSON.stringify(this.data.selectDate)) //深拷贝对象
+        })
         // 连接数据库并设置班车信息
         this.connectDB();
     },
@@ -138,7 +136,7 @@ Page({
             success: function(res) {
                 console.log("下载班车信息成功")
                 // 更具星期设置变量
-				if (that.data.selectDate.week == 6 || that.data.selectDate.week == 7) {
+                if (that.data.selectDate.week == 6 || that.data.selectDate.week == 7) {
                     // 周末
                     that.setData({
                         allBusInfo: res.data.weekendData
@@ -164,7 +162,7 @@ Page({
         let data = this.data.allBusInfo;
         let ans = new Array();
         // 遍历
-		let nowTime = parseInt(this.data.selectDate.hour) * 100 + parseInt(this.data.selectDate.minutes)
+        let nowTime = parseInt(this.data.selectDate.hour) * 100 + parseInt(this.data.selectDate.minutes)
         for (var i = 0; i < data.length; i++) {
             let st = parseInt(parseFloat(data[i].startTime).toFixed(2) * 100);
             let ed = parseInt(parseFloat(data[i].endTime).toFixed(2) * 100);
@@ -196,50 +194,79 @@ Page({
      * 更改方向
      */
     changeDirection: function() {
-        console.log("更换方向")
+        let edIndex = this.data.positionEndIndex
+        let stIndex = this.data.positionStartIndex
         this.setData({
+            positionStartIndex: edIndex,
+            positionEndIndex: stIndex,
             direction: !this.data.direction
         })
-        if (this.data.direction == 1) {
-            this.setData({
-                stName: "校门",
-                edName: "象山"
-            })
-        } else if (this.data.direction == 0) {
-            this.setData({
-                stName: "象山",
-                edName: "校门"
-            })
-        }
+    },
+    Search: function() {
         // 赋空值
         this.setData({
             busLineShow: []
         })
+        // 连接数据库
+		if (this.data.selectDate.year != this.data.todayDate.year || this.data.selectDate.month != this.data.todayDate.month || this.data.selectDate.day != this.data.todayDate.day) {
+            this.connectDB()
+        }
         // 获取班车信息
         this.setBusLine()
+        // 
+        this.HideMask()
     },
-	/**
-	 * 更改时间,更改selectDate里的年月日
-	 */
-	DateChange(e) {
-		let selectTime = new Date(e.detail.value)
-		let date = e.detail.value.split('-')
-		// 重新设置年月日星期
-		this.setData({
-			["selectDate.year"]: date[0],
-			["selectDate.month"]: date[1],
-			["selectDate.day"]: date[2],
-			["selectDate.week"]: selectTime.getDay(),
-			dateZN: parseInt(date[1]) + "月" + date[2] + "日"
-		})
-		// 如果不是今天，则将时间设置为07:00
-		let todayTime = this.data.todayDate
-		if (date[0] != todayTime.year || date[1] != todayTime.month || date[2] != todayTime.day ){
-			this.setData({
-				["selectDate.hour"]: 7,
-				["selectDate.minutes"]: 0
-			})
-		}else{
+    /**
+     * 更改时间,更改selectDate里的年月日
+     */
+    DateChange(e) {
+        let selectTime = new Date(e.detail.value)
+        let date = e.detail.value.split('-')
+        // 重新设置年月日星期
+        this.setData({
+            ["selectDate.year"]: date[0],
+            ["selectDate.month"]: date[1],
+            ["selectDate.day"]: date[2],
+            ["selectDate.week"]: selectTime.getDay(),
+            dateZN: parseInt(date[1]) + "月" + date[2] + "日"
+        })
+        // 如果不是今天，则将时间设置为07:00
+        let todayTime = this.data.todayDate
+        if (date[0] != todayTime.year || date[1] != todayTime.month || date[2] != todayTime.day) {
+            this.setData({
+                ["selectDate.hour"]: 7,
+                ["selectDate.minutes"]: 0
+            })
+        } else {
+            let nowDate = new Date()
+            this.setData({
+                ["selectDate.hour"]: nowDate.getHours(),
+                ["selectDate.minutes"]: nowDate.getMinutes(),
+                ["todayDate.hour"]: nowDate.getHours(),
+                ["todayDate.minutes"]: nowDate.getMinutes()
+            })
+        }
+    },
+    /**
+     * 更改时间,更改selectDate里的年月日
+     */
+    TimeChange(e) {
+        let time = e.detail.value.split(':')
+        this.setData({
+            ["selectDate.hour"]: parseInt(time[0]),
+            ["selectDate.minutes"]: parseInt(time[1])
+        })
+
+    },
+    /**
+     * 显示遮罩层
+     */
+    ShowMask: function() {
+        this.setData({
+            isChangePlace: true
+        })
+		// 若日期为今天，则时间设置为当前时间
+		if (this.data.selectDate.year == this.data.todayDate.year && this.data.selectDate.month == this.data.todayDate.month && this.data.selectDate.day == this.data.todayDate.day) {
 			let nowDate = new Date()
 			this.setData({
 				["selectDate.hour"]: nowDate.getHours(),
@@ -248,33 +275,15 @@ Page({
 				["todayDate.minutes"]: nowDate.getMinutes()
 			})
 		}
-	},
-	/**
-	 * 更改时间,更改selectDate里的年月日
-	 */
-	TimeChange(e) {
-		let time = e.detail.value.split(':')
-		this.setData({
-			["selectDate.hour"]: parseInt(time[0]),
-			["selectDate.minutes"]: parseInt(time[1])
-		})
-	},
-	/**
-	 * 显示遮罩层
-	 */
-	showMask: function() {
-		this.setData({
-			isChangePlace: true
-		})
-	},
-	/**
-	 * 隐藏遮罩层
-	 */
-	hideMask: function() {
-		this.setData({
-			isChangePlace: false
-		})
-	}
+    },
+    /**
+     * 隐藏遮罩层
+     */
+    HideMask: function() {
+        this.setData({
+            isChangePlace: false
+        })
+    }
 })
 
 // 对象构造器
