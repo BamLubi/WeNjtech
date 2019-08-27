@@ -61,9 +61,9 @@
 	margin-bottom: 20px;
 }
 
-/* 头部 */
+/* 头部地点选择 */
 
-.head {
+.placeSelect {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -73,12 +73,26 @@
     /* margin-bottom: 4px; */
 }
 
-.head .destination {
+.placeSelect .place {
     font-size: 20px;
+	color: white;
 }
 
-.head image {
+.placeSelect image {
     margin: 5px 0px 5px 0px;
+}
+
+/* 头部时间选择 */
+.timeSelect{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #0080ff;
+}
+.timeSelect text{
+	font-size: 17px;
+	color: white;
 }
 
 /* 消息 */

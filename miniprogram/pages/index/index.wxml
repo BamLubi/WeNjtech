@@ -56,10 +56,10 @@
 </block>
 
 <!-- 顶部地点导航 -->
-<view class="head" bindtap="ShowMask">
-    <text class="destination">{{position[positionStartIndex]}}</text>
+<view class="placeSelect" bindtap="ShowMask">
+    <text class="place">{{position[positionStartIndex]}}</text>
     <image src="/images/row2.png" style="width: 30px;height: 23px;"></image>
-    <text class="destination">{{position[positionEndIndex]}}</text>
+    <text class="place">{{position[positionEndIndex]}}</text>
     <block wx:if="{{!isChangePlace}}">
         <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
     </block>
@@ -68,11 +68,24 @@
     </block>
 </view>
 
+<!-- 顶部时间导航 -->
+<view class="timeSelect">
+    <view>
+        <text>前一天</text>
+    </view>
+    <view>
+        <text>{{dateZN}} {{todayDate.weekZN}}</text>
+    </view>
+    <view>
+        <text>后一天</text>
+    </view>
+</view>
+
 <!-- 消息 -->
-<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非官方所有。当前时间{{dateZN}}{{todayDate.weekZN}}" />
+<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非南京工业大学官方所有，仅供参考学习。" />
 
 <!-- 车辆信息 -->
-<scroll-view scroll-y style="height: {{windowHeight-100}}px;">
+<scroll-view scroll-y style="height: {{windowHeight-120}}px;">
     <view>
         <!-- 有班车 -->
         <block wx:if="{{hasBus}}">
