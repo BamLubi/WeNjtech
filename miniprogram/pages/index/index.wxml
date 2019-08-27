@@ -44,21 +44,11 @@
         <!-- 第三行时间段 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
             <!-- 当天显示当前时间-22:00 -->
-            <block wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day}}">
-                <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
-                    <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
-                </picker>
-                <view></view>
-                <view></view>
-            </block>
-            <!-- 除当天，显示7:00-22:00 -->
-            <block wx:else>
-                <picker mode="time" value="{{time}}" start="07:00" end="22:00" bindchange="TimeChange">
-                    <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
-                </picker>
-                <view></view>
-                <view></view>
-            </block>
+            <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
+                <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
+            </picker>
+            <view></view>
+            <view></view>
         </view>
         <!-- 按钮 -->
         <button class="cu-btn bg-orange round lg shadow shadow-blur" bindtap="Search">查询</button>
