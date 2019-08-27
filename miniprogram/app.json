@@ -8,7 +8,7 @@
 		"backgroundTextStyle": "light",
 		"navigationBarBackgroundColor": "#0080ff",
 		"navigationBarTitleText": "南工校车",
-		"navigationBarTextStyle": "black"
+		"navigationBarTextStyle": "white"
 	},
 	"sitemapLocation": "sitemap.json",
 	"permission": {

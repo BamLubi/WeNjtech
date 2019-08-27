@@ -55,7 +55,7 @@
     </view>
 </block>
 
-<!-- 顶部导航 -->
+<!-- 顶部地点导航 -->
 <view class="head" bindtap="ShowMask">
     <text class="destination">{{position[positionStartIndex]}}</text>
     <image src="/images/row2.png" style="width: 30px;height: 23px;"></image>
