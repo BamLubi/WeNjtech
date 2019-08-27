@@ -1,6 +1,6 @@
 {
   "usingComponents": {
 	  "van-notice-bar": "../../dist/notice-bar/index"
-  },
-  "enablePullDownRefresh": true
+  }
+//   "enablePullDownRefresh": true
 }
