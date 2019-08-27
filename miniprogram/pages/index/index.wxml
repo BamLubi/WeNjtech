@@ -33,17 +33,13 @@
         <!-- 第二行日期 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
             <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
-                <text>{{selectDate.dateZN}}<text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day}}" style="font-size: 18px;">(今天)</text>
-                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+1}}" style="font-size: 18px;">(明天)</text>
-                <text wx:if="{{selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day+2}}" style="font-size: 18px;">(后天)</text>
-                <text wx:if="{{!(selectDate.year == todayDate.year && selectDate.month == todayDate.month&&(selectDate.day == todayDate.day || selectDate.day == todayDate.day+1 || selectDate.day == todayDate.day+2))}}" style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
+                <text>{{selectDate.dateZN}}<text style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
             </picker>
             <view></view>
             <view></view>
         </view>
         <!-- 第三行时间段 -->
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
-            <!-- 当天显示当前时间-22:00 -->
             <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
                 <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
             </picker>

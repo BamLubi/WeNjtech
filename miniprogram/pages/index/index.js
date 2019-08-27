@@ -51,8 +51,9 @@ Page({
                 hour: nowDate.getHours(),
                 minutes: nowDate.getMinutes(),
                 week: nowDate.getDay(),
-				weekZN: transToWeek(nowDate.getDay()),
-				dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日"
+                // weekZN: transToWeek(nowDate.getDay()),
+                weekZN: "今天",
+                dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日"
             }
         })
         this.setData({
@@ -214,7 +215,7 @@ Page({
      * 更改时间,更改selectDate里的年月日
      */
     DateChange(e) {
-		console.log("日期改变")
+        console.log("日期改变")
         let selectTime = new Date(e.detail.value)
         let date = e.detail.value.split('-')
         // 重新设置年月日星期
@@ -223,12 +224,13 @@ Page({
             ["selectDate.month"]: date[1],
             ["selectDate.day"]: date[2],
             ["selectDate.week"]: selectTime.getDay(),
-			["selectDate.weekZN"]: transToWeek(selectTime.getDay()),
-			["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
+            ["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
+        })
+        this.setData({
+            ["selectDate.weekZN"]: isTodayORTomorrow(this.data.selectDate, this.data.todayDate)
         })
         // 如果不是今天，则将时间设置为07:00
-        let todayTime = this.data.todayDate
-        if (date[0] != todayTime.year || date[1] != todayTime.month || date[2] != todayTime.day) {
+        if (this.data.selectDate.weekZN != "今天") {
             this.setData({
                 ["selectDate.hour"]: 7,
                 ["selectDate.minutes"]: 0
@@ -247,7 +249,7 @@ Page({
      * 更改时间,更改selectDate里的年月日
      */
     TimeChange(e) {
-		console.log("时间改变")
+        console.log("时间改变")
         let time = e.detail.value.split(':')
         this.setData({
             ["selectDate.hour"]: parseInt(time[0]),
@@ -259,54 +261,54 @@ Page({
      * 显示遮罩层
      */
     ShowMask: function() {
-		console.log("显示遮罩")
+        console.log("显示遮罩")
         this.setData({
             isChangePlace: true
         })
-		// 若日期为今天，则时间设置为当前时间
-		if (this.data.selectDate.year == this.data.todayDate.year && this.data.selectDate.month == this.data.todayDate.month && this.data.selectDate.day == this.data.todayDate.day) {
-			let nowDate = new Date()
-			this.setData({
-				["selectDate.hour"]: nowDate.getHours(),
-				["selectDate.minutes"]: nowDate.getMinutes(),
-				["todayDate.hour"]: nowDate.getHours(),
-				["todayDate.minutes"]: nowDate.getMinutes()
-			})
-		}
+        // 若日期为今天，则时间设置为当前时间
+        if (this.data.selectDate.weekZN == "今天") {
+            let nowDate = new Date()
+            this.setData({
+                ["selectDate.hour"]: nowDate.getHours(),
+                ["selectDate.minutes"]: nowDate.getMinutes(),
+                ["todayDate.hour"]: nowDate.getHours(),
+                ["todayDate.minutes"]: nowDate.getMinutes()
+            })
+        }
     },
     /**
      * 隐藏遮罩层
      */
     HideMask: function() {
-		console.log("隐藏遮罩")
+        console.log("隐藏遮罩")
         this.setData({
             isChangePlace: false
         })
     },
-	/**
-	 * 加一天
-	 */
-	AddDay: function() {
-		console.log("用户点击：加一天")
-		let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-		let ans = new package_detail_value(mathChangeDate(day, '+', 1))
-		// 改变日期
-		this.DateChange(ans)
-		// 查询
-		this.Search()
-	},
-	/**
-	 * 减一天
-	 */
-	MinusDay: function() {
-		console.log("用户点击：减一天")
-		let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-		let ans = new package_detail_value(mathChangeDate(day, '-', 1))
-		// 改变日期
-		this.DateChange(ans)
-		// 查询
-		this.Search()
-	}
+    /**
+     * 加一天
+     */
+    AddDay: function() {
+        console.log("用户点击：加一天")
+        let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
+        let ans = new package_detail_value(mathChangeDate(day, '+', 1))
+        // 改变日期
+        this.DateChange(ans)
+        // 查询
+        this.Search()
+    },
+    /**
+     * 减一天
+     */
+    MinusDay: function() {
+        console.log("用户点击：减一天")
+        let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
+        let ans = new package_detail_value(mathChangeDate(day, '-', 1))
+        // 改变日期
+        this.DateChange(ans)
+        // 查询
+        this.Search()
+    }
 })
 
 // 对象构造器
@@ -327,52 +329,68 @@ function busLine(line) {
 
 // 对象构造器，构造e.detail.value，用于DateChange()方法的复用
 function package_detail_value(info) {
-	function package_value(info) {
-		this.value = info
-	}
-	this.detail = new package_value(info)
+    function package_value(info) {
+        this.value = info
+    }
+    this.detail = new package_value(info)
 }
 
 // 将数字转换为星期
 function transToWeek(week) {
-	switch(week){
-		case 1:
-			return "星期一";
-		case 2:
-			return "星期二";
-		case 3:
-			return "星期三";
-		case 4:
-			return "星期四";
-		case 5:
-			return "星期五";
-		case 6:
-			return "星期六";
-		case 0:
-			return "星期日";
-	}
+    switch (week) {
+        case 1:
+            return "星期一";
+        case 2:
+            return "星期二";
+        case 3:
+            return "星期三";
+        case 4:
+            return "星期四";
+        case 5:
+            return "星期五";
+        case 6:
+            return "星期六";
+        case 0:
+            return "星期日";
+    }
 }
 
 // 加减天数
 function mathChangeDate(date, method, days) {
-	//method:'+' || '-'
-	//ios不解析带'-'的日期格式，要转成'/'，不然Nan，切记
-	var dateVal = date.replace(/-/g, '/');
-	var timestamp = Date.parse(dateVal);
-	if (method == '+') {
-		timestamp = timestamp / 1000 + 24 * 60 * 60 * days;
-	} else if (method == '-') {
-		timestamp = timestamp / 1000 - 24 * 60 * 60 * days;
-	}
-	return toDate(timestamp);
+    //method:'+' || '-'
+    //ios不解析带'-'的日期格式，要转成'/'，不然Nan，切记
+    var dateVal = date.replace(/-/g, '/');
+    var timestamp = Date.parse(dateVal);
+    if (method == '+') {
+        timestamp = timestamp / 1000 + 24 * 60 * 60 * days;
+    } else if (method == '-') {
+        timestamp = timestamp / 1000 - 24 * 60 * 60 * days;
+    }
+    return toDate(timestamp);
 }
+
 function toDate(number) {
-	var n = number;
-	var date = new Date(parseInt(n) * 1000);
-	var y = date.getFullYear();
-	var m = date.getMonth() + 1;
-	m = m < 10 ? ('0' + m) : m;
-	var d = date.getDate();
-	d = d < 10 ? ('0' + d) : d;
-	return y + '-' + m + '-' + d;
+    var n = number;
+    var date = new Date(parseInt(n) * 1000);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '-' + m + '-' + d;
+}
+
+// 判断今天，明天
+function isTodayORTomorrow(selectDate, todayDate) {
+    // 判断日期
+    if (selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day) {
+        // 今天
+        return "今天";
+    } else if (selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day + 1) {
+        // 明天
+        return "明天";
+    } else {
+        // 显示星期
+        return transToWeek(selectDate.week);
+    }
 }
