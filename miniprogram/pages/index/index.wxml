@@ -67,8 +67,9 @@
 <!-- 顶部时间导航 -->
 <view class="timeSelect">
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="MinusDay">
-        <image src="/images/left.png" style="width:16px;height:16px;"></image>
-        <text>前一天</text>
+        <image src="{{selectDate.weekZN=='今天'?'/images/left-grey.png':'/images/left.png'}}" style="width:16px;height:16px;"></image>
+		<!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
+        <text style="color: {{selectDate.weekZN=='今天'?'#bfbfbf;!important':'white'}}">前一天</text>
     </view>
     <view>
         <text>{{selectDate.dateZN}} {{selectDate.weekZN}}</text>
