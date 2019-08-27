@@ -115,11 +115,11 @@ Page({
      * 用户下拉刷新
      */
     onPullDownRefresh() {
-        // 上拉刷新
-        if (!this.loading) {
-            this.getBusLine()
-            wx.stopPullDownRefresh()
-        }
+        // // 上拉刷新
+        // if (!this.loading) {
+        //     this.getBusLine()
+        //     wx.stopPullDownRefresh()
+        // }
     },
     /**
      * 连接数据库，下载班车信息
