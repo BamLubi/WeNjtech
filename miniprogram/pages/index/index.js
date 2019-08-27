@@ -302,12 +302,17 @@ Page({
      */
     MinusDay: function() {
         console.log("用户点击：减一天")
-        let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-        let ans = new package_detail_value(mathChangeDate(day, '-', 1))
-        // 改变日期
-        this.DateChange(ans)
-        // 查询
-        this.Search()
+        // 如果当前日期为今天则不可减
+        if (this.data.selectDate.weekZN == "今天") {
+            return
+        } else {
+            let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
+            let ans = new package_detail_value(mathChangeDate(day, '-', 1))
+            // 改变日期
+            this.DateChange(ans)
+            // 查询
+            this.Search()
+        }
     }
 })
 
