@@ -3,13 +3,13 @@
 <!-- 准点发车，参数：时间、方向 -->
 <template name='busLineOnTime'>
     <!-- 主体 -->
-    <view class="body radius shadow-warp bg-white">
+    <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
-        <view class="time">
+        <view class="template_place">
             <text class="text-shadow text-red">{{startTime}}</text>
         </view>
         <!-- 地点/方向 -->
-        <view class="place text-shadow text-black">
+        <view class="template_place text-shadow text-black">
             <!-- 象山到校门口 -->
             <block wx:if="{{direction==0}}">
                 <text>象</text>
@@ -28,7 +28,7 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="remark">
+        <view class="template_remark">
             <!-- 象山到校门口 -->
             <block wx:if="{{direction==0}}">
                 <scroll-view scroll-x="true">
@@ -48,15 +48,15 @@
 <!-- 循环发车，参数：时间 -->
 <template name='busLineCircle'>
     <!-- 主体 -->
-    <view class="body radius shadow-warp bg-white">
+    <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
-        <view class="time">
+        <view class="template_time">
             <text class="text-shadow text-red">{{startTime}}</text>
             <text class="cuIcon-move"></text>
             <text class="text-shadow text-red">{{endTime}}</text>
         </view>
         <!-- 地点/方向 -->
-        <view class="place text-shadow text-black">
+        <view class="template_place text-shadow text-black">
             <!-- 象山到校门口 -->
             <block>
                 <text>象</text>
@@ -75,7 +75,7 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="remark">
+        <view class="template_remark">
             <scroll-view scroll-x="true">
                 <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
             </scroll-view>

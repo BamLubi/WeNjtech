@@ -2,7 +2,7 @@
 
 /* 主体 */
 
-.body {
+.template_body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@
 
 /* 时间 */
 
-.time {
+.template_time {
     font-weight: bold;
     font-size: 20px;
     margin-top: 7px;
@@ -20,7 +20,7 @@
 
 /* 地点/方向 */
 
-.place {
+.template_place {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -29,12 +29,12 @@
     margin: 4px 0px 4px 0px;
 }
 
-.place image {
+.template_place image {
     height: 40px;
     width: 50px;
 }
 
-.place text {
+.template_place text {
     margin-top: 5px;
     font-weight: bold;
     font-size: 19px;
@@ -43,7 +43,7 @@
 
 /* 备注信息 */
 
-.remark {
+.template_remark {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     width: 100%;
@@ -51,7 +51,7 @@
     background-color: #e6e6e6;
 }
 
-.remark text {
+.template_remark text {
     font-family: "宋体";
     line-height: 45rpx;
     font-size: 17px;
@@ -60,7 +60,7 @@
     display: inline-block;
 }
 
-.remark .scroll-view {
+.template_remark .scroll-view {
     vertical-align: middle;
     padding-left: 5%;
 	width: 90%;
