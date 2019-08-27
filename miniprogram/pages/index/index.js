@@ -12,7 +12,6 @@ Page({
         windowWidth: null,
         todayDate: {}, //今天
         selectDate: {}, //用户选择的时间,默认为当日
-        dateZN: "", //用于展示的日期,仅包括月日
         busLineShow: [], //用于显示的列表
         hasBus: false, //是否有班车
         position: ["象山", "校门"],
@@ -45,7 +44,6 @@ Page({
         // 设置时间
         let nowDate = new Date()
         this.setData({
-            dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日",
             selectDate: {
                 year: nowDate.getFullYear(),
                 month: (nowDate.getMonth() + 1) < 9 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1),
@@ -53,7 +51,8 @@ Page({
                 hour: nowDate.getHours(),
                 minutes: nowDate.getMinutes(),
                 week: nowDate.getDay(),
-				weekZN: transToWeek(nowDate.getDay())
+				weekZN: transToWeek(nowDate.getDay()),
+				dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日"
             }
         })
         this.setData({
@@ -115,11 +114,7 @@ Page({
      * 用户下拉刷新
      */
     onPullDownRefresh() {
-        // // 上拉刷新
-        // if (!this.loading) {
-        //     this.getBusLine()
-        //     wx.stopPullDownRefresh()
-        // }
+
     },
     /**
      * 连接数据库，下载班车信息
@@ -209,9 +204,7 @@ Page({
             busLineShow: []
         })
         // 连接数据库
-		if (this.data.selectDate.year != this.data.todayDate.year || this.data.selectDate.month != this.data.todayDate.month || this.data.selectDate.day != this.data.todayDate.day) {
-            this.connectDB()
-        }
+        this.connectDB()
         // 获取班车信息
         this.setBusLine()
         // 
@@ -221,6 +214,7 @@ Page({
      * 更改时间,更改selectDate里的年月日
      */
     DateChange(e) {
+		console.log("日期改变")
         let selectTime = new Date(e.detail.value)
         let date = e.detail.value.split('-')
         // 重新设置年月日星期
@@ -230,7 +224,7 @@ Page({
             ["selectDate.day"]: date[2],
             ["selectDate.week"]: selectTime.getDay(),
 			["selectDate.weekZN"]: transToWeek(selectTime.getDay()),
-            dateZN: parseInt(date[1]) + "月" + date[2] + "日"
+			["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
         })
         // 如果不是今天，则将时间设置为07:00
         let todayTime = this.data.todayDate
@@ -253,6 +247,7 @@ Page({
      * 更改时间,更改selectDate里的年月日
      */
     TimeChange(e) {
+		console.log("时间改变")
         let time = e.detail.value.split(':')
         this.setData({
             ["selectDate.hour"]: parseInt(time[0]),
@@ -264,6 +259,7 @@ Page({
      * 显示遮罩层
      */
     ShowMask: function() {
+		console.log("显示遮罩")
         this.setData({
             isChangePlace: true
         })
@@ -282,10 +278,35 @@ Page({
      * 隐藏遮罩层
      */
     HideMask: function() {
+		console.log("隐藏遮罩")
         this.setData({
             isChangePlace: false
         })
-    }
+    },
+	/**
+	 * 加一天
+	 */
+	AddDay: function() {
+		console.log("用户点击：加一天")
+		let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
+		let ans = new package_detail_value(mathChangeDate(day, '+', 1))
+		// 改变日期
+		this.DateChange(ans)
+		// 查询
+		this.Search()
+	},
+	/**
+	 * 减一天
+	 */
+	MinusDay: function() {
+		console.log("用户点击：减一天")
+		let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
+		let ans = new package_detail_value(mathChangeDate(day, '-', 1))
+		// 改变日期
+		this.DateChange(ans)
+		// 查询
+		this.Search()
+	}
 })
 
 // 对象构造器
@@ -302,6 +323,14 @@ function busLine(line) {
     this.direction = line.direction;
     // 状态，1：准点发车，3：三车循环，4：四车循环
     this.status = line.status;
+}
+
+// 对象构造器，构造e.detail.value，用于DateChange()方法的复用
+function package_detail_value(info) {
+	function package_value(info) {
+		this.value = info
+	}
+	this.detail = new package_value(info)
 }
 
 // 将数字转换为星期
@@ -322,4 +351,28 @@ function transToWeek(week) {
 		case 0:
 			return "星期日";
 	}
+}
+
+// 加减天数
+function mathChangeDate(date, method, days) {
+	//method:'+' || '-'
+	//ios不解析带'-'的日期格式，要转成'/'，不然Nan，切记
+	var dateVal = date.replace(/-/g, '/');
+	var timestamp = Date.parse(dateVal);
+	if (method == '+') {
+		timestamp = timestamp / 1000 + 24 * 60 * 60 * days;
+	} else if (method == '-') {
+		timestamp = timestamp / 1000 - 24 * 60 * 60 * days;
+	}
+	return toDate(timestamp);
+}
+function toDate(number) {
+	var n = number;
+	var date = new Date(parseInt(n) * 1000);
+	var y = date.getFullYear();
+	var m = date.getMonth() + 1;
+	m = m < 10 ? ('0' + m) : m;
+	var d = date.getDate();
+	d = d < 10 ? ('0' + d) : d;
+	return y + '-' + m + '-' + d;
 }
