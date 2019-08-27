@@ -320,6 +320,6 @@ function transToWeek(week) {
 		case 6:
 			return "星期六";
 		case 0:
-			return "星期七";
+			return "星期日";
 	}
 }
