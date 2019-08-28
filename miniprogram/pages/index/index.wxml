@@ -56,19 +56,21 @@
     <text class="place">{{position[positionStartIndex]}}</text>
     <image src="/images/row2.png" style="width: 30px;height: 23px;"></image>
     <text class="place">{{position[positionEndIndex]}}</text>
-    <block wx:if="{{!isChangePlace}}">
-        <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
-    </block>
-    <block wx:else>
-        <image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
-    </block>
+    <view>
+        <block wx:if="{{!isChangePlace}}">
+            <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
+        </block>
+        <block wx:else>
+            <image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
+        </block>
+    </view>
 </view>
 
 <!-- 顶部时间导航 -->
 <view class="timeSelect">
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="MinusDay">
         <image src="{{selectDate.weekZN=='今天'?'/images/left-grey.png':'/images/left.png'}}" style="width:16px;height:16px;"></image>
-		<!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
+        <!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
         <text style="color: {{selectDate.weekZN=='今天'?'#bfbfbf;!important':'white'}}">前一天</text>
     </view>
     <view class="date">
@@ -76,7 +78,7 @@
     </view>
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="AddDay">
         <text>后一天</text>
-		<image src="/images/right.png" style="width:16px;height:16px;"></image>
+        <image src="/images/right.png" style="width:16px;height:16px;"></image>
     </view>
 </view>
 
