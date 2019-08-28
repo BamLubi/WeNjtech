@@ -71,7 +71,7 @@
 		<!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
         <text style="color: {{selectDate.weekZN=='今天'?'#bfbfbf;!important':'white'}}">前一天</text>
     </view>
-    <view>
+    <view class="date">
         <text>{{selectDate.dateZN}} {{selectDate.weekZN}}</text>
     </view>
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="AddDay">

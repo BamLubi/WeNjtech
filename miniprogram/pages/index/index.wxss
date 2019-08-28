@@ -69,7 +69,7 @@
     align-items: center;
     justify-content: center;
     /* flex-grow: 10; */
-	background-color: #0080ff;
+	background-color: #2684fe;
     /* margin-bottom: 4px; */
 }
 
@@ -88,11 +88,18 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	background-color: #0080ff;
+	background-color: #2684fe;
 }
 .timeSelect text{
 	font-size: 17px;
 	color: white;
+}
+.timeSelect .date{
+	margin-bottom: 2px;
+	padding-left: 7px;
+	padding-right: 7px;
+	border-radius: 15px;
+	background-color: #4596ff;
 }
 
 /* 消息 */
