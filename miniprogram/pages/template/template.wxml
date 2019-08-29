@@ -5,7 +5,7 @@
     <!-- 主体 -->
     <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
-        <view class="template_place">
+        <view class="template_time">
             <text class="text-shadow text-red">{{startTime}}</text>
         </view>
         <!-- 地点/方向 -->
@@ -52,7 +52,7 @@
         <!-- 时间 -->
         <view class="template_time">
             <text class="text-shadow text-red">{{startTime}}</text>
-            <text class="cuIcon-move"></text>
+			<text class="text-shadow text-red" style="margin: 0px 3px 0px 3px">-</text>
             <text class="text-shadow text-red">{{endTime}}</text>
         </view>
         <!-- 地点/方向 -->
