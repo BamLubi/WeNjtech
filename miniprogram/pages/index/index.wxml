@@ -104,7 +104,7 @@
         </block>
         <!-- 无班车 -->
         <block wx:if="{{!hasBus}}">
-            <view class="body radius shadow-warp bg-white">
+            <view class="template_body radius shadow-warp bg-white">
                 <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">当前班车休息中</text>
             </view>
         </block>
