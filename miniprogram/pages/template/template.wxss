@@ -56,8 +56,8 @@
 
 .template_remark text {
     font-family: "宋体";
-    line-height: 45rpx;
-    font-size: 17px;
+	font-size: 17px;
+    line-height: 25px;
     vertical-align: middle;
     margin-right: -2000rpx; /*  影响一行存放的内容长度 */
     display: inline-block;

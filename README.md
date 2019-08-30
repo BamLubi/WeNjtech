@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngxc.bmp" width="150" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngxc.bmp" width="200" style="margin-bottom: 10px;">
 </p>
 <h3 align="center">专属南工学子的校车查询</h3>
 
@@ -10,7 +10,19 @@
 - 查询双向的***象山线班车***
 - 查询指定日期、时间班车
 
+## 预览
+
+<p align="center">
+  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngcx_erweima.bmp" width="500" style="margin-bottom: 10px;">
+</p>
+
 ## 版本
+
+v1.1.3
+
+- 设置“前一天”在今天状态下不可选
+- 修改部分样式
+- 修复无车时显示bug
 
 v1.1.2
 
