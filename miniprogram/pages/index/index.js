@@ -133,7 +133,7 @@ Page({
             success: function(res) {
                 console.log("下载班车信息成功")
                 // 更具星期设置变量
-                if (that.data.selectDate.week == 6 || that.data.selectDate.week == 7) {
+                if (that.data.selectDate.week == 6 || that.data.selectDate.week == 0) {
                     // 周末
                     that.setData({
                         allBusInfo: res.data.weekendData
