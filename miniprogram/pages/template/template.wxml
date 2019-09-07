@@ -44,7 +44,7 @@
         <!-- 备注 -->
         <view class="template_remark">
             <scroll-view scroll-x="true">
-                <text>准点发车，站点:{{site}}</text>
+                <text>准点发车，停靠站点:{{site}}</text>
             </scroll-view>
         </view>
     </view>
@@ -56,9 +56,11 @@
     <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
         <view class="template_time">
-            <text class="text-shadow text-red">{{startTime}}</text>
-            <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px">-</text>
-            <text class="text-shadow text-red">{{endTime}}</text>
+			<text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
+            <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
+            <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">—</text>
+            <text class="text-shadow text-red" style="font-size: 22px;">{{endTime}}</text>
+			<text style="visibility: hidden;">亚青线</text>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">
@@ -82,7 +84,7 @@
         <!-- 备注 -->
         <view class="template_remark">
             <scroll-view scroll-x="true">
-                <text>{{status}}车循环，满员发车，站点:{{site}}</text>
+                <text>{{status}}车循环，满员发车，停靠站点:{{site}}</text>
             </scroll-view>
         </view>
     </view>
