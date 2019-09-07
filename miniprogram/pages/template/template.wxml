@@ -6,7 +6,9 @@
     <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
         <view class="template_time">
-            <text class="text-shadow text-red">{{startTime}}</text>
+			<text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
+            <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
+			<text style="visibility: hidden;">亚青线</text>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">

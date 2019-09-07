@@ -14,8 +14,12 @@
 
 .template_time {
     font-weight: bold;
-    font-size: 20px;
     margin-top: 7px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
 }
 
 /* 地点/方向 */
