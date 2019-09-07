@@ -12,8 +12,14 @@
         <view class="template_place text-shadow text-black">
             <!-- 象山到校门口 -->
             <block wx:if="{{direction==0}}">
-                <text>象</text>
-                <text>山</text>
+                <block wx:if="{{lineID==0}}">
+                    <text>象</text>
+                    <text>山</text>
+                </block>
+                <block wx:else>
+                    <text>亚</text>
+                    <text>青</text>
+                </block>
                 <image src="../../images/row.png"></image>
                 <text>校</text>
                 <text>门</text>
@@ -23,24 +29,21 @@
                 <text>校</text>
                 <text>门</text>
                 <image src="../../images/row.png"></image>
-                <text>象</text>
-                <text>山</text>
+                <block wx:if="{{lineID==0}}">
+                    <text>象</text>
+                    <text>山</text>
+                </block>
+                <block wx:else>
+                    <text>亚</text>
+                    <text>青</text>
+                </block>
             </block>
         </view>
         <!-- 备注 -->
         <view class="template_remark">
-            <!-- 象山到校门口 -->
-            <block wx:if="{{direction==0}}">
-                <scroll-view scroll-x="true">
-                    <text>准点发车，站点:象山、东苑</text>
-                </scroll-view>
-            </block>
-            <!-- 校门口到象山 -->
-            <block wx:if="{{direction==1}}">
-                <scroll-view scroll-x="true">
-                    <text>准点发车，站点:东苑、象山</text>
-                </scroll-view>
-            </block>
+            <scroll-view scroll-x="true">
+                <text>准点发车，站点:{{site}}</text>
+            </scroll-view>
         </view>
     </view>
 </template>
@@ -52,7 +55,7 @@
         <!-- 时间 -->
         <view class="template_time">
             <text class="text-shadow text-red">{{startTime}}</text>
-			<text class="text-shadow text-red" style="margin: 0px 3px 0px 3px">-</text>
+            <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px">-</text>
             <text class="text-shadow text-red">{{endTime}}</text>
         </view>
         <!-- 地点/方向 -->
@@ -77,7 +80,7 @@
         <!-- 备注 -->
         <view class="template_remark">
             <scroll-view scroll-x="true">
-                <text>{{status}}车循环，满员发车，站点:象山、东苑、校门口</text>
+                <text>{{status}}车循环，满员发车，站点:{{site}}</text>
             </scroll-view>
         </view>
     </view>

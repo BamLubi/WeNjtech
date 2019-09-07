@@ -17,15 +17,15 @@
         <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
             <!-- 起点 -->
             <view>
-                <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}">
+                <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}" bindchange="ChangeStartPosition">
                     <text>{{position[positionStartIndex]}}</text>
                 </picker>
             </view>
             <!-- 转换 -->
-            <image src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="changeDirection"></image>
+            <image src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="ChangeDirection"></image>
             <!-- 终点 -->
             <view>
-                <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}">
+                <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}" bindchange="ChangeEndPosition">
                     <text>{{position[positionEndIndex]}}</text>
                 </picker>
             </view>
@@ -94,11 +94,11 @@
             <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
                 <!-- 准点发车 -->
                 <block wx:if="{{item.status == 1}}">
-                    <template is='busLineOnTime' data='{{...item}}' />
+                    <template is='busLineOnTime' data='{{...item,direction}}' />
                 </block>
                 <!-- 循环发车 -->
                 <block wx:if="{{item.status != 1}}">
-                    <template is='busLineCircle' data='{{...item}}' />
+                    <template is='busLineCircle' data='{{...item,direction}}' />
                 </block>
             </view>
         </block>
