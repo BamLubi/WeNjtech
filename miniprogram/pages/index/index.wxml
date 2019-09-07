@@ -56,7 +56,7 @@
     <text class="place">{{position[positionStartIndex]}}</text>
     <image src="/images/row2.png" style="width: 30px;height: 23px;"></image>
     <text class="place">{{position[positionEndIndex]}}</text>
-    <view>
+    <view style="margin-top:5px;">
         <block wx:if="{{!isChangePlace}}">
             <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
         </block>
@@ -113,5 +113,5 @@
 
 <!-- 底部信息 -->
 <view class="bottom">
-    <text>v1.1.3 Copyright © 2019 小陆斑比 </text>
+    <text>v1.2.0 Copyright © 2019 小陆斑比 </text>
 </view>

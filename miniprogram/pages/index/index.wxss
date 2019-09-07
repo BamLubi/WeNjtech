@@ -70,7 +70,7 @@
     justify-content: center;
     /* flex-grow: 10; */
 	background-color: #2684fe;
-    /* margin-bottom: 4px; */
+    padding-bottom: 4px;
 }
 
 .placeSelect .place {
@@ -89,6 +89,7 @@
 	align-items: center;
 	justify-content: space-around;
 	background-color: #2684fe;
+	padding-bottom: 3px;
 }
 .timeSelect text{
 	font-size: 17px;

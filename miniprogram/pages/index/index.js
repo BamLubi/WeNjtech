@@ -139,28 +139,6 @@ Page({
             title: '加载中',
         })
         // 获取信息
-        // db.collection('schoolBusTable').doc('f0b862af-d862-4a8a-937a-a3ce4f221fdc').get({
-        //     success: function(res) {
-        //         console.log("下载班车信息成功")
-        //         // 更具星期设置变量
-        //         if (that.data.selectDate.week == 6 || that.data.selectDate.week == 0) {
-        //             // 周末
-        //             that.setData({
-        //                 allBusInfo: res.data.weekendData
-        //             })
-        //         } else {
-        //             // 工作日
-        //             that.setData({
-        //                 allBusInfo: res.data.workingDayData
-        //             })
-        //         }
-        //         // 产生班车列表
-        //         that.setBusLine()
-        //         // 隐藏加载框
-        //         wx.hideLoading()
-        //     }
-        // })
-		// 测试新的功能
 		db.collection('schoolBusTable').doc('0ea5f45b-d433-4608-a2b2-ce94309ac44a').get({
 			success: function (res) {
 				console.log("下载-班车-信息成功")
