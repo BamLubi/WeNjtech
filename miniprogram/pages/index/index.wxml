@@ -71,7 +71,7 @@
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="MinusDay">
         <image src="{{selectDate.weekZN=='今天'?'/images/left-grey.png':'/images/left.png'}}" style="width:16px;height:16px;"></image>
         <!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
-        <text style="color: {{selectDate.weekZN=='今天'?'#bfbfbf;!important':'white'}}">前一天</text>
+        <text style="color: {{selectDate.weekZN=='今天'?'#b2b2b2;!important':'white'}};">前一天</text>
     </view>
     <view class="date">
         <text>{{selectDate.dateZN}} {{selectDate.weekZN}}</text>
@@ -108,24 +108,6 @@
                 <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">{{hasBusInfo}}</text>
             </view>
         </block>
-        <!-- 特殊情况 -->
-        <!-- <block wx:if="specialCode != 1">
-            <block wx:if="specialCode = 101">
-                <view class="template_body radius shadow-warp bg-white">
-                    <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">距离太近，建议步行哦</text>
-                </view>
-            </block>
-            <block wx:if="specialCode = 102">
-                <view class="template_body radius shadow-warp bg-white">
-                    <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">该路线没有直达班车，推荐更换地点为‘象山’</text>
-                </view>
-            </block>
-            <block wx:if="specialCode = 103">
-                <view class="template_body radius shadow-warp bg-white">
-                    <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">你在逗我吗？原地转一圈就到了</text>
-                </view>
-            </block>
-        </block> -->
     </view>
 </scroll-view>
 

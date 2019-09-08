@@ -6,9 +6,9 @@
     <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
         <view class="template_time">
-			<text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
+            <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
             <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
-			<text style="visibility: hidden;">亚青线</text>
+            <text style="visibility: hidden;">亚青线</text>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">
@@ -56,11 +56,13 @@
     <view class="template_body radius shadow-warp bg-white">
         <!-- 时间 -->
         <view class="template_time">
-			<text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
-            <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
-            <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">—</text>
-            <text class="text-shadow text-red" style="font-size: 22px;">{{endTime}}</text>
-			<text style="visibility: hidden;">亚青线</text>
+            <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
+            <view>
+                <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
+                <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">-</text>
+                <text class="text-shadow text-red" style="font-size: 22px;">{{endTime}}</text>
+            </view>
+            <text style="visibility: hidden;">亚青线</text>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">
