@@ -17,11 +17,11 @@ Page({
         busLineShow: [], //用于显示的列表
         hasBus: false, //是否有班车
         position: ["校门","东苑","北苑","同和","象山", "亚青"],
-        positionStartIndex: 4,
-        positionEndIndex: 0,
-        direction: 0,
-        allBusInfo: null,
-        isChangePlace: false,
+        positionStartIndex: 4,//起点序号
+        positionEndIndex: 0,//终点序号
+        direction: 0,//方向0为象山开往校门方向，1为校门开往象山方向
+        allBusInfo: null,//所有班车信息
+        isChangePlace: false,//是否显示地点选择模态窗
 		dict: []//字典
     },
 
