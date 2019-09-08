@@ -86,7 +86,7 @@
 <van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非南京工业大学官方制作，仅供参考学习。仅支持亚青线和象山线校车，注意发车时间！" />
 
 <!-- 车辆信息 -->
-<scroll-view scroll-y style="height: {{windowHeight-120}}px;">
+<scroll-view scroll-y style="height: {{windowHeight-127}}px;">
     <view>
         <!-- 有班车 -->
         <block wx:if="{{hasBus}}">
