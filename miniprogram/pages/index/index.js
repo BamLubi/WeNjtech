@@ -15,14 +15,15 @@ Page({
         todayDate: {}, //今天
         selectDate: {}, //用户选择的时间,默认为当日
         busLineShow: [], //用于显示的列表
-        hasBus: false, //是否有班车
+        hasBus: true, //是否有班车
+		hasBusInfo: '', //用于显示特殊信息
         position: ["校门","东苑","北苑","同和","象山", "亚青"],
-        positionStartIndex: 4,//起点序号
-        positionEndIndex: 0,//终点序号
-        direction: 0,//方向0为象山开往校门方向，1为校门开往象山方向
-        allBusInfo: null,//所有班车信息
-        isChangePlace: false,//是否显示地点选择模态窗
-		dict: []//字典
+        positionStartIndex: 4, //起点序号
+        positionEndIndex: 0, //终点序号
+        direction: 0, //方向0为象山开往校门方向，1为校门开往象山方向
+        allBusInfo: null, //所有班车信息
+        isChangePlace: false, //是否显示地点选择模态窗
+		dict: [] //字典
     },
 
     /**
@@ -198,11 +199,13 @@ Page({
         // 若班车信息为空，则设置无班车
         if (ans.length != 0) {
             this.setData({
-                hasBus: true
+                hasBus: true,
+				hasBusInfo: '班车信息加载中。。。'
             })
         } else {
             this.setData({
-                hasBus: false
+                hasBus: false,
+				hasBusInfo: '当前班车休息中'
             })
         }
     },
@@ -219,20 +222,39 @@ Page({
         })
     },
     Search: function() {
-		// 
+		// 判断是否可查路线
 		console.log("开始" + this.data.positionStartIndex)
 		console.log("结束" + this.data.positionEndIndex)
-		this.setData({
-			direction: parseInt(this.data.positionEndIndex) - parseInt(this.data.positionStartIndex) < 0 ? 0 : 1
-		})
-        // 赋空值
-        this.setData({
-            busLineShow: []
-        })
-        // 连接数据库
-        this.connectDB()
-        // 获取班车信息
-        this.setBusLine()
+		let stIndex = this.data.positionStartIndex
+		let edIndex = this.data.positionEndIndex
+		if ((stIndex == 2 && edIndex == 5) || (stIndex == 5 && edIndex == 2) ){
+			this.setData({
+				hasBus: false,
+				hasBusInfo: "该路线没有直达班车，推荐更换地点为‘象山’"
+			})
+		}else if(stIndex == edIndex){
+			this.setData({
+				hasBus: false,
+				hasBusInfo: "你在逗我吗？原地转一圈就到了"
+			})
+		} else if ((stIndex == 4 && edIndex == 5) || (stIndex == 5 && edIndex == 4) || (stIndex == 3 && edIndex == 5) || (stIndex == 5 && edIndex == 3)){
+			this.setData({
+				hasBus: false,
+				hasBusInfo: "距离太近，建议步行哦"
+			})
+		}else{
+			this.setData({
+				direction: parseInt(this.data.positionEndIndex) - parseInt(this.data.positionStartIndex) < 0 ? 0 : 1
+			})
+			// 赋空值
+			this.setData({
+				busLineShow: []
+			})
+			// 连接数据库
+			this.connectDB()
+			// 获取班车信息
+			this.setBusLine()
+		}
         // 隐藏模态框
         this.HideMask()
     },
