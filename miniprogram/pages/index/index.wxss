@@ -21,7 +21,6 @@
     margin-left: 3%;
 	border-radius: 12px;
 	justify-content: space-between;
-	
 }
 .choosePosition .close{
 	display: flex;
