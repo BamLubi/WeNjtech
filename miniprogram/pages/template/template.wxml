@@ -1,5 +1,5 @@
 <!--pages/template/template.wxml-->
-
+<wxs module="filter" src="../../utils/globalFunction.wxs"></wxs>
 <!-- 准点发车，参数：时间、方向 -->
 <template name='busLineOnTime'>
     <!-- 主体 -->
@@ -8,7 +8,12 @@
         <view class="template_time">
             <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
             <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
-            <text style="visibility: hidden;">亚青线</text>
+            <block wx:if="{{index==0 && selectDate.weekZN=='今天'}}">
+                <text class="text-shadow text-cyan" style="font-size: 15px;">{{filter.GetTimeDifference(startTime)}}</text>
+            </block>
+            <block wx:else>
+                <text style="visibility: hidden;">象山线</text>
+            </block>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">
@@ -62,7 +67,12 @@
                 <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">-</text>
                 <text class="text-shadow text-red" style="font-size: 22px;">{{endTime}}</text>
             </view>
-            <text style="visibility: hidden;">亚青线</text>
+			 <block wx:if="{{index==0 && selectDate.weekZN=='今天'}}">
+                <text class="text-shadow text-cyan" style="font-size: 15px;">{{filter.GetTimeDifference(endTime)}}</text>
+            </block>
+            <block wx:else>
+                <text style="visibility: hidden;">象山线</text>
+            </block>
         </view>
         <!-- 地点/方向 -->
         <view class="template_place text-shadow text-black">

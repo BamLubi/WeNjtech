@@ -22,7 +22,7 @@
                 </picker>
             </view>
             <!-- 转换 -->
-            <image src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="ChangeDirection"></image>
+            <image class="bounceIn" src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="ChangeDirection"></image>
             <!-- 终点 -->
             <view>
                 <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}" bindchange="ChangeEndPosition">
@@ -87,21 +87,21 @@
 
 <!-- 车辆信息 -->
 <scroll-view scroll-y style="height: {{windowHeight-130}}px;">
-	<!-- 正常运营 -->
+    <!-- 正常运营 -->
     <view wx:if="{{dict.emergencyCode == 0}}">
         <!-- 有班车 -->
         <block wx:if="{{hasBus==1}}">
             <!-- 列表渲染 -->
-            <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
+            <scroll-view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
                 <!-- 准点发车 -->
                 <block wx:if="{{item.status == 1}}">
-                    <template is='busLineOnTime' data='{{...item,direction}}' />
+                    <template is='busLineOnTime' data='{{...item,direction,index,selectDate}}' />
                 </block>
                 <!-- 循环发车 -->
                 <block wx:if="{{item.status != 1}}">
-                    <template is='busLineCircle' data='{{...item,direction}}' />
+                    <template is='busLineCircle' data='{{...item,direction,index,selectDate}}' />
                 </block>
-            </view>
+            </scroll-view>
         </block>
         <!-- 无班车 -->
         <block wx:if="{{hasBus==0}}">
@@ -110,12 +110,12 @@
             </view>
         </block>
     </view>
-	<!-- 特殊情况停运 -->
-	<view wx:if="{{dict.emergencyCode == 1}}">
-	 <view class="template_body radius shadow-warp bg-white">
-                <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">由于特殊情况，校园巴士停运</text>
-            </view>
-	</view>
+    <!-- 特殊情况停运 -->
+    <view wx:if="{{dict.emergencyCode == 1}}">
+        <view class="template_body radius shadow-warp bg-white">
+            <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">由于特殊情况，校园巴士停运</text>
+        </view>
+    </view>
 </scroll-view>
 
 <!-- 底部信息 -->
