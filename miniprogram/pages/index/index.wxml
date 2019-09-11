@@ -52,11 +52,15 @@
 </block>
 
 <!-- 顶部地点导航 -->
-<view class="placeSelect" bindtap="ShowMask">
-    <text class="place">{{position[positionStartIndex]}}</text>
-    <image src="/images/row2.png" style="width: 30px;height: 23px;"></image>
-    <text class="place">{{position[positionEndIndex]}}</text>
-    <view style="margin-top:5px;">
+<view class="placeSelect">
+	<!-- 起点 -->
+    <text class="place"  bindtap="ShowMask">{{position[positionStartIndex]}}</text>
+	<!-- 箭头 -->
+    <image src="/images/row2.png" style="width: 30px;height: 23px;"  bindtap="ShowMask"></image>
+	<!-- 终点 -->
+    <text class="place"  bindtap="ShowMask">{{position[positionEndIndex]}}</text>
+	<!-- 图标 -->
+    <view style="margin-top:5px;"  bindtap="ShowMask">
         <block wx:if="{{!isChangePlace}}">
             <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
         </block>
