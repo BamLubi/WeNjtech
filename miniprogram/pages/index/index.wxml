@@ -113,7 +113,7 @@
     <!-- 特殊情况停运 -->
     <view wx:if="{{dict.emergencyCode == 1}}">
         <view class="template_body radius shadow-warp bg-white">
-            <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">由于特殊情况，校园巴士停运</text>
+            <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">{{dict.emergencyCodeExplanation}}</text>
         </view>
     </view>
 </scroll-view>
