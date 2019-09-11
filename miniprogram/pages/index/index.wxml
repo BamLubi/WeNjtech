@@ -3,47 +3,47 @@
 
 <!-- 地点选择 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HideMask">
-        <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;" catchtap>
-            <view class="choosePosition">
-                <!-- 标题 -->
-                <view class="title">更换地点</view>
-                <!-- 第一行地点 -->
-                <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
-                    <!-- 起点 -->
-                    <view>
-                        <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}" bindchange="ChangeStartPosition">
-                            <text>{{position[positionStartIndex]}}</text>
-                        </picker>
-                    </view>
-                    <!-- 转换 -->
-                    <image class="bounceIn" src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="ChangeDirection"></image>
-                    <!-- 终点 -->
-                    <view>
-                        <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}" bindchange="ChangeEndPosition">
-                            <text>{{position[positionEndIndex]}}</text>
-                        </picker>
-                    </view>
-                </view>
-                <!-- 第二行日期 -->
-                <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
-                    <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
-                        <text>{{selectDate.dateZN}}<text style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
+    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap>
+        <view class="choosePosition">
+            <!-- 标题 -->
+            <view class="title">更换地点</view>
+            <!-- 第一行地点 -->
+            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+                <!-- 起点 -->
+                <view>
+                    <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}" bindchange="ChangeStartPosition">
+                        <text>{{position[positionStartIndex]}}</text>
                     </picker>
-                    <view></view>
-                    <view></view>
                 </view>
-                <!-- 第三行时间段 -->
-                <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
-                    <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
-                        <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
+                <!-- 转换 -->
+                <image class="bounceIn" src="/images/change.png" style="width: 30px;height: 30px;margin: 0px 0px 0px 0px;" bindtap="ChangeDirection"></image>
+                <!-- 终点 -->
+                <view>
+                    <picker bindchange="PickerChange" value="{{positionEndIndex}}" range="{{position}}" bindchange="ChangeEndPosition">
+                        <text>{{position[positionEndIndex]}}</text>
                     </picker>
-                    <view></view>
-                    <view></view>
                 </view>
-                <!-- 按钮 -->
-                <button class="cu-btn bg-orange round lg shadow shadow-blur" bindtap="Search">查询</button>
             </view>
+            <!-- 第二行日期 -->
+            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+                <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
+                    <text>{{selectDate.dateZN}}<text style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
+                </picker>
+                <view></view>
+                <view></view>
+            </view>
+            <!-- 第三行时间段 -->
+            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+                <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
+                    <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
+                </picker>
+                <view></view>
+                <view></view>
+            </view>
+            <!-- 按钮 -->
+            <button class="cu-btn bg-orange round lg shadow shadow-blur" bindtap="Search">查询</button>
         </view>
+    </view>
 </view>
 
 <!-- 顶部地点导航 -->
