@@ -83,7 +83,7 @@
 </view>
 
 <!-- 消息 -->
-<van-notice-bar speed="20" text="欢迎使用南工校车，本小程序非南京工业大学官方制作，仅供参考学习。仅支持亚青线和象山线校车，注意发车时间！" />
+<van-notice-bar speed="20" text="{{dict.notification}}" />
 
 <!-- 车辆信息 -->
 <scroll-view scroll-y style="height: {{windowHeight-130}}px;">
