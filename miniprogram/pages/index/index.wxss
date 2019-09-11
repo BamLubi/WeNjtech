@@ -15,43 +15,24 @@
 .choosePosition {
     display: flex;
 	flex-direction: column;
-    position: fixed;
-    z-index: 999;
-    width: 94%;
-    margin-left: 3%;
-	border-radius: 12px;
-	justify-content: space-between;
-}
-.choosePosition .close{
-	display: flex;
-	flex-direction: row-reverse;
-	margin-top: 17px;
-}
-.choosePosition .close image{
-	width: 20px;
-	height: 20px;
-	margin-right: 20px;
+    width: 100%;
+	height: 100%;
+	justify-content: space-around;
 }
 .choosePosition .title{
 	display: flex;	
 	justify-content: center;
 	color: black;
-	font-size: 18px;
+	font-size: 20px;
 }
 .choosePosition .info{
-	margin-left: 10px;
-	margin-right: 10px;
-	border-radius: 12px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 }
-.test{
-	background-image: url("/images/change.png");
-}
 .choosePosition .info text{
-	font-size: 24px;
+	font-size: 22px;
 	
 }
 .choosePosition button{
