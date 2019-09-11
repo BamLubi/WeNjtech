@@ -30,6 +30,9 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	margin-left: 2%;
+	margin-right: 2%;
+	border-radius: 10px;
 }
 .choosePosition .info text{
 	font-size: 22px;
