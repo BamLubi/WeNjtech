@@ -1,0 +1,1877 @@
+{
+    "_id": "08647083-7954-4d1e-932c-6f8002e1c6c6",
+    "name": "字典",
+    "busLine_1": "象山线",
+    "busLine_2": "亚青线",
+    "busLine_1_forwardSite": "象山，北苑，东苑，校门口",
+    "busLine_1_reverseSite": "校门口，东苑，北苑，同和，象山",
+    "busLine_2_forwardSite": "亚青，东苑，校门口",
+    "busLine_2_reverseSite": "校门口，东苑，亚青",
+    "emergencyCode": 0.0
+}
+{
+    "_id": "0ea5f45b-d433-4608-a2b2-ce94309ac44a",
+    "name": "夏日线路",
+    "workingDayData": {
+        "forward": [
+            {
+                "startTime": 7.15,
+                "endTime": 8.2,
+                "info": "四车循环",
+                "status": 4,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 7.35,
+                "endTime": 7.35,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 7.5,
+                "endTime": 7.5,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 8.0,
+                "endTime": 8.0,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 8.55,
+                "info": "象山开往校门口",
+                "startTime": 8.55,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 9.35,
+                "info": "象山开往校门口",
+                "startTime": 9.35,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 10.2,
+                "info": "三车循环",
+                "startTime": 9.4,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 10.1,
+                "endTime": 10.1,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 10.45,
+                "info": "象山开往校门口",
+                "startTime": 10.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 11.15,
+                "info": "象山开往校门口",
+                "startTime": 11.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 11.45,
+                "info": "象山开往校门口",
+                "startTime": 11.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 13.3,
+                "info": "三车循环",
+                "startTime": 12.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 12.15,
+                "endTime": 12.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 12.35,
+                "endTime": 12.35,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 12.55,
+                "endTime": 12.55,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 13.15,
+                "endTime": 13.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 13.45,
+                "info": "象山开往校门口",
+                "startTime": 13.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 14.15,
+                "info": "象山开往校门口",
+                "startTime": 14.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 14.45,
+                "info": "象山开往校门口",
+                "startTime": 14.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 15.4,
+                "info": "三车循环",
+                "startTime": 15.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 15.25,
+                "endTime": 15.25,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 16.1,
+                "info": "象山开往校门口",
+                "startTime": 16.1,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 16.4,
+                "info": "象山开往校门口",
+                "startTime": 16.4,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 17.0,
+                "info": "象山开往校门口",
+                "startTime": 17.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 18.3,
+                "info": "三车循环",
+                "startTime": 17.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 17.15,
+                "endTime": 17.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 17.3,
+                "endTime": 17.3,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 18.0,
+                "endTime": 18.0,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 18.45,
+                "info": "象山开往校门口",
+                "startTime": 18.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 19.15,
+                "info": "象山开往校门口",
+                "startTime": 19.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 19.45,
+                "info": "象山开往校门口",
+                "startTime": 19.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 20.15,
+                "info": "象山开往校门口",
+                "startTime": 20.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 20.45,
+                "info": "象山开往校门口",
+                "startTime": 20.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 21.15,
+                "info": "象山开往校门口",
+                "startTime": 21.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 21.35,
+                "info": "象山开往校门口",
+                "startTime": 21.35,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            }
+        ],
+        "reverse": [
+            {
+                "startTime": 7.3,
+                "endTime": 7.3,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 7.45,
+                "endTime": 7.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 8.2,
+                "info": "四车循环",
+                "startTime": 7.15,
+                "status": 4,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 8.4,
+                "info": "校门口开往象山",
+                "startTime": 8.4,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 9.2,
+                "info": "校门口开往象山",
+                "startTime": 9.2,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 10.2,
+                "info": "三车循环",
+                "startTime": 9.4,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 10.0,
+                "endTime": 10.0,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 10.3,
+                "info": "校门口开往象山",
+                "startTime": 10.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 11.0,
+                "info": "校门口开往象山",
+                "startTime": 11.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 11.3,
+                "info": "校门口开往象山",
+                "startTime": 11.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 13.3,
+                "info": "三车循环",
+                "startTime": 12.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 12.05,
+                "endTime": 12.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 12.25,
+                "endTime": 12.25,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 12.45,
+                "endTime": 12.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 13.05,
+                "endTime": 13.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 13.3,
+                "info": "校门口开往象山",
+                "startTime": 13.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 14.0,
+                "info": "校门口开往象山",
+                "startTime": 14.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 14.3,
+                "info": "校门口开往象山",
+                "startTime": 14.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 15.4,
+                "info": "三车循环",
+                "startTime": 15.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 15.15,
+                "endTime": 15.15,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 15.55,
+                "info": "校门口开往象山",
+                "startTime": 15.55,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 16.25,
+                "info": "校门口开往象山",
+                "startTime": 16.25,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 16.55,
+                "info": "校门口开往象山",
+                "startTime": 16.55,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 18.3,
+                "info": "三车循环",
+                "startTime": 17.0,
+                "status": 3,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 17.05,
+                "endTime": 17.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 17.2,
+                "endTime": 17.2,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 17.45,
+                "endTime": 17.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 18.45,
+                "info": "校门口开往象山",
+                "startTime": 18.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 19.0,
+                "info": "校门口开往象山",
+                "startTime": 19.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 19.3,
+                "info": "校门口开往象山",
+                "startTime": 19.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 20.0,
+                "info": "校门口开往象山",
+                "startTime": 20.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 20.3,
+                "info": "校门口开往象山",
+                "startTime": 20.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 21.0,
+                "info": "校门口开往象山",
+                "startTime": 21.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 21.3,
+                "info": "校门口开往象山",
+                "startTime": 21.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            }
+        ]
+    },
+    "weekendData": {
+        "forward": [
+            {
+                "startTime": 7.35,
+                "endTime": 7.35,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 7.45,
+                "info": "象山开往校门口",
+                "startTime": 7.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 7.5,
+                "endTime": 7.5,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 8.0,
+                "endTime": 8.0,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 8.15,
+                "info": "象山开往校门口",
+                "startTime": 8.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 8.45,
+                "info": "象山开往校门口",
+                "startTime": 8.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 9.15,
+                "info": "象山开往校门口",
+                "startTime": 9.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 9.45,
+                "info": "象山开往校门口",
+                "startTime": 9.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 10.1,
+                "endTime": 10.1,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 10.15,
+                "info": "象山开往校门口",
+                "startTime": 10.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 10.45,
+                "info": "象山开往校门口",
+                "startTime": 10.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 11.15,
+                "info": "象山开往校门口",
+                "startTime": 11.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 11.45,
+                "info": "象山开往校门口",
+                "startTime": 11.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 12.15,
+                "endTime": 12.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 12.15,
+                "info": "象山开往校门口",
+                "startTime": 12.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 12.35,
+                "endTime": 12.35,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 12.45,
+                "info": "象山开往校门口",
+                "startTime": 12.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 12.55,
+                "endTime": 12.55,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "startTime": 13.15,
+                "endTime": 13.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 13.15,
+                "info": "象山开往校门口",
+                "startTime": 13.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 13.45,
+                "info": "象山开往校门口",
+                "startTime": 13.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 14.15,
+                "info": "象山开往校门口",
+                "startTime": 14.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 14.45,
+                "info": "象山开往校门口",
+                "startTime": 14.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 15.15,
+                "info": "象山开往校门口",
+                "startTime": 15.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 15.25,
+                "endTime": 15.25,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 15.45,
+                "info": "象山开往校门口",
+                "startTime": 15.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 16.15,
+                "info": "象山开往校门口",
+                "startTime": 16.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 16.45,
+                "info": "象山开往校门口",
+                "startTime": 16.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 17.15,
+                "endTime": 17.15,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 17.15,
+                "info": "象山开往校门口",
+                "startTime": 17.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 17.3,
+                "endTime": 17.3,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 17.45,
+                "info": "象山开往校门口",
+                "startTime": 17.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "startTime": 18.0,
+                "endTime": 18.0,
+                "info": "亚青开往校门口",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_forwardSite"
+            },
+            {
+                "endTime": 18.15,
+                "info": "象山开往校门口",
+                "startTime": 18.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 18.45,
+                "info": "象山开往校门口",
+                "startTime": 18.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 19.15,
+                "info": "象山开往校门口",
+                "startTime": 19.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 19.45,
+                "info": "象山开往校门口",
+                "startTime": 19.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 20.15,
+                "info": "象山开往校门口",
+                "startTime": 20.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 20.45,
+                "info": "象山开往校门口",
+                "startTime": 20.45,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 21.15,
+                "info": "象山开往校门口",
+                "startTime": 21.15,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            },
+            {
+                "endTime": 21.35,
+                "info": "象山开往校门口",
+                "startTime": 21.35,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_forwardSite"
+            }
+        ],
+        "reverse": [
+            {
+                "startTime": 7.3,
+                "endTime": 7.3,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 7.3,
+                "info": "校门口开往象山",
+                "startTime": 7.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 7.45,
+                "endTime": 7.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 8.0,
+                "info": "校门口开往象山",
+                "startTime": 8.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 8.3,
+                "info": "校门口开往象山",
+                "startTime": 8.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 9.0,
+                "info": "校门口开往象山",
+                "startTime": 9.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 9.3,
+                "info": "校门口开往象山",
+                "startTime": 9.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 10.0,
+                "endTime": 10.0,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 10.0,
+                "info": "校门口开往象山",
+                "startTime": 10.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 10.3,
+                "info": "校门口开往象山",
+                "startTime": 10.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 11.0,
+                "info": "校门口开往象山",
+                "startTime": 11.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 11.3,
+                "info": "校门口开往象山",
+                "startTime": 11.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 12.0,
+                "info": "校门口开往象山",
+                "startTime": 12.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 12.05,
+                "endTime": 12.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 12.25,
+                "endTime": 12.25,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 12.3,
+                "info": "校门口开往象山",
+                "startTime": 12.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 12.45,
+                "endTime": 12.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 13.0,
+                "info": "校门口开往象山",
+                "startTime": 13.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 13.05,
+                "endTime": 13.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 13.3,
+                "info": "校门口开往象山",
+                "startTime": 13.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 14.0,
+                "info": "校门口开往象山",
+                "startTime": 14.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 14.3,
+                "info": "校门口开往象山",
+                "startTime": 14.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 15.0,
+                "info": "校门口开往象山",
+                "startTime": 15.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 15.15,
+                "endTime": 15.15,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 15.3,
+                "info": "校门口开往象山",
+                "startTime": 15.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 16.0,
+                "info": "校门口开往象山",
+                "startTime": 16.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 16.3,
+                "info": "校门口开往象山",
+                "startTime": 16.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 17.0,
+                "info": "校门口开往象山",
+                "startTime": 17.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 17.05,
+                "endTime": 17.05,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "startTime": 17.2,
+                "endTime": 17.2,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 17.3,
+                "info": "校门口开往象山",
+                "startTime": 17.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "startTime": 17.45,
+                "endTime": 17.45,
+                "info": "校门口开往亚青",
+                "status": 1,
+                "line": "busLine_2",
+                "site": "busLine_2_reverseSite"
+            },
+            {
+                "endTime": 18.0,
+                "info": "校门口开往象山",
+                "startTime": 18.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 18.3,
+                "info": "校门口开往象山",
+                "startTime": 18.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 19.0,
+                "info": "校门口开往象山",
+                "startTime": 19.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 19.3,
+                "info": "校门口开往象山",
+                "startTime": 19.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 20.0,
+                "info": "校门口开往象山",
+                "startTime": 20.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 20.3,
+                "info": "校门口开往象山",
+                "startTime": 20.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 21.0,
+                "info": "校门口开往象山",
+                "startTime": 21.0,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            },
+            {
+                "endTime": 21.3,
+                "info": "校门口开往象山",
+                "startTime": 21.3,
+                "status": 1,
+                "line": "busLine_1",
+                "site": "busLine_1_reverseSite"
+            }
+        ]
+    },
+    "remark": "v1.2.0使用"
+}
+{
+    "_id": "f0b862af-d862-4a8a-937a-a3ce4f221fdc",
+    "workingDayData": [
+        {
+            "endTime": 8.2,
+            "info": "四车循环",
+            "startTime": 7.15,
+            "status": 4,
+            "direction": 0
+        },
+        {
+            "endTime": 8.4,
+            "info": "校门口开往象山",
+            "startTime": 8.4,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 8.55,
+            "info": "象山开往校门口",
+            "startTime": 8.55,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 9.2,
+            "info": "校门口开往象山",
+            "startTime": 9.2,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 10.2,
+            "info": "三车循环",
+            "startTime": 9.4,
+            "status": 3,
+            "direction": 0
+        },
+        {
+            "endTime": 10.3,
+            "info": "校门口开往象山",
+            "startTime": 10.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 10.45,
+            "info": "象山开往校门口",
+            "startTime": 10.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 11.0,
+            "info": "校门口开往象山",
+            "startTime": 11.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 11.15,
+            "info": "象山开往校门口",
+            "startTime": 11.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 11.3,
+            "info": "校门口开往象山",
+            "startTime": 11.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 11.45,
+            "info": "象山开往校门口",
+            "startTime": 11.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 15.4,
+            "info": "三车循环",
+            "startTime": 15.0,
+            "status": 3,
+            "direction": 0
+        },
+        {
+            "endTime": 15.55,
+            "info": "校门口开往象山",
+            "startTime": 15.55,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 16.1,
+            "info": "象山开往校门口",
+            "startTime": 16.1,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 16.25,
+            "info": "校门口开往象山",
+            "startTime": 16.25,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 16.4,
+            "info": "象山开往校门口",
+            "startTime": 16.4,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 16.55,
+            "info": "校门口开往象山",
+            "startTime": 16.55,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 17.0,
+            "info": "象山开往校门口",
+            "startTime": 17.0,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 18.3,
+            "info": "三车循环",
+            "startTime": 17.0,
+            "status": 3,
+            "direction": 0
+        },
+        {
+            "endTime": 18.45,
+            "info": "象山开往校门口",
+            "startTime": 18.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 18.45,
+            "info": "校门口开往象山",
+            "startTime": 18.45,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 19.0,
+            "info": "校门口开往象山",
+            "startTime": 19.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 19.15,
+            "info": "象山开往校门口",
+            "startTime": 19.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 19.3,
+            "info": "校门口开往象山",
+            "startTime": 19.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 19.45,
+            "info": "象山开往校门口",
+            "startTime": 19.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 20.0,
+            "info": "校门口开往象山",
+            "startTime": 20.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 20.15,
+            "info": "象山开往校门口",
+            "startTime": 20.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 20.3,
+            "info": "校门口开往象山",
+            "startTime": 20.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 20.45,
+            "info": "象山开往校门口",
+            "startTime": 20.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 21.0,
+            "info": "校门口开往象山",
+            "startTime": 21.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 21.15,
+            "info": "象山开往校门口",
+            "startTime": 21.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 21.3,
+            "info": "校门口开往象山",
+            "startTime": 21.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 21.35,
+            "info": "象山开往校门口",
+            "startTime": 21.35,
+            "status": 1,
+            "direction": 0
+        }
+    ],
+    "weekendData": [
+        {
+            "endTime": 7.45,
+            "info": "象山开往校门口",
+            "startTime": 7.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 8.15,
+            "info": "象山开往校门口",
+            "startTime": 8.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 8.45,
+            "info": "象山开往校门口",
+            "startTime": 8.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 9.15,
+            "info": "象山开往校门口",
+            "startTime": 9.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 9.45,
+            "info": "象山开往校门口",
+            "startTime": 9.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 10.15,
+            "info": "象山开往校门口",
+            "startTime": 10.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 10.45,
+            "info": "象山开往校门口",
+            "startTime": 10.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 11.15,
+            "info": "象山开往校门口",
+            "startTime": 11.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 11.45,
+            "info": "象山开往校门口",
+            "startTime": 11.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 12.15,
+            "info": "象山开往校门口",
+            "startTime": 12.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 12.45,
+            "info": "象山开往校门口",
+            "startTime": 12.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 13.15,
+            "info": "象山开往校门口",
+            "startTime": 13.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 13.45,
+            "info": "象山开往校门口",
+            "startTime": 13.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 14.15,
+            "info": "象山开往校门口",
+            "startTime": 14.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 14.45,
+            "info": "象山开往校门口",
+            "startTime": 14.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 15.15,
+            "info": "象山开往校门口",
+            "startTime": 15.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 15.45,
+            "info": "象山开往校门口",
+            "startTime": 15.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 16.15,
+            "info": "象山开往校门口",
+            "startTime": 16.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 16.45,
+            "info": "象山开往校门口",
+            "startTime": 16.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 17.15,
+            "info": "象山开往校门口",
+            "startTime": 17.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 17.45,
+            "info": "象山开往校门口",
+            "startTime": 17.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 18.15,
+            "info": "象山开往校门口",
+            "startTime": 18.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 18.45,
+            "info": "象山开往校门口",
+            "startTime": 18.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 19.15,
+            "info": "象山开往校门口",
+            "startTime": 19.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 19.45,
+            "info": "象山开往校门口",
+            "startTime": 19.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 20.15,
+            "info": "象山开往校门口",
+            "startTime": 20.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 20.45,
+            "info": "象山开往校门口",
+            "startTime": 20.45,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 21.15,
+            "info": "象山开往校门口",
+            "startTime": 21.15,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 21.35,
+            "info": "象山开往校门口",
+            "startTime": 21.35,
+            "status": 1,
+            "direction": 0
+        },
+        {
+            "endTime": 7.3,
+            "info": "校门口开往象山",
+            "startTime": 7.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 8.0,
+            "info": "校门口开往象山",
+            "startTime": 8.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 8.3,
+            "info": "校门口开往象山",
+            "startTime": 8.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 9.0,
+            "info": "校门口开往象山",
+            "startTime": 9.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 9.3,
+            "info": "校门口开往象山",
+            "startTime": 9.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 10.0,
+            "info": "校门口开往象山",
+            "startTime": 10.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 10.3,
+            "info": "校门口开往象山",
+            "startTime": 10.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 11.0,
+            "info": "校门口开往象山",
+            "startTime": 11.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 11.3,
+            "info": "校门口开往象山",
+            "startTime": 11.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 12.0,
+            "info": "校门口开往象山",
+            "startTime": 12.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 12.3,
+            "info": "校门口开往象山",
+            "startTime": 12.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 13.0,
+            "info": "校门口开往象山",
+            "startTime": 13.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 13.3,
+            "info": "校门口开往象山",
+            "startTime": 13.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 14.0,
+            "info": "校门口开往象山",
+            "startTime": 14.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 14.3,
+            "info": "校门口开往象山",
+            "startTime": 14.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 15.0,
+            "info": "校门口开往象山",
+            "startTime": 15.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 15.3,
+            "info": "校门口开往象山",
+            "startTime": 15.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 16.0,
+            "info": "校门口开往象山",
+            "startTime": 16.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 16.3,
+            "info": "校门口开往象山",
+            "startTime": 16.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 17.0,
+            "info": "校门口开往象山",
+            "startTime": 17.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 17.3,
+            "info": "校门口开往象山",
+            "startTime": 17.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 18.0,
+            "info": "校门口开往象山",
+            "startTime": 18.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 18.3,
+            "info": "校门口开往象山",
+            "startTime": 18.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 19.0,
+            "info": "校门口开往象山",
+            "startTime": 19.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 19.3,
+            "info": "校门口开往象山",
+            "startTime": 19.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 20.0,
+            "info": "校门口开往象山",
+            "startTime": 20.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 20.3,
+            "info": "校门口开往象山",
+            "startTime": 20.3,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 21.0,
+            "info": "校门口开往象山",
+            "startTime": 21.0,
+            "status": 1,
+            "direction": 1
+        },
+        {
+            "endTime": 21.3,
+            "info": "校门口开往象山",
+            "startTime": 21.3,
+            "status": 1,
+            "direction": 1
+        }
+    ],
+    "id": "0",
+    "name": "象山线",
+    "forwardSite": "象山，北苑，东苑，校门口",
+    "reverseSite": "校门口，东苑，北苑，同和，象山",
+    "remark": "v1.2.0以前使用"
+}
