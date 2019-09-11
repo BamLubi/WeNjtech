@@ -3,7 +3,11 @@
 
 <!-- 地点选择 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HideMask">
+<<<<<<< HEAD
     <view class="cu-dialog" style="height: {{windowHeight/2}}px;width: 90%;" catchtap>
+=======
+    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;" catchtap>
+>>>>>>> testChannel
         <view class="choosePosition">
             <!-- 标题 -->
             <view class="title">更换地点</view>
