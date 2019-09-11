@@ -30,12 +30,9 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-<<<<<<< HEAD
-=======
 	margin-left: 2%;
 	margin-right: 2%;
 	border-radius: 10px;
->>>>>>> testChannel
 }
 .choosePosition .info text{
 	font-size: 22px;
