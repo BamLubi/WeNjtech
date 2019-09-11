@@ -37,10 +37,10 @@
 ```
 ├──cloudfunctions			// 云函数
 ├──miniprogram				//主程序
-|  ├──colorui			// colorui UI组件库
+|  ├──colorui				// colorui UI组件库
 |  ├──dist					// Vant UI组件库
 |  ├──images				// 图标
-|  ├──pages				// 页面
+|  ├──pages					// 页面
 |  |  ├──index				// 主页
 |  |  |  ├──index.js
 |  |  |  ├──index.json
@@ -51,12 +51,12 @@
 |  |  |  ├──template.json
 |  |  |  ├──template.wxml
 |  |  |  └──template.wxss
-|  ├──utils				// 工具库
+|  ├──utils					// 工具库
 │  ├──app.js
 |  ├──app.json
 |  ├──app.wxss
 |  └──sitemap.json
-├──resource				// 环境资源
+├──resource					// 环境资源
 ├──.gitignore
 ├──README.md
 └──project.config.json
