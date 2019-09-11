@@ -7,14 +7,61 @@
 
 “南工校车”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
 
-- 查询双向的***象山线班车***
+- 查询双向的***象山线班车、亚青线班车***
 - 查询指定日期、时间班车
 
-## 预览
+## 快速体验
 
 <p align="center">
   <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngcx_erweima.bmp" width="500" style="margin-bottom: 10px;">
 </p>
+## 开发工具
+
+[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html )、[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)、[微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+
+## 使用之前
+
+在开发“南工校车”之前，请确保你已经对微信官方的 [小程序简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/) 和[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)有所了解。
+
+## 开发
+
+1. 导入项目，使用测试号ID。创建自己的云开发环境，并在`app.js`中更改`env属性`。
+2. 打开云开发控制台，创建数据库集合**schoolBusTable**,导入`/resource/schoolBusTable.json`。
+
+## 目录结构
+
+```
+├──cloudfunctions			// 云函数
+├──miniprogram				//主程序
+|  ├──colorui				// colorui UI组件库
+|  ├──dist					// Vant UI组件库
+|  ├──images				// 图标
+|  ├──pages					// 页面
+|  |  ├──index				// 主页
+|  |  |  ├──index.js
+|  |  |  ├──index.json
+|  |  |  ├──index.wxml
+|  |  |  └──index.wxss
+|  |  ├──template			// 模板页
+|  |  |  ├──template.js
+|  |  |  ├──template.json
+|  |  |  ├──template.wxml
+|  |  |  └──template.wxss
+|  ├──utils					// 工具库
+│  ├──app.js
+|  ├──app.json
+|  ├──app.wxss
+|  └──sitemap.json
+├──resource					// 环境资源
+├──.gitignore
+├──README.md
+└──project.config.json
+
+```
+
+
+
+## 版本
 
 ## 版本
 
