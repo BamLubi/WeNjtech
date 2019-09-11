@@ -15,9 +15,13 @@
 <p align="center">
   <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngcx_erweima.bmp" width="500" style="margin-bottom: 10px;">
 </p>
+
+
 ## 开发工具
 
 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html )、[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)、[微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
+
+
 
 ## 使用之前
 
@@ -33,10 +37,10 @@
 ```
 ├──cloudfunctions			// 云函数
 ├──miniprogram				//主程序
-|  ├──colorui				// colorui UI组件库
+|  ├──colorui			// colorui UI组件库
 |  ├──dist					// Vant UI组件库
 |  ├──images				// 图标
-|  ├──pages					// 页面
+|  ├──pages				// 页面
 |  |  ├──index				// 主页
 |  |  |  ├──index.js
 |  |  |  ├──index.json
@@ -47,12 +51,12 @@
 |  |  |  ├──template.json
 |  |  |  ├──template.wxml
 |  |  |  └──template.wxss
-|  ├──utils					// 工具库
+|  ├──utils				// 工具库
 │  ├──app.js
 |  ├──app.json
 |  ├──app.wxss
 |  └──sitemap.json
-├──resource					// 环境资源
+├──resource				// 环境资源
 ├──.gitignore
 ├──README.md
 └──project.config.json
