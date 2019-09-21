@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngxc.bmp" width="200" style="margin-bottom: 10px;">
+  <img alt="logo" src="./resource/ngxc.png" width="200" style="margin-bottom: 10px;">
 </p>
 <h3 align="center">专属南工学子的校车查询</h3>
 
@@ -13,8 +13,9 @@
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="https://files-cdn.cnblogs.com/files/Lu-Yuyang/ngcx_erweima.bmp" width="500" style="margin-bottom: 10px;">
+  <img alt="logo" src="./resource/saoma.png" width="500" style="margin-bottom: 10px;">
 </p>
+
 
 
 ## 开发工具
