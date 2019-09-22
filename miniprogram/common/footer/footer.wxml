@@ -1,0 +1,4 @@
+<!--common/footer/footer.wxml-->
+<view class="bottom">
+    <text>{{version}} Copyright © 2019 {{author}}</text>
+</view>
