@@ -1,4 +1,4 @@
-/* common/footer/footer.wxss */
+/* component/footer/footer.wxss */
 .bottom {
     display: flex;
     flex-direction: row;
