@@ -1,5 +1,5 @@
 <!--miniprogram/pages/index/index.wxml-->
-<import src="../template/template" />
+<import src="../../common/template/template" />
 
 <!-- 地点选择 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HideMask">
