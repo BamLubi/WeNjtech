@@ -1,11 +1,11 @@
 // miniprogram/pages/index/index.js
+var util = require('../../utils/util.js')
+const dateControl = require("../../utils/dateControl.js")
 
-var util = require('../../utils/util.js');
-
-const db = wx.cloud.database();
+const app = getApp()
+const db = wx.cloud.database()
 
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -31,20 +31,11 @@ Page({
      */
     onLoad: function(options) {
         var that = this
-        // 获取手机信息
-        wx.getSystemInfo({
-            success: function(res) {
-                console.log(res);
-                // 屏幕宽度、高度
-                console.log('height=' + res.windowHeight);
-                console.log('width=' + res.windowWidth);
-                // 高度,宽度 单位为px
-                that.setData({
-                    windowHeight:  res.windowHeight,
-                    windowWidth:  res.windowWidth
-                })
-            }
-        })
+        // 设置屏幕宽高
+		that.setData({
+			windowHeight: app.globalData.systemInfo.windowHeight,
+			windowWidth: app.globalData.systemInfo.windowWidth
+		})
         // 设置时间
         let nowDate = new Date()
         this.setData({
@@ -55,7 +46,6 @@ Page({
                 hour: nowDate.getHours(),
                 minutes: nowDate.getMinutes(),
                 week: nowDate.getDay(),
-                // weekZN: transToWeek(nowDate.getDay()),
                 weekZN: "今天",
                 dateZN: (nowDate.getMonth() + 1) + "月" + nowDate.getDate() + "日"
             }
@@ -63,7 +53,7 @@ Page({
         this.setData({
             todayDate: JSON.parse(JSON.stringify(this.data.selectDate)) //深拷贝对象
         })
-        // 设置字典
+        // 下载字典
         db.collection('schoolBusTable').doc('08647083-7954-4d1e-932c-6f8002e1c6c6').get({
             success: function(res) {
                 console.log("下载-字典-信息成功")
@@ -73,7 +63,7 @@ Page({
             }
         })
         // 连接数据库并设置班车信息
-        this.connectDB();
+		this.downloadBusInfo();
     },
 
     /**
@@ -133,7 +123,7 @@ Page({
     /**
      * 连接数据库，下载班车信息
      */
-    connectDB: function() {
+    downloadBusInfo: function() {
         var that = this
         // 显示加载框
         wx.showLoading({
@@ -225,13 +215,14 @@ Page({
      */
     ChangeDirection: function() {
         console.log("更改方向")
-        let edIndex = this.data.positionEndIndex
-        let stIndex = this.data.positionStartIndex
         this.setData({
-            positionStartIndex: edIndex,
-            positionEndIndex: stIndex,
+			positionStartIndex: this.data.positionEndIndex,
+			positionEndIndex: this.data.positionStartIndex,
         })
     },
+	/**
+	 * 查询按钮
+	 */
     Search: function() {
         // 判断是否可查路线
         console.log("开始" + this.data.positionStartIndex)
@@ -262,7 +253,7 @@ Page({
                 busLineShow: []
             })
             // 连接数据库
-            this.connectDB()
+			this.downloadBusInfo()
             // 获取班车信息
             this.setBusLine()
         }
@@ -285,7 +276,7 @@ Page({
             ["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
         })
         this.setData({
-            ["selectDate.weekZN"]: isTodayORTomorrow(this.data.selectDate, this.data.todayDate)
+            ["selectDate.weekZN"]: dateControl.isTodayORTomorrow(this.data.selectDate, this.data.todayDate)
         })
         // 如果不是今天，则将时间设置为07:00
         if (this.data.selectDate.weekZN != "今天") {
@@ -366,7 +357,7 @@ Page({
     AddDay: function() {
         console.log("用户点击：加一天")
         let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-        let ans = new package_detail_value(mathChangeDate(day, '+', 1))
+        let ans = new package_detail_value(dateControl.mathChangeDate(day, '+', 1))
         // 改变日期
         this.DateChange(ans)
         // 查询
@@ -382,7 +373,7 @@ Page({
             return
         } else {
             let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-            let ans = new package_detail_value(mathChangeDate(day, '-', 1))
+            let ans = new package_detail_value(dateControl.mathChangeDate(day, '-', 1))
             // 改变日期
             this.DateChange(ans)
             // 查询
@@ -426,64 +417,4 @@ function package_detail_value(info) {
         this.value = info
     }
     this.detail = new package_value(info)
-}
-
-// 将数字转换为星期
-function transToWeek(week) {
-    switch (week) {
-        case 1:
-            return "星期一";
-        case 2:
-            return "星期二";
-        case 3:
-            return "星期三";
-        case 4:
-            return "星期四";
-        case 5:
-            return "星期五";
-        case 6:
-            return "星期六";
-        case 0:
-            return "星期日";
-    }
-}
-
-// 加减天数
-function mathChangeDate(date, method, days) {
-    //method:'+' || '-'
-    //ios不解析带'-'的日期格式，要转成'/'，不然Nan，切记
-    var dateVal = date.replace(/-/g, '/');
-    var timestamp = Date.parse(dateVal);
-    if (method == '+') {
-        timestamp = timestamp / 1000 + 24 * 60 * 60 * days;
-    } else if (method == '-') {
-        timestamp = timestamp / 1000 - 24 * 60 * 60 * days;
-    }
-    return toDate(timestamp);
-}
-
-function toDate(number) {
-    var n = number;
-    var date = new Date(parseInt(n) * 1000);
-    var y = date.getFullYear();
-    var m = date.getMonth() + 1;
-    m = m < 10 ? ('0' + m) : m;
-    var d = date.getDate();
-    d = d < 10 ? ('0' + d) : d;
-    return y + '-' + m + '-' + d;
-}
-
-// 判断今天，明天
-function isTodayORTomorrow(selectDate, todayDate) {
-    // 判断日期
-    if (selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day) {
-        // 今天
-        return "今天";
-    } else if (selectDate.year == todayDate.year && selectDate.month == todayDate.month && selectDate.day == todayDate.day + 1) {
-        // 明天
-        return "明天";
-    } else {
-        // 显示星期
-        return transToWeek(selectDate.week);
-    }
 }
