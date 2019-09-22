@@ -23,6 +23,7 @@ Page({
         direction: 0, //方向0为象山开往校门方向，1为校门开往象山方向
         allBusInfo: null, //所有班车信息
         isChangePlace: false, //是否显示地点选择模态窗
+		isChangeDate: false, //是否显示日期选择模态窗
         dict: [] //字典
     },
 
@@ -324,9 +325,9 @@ Page({
         })
     },
     /**
-     * 显示遮罩层
+     * 显示地点选择遮罩层
      */
-    ShowMask: function() {
+	ShowPlaceChangeMask: function() {
         console.log("显示遮罩")
         this.setData({
             isChangePlace: true
@@ -343,9 +344,9 @@ Page({
         }
     },
     /**
-     * 隐藏遮罩层
+     * 隐藏地点选择遮罩层
      */
-    HideMask: function() {
+	HidePlaceChangeMask: function() {
         console.log("隐藏遮罩")
         this.setData({
             isChangePlace: false
@@ -379,7 +380,55 @@ Page({
             // 查询
             this.Search()
         }
-    }
+    },
+	HideDateChangeMask: function(){
+		console.log("隐藏遮罩")
+		this.setData({
+			isChangeDate: false
+		})
+	},
+	ShowDateChangeMask: function () {
+		console.log("显示遮罩")
+		this.setData({
+			isChangeDate: true
+		})
+	},
+	onDayClick: function (e) {
+		var that = this
+		console.log("日期改变",e)
+		let selectTime = e.detail.date
+		let date = e.detail.id.split('-')
+		// 重新设置年月日星期
+		this.setData({
+			["selectDate.year"]: date[0],
+			["selectDate.month"]: date[1],
+			["selectDate.day"]: date[2],
+			["selectDate.week"]: selectTime.getDay(),
+			["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
+		})
+		this.setData({
+			["selectDate.weekZN"]: dateControl.isTodayORTomorrow(this.data.selectDate, this.data.todayDate)
+		})
+		// 如果不是今天，则将时间设置为07:00
+		if (this.data.selectDate.weekZN != "今天") {
+			this.setData({
+				["selectDate.hour"]: 7,
+				["selectDate.minutes"]: 0
+			})
+		} else {
+			let nowDate = new Date()
+			this.setData({
+				["selectDate.hour"]: nowDate.getHours(),
+				["selectDate.minutes"]: nowDate.getMinutes(),
+				["todayDate.hour"]: nowDate.getHours(),
+				["todayDate.minutes"]: nowDate.getMinutes()
+			})
+		}
+		setTimeout(function(){
+			that.HideDateChangeMask()
+			that.Search()
+		},200)
+	}
 })
 
 // 对象构造器

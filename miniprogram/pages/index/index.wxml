@@ -1,9 +1,10 @@
 <!--miniprogram/pages/index/index.wxml-->
 <import src="../../common/template/template" />
 
-<!-- 地点选择 -->
-<view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HideMask">
+<!-- 地点选择模态框 -->
+<view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HidePlaceChangeMask">
     <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap>
+		<!-- 内容 -->
         <view class="choosePosition">
             <!-- 标题 -->
             <view class="title">更换地点</view>
@@ -46,6 +47,14 @@
     </view>
 </view>
 
+<!-- 日期选择模态框 -->
+<view class="cu-modal {{isChangeDate?'show':''}}" bindtap="HideDateChangeMask">
+	<view class="cu-dialog" style="width: 90%;border-radius: 15px;" catchtap>
+		<!-- 日历 -->
+		<calendar bindOnDayClick="onDayClick" />
+	</view>
+</view>
+
 <!-- 顶部地点导航 -->
 <view class="placeSelect">
     <!-- 起点 -->
@@ -55,7 +64,7 @@
     <!-- 终点 -->
     <text class="place" bindtap="ShowMask">{{position[positionEndIndex]}}</text>
     <!-- 图标 -->
-    <view style="margin-top:5px;" bindtap="ShowMask">
+    <view style="margin-top:5px;" bindtap="ShowPlaceChangeMask">
         <block wx:if="{{!isChangePlace}}">
             <image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
         </block>
@@ -67,14 +76,16 @@
 
 <!-- 顶部时间导航 -->
 <view class="timeSelect">
+	<!-- 前一天 -->
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="MinusDay">
         <image src="{{selectDate.weekZN=='今天'?'/images/left-grey.png':'/images/left.png'}}" style="width:16px;height:16px;"></image>
-        <!-- <image src="/images/left.png" style="width:16px;height:16px;"></image> -->
         <text style="color: {{selectDate.weekZN=='今天'?'#b2b2b2;!important':'white'}};">前一天</text>
     </view>
-    <view class="date">
+	<!-- 当前选择的日期 -->
+    <view class="date" bindtap="ShowDateChangeMask">
         <text>{{selectDate.dateZN}} {{selectDate.weekZN}}</text>
     </view>
+	<!-- 后一天 -->
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="AddDay">
         <text>后一天</text>
         <image src="/images/right.png" style="width:16px;height:16px;"></image>

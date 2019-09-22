@@ -1,7 +1,7 @@
 {
   "usingComponents": {
 	  "van-notice-bar": "../../dist/notice-bar/index",
-	  "footer": "../../common/footer/footer"
+	  "footer": "../../common/footer/footer",
+	  "calendar": "../../common/calendar/calendar"
   }
-  
 }
