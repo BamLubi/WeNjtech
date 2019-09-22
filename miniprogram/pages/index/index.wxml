@@ -118,6 +118,4 @@
 </scroll-view>
 
 <!-- 底部信息 -->
-<view class="bottom">
-    <text>v1.2.1 Copyright © 2019 小陆斑比 </text>
-</view>
+<footer version="v1.2.1"></footer>
