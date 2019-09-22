@@ -259,7 +259,7 @@ Page({
             this.setBusLine()
         }
         // 隐藏模态框
-        this.HideMask()
+		this.HidePlaceChangeMask()
     },
     /**
      * 更改时间,更改selectDate里的年月日

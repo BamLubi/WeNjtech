@@ -110,7 +110,7 @@ Component({
 		}
 		let currenDate = new Date(year + '/' + month + '/1');
 		let weekdays = _this.data.weekdays;
-		console.log(weekdays)
+		// console.log(weekdays)
 		if (weekdays.length != 7) {
 			switch (_this.data.language) {
 				case LANGUAGES.en:
