@@ -2,6 +2,7 @@
   "usingComponents": {
 	  "van-notice-bar": "../../dist/notice-bar/index",
 	  "footer": "../../component/footer/footer",
-	  "calendar": "../../component/calendar/calendar"
+	  "calendar": "../../component/calendar/calendar",
+	  "backTop": "../../component/backTop/backTop"
   }
 }

@@ -24,7 +24,8 @@ Page({
         allBusInfo: null, //所有班车信息
         isChangePlace: false, //是否显示地点选择模态窗
         isChangeDate: false, //是否显示日期选择模态窗
-        dict: [] //字典
+        dict: [], //字典
+        scrollTopNum: 0 //控制scroll-view的顶部距离
     },
 
     /**
@@ -71,7 +72,11 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease'
+        })
+        this.animation = animation
     },
 
     /**
@@ -273,7 +278,7 @@ Page({
             ["selectDate.year"]: date[0],
             ["selectDate.month"]: date[1],
             ["selectDate.day"]: date[2],
-			["selectDate.week"]: selectDate.getDay(),
+            ["selectDate.week"]: selectDate.getDay(),
             ["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
         })
         this.setData({
@@ -358,9 +363,9 @@ Page({
     AddDay: function() {
         console.log("用户点击：加一天")
         let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-		day = dateControl.mathChangeDate(day, '+', 1)
+        day = dateControl.mathChangeDate(day, '+', 1)
         // 改变日期
-		this.DateChange(day)
+        this.DateChange(day)
         // 查询
         this.Search()
     },
@@ -374,44 +379,58 @@ Page({
             return
         } else {
             let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-			day = dateControl.mathChangeDate(day, '-', 1)
+            day = dateControl.mathChangeDate(day, '-', 1)
             // 改变日期
-			this.DateChange(day)
+            this.DateChange(day)
             // 查询
             this.Search()
         }
     },
-	/**
-	 * 隐藏时间选择遮罩层
-	 */
+    /**
+     * 隐藏时间选择遮罩层
+     */
     HideDateChangeMask: function() {
         console.log("隐藏遮罩")
         this.setData({
             isChangeDate: false
         })
     },
-	/**
-	 * 显示时间选择遮罩层
-	 */
+    /**
+     * 显示时间选择遮罩层
+     */
     ShowDateChangeMask: function() {
         console.log("显示遮罩")
         this.setData({
             isChangeDate: true
         })
     },
-	/**
-	 * 日历上的日期被点击
-	 */
+    /**
+     * 日历上的日期被点击
+     */
     onDayClick: function(e) {
         var that = this
         this.DateChange(e.detail.id)
-		// 设置计时器
+        // 设置计时器
         setTimeout(function() {
-			// 隐藏日历层
+            // 隐藏日历层
             that.HideDateChangeMask()
-			// 查询
+            // 查询
             that.Search()
         }, 200)
+    },
+    PageScroll: function(e) {
+        this.backTop = this.selectComponent("#backTop")
+        let scrollHeight = e.detail.scrollTop
+        if (scrollHeight > this.data.windowHeight / 2) {
+            this.backTop.show()
+        } else {
+            this.backTop.hide()
+        }
+    },
+    ScrollToTop: function() {
+        this.setData({
+            scrollTopNum: 0
+        })
     }
 })
 

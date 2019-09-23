@@ -96,7 +96,7 @@
 <van-notice-bar speed="20" text="{{dict.notification}}" />
 
 <!-- 车辆信息 -->
-<scroll-view scroll-y style="height: {{windowHeight-130}}px;">
+<scroll-view scroll-y scroll-with-animation style="height: {{windowHeight-130}}px;" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
     <!-- 正常运营 -->
     <view wx:if="{{dict.emergencyCode == 0}}">
         <!-- 有班车 -->
@@ -128,5 +128,7 @@
     </view>
 </scroll-view>
 
+<!-- 回到顶部按钮 -->
+<backTop id="backTop" duration="1000" bindclick="ScrollToTop"></backTop>
 <!-- 底部信息 -->
 <footer version="v1.2.2"></footer>
