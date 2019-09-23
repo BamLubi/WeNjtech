@@ -23,7 +23,7 @@ Page({
         direction: 0, //方向0为象山开往校门方向，1为校门开往象山方向
         allBusInfo: null, //所有班车信息
         isChangePlace: false, //是否显示地点选择模态窗
-		isChangeDate: false, //是否显示日期选择模态窗
+        isChangeDate: false, //是否显示日期选择模态窗
         dict: [] //字典
     },
 
@@ -33,10 +33,10 @@ Page({
     onLoad: function(options) {
         var that = this
         // 设置屏幕宽高
-		that.setData({
-			windowHeight: app.globalData.systemInfo.windowHeight,
-			windowWidth: app.globalData.systemInfo.windowWidth
-		})
+        that.setData({
+            windowHeight: app.globalData.systemInfo.windowHeight,
+            windowWidth: app.globalData.systemInfo.windowWidth
+        })
         // 设置时间
         let nowDate = new Date()
         this.setData({
@@ -64,7 +64,7 @@ Page({
             }
         })
         // 连接数据库并设置班车信息
-		this.downloadBusInfo();
+        this.downloadBusInfo();
     },
 
     /**
@@ -217,13 +217,13 @@ Page({
     ChangeDirection: function() {
         console.log("更改方向")
         this.setData({
-			positionStartIndex: this.data.positionEndIndex,
-			positionEndIndex: this.data.positionStartIndex,
+            positionStartIndex: this.data.positionEndIndex,
+            positionEndIndex: this.data.positionStartIndex,
         })
     },
-	/**
-	 * 查询按钮
-	 */
+    /**
+     * 查询按钮
+     */
     Search: function() {
         // 判断是否可查路线
         console.log("开始" + this.data.positionStartIndex)
@@ -254,26 +254,26 @@ Page({
                 busLineShow: []
             })
             // 连接数据库
-			this.downloadBusInfo()
+            this.downloadBusInfo()
             // 获取班车信息
             this.setBusLine()
         }
         // 隐藏模态框
-		this.HidePlaceChangeMask()
+        this.HidePlaceChangeMask()
     },
     /**
      * 更改时间,更改selectDate里的年月日
      */
-    DateChange(e) {
+    DateChange(dateString) {
         console.log("日期改变")
-        let selectTime = new Date(e.detail.value)
-        let date = e.detail.value.split('-')
+        let selectDate = new Date(dateString)
+        let date = dateString.split('-')
         // 重新设置年月日星期
         this.setData({
             ["selectDate.year"]: date[0],
             ["selectDate.month"]: date[1],
             ["selectDate.day"]: date[2],
-            ["selectDate.week"]: selectTime.getDay(),
+			["selectDate.week"]: selectDate.getDay(),
             ["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
         })
         this.setData({
@@ -327,7 +327,7 @@ Page({
     /**
      * 显示地点选择遮罩层
      */
-	ShowPlaceChangeMask: function() {
+    ShowPlaceChangeMask: function() {
         console.log("显示遮罩")
         this.setData({
             isChangePlace: true
@@ -346,7 +346,7 @@ Page({
     /**
      * 隐藏地点选择遮罩层
      */
-	HidePlaceChangeMask: function() {
+    HidePlaceChangeMask: function() {
         console.log("隐藏遮罩")
         this.setData({
             isChangePlace: false
@@ -358,9 +358,9 @@ Page({
     AddDay: function() {
         console.log("用户点击：加一天")
         let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-        let ans = new package_detail_value(dateControl.mathChangeDate(day, '+', 1))
+		day = dateControl.mathChangeDate(day, '+', 1)
         // 改变日期
-        this.DateChange(ans)
+		this.DateChange(day)
         // 查询
         this.Search()
     },
@@ -374,61 +374,45 @@ Page({
             return
         } else {
             let day = this.data.selectDate.year + '-' + this.data.selectDate.month + '-' + this.data.selectDate.day;
-            let ans = new package_detail_value(dateControl.mathChangeDate(day, '-', 1))
+			day = dateControl.mathChangeDate(day, '-', 1)
             // 改变日期
-            this.DateChange(ans)
+			this.DateChange(day)
             // 查询
             this.Search()
         }
     },
-	HideDateChangeMask: function(){
-		console.log("隐藏遮罩")
-		this.setData({
-			isChangeDate: false
-		})
-	},
-	ShowDateChangeMask: function () {
-		console.log("显示遮罩")
-		this.setData({
-			isChangeDate: true
-		})
-	},
-	onDayClick: function (e) {
-		var that = this
-		console.log("日期改变",e)
-		let selectTime = e.detail.date
-		let date = e.detail.id.split('-')
-		// 重新设置年月日星期
-		this.setData({
-			["selectDate.year"]: date[0],
-			["selectDate.month"]: date[1],
-			["selectDate.day"]: date[2],
-			["selectDate.week"]: selectTime.getDay(),
-			["selectDate.dateZN"]: parseInt(date[1]) + "月" + date[2] + "日"
-		})
-		this.setData({
-			["selectDate.weekZN"]: dateControl.isTodayORTomorrow(this.data.selectDate, this.data.todayDate)
-		})
-		// 如果不是今天，则将时间设置为07:00
-		if (this.data.selectDate.weekZN != "今天") {
-			this.setData({
-				["selectDate.hour"]: 7,
-				["selectDate.minutes"]: 0
-			})
-		} else {
-			let nowDate = new Date()
-			this.setData({
-				["selectDate.hour"]: nowDate.getHours(),
-				["selectDate.minutes"]: nowDate.getMinutes(),
-				["todayDate.hour"]: nowDate.getHours(),
-				["todayDate.minutes"]: nowDate.getMinutes()
-			})
-		}
-		setTimeout(function(){
-			that.HideDateChangeMask()
-			that.Search()
-		},200)
-	}
+	/**
+	 * 隐藏时间选择遮罩层
+	 */
+    HideDateChangeMask: function() {
+        console.log("隐藏遮罩")
+        this.setData({
+            isChangeDate: false
+        })
+    },
+	/**
+	 * 显示时间选择遮罩层
+	 */
+    ShowDateChangeMask: function() {
+        console.log("显示遮罩")
+        this.setData({
+            isChangeDate: true
+        })
+    },
+	/**
+	 * 日历上的日期被点击
+	 */
+    onDayClick: function(e) {
+        var that = this
+        this.DateChange(e.detail.id)
+		// 设置计时器
+        setTimeout(function() {
+			// 隐藏日历层
+            that.HideDateChangeMask()
+			// 查询
+            that.Search()
+        }, 200)
+    }
 })
 
 // 对象构造器
@@ -458,12 +442,4 @@ function busLine(childLine, dict) {
 
     // 站点名称
     this.site = dict[childLine.site];
-}
-
-// 对象构造器，构造e.detail.value，用于DateChange()方法的复用
-function package_detail_value(info) {
-    function package_value(info) {
-        this.value = info
-    }
-    this.detail = new package_value(info)
 }

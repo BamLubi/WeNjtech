@@ -3,8 +3,7 @@
 
 <!-- 地点选择模态框 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HidePlaceChangeMask">
-    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap>
-		<!-- 内容 -->
+    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap> 
         <view class="choosePosition">
             <!-- 标题 -->
             <view class="title">更换地点</view>
@@ -44,25 +43,26 @@
             <!-- 按钮 -->
             <button class="cu-btn bg-orange round lg shadow shadow-blur" bindtap="Search">查询</button>
         </view>
+
     </view>
 </view>
 
 <!-- 日期选择模态框 -->
 <view class="cu-modal {{isChangeDate?'show':''}}" bindtap="HideDateChangeMask">
-	<view class="cu-dialog" style="width: 90%;border-radius: 15px;" catchtap>
-		<!-- 日历 -->
-		<calendar bindOnDayClick="onDayClick" />
-	</view>
+    <view class="cu-dialog" style="width: 90%;border-radius: 15px;" catchtap>
+        <!-- 日历 -->
+        <calendar bindOnDayClick="onDayClick" />
+    </view>
 </view>
 
 <!-- 顶部地点导航 -->
 <view class="placeSelect">
     <!-- 起点 -->
-    <text class="place" bindtap="ShowMask">{{position[positionStartIndex]}}</text>
+    <text class="place" bindtap="ShowPlaceChangeMask">{{position[positionStartIndex]}}</text>
     <!-- 箭头 -->
-    <image src="/images/row2.png" style="width: 30px;height: 23px;" bindtap="ShowMask"></image>
+    <image src="/images/row2.png" style="width: 30px;height: 23px;" bindtap="ShowPlaceChangeMask"></image>
     <!-- 终点 -->
-    <text class="place" bindtap="ShowMask">{{position[positionEndIndex]}}</text>
+    <text class="place" bindtap="ShowPlaceChangeMask">{{position[positionEndIndex]}}</text>
     <!-- 图标 -->
     <view style="margin-top:5px;" bindtap="ShowPlaceChangeMask">
         <block wx:if="{{!isChangePlace}}">
@@ -76,16 +76,16 @@
 
 <!-- 顶部时间导航 -->
 <view class="timeSelect">
-	<!-- 前一天 -->
+    <!-- 前一天 -->
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="MinusDay">
         <image src="{{selectDate.weekZN=='今天'?'/images/left-grey.png':'/images/left.png'}}" style="width:16px;height:16px;"></image>
         <text style="color: {{selectDate.weekZN=='今天'?'#b2b2b2;!important':'white'}};">前一天</text>
     </view>
-	<!-- 当前选择的日期 -->
+    <!-- 当前选择的日期 -->
     <view class="date" bindtap="ShowDateChangeMask">
         <text>{{selectDate.dateZN}} {{selectDate.weekZN}}</text>
     </view>
-	<!-- 后一天 -->
+    <!-- 后一天 -->
     <view style="display: flex;flex-direction: row;align-items: center;" bindtap="AddDay">
         <text>后一天</text>
         <image src="/images/right.png" style="width:16px;height:16px;"></image>
