@@ -1,0 +1,2 @@
+<!--component/backTop/backTop.wxml-->
+<image class="backTop" animation="{{animationData}}" src="images/backTop.png" bindtap="click" />
