@@ -24,7 +24,7 @@ Page({
         allBusInfo: null, //所有班车信息
         isChangePlace: false, //是否显示地点选择模态窗
         isChangeDate: false, //是否显示日期选择模态窗
-        dict: [], //字典
+        dict: null, //字典
         scrollTopNum: 0 //控制scroll-view的顶部距离
     },
 
@@ -62,21 +62,26 @@ Page({
                 that.setData({
                     dict: res.data
                 })
+				if (that.getDictCallback){
+					that.getDictCallback()
+				}
             }
         })
         // 连接数据库并设置班车信息
-        this.downloadBusInfo();
+		if(this.data.dict){
+			this.downloadBusInfo()
+		}else{
+			this.getDictCallback = res =>{
+				this.downloadBusInfo()
+			}
+		}
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        var animation = wx.createAnimation({
-            duration: 1000,
-            timingFunction: 'ease'
-        })
-        this.animation = animation
+
     },
 
     /**
@@ -135,8 +140,17 @@ Page({
         wx.showLoading({
             title: '加载中',
         })
+		// 判断季节，若不存在，则回调
+		var tblId = '0ea5f45b-d433-4608-a2b2-ce94309ac44a'
+		if(this.data.dict.season == 'summer'){
+			console.log("确定季节-summer")
+			tblId = '64b6219d-5982-4326-9da8-5ceee93862d4'
+		} else if (this.data.dict.season == 'winter'){
+			console.log("确定季节-winter")
+			tblId = '0ea5f45b-d433-4608-a2b2-ce94309ac44a'
+		}
         // 获取信息
-        db.collection('schoolBusTable').doc('0ea5f45b-d433-4608-a2b2-ce94309ac44a').get({
+		db.collection('schoolBusTable').doc(tblId).get({
             success: function(res) {
                 console.log("下载-班车-信息成功")
                 let busInfo = null
