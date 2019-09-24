@@ -131,4 +131,4 @@
 <!-- 回到顶部按钮 -->
 <backTop id="backTop" duration="1000" bindclick="ScrollToTop"></backTop>
 <!-- 底部信息 -->
-<footer version="v1.2.2"></footer>
+<footer version="v1.2.3"></footer>
