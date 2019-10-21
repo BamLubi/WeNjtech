@@ -1,0 +1,23 @@
+<!--miniprogram/pages/me/me.wxml-->
+<view>
+    <!-- 顶部背景及个人信息 -->
+    <view class="head shadow-warp">
+        <block wx:if="{{!hasUserInfo}}">
+            <image class="userAvatar" src='/images/wechat.png'></image>
+            <button class="userButton" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权登录</button>
+        </block>
+        <block wx:else>
+            <open-data class="userAvatar" type="userAvatarUrl"></open-data>
+            <open-data class="userNickName" type="userNickName"></open-data>
+        </block>
+    </view>
+
+    <!-- 工具条 -->
+    <view class="btn-area shadow shadow-lg">
+        <navigator wx:for="{{service}}" wx:key class="child-btn" url="{{item.url}}" hover-class="navigator-hover">
+                <image class="child-img-1" src="{{item.img}}"></image>
+                <text class="text-grey">{{item.name}}</text>
+                <image class="child-img-2" src="/images/right-grey.png"></image>
+        </navigator>
+    </view>
+</view>

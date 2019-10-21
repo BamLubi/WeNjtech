@@ -1,0 +1,75 @@
+/* miniprogram/pages/me/me.wxss */
+/* 顶部 */
+.head {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #8a2be2;
+	height: 300rpx;
+	border-bottom-left-radius: 40rpx;
+	border-bottom-right-radius: 40rpx;
+}
+
+.head .userAvatar {
+	overflow: hidden;
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.head .userNickName {
+	color: white;
+	margin-bottom: 20rpx;
+	font-size: 34rpx;
+}
+
+.head .userButton {
+	width: 40%;
+	margin-bottom: 20rpx;
+	background-color: rgb(0, 214, 107);
+	color: rgb(255, 255, 255);
+	border-radius: 98rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 工具条 */
+.btn-area{
+	margin: 50rpx 30rpx 20rpx 30rpx;
+	border-radius: 20rpx;
+	padding: 14rpx;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	font-size: 40rpx;
+}
+
+.btn-area .child-btn{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 90%;
+	margin-bottom: 20rpx;
+	margin-left: 30rpx;
+}
+
+.btn-area .child-btn text{
+	width: 200rpx;
+}
+
+.btn-area .child-btn .child-img-1{
+	width: 60rpx;
+	height: 60rpx;
+	margin-right: 20rpx;
+}
+
+.btn-area .child-btn .child-img-2{
+	width: 40rpx;
+	height: 40rpx;
+	margin-left: 300rpx;
+}
