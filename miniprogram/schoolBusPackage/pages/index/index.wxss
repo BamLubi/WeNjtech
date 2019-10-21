@@ -1,5 +1,5 @@
 /* miniprogram/pages/index/index.wxss */
-@import "../../component/template/template.wxss";
+@import "/component/template/template.wxss";
 
 /* 遮罩层选择地点 */
 .mask {

@@ -1,6 +1,5 @@
 // miniprogram/pages/index/index.js
-var util = require('../../utils/util.js')
-const dateControl = require("../../utils/dateControl.js")
+const dateControl = require("../../../utils/dateControl.js")
 
 const app = getApp()
 const db = wx.cloud.database()
@@ -35,7 +34,7 @@ Page({
         var that = this
         // 设置屏幕宽高
         that.setData({
-            windowHeight: app.globalData.systemInfo.windowHeight,
+			windowHeight: app.globalData.systemInfo.windowHeight + app.globalData.tabBarHeight,
             windowWidth: app.globalData.systemInfo.windowWidth
         })
         // 设置时间

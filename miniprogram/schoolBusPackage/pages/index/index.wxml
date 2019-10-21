@@ -1,5 +1,5 @@
 <!--miniprogram/pages/index/index.wxml-->
-<import src="../../component/template/template" />
+<import src="/component/template/template" />
 
 <!-- 地点选择模态框 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HidePlaceChangeMask">
@@ -93,10 +93,10 @@
 </view>
 
 <!-- 消息 -->
-<van-notice-bar speed="20" text="{{dict.notification}}" />
+<!-- <van-notice-bar speed="20" text="{{dict.notification}}" /> -->
 
 <!-- 车辆信息 -->
-<scroll-view scroll-y scroll-with-animation style="height: {{windowHeight-130}}px;" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
+<scroll-view scroll-y scroll-with-animation style="height: {{windowHeight-66.4}}px;" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
     <!-- 正常运营 -->
     <view wx:if="{{dict.emergencyCode == 0}}">
         <!-- 有班车 -->
@@ -130,5 +130,3 @@
 
 <!-- 回到顶部按钮 -->
 <backTop id="backTop" duration="1000" bindclick="ScrollToTop"></backTop>
-<!-- 底部信息 -->
-<footer version="v1.2.3"></footer>
