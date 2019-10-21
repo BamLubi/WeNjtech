@@ -1,0 +1,16 @@
+<!--miniprogram/pages/service/service.wxml-->
+<view>
+    <view wx:for="{{services}}" wx:key class="cu-bar bg-white service shadow">
+        <!-- 标题 -->
+        <view class="action title">
+            <text class="cuIcon-title text-bold text-shadow" style="color: {{item.color}};">{{item.name}}</text>
+        </view>
+        <!-- 按钮区 -->
+        <view class="grid col-4 text-center btn-area">
+            <view wx:for="{{item.funs}}" wx:for-item="service" wx:key class="child-btn" bindtap="clickBtn" data-id="{{service.id}}">
+				<image src="{{service.img}}"></image>
+                <view class="text-shadow text-black">{{service.name}}</view>
+            </view>
+        </view>
+    </view>
+</view>
