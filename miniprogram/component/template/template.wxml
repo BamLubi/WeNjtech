@@ -27,7 +27,7 @@
                     <text>亚</text>
                     <text>青</text>
                 </block>
-                <image src="../../images/row.png"></image>
+                <image src="/images/row.png"></image>
                 <text>校</text>
                 <text>门</text>
             </block>
@@ -35,7 +35,7 @@
             <block wx:if="{{direction==1}}">
                 <text>校</text>
                 <text>门</text>
-                <image src="../../images/row.png"></image>
+                <image src="/images/row.png"></image>
                 <block wx:if="{{lineID==0}}">
                     <text>象</text>
                     <text>山</text>
@@ -84,7 +84,7 @@
                 <text>校</text>
                 <text>门</text>
                 <text>)</text>
-                <image src="../../images/row.png"></image>
+                <image src="/images/row.png"></image>
                 <text>校</text>
                 <text>门</text>
                 <text>(</text>
