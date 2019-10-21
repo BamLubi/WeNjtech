@@ -1,0 +1,14 @@
+<!--miniprogram/mePackage/pages/about/about.wxml-->
+<view>
+	<!-- logo & version -->
+	<view class="logo">
+		<image src="/images/me/ngxc.png"></image>
+		<view class="text-bold text-shadow">V 1.2.2</view>
+	</view>
+	<!-- information -->
+	<view class="shadow margin radius bg-white padding">
+		欢迎使用“Lite南工”小程序，本小程序将致力于提供便利的校园生活工具。
+	</view>
+	<!-- copyright -->
+	<footer></footer>
+</view>

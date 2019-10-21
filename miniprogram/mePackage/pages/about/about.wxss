@@ -1,0 +1,22 @@
+/* miniprogram/mePackage/pages/about/about.wxss */
+.logo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100rpx;
+}
+.logo image{
+	width: 400rpx;
+	height: 400rpx;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo view{
+	font-size: 40rpx;
+	color: grey;
+	opacity: 0.6;
+	margin-top: 30rpx;
+}
