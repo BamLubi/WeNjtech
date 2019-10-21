@@ -7,10 +7,6 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        version: {
-            type: String,
-            value: "v0.0.0"
-        }
     },
 
     /**
