@@ -1,2 +1,11 @@
 <!--miniprogram/mePackage/pages/feedback/feedback.wxml-->
-<text>miniprogram/mePackage/pages/feedback/feedback.wxml</text>
+<view>
+    <!-- information -->
+    <view class="padding text-xl">Lite南工，欢迎您留下对本小程序的意见和建议，可以但不仅限于对小程序样貌、功能的意见。同时，也可留下您所希望实现的功能，我们将竭尽所能帮助实现。</view>
+    <!-- textarea -->
+    <view class="cu-form-group margin-top text-df">
+		<textarea maxlength="-1" bindinput="textareaAInput" placeholder="请留下您的宝贵意见或建议。"></textarea>
+	</view>
+    <!-- submit -->
+    <view class="cu-btn lines-red round lg shadow margin-top btn-submit">提 交</view>
+</view>
