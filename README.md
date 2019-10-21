@@ -37,21 +37,27 @@
 
 ```
 ├──cloudfunctions			// 云函数
-├──miniprogram				//主程序
+├──miniprogram				// 主程序
 |  ├──colorui				// colorui UI组件库
+|  ├──component				// 组件
+|  |  ├──backTop			// 返回顶部
+|  |  ├──calendar			// 日历
+|  |  ├──footer				// 底部
+|  |  └──template			// 模板
 |  ├──dist					// Vant UI组件库
 |  ├──images				// 图标
+|  ├──mePackage				// 我的页面分包
+|  |  ├──pages				// 页面
+|  |  |  ├──about			// 关于
+|  |  |  ├──feedback		// 反馈
+|  |  |  └──log				// 日志
 |  ├──pages					// 页面
-|  |  ├──index				// 主页
-|  |  |  ├──index.js
-|  |  |  ├──index.json
-|  |  |  ├──index.wxml
-|  |  |  └──index.wxss
-|  |  ├──template			// 模板页
-|  |  |  ├──template.js
-|  |  |  ├──template.json
-|  |  |  ├──template.wxml
-|  |  |  └──template.wxss
+|  |  ├──home				// 主页
+|  |  ├──me					// 我的
+|  |  └──service			// 服务
+|  ├──schoolBusPackage		// 校车页面分包
+|  |  ├──pages				// 页面
+|  |  |  └──index			// 主页
 |  ├──utils					// 工具库
 │  ├──app.js
 |  ├──app.json
@@ -59,6 +65,7 @@
 |  └──sitemap.json
 ├──resource					// 环境资源
 ├──.gitignore
+├──.LICENSE
 ├──README.md
 └──project.config.json
 
