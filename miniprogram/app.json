@@ -1,14 +1,57 @@
 {
 	"pages": [
-		"pages/index/index"
+		"pages/me/me",
+		"pages/service/service",
+		"pages/home/home"
 	],
 	"window": {
 		"backgroundColor": "#F6F6F6",
 		"backgroundTextStyle": "dark",
 		"navigationBarBackgroundColor": "#2684fe",
-		"navigationBarTitleText": "南工校车",
+		"navigationBarTitleText": "Lite南工",
 		"navigationBarTextStyle": "white"
 	},
+	"tabBar": {
+		"selectedColor": "#1296db",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "主页",
+				"iconPath": "images/tabbar/home.png",
+				"selectedIconPath": "images/tabbar/home_click.png"
+			},
+			{
+				"pagePath": "pages/service/service",
+				"text": "功能",
+				"iconPath": "images/tabbar/service.png",
+				"selectedIconPath": "images/tabbar/service_click.png"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我的",
+				"iconPath": "images/tabbar/me.png",
+				"selectedIconPath": "images/tabbar/me_click.png"
+			}
+		]
+	},
+	"subpackages": [
+		{
+			"root": "schoolBusPackage",
+			"name": "schoolBus",
+			"pages": [
+				"pages/index/index"
+			]
+		},
+		{
+			"root": "mePackage",
+			"name": "me",
+			"pages": [
+				"pages/log/log",
+				"pages/about/about",
+				"pages/feedback/feedback"
+			]
+		}
+	],
 	"sitemapLocation": "sitemap.json",
 	"permission": {
 		"scope.userLocation": {
