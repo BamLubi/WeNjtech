@@ -102,7 +102,7 @@
         <!-- 有班车 -->
         <block wx:if="{{hasBus==1}}">
             <!-- 列表渲染 -->
-            <scroll-view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
+            <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
                 <!-- 准点发车 -->
                 <block wx:if="{{item.status == 1}}">
                     <template is='busLineOnTime' data='{{...item,direction,index,selectDate}}' />
@@ -111,7 +111,7 @@
                 <block wx:if="{{item.status != 1}}">
                     <template is='busLineCircle' data='{{...item,direction,index,selectDate}}' />
                 </block>
-            </scroll-view>
+            </view>
         </block>
         <!-- 无班车 -->
         <block wx:if="{{hasBus==0}}">

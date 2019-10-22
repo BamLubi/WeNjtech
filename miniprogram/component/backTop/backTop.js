@@ -7,7 +7,7 @@ Component({
 		duration: {
             type: Number,
             value: 1000
-        }
+		}
     },
 
     /**
