@@ -3,7 +3,7 @@
 <!-- 准点发车，参数：时间、方向 -->
 <template name='busLineOnTime'>
     <!-- 主体 -->
-    <view class="template_body radius shadow-warp bg-white">
+    <view class="template_body radius shadow bg-white">
         <!-- 时间 -->
         <view class="template_time">
             <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
@@ -47,18 +47,24 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="template_remark">
-            <scroll-view scroll-x="true">
-                <text>准点发车，停靠站点:{{site}}</text>
-            </scroll-view>
-        </view>
+		<view class="template_info">
+			<!-- 发车时间 -->
+			<view>
+				<text class="cuIcon-time text-gray"> 准点发车</text>
+			</view>
+			<!-- 站点 -->
+			<view class="site">
+				<text class="cuIcon-location text-gray"> 站点</text>
+				<view wx:for="{{site}}" wx:key class="cu-tag bg-blue light round">{{item}}</view>
+			</view>
+		</view>
     </view>
 </template>
 
 <!-- 循环发车，参数：时间 -->
 <template name='busLineCircle'>
     <!-- 主体 -->
-    <view class="template_body radius shadow-warp bg-white">
+    <view class="template_body radius shadow bg-white">
         <!-- 时间 -->
         <view class="template_time">
             <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
@@ -94,10 +100,16 @@
             </block>
         </view>
         <!-- 备注 -->
-        <view class="template_remark">
-            <scroll-view scroll-x="true">
-                <text>{{status}}车循环，满员发车，停靠站点:{{site}}</text>
-            </scroll-view>
-        </view>
+        <view class="template_info">
+			<!-- 发车时间 -->
+			<view>
+				<text class="cuIcon-time text-gray"> {{status}}车循环，满员发车</text>
+			</view>
+			<!-- 站点 -->
+			<view class="site">
+				<text class="cuIcon-location text-gray"> 站点 </text>
+				<view wx:for="{{site}}" wx:key class="cu-tag bg-blue light round">{{item}}</view>
+			</view>
+		</view>
     </view>
 </template>
