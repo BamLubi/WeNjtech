@@ -6,10 +6,10 @@
     <view class="template_body radius shadow bg-white">
         <!-- 时间 -->
         <view class="template_time">
-            <text class="text-shadow text-cyan" style="font-size: 17px;">{{line}}</text>
+            <text class="text-shadow text-blue" style="font-size: 17px;">{{line}}</text>
             <text class="text-shadow text-red" style="font-size: 22px;">{{startTime}}</text>
             <block wx:if="{{index==0 && selectDate.weekZN=='今天'}}">
-                <text class="text-shadow text-cyan" style="font-size: 15px;">{{filter.GetTimeDifference(startTime)}}</text>
+                <text class="text-shadow text-blue" style="font-size: 15px;">{{filter.GetTimeDifference(startTime)}}</text>
             </block>
             <block wx:else>
                 <text style="visibility: hidden;">象山线</text>
