@@ -7,24 +7,23 @@ Page({
     data: {
         services: [{
             name: "校车查询",
-			color: "orange",
+            color: "orange",
             funs: [{
-                id: 1,
-                name: "班车时间",
-                img: "/images/service/bus.png"
+                name: "班车时刻",
+                img: "/images/service/bus.png",
+                url: "/schoolBusPackage/pages/index/index"
             }, {
-                id: 2,
                 name: "站点导航",
-				img: "/images/service/site.png"
+                img: "/images/service/site.png",
+					url: "/schoolBusPackage/pages/site/site"
             }]
         }, {
             name: "食堂特色",
-			color: "#44cef6",
+            color: "#44cef6",
             funs: [{
-				id: 3,
-				name: "即将开放",
-				img: "/images/service/res.png"
-			}]
+                name: "即将开放",
+                img: "/images/service/res.png"
+            }]
         }],
     },
 
@@ -85,12 +84,9 @@ Page({
     },
 
     clickBtn: function(event) {
-        let id = event.currentTarget.dataset.id
-        switch (id) {
-            case 1:
-                wx.navigateTo({
-                    url: '/schoolBusPackage/pages/index/index',
-                })
-        }
+        let url = event.currentTarget.dataset.url
+        wx.navigateTo({
+            url: url
+        })
     }
 })
