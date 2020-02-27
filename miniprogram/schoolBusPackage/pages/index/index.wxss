@@ -1,5 +1,4 @@
-/* miniprogram/pages/index/index.wxss */
-@import "/component/template/template.wxss";
+/* miniprogram/schoolBusPackage/pages/index/index.wxss */
 
 /* 遮罩层选择地点 */
 .mask {
@@ -14,34 +13,37 @@
 
 .choosePosition {
     display: flex;
-	flex-direction: column;
+    flex-direction: column;
     width: 100%;
-	height: 100%;
-	justify-content: space-around;
+    height: 100%;
+    justify-content: space-around;
 }
-.choosePosition .title{
-	display: flex;	
-	justify-content: center;
-	color: black;
-	font-size: 20px;
+
+.choosePosition .title {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
 }
-.choosePosition .info{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	margin-left: 2%;
-	margin-right: 2%;
-	border-radius: 10px;
+
+.choosePosition .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
 }
-.choosePosition .info text{
-	font-size: 22px;
-	
+
+.choosePosition .info text {
+    font-size: 22px;
 }
-.choosePosition button{
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 20px;
+
+.choosePosition button {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
 }
 
 /* 头部地点选择 */
@@ -52,13 +54,13 @@
     align-items: center;
     justify-content: center;
     /* flex-grow: 10; */
-	background-color: #2684fe;
+    background-color: #2684fe;
     padding-bottom: 4px;
 }
 
 .placeSelect .place {
     font-size: 20px;
-	color: white;
+    color: white;
 }
 
 .placeSelect image {
@@ -66,24 +68,27 @@
 }
 
 /* 头部时间选择 */
-.timeSelect{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	background-color: #2684fe;
-	padding-bottom: 3px;
+
+.timeSelect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2684fe;
+    padding-bottom: 3px;
 }
-.timeSelect text{
-	font-size: 17px;
-	color: white;
+
+.timeSelect text {
+    font-size: 17px;
+    color: white;
 }
-.timeSelect .date{
-	margin-bottom: 2px;
-	padding-left: 7px;
-	padding-right: 7px;
-	border-radius: 15px;
-	background-color: #4596ff;
+
+.timeSelect .date {
+    margin-bottom: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 15px;
+    background-color: #4596ff;
 }
 
 /* 消息 */
@@ -97,13 +102,11 @@
     margin: 2px 0px 2px 4px;
 }
 
-/* 班车列表 */
-
-.busList {
+/* 班车卡片 */
+.card {
     display: flex;
     flex-direction: column;
-}
-
-.tag{
-	width: 30%;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20rpx 20rpx 10rpx 20rpx;
 }

@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-	  "van-notice-bar": "../../dist/notice-bar/index",
 	  "calendar": "../../component/calendar/calendar",
-	  "backTop": "../../component/backTop/backTop"
-  },
+	  "backTop": "../../component/backTop/backTop",
+	  "busCard": "../../component/busCard/busCard"
+	},
   "navigationBarTitleText": "班车时刻"
 }

@@ -1,9 +1,7 @@
-<!--miniprogram/pages/index/index.wxml-->
-<import src="/component/template/template" />
-
+<!--miniprogram/schoolBusPackage/pages/index/index.wxml-->
 <!-- 地点选择模态框 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HidePlaceChangeMask">
-    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap> 
+    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap>
         <view class="choosePosition">
             <!-- 标题 -->
             <view class="title">更换地点</view>
@@ -92,37 +90,25 @@
     </view>
 </view>
 
-<!-- 消息 -->
-<!-- <van-notice-bar speed="20" text="{{dict.notification}}" /> -->
-
 <!-- 车辆信息 -->
 <scroll-view scroll-y scroll-with-animation style="height: {{windowHeight-66.4}}px;" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
     <!-- 正常运营 -->
-    <view wx:if="{{dict.emergencyCode == 0}}">
+    <block wx:if="{{dict.emergencyCode == 0}}">
         <!-- 有班车 -->
         <block wx:if="{{hasBus==1}}">
             <!-- 列表渲染 -->
-            <view wx:for="{{busLineShow}}" wx:key="unique" class="busList">
-                <!-- 准点发车 -->
-                <block wx:if="{{item.status == 1}}">
-                    <template is='busLineOnTime' data='{{...item,direction,index,selectDate}}' />
-                </block>
-                <!-- 循环发车 -->
-                <block wx:if="{{item.status != 1}}">
-                    <template is='busLineCircle' data='{{...item,direction,index,selectDate}}' />
-                </block>
-            </view>
+            <busCard wx:for="{{busLineShow}}" wx:key="unique" info="{{item}}" site="{{dict[item.site]}}" line="{{dict[item.line]}}" showLeftTime="{{(index==0&&selectDate.weekZN=='今天')?1:0}}"></busCard>
         </block>
         <!-- 无班车 -->
         <block wx:if="{{hasBus==0}}">
-            <view class="template_body radius shadow-warp bg-white">
+            <view class="card radius shadow bg-white">
                 <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">{{hasBusInfo}}</text>
             </view>
         </block>
-    </view>
+    </block>
     <!-- 特殊情况停运 -->
     <view wx:if="{{dict.emergencyCode == 1}}">
-        <view class="template_body radius shadow-warp bg-white">
+        <view class="card radius shadow bg-white">
             <text class="text-shadow text-blue" style="font-size: 17px;margin: 5px 0px 5px 0px;">{{dict.emergencyCodeExplanation}}</text>
         </view>
     </view>

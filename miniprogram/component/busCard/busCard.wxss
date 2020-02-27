@@ -1,0 +1,69 @@
+/* component/busCard/busCard.wxss */
+@import "/component/colorui/main.wxss";
+@import "/component/colorui/icon.wxss";
+/* 主体 */
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20rpx 20rpx 10rpx 20rpx;
+}
+
+/* 时间 */
+
+.cardTime {
+    font-weight: bold;
+    margin-top: 7px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: center;
+}
+
+/* 地点/方向 */
+
+.cardPlace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    margin: 4px 0px 4px 0px;
+}
+
+.cardPlace image {
+    height: 40px;
+    width: 50px;
+}
+
+.cardPlace text {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 19px;
+    font-family: "Microsoft YaHei";
+}
+
+/* 备注信息 */
+.cardInfo {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: 100%;
+	padding-left: 30rpx;
+	padding-bottom: 10rpx;
+	padding-top: 10rpx;
+	background-color: #f3f2f2;
+}
+
+.cardInfo .site{
+	margin-top: 10rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.cardInfo .site text{
+	margin-right: 10rpx;
+}

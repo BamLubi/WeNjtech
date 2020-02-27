@@ -1,5 +1,7 @@
-// miniprogram/pages/index/index.js
+// miniprogram/schoolBusPackage/pages/index/index.js
 const dateControl = require("../../../utils/dateControl.js")
+const cloudDB = require("../../../promise/wxCloudDB.js")
+const busDB = require("../../utils/schoolBusDB.js")
 
 const app = getApp()
 const db = wx.cloud.database()
@@ -14,13 +16,13 @@ Page({
         todayDate: {}, //今天
         selectDate: {}, //用户选择的时间,默认为当日
         busLineShow: [], //用于显示的列表
+        busLineShowLength: 0, //显示的班车列表的长度
         hasBus: true, //是否有班车
         hasBusInfo: '', //用于显示特殊信息
         position: ["校门", "东苑", "北苑", "同和", "象山", "亚青"],
         positionStartIndex: 4, //起点序号
         positionEndIndex: 0, //终点序号
         direction: 0, //方向0为象山开往校门方向，1为校门开往象山方向
-        allBusInfo: null, //所有班车信息
         isChangePlace: false, //是否显示地点选择模态窗
         isChangeDate: false, //是否显示日期选择模态窗
         dict: null, //字典
@@ -34,7 +36,7 @@ Page({
         var that = this
         // 设置屏幕宽高
         that.setData({
-			windowHeight: app.globalData.systemInfo.windowHeight + app.globalData.tabBarHeight,
+            windowHeight: app.globalData.systemInfo.windowHeight + app.globalData.tabBarHeight,
             windowWidth: app.globalData.systemInfo.windowWidth
         })
         // 设置时间
@@ -55,25 +57,24 @@ Page({
             todayDate: JSON.parse(JSON.stringify(this.data.selectDate)) //深拷贝对象
         })
         // 下载字典
-        db.collection('schoolBusTable').doc('08647083-7954-4d1e-932c-6f8002e1c6c6').get({
-            success: function(res) {
-                console.log("下载-字典-信息成功")
-                that.setData({
-                    dict: res.data
-                })
-				if (that.getDictCallback){
-					that.getDictCallback()
-				}
+        cloudDB.GetWxCloudDB('busDict', {
+            name: '字典'
+        }).then(res => {
+            that.setData({
+                dict: res.data[0]
+            })
+            if (that.getDictCallback) {
+                that.getDictCallback()
             }
         })
         // 连接数据库并设置班车信息
-		if(this.data.dict){
-			this.downloadBusInfo()
-		}else{
-			this.getDictCallback = res =>{
-				this.downloadBusInfo()
-			}
-		}
+        if (this.data.dict) {
+            this.setBusLine()
+        } else {
+            this.getDictCallback = res => {
+                this.setBusLine()
+            }
+        }
     },
 
     /**
@@ -131,103 +132,49 @@ Page({
 
     },
     /**
-     * 连接数据库，下载班车信息
-     */
-    downloadBusInfo: function() {
-        var that = this
-        // 显示加载框
-        wx.showLoading({
-            title: '加载中',
-        })
-		// 判断季节，若不存在，则回调
-		var tblId = '0ea5f45b-d433-4608-a2b2-ce94309ac44a'
-		if(this.data.dict.season == 'summer'){
-			console.log("确定季节-summer")
-			tblId = '64b6219d-5982-4326-9da8-5ceee93862d4'
-		} else if (this.data.dict.season == 'winter'){
-			console.log("确定季节-winter")
-			tblId = '0ea5f45b-d433-4608-a2b2-ce94309ac44a'
-		}
-        // 获取信息
-		db.collection('schoolBusTable').doc(tblId).get({
-            success: function(res) {
-                console.log("下载-班车-信息成功")
-                let busInfo = null
-                // 更具星期设置变量
-                if (that.data.selectDate.week == 6 || that.data.selectDate.week == 0) {
-                    // 周末
-                    if (that.data.direction == 0) {
-                        busInfo = res.data.weekendData.forward
-                        console.log("周末-正向")
-                    } else {
-                        console.log("周末-反向")
-                        busInfo = res.data.weekendData.reverse
-                    }
-                } else {
-                    // 工作日
-                    if (that.data.direction == 0) {
-                        console.log("工作日-正向")
-                        busInfo = res.data.workingDayData.forward
-                    } else {
-                        console.log("工作日-反向")
-                        busInfo = res.data.workingDayData.reverse
-                    }
-                }
-                that.setData({
-                    allBusInfo: busInfo
-                })
-                // 产生班车列表
-                that.setBusLine()
-                // 隐藏加载框
-                wx.hideLoading()
-            }
-        })
-    },
-    /**
      * 产生班车列表
      */
     setBusLine: function() {
-        console.log("准备生成班车列表")
-        let data = this.data.allBusInfo;
-        let ans = new Array();
-        // 遍历
-        let nowTime = parseInt(this.data.selectDate.hour) * 100 + parseInt(this.data.selectDate.minutes)
-        for (var i = 0; i < data.length; i++) {
-            let st = parseInt(parseFloat(data[i].startTime).toFixed(2) * 100);
-            let ed = parseInt(parseFloat(data[i].endTime).toFixed(2) * 100);
-            // 筛选当前时间之后的班车
-            if (parseInt(ed - nowTime) >= -5) {
-                // 限定亚青线和象山线
-                if (this.data.positionStartIndex == 5 || this.data.positionEndIndex == 5) {
-                    if (data[i].line == 'busLine_2') {
-                        ans.push(new busLine(data[i], this.data.dict))
-                    }
-                } else if (this.data.positionStartIndex == 4 || this.data.positionEndIndex == 4) {
-                    if (data[i].line == 'busLine_1') {
-                        ans.push(new busLine(data[i], this.data.dict))
-                    }
-                } else {
-                    ans.push(new busLine(data[i], this.data.dict))
-                }
-            }
-        }
-        // 赋值
-        this.setData({
-            busLineShow: ans
-        })
-        console.log("生成班车列表成功")
-        // 若班车信息为空，则设置无班车
-        if (ans.length != 0) {
-            this.setData({
-                hasBus: true,
-                hasBusInfo: '班车信息加载中。。。'
-            })
+        // 准备数据
+        var that = this
+        let season = this.data.dict.season
+        let direction = this.data.direction == 0 ? 'forward' : 'reverse'
+        let time = (this.data.selectDate.hour * 100 + this.data.selectDate.minutes - 5) / 100
+        time = time.toFixed(2)
+        // 设置工作日
+        let week = null
+        if (this.data.selectDate.week == 0 || this.data.selectDate.week == 6) 
+            week = 'weekend'
+        else
+            week = 'workingDay'
+        // 设置线路
+        let line = null
+        if (this.data.positionStartIndex == 5 || this.data.positionEndIndex == 5) {
+            line = ['busLine_2']
+        } else if (this.data.positionStartIndex == 4 || this.data.positionEndIndex == 4) {
+            line = ['busLine_1']
         } else {
-            this.setData({
-                hasBus: false,
-                hasBusInfo: '当前班车休息中'
-            })
+            line = ['busLine_1', 'busLine_2']
         }
+        // 下载
+        busDB.DownLoadBusLine(season, direction, week, line, time, this.data.busLineShowLength)
+            .then(res => {
+                let length = this.data.busLineShowLength + res.data.length
+                if (length == 0) {
+                    this.setData({
+                        hasBus: false,
+                        hasBusInfo: '当前班车休息中'
+                    })
+                } else {
+					let list = that.data.busLineShow.concat(res.data)
+                    that.setData({
+                        busLineShow: list,
+                        busLineShowLength: length,
+						hasBus: true,
+						hasBusInfo: '班车信息加载中。。。'
+                    })
+                }
+            })
     },
     /**
      * 更改方向
@@ -269,14 +216,13 @@ Page({
             })
             // 赋空值
             this.setData({
-                busLineShow: []
+                busLineShow: [],
+				busLineShowLength: 0
             })
-            // 连接数据库
-            this.downloadBusInfo()
             // 获取班车信息
             this.setBusLine()
         }
-        // 隐藏模态框
+        // 隐藏地点选择模态框
         this.HidePlaceChangeMask()
     },
     /**
@@ -431,6 +377,9 @@ Page({
             that.Search()
         }, 200)
     },
+	/**
+	 * 监听页面滚动
+	 */
     PageScroll: function(e) {
         this.backTop = this.selectComponent("#backTop")
         let scrollHeight = e.detail.scrollTop
@@ -440,6 +389,9 @@ Page({
             this.backTop.hide()
         }
     },
+	/**
+	 * 监听页面到达顶部
+	 */
     ScrollToTop: function() {
         this.setData({
             scrollTopNum: 0
@@ -447,7 +399,7 @@ Page({
     }
 })
 
-// 对象构造器
+// 对象构造器，未用
 function busLine(childLine, dict) {
     // 开始时间
     let stNum = parseFloat(childLine.startTime).toFixed(2).split(".");

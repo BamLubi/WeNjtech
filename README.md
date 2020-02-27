@@ -1,7 +1,9 @@
 <p align="center">
-  <img alt="logo" src="./resource/ngxc.png" width="200" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200128131530.png" width="200" style="margin-bottom: 10px;">
 </p>
 <h3 align="center">专属南工学子的校车查询</h3>
+
+[TOC]
 
 ## 介绍
 
@@ -13,8 +15,9 @@
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="./resource/saoma.png" width="500" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200128131648.png" width="500" style="margin-bottom: 10px;">
 </p>
+
 
 
 
@@ -38,13 +41,13 @@
 ```
 ├──cloudfunctions			// 云函数
 ├──miniprogram				// 主程序
-|  ├──colorui				// colorui UI组件库
 |  ├──component				// 组件
 |  |  ├──backTop			// 返回顶部
 |  |  ├──calendar			// 日历
 |  |  ├──footer				// 底部
+|  |  ├──colorui			// colorui UI组件库
+|  |  ├──dist				// Vant UI组件库
 |  |  └──template			// 模板
-|  ├──dist					// Vant UI组件库
 |  ├──images				// 图标
 |  ├──mePackage				// 我的页面分包
 |  |  ├──pages				// 页面
@@ -57,7 +60,10 @@
 |  |  └──service			// 服务
 |  ├──schoolBusPackage		// 校车页面分包
 |  |  ├──pages				// 页面
-|  |  |  └──index			// 主页
+|  |  |  ├──index			// 主页
+|  |  |  └──site			// 站点图
+|  |  └──utils				// 工具库
+|  ├──style					// 样式
 |  ├──utils					// 工具库
 │  ├──app.js
 |  ├──app.json
@@ -128,4 +134,3 @@ v1.0.1
 
 - 引入colorui组件
 - 完成基础的班车显示
-

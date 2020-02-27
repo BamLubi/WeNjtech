@@ -1,6 +1,6 @@
 /**app.wxss**/
-@import "colorui/main.wxss";
-@import "colorui/icon.wxss";
+@import "/component/colorui/main.wxss";
+@import "/component/colorui/icon.wxss";
 
 body{
 	background-color: #F6F6F6;

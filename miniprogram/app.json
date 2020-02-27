@@ -1,7 +1,7 @@
 {
 	"pages": [
-		"pages/me/me",
 		"pages/service/service",
+		"pages/me/me",
 		"pages/home/home"
 	],
 	"window": {
@@ -14,12 +14,6 @@
 	"tabBar": {
 		"selectedColor": "#1296db",
 		"list": [
-			{
-				"pagePath": "pages/home/home",
-				"text": "主页",
-				"iconPath": "images/tabbar/home.png",
-				"selectedIconPath": "images/tabbar/home_click.png"
-			},
 			{
 				"pagePath": "pages/service/service",
 				"text": "功能",
@@ -39,7 +33,8 @@
 			"root": "schoolBusPackage",
 			"name": "schoolBus",
 			"pages": [
-				"pages/index/index"
+				"pages/index/index",
+				"pages/site/site"
 			]
 		},
 		{
