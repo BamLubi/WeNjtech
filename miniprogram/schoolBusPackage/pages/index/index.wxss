@@ -31,9 +31,11 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 2vw;
+    margin-right: 2vw;
     border-radius: 10px;
+
+    height: 7.7vh;
 }
 
 .choosePosition .info text {
@@ -41,30 +43,29 @@
 }
 
 .choosePosition button {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
 }
 
-/* 头部地点选择 */
+/* 顶部地点选择 */
 
 .placeSelect {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* flex-grow: 10; */
+
     background-color: #2684fe;
-    padding-bottom: 4px;
+
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
 }
 
 .placeSelect .place {
     font-size: 20px;
     color: white;
-}
-
-.placeSelect image {
-    margin: 5px 0px 5px 0px;
 }
 
 /* 头部时间选择 */
@@ -75,7 +76,11 @@
     align-items: center;
     justify-content: space-around;
     background-color: #2684fe;
-    padding-bottom: 3px;
+
+    position: fixed;
+    width: 100vw;
+    height: 5vh;
+    top: 5vh;
 }
 
 .timeSelect text {
@@ -84,22 +89,17 @@
 }
 
 .timeSelect .date {
-    margin-bottom: 2px;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 1vw;
+    padding-right: 1vw;
     border-radius: 15px;
     background-color: #4596ff;
 }
 
-/* 消息 */
-
-.message {
-    width: 100%;
-}
-
-.message text {
-    font-size: 16px;
-    margin: 2px 0px 2px 4px;
+/* 班车卡片列表 */
+.busInfo{
+    position: fixed;
+    height: 90vh;
+    top: 10vh;
 }
 
 /* 班车卡片 */
@@ -108,5 +108,5 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    margin: 20rpx 20rpx 10rpx 20rpx;
+    margin: 2vh 5vw 2vh 5vw;
 }

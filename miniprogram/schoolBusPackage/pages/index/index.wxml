@@ -1,12 +1,12 @@
 <!--miniprogram/schoolBusPackage/pages/index/index.wxml-->
 <!-- 地点选择模态框 -->
 <view class="cu-modal {{isChangePlace?'show':''}}" bindtap="HidePlaceChangeMask">
-    <view class="cu-dialog" style="height: {{windowHeight*9/20}}px;width: 90%;border-radius: 15px;" catchtap>
+    <view class="cu-dialog" style="height: 45vh;width: 90%;border-radius: 15px;" catchtap>
         <view class="choosePosition">
             <!-- 标题 -->
             <view class="title">更换地点</view>
             <!-- 第一行地点 -->
-            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            <view class="info bg-gray">
                 <!-- 起点 -->
                 <view>
                     <picker bindchange="PickerChange" value="{{positionStartIndex}}" range="{{position}}" bindchange="ChangeStartPosition">
@@ -23,7 +23,7 @@
                 </view>
             </view>
             <!-- 第二行日期 -->
-            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            <view class="info bg-gray">
                 <picker mode="date" value="{{date}}" start="{{todayDate.year}}-{{todayDate.month}}-{{todayDate.day}}" end="2022-09-01" bindchange="DateChange">
                     <text>{{selectDate.dateZN}}<text style="font-size: 18px;">({{selectDate.weekZN}})</text></text>
                 </picker>
@@ -31,7 +31,7 @@
                 <view></view>
             </view>
             <!-- 第三行时间段 -->
-            <view class="info bg-gray" style="height: {{windowHeight/13}}px;">
+            <view class="info bg-gray">
                 <picker mode="time" value="{{time}}" start="{{selectDate.hour}}:{{selectDate.minutes<10?'0'+selectDate.minutes:selectDate.minutes}}" end="22:00" bindchange="TimeChange">
                     <text>{{selectDate.hour<10?"0"+selectDate.hour:selectDate.hour}}:{{selectDate.minutes<10?"0"+selectDate.minutes:selectDate.minutes}}<text class="text-red"> - 22:00</text></text>
                 </picker>
@@ -91,7 +91,7 @@
 </view>
 
 <!-- 车辆信息 -->
-<scroll-view scroll-y scroll-with-animation style="height: {{windowHeight-66.4}}px;" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
+<scroll-view scroll-y scroll-with-animation class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
     <!-- 正常运营 -->
     <block wx:if="{{dict.emergencyCode == 0}}">
         <!-- 有班车 -->
