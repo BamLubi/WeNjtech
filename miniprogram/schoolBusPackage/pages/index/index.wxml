@@ -98,6 +98,12 @@
         <block wx:if="{{hasBus==1}}">
             <!-- 列表渲染 -->
             <busCard wx:for="{{busLineShow}}" wx:key="unique" info="{{item}}" site="{{dict[item.site]}}" line="{{dict[item.line]}}" showLeftTime="{{(index==0&&selectDate.weekZN=='今天')?1:0}}"></busCard>
+            <!-- 显示更多信息 -->
+            <block>
+                <view wx:if="{{!hasMoreBus}}" class="cu-load over" />
+                <view wx:elif="{{isBusLoading}}" class="cu-load loading" />
+                <view wx:else class="cu-load text-center text-black" bindtap="setBusLine">点我点我(￣▽￣)"</view>
+            </block>
         </block>
         <!-- 无班车 -->
         <block wx:if="{{hasBus==0}}">

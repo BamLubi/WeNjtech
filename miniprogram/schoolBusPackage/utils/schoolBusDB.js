@@ -34,7 +34,7 @@ function DownLoadBusLine(season, direction, week, line, time, length) {
                 site: true
             })
 			.skip(length)
-            .limit(10)
+            .limit(5)
             .get({
 				success: res=>{
 					console.log('[云数据库] [GET] [班车信息] success: ', res)

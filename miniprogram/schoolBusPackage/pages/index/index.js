@@ -26,7 +26,9 @@ Page({
         isChangePlace: false, //是否显示地点选择模态窗
         isChangeDate: false, //是否显示日期选择模态窗
         dict: null, //字典
-        scrollTopNum: 0 //控制scroll-view的顶部距离
+        scrollTopNum: 0, //控制scroll-view的顶部距离
+        hasMoreBus: true,//是否有更多的班车信息
+        isBusLoading: false,//班车信息是否在加载
     },
 
     /**
@@ -157,9 +159,17 @@ Page({
             line = ['busLine_1', 'busLine_2']
         }
         // 下载
+        that.setData({
+            isBusLoading: true
+        })
         busDB.DownLoadBusLine(season, direction, week, line, time, this.data.busLineShowLength)
             .then(res => {
                 let length = this.data.busLineShowLength + res.data.length
+                if(res.data.length == 0){
+                    that.setData({
+                        hasMoreBus: false
+                    })
+                }
                 if (length == 0) {
                     this.setData({
                         hasBus: false,
@@ -174,6 +184,9 @@ Page({
 						hasBusInfo: '班车信息加载中。。。'
                     })
                 }
+                that.setData({
+                    isBusLoading: false
+                })
             })
     },
     /**
@@ -218,6 +231,10 @@ Page({
             this.setData({
                 busLineShow: [],
 				busLineShowLength: 0
+            })
+            // 设置有更多信息可取
+            this.setData({
+                hasMoreBus: true
             })
             // 获取班车信息
             this.setBusLine()
