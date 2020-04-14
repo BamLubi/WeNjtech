@@ -6,17 +6,21 @@ const fs = wx.getFileSystemManager()
 
 /**
  * call wx.showModal
- * 
- * @title modal's title
- * @content modal's content
- * @return Promise Object
+ * @param {string} title modal's title
+ * @param {string} content modal's content
+ * @param {boolean} showCancel 
+ * @param {string} cancelText 
+ * @param {string} confirmText 
  */
-function ShowModal(title, content) {
+function ShowModal(title, content, showCancel, cancelText, confirmText) {
     //return Promise Object
-    return new Promise(function(confirm, cancel, reject) {
+    return new Promise(function (confirm, cancel, reject) {
         wx.showModal({
             title: title,
             content: content,
+            showCancel: showCancel,
+            cancelText: cancelText,
+            confirmText: confirmText,
             success: res => {
                 if (res.confirm) {
                     console.log('[wxAPI] [模态框] [确认]')
@@ -35,13 +39,39 @@ function ShowModal(title, content) {
 }
 
 /**
+ * 
+ * @param {*} title 
+ * @param {*} icon 
+ */
+function ShowToast(title, icon, duration){
+    //return Promise Object
+    return new Promise(function (resolve, reject) {
+       wx.showToast({
+         title: title,
+         icon: icon,
+         duration: duration,
+         success: (res) => {resolve(res)},
+       })
+    });
+}
+
+function HideToast(title, icon){
+    //return Promise Object
+    return new Promise(function (resolve, reject) {
+       wx.hideToast({
+         success: (res) => {resolve(res)},
+       })
+    });
+}
+
+/**
  * call wx.chooseAddress
  * 
  * @return Promise Object
  */
 function ChooseAddress() {
     //return Promise Object
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         wx.chooseAddress({
             success: res => {
                 console.log("[wxAPI] [获取地址] success: ", res)
@@ -62,7 +92,7 @@ function ChooseAddress() {
  */
 function GetSetting() {
     //return Promise Object
-    return new Promise(function(resolve, resolve2, reject) {
+    return new Promise(function (resolve, resolve2, reject) {
         wx.getSetting({
             success: res => {
                 // 已经授权
@@ -89,11 +119,14 @@ function GetSetting() {
  */
 function GetUserInfo() {
     //return Promise Object
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         wx.getUserInfo({
             success: res => {
                 console.log("[wxAPI] [获取用户信息] success: ", res.userInfo)
-				console.log({ encryptedData: res.encryptedData, iv: res.iv})
+                // console.log({
+                //     encryptedData: res.encryptedData,
+                //     iv: res.iv
+                // })
                 resolve(res)
             },
             fail: err => {
@@ -113,7 +146,7 @@ function GetUserInfo() {
  */
 function SaveFile(tempFilePath, fileName) {
     //return Promise Object
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         fs.saveFile({
             tempFilePath: tempFilePath,
             filePath: wx.env.USER_DATA_PATH + '/' + fileName,
@@ -137,17 +170,41 @@ function SaveFile(tempFilePath, fileName) {
  */
 function OpenDocument(savedFilePath) {
     //return Promise Object
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
         wx.openDocument({
             filePath: savedFilePath,
-			success: res => {
-				console.log("[wxAPI] [打开文件] success: ", res)
-				resolve(res)
-			},
-			fail: err => {
-				console.err("[wxAPI] [打开文件] fail: ", err)
-				reject(err)
-			}
+            success: res => {
+                console.log("[wxAPI] [打开文件] success: ", res)
+                resolve(res)
+            },
+            fail: err => {
+                console.err("[wxAPI] [打开文件] fail: ", err)
+                reject(err)
+            }
+        })
+    });
+}
+
+/**
+ * call wx.requestSubscribeMessage()
+ * @param {str} tmplId 
+ */
+function RequestSubscribeMessage(tmplId) {
+    //return Promise Object
+    return new Promise(function (accept, failure, reject) {
+        console.log("跳转了")
+        wx.requestSubscribeMessage({
+            tmplIds: [tmplId],
+            success: res => {
+                console.log("成功调起", res[tmplId])
+                if (res[tmplId] == 'accept') {
+                    console.log("[wxAPI] [授权订阅消息] accept")
+                    accept()
+                } else {
+                    console.log("[wxAPI] [授权订阅消息] fail")
+                }
+            },
+            fail: err => {}
         })
     });
 }
@@ -159,5 +216,8 @@ module.exports = {
     GetSetting: GetSetting,
     GetUserInfo: GetUserInfo,
     SaveFile: SaveFile,
-	OpenDocument: OpenDocument
+    OpenDocument: OpenDocument,
+    RequestSubscribeMessage: RequestSubscribeMessage,
+    ShowToast: ShowToast,
+    HideToast: HideToast
 }

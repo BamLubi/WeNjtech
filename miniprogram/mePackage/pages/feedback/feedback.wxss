@@ -1,5 +1,0 @@
-/* miniprogram/mePackage/pages/feedback/feedback.wxss */
-.btn-submit{
-	width: 80%;
-	margin-left: 10%;
-}

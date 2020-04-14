@@ -1,9 +1,30 @@
 <!--miniprogram/pages/home/home.wxml-->
 <view>
-    <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-        <swiper-item wx:for="{{swiperList}}" wx:key>
-            <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-            <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-        </swiper-item>
-    </swiper>
+	<scroll-view class="scrollPage nav text-center fixed">
+		<!-- 顶部轮播 -->
+		<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+			<swiper-item wx:for="{{swiperList}}" wx:key>
+				<image src="{{item.url}}" mode="scaleToFill" wx:if="{{item.type=='image'}}"></image>
+				<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+			</swiper-item>
+		</swiper>
+		<!-- 中部工具栏 -->
+		<view class="sv-list margin-top-xl flex justify-center align-center">
+			<block wx:for="{{services}}" wx:key>
+				<!-- 自定义页面跳转 -->
+				<navigator wx:if="{{item.type == 'navigator'}}" class="sv-li bg-cyan animation-slide-bottom" style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" open-type="navigate" url="{{item.url}}" role="navigation">
+					<view class="sv-title">{{item.title}}</view>
+					<view class="sv-name">{{item.name}}</view>
+				</navigator>
+				<!-- 使用js -->
+				<view wx:if="{{item.type == 'button'}}" class="sv-li bg-green animation-slide-bottom" style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" bindtap="{{item.bindtap}}">
+					<view class="sv-title">{{item.title}}</view>
+					<view class="sv-name">{{item.name}}</view>
+				</view>
+			</block>
+		</view>
+		<!-- 测试用按钮 -->
+		<!-- <button bindtap="testButton">下载apk</button> -->
+		<!-- <button bindtap="testButton2">下发订阅</button> -->
+	</scroll-view>
 </view>

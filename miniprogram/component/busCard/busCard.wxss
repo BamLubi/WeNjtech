@@ -9,7 +9,7 @@
     align-items: center;
     border-radius: 10px;
     /* margin: 20rpx 20rpx 10rpx 20rpx; */
-    margin: 2vh 5vw 2vh 5vw;
+    /* margin: 2vh 5vw 2vh 5vw; */
 }
 
 /* 时间 */
@@ -20,7 +20,7 @@
 	justify-content: space-around;
     align-content: center;
     font-weight: bold;
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
 	width: 100%;
 }
 
@@ -32,7 +32,7 @@
     justify-content: space-around;
     align-content: center;
     width: 100%;
-    margin: 1vh 0vh 1vh 0vh;
+    /* margin: 1vh 0vh 1vh 0vh; */
 }
 
 .cardPlace image {
@@ -52,19 +52,5 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     width: 100%;
-	padding-left: 4vw;
-	padding-bottom: 10rpx;
-	padding-top: 10rpx;
 	background-color: #f3f2f2;
-}
-
-.cardInfo .site{
-	margin-top: 10rpx;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
-.cardInfo .site text{
-	margin-right: 10rpx;
 }

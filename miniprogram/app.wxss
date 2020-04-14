@@ -1,7 +1,12 @@
 /**app.wxss**/
 @import "/component/colorui/main.wxss";
 @import "/component/colorui/icon.wxss";
+@import "/component/colorui/animation.wxss";
 
 body{
 	background-color: #F6F6F6;
+}
+
+.scrollPage {
+  height: 100vh;
 }

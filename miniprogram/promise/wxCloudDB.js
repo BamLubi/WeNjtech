@@ -13,26 +13,26 @@ const _ = db.command
  * @return Promise Object
  */
 function GetWxCloudDB(collectionName, whereData) {
-    //return Promise Object
-    return new Promise(function(resolve, resolve2, reject) {
+	//return Promise Object
+	return new Promise(function (resolve, resolve2, reject) {
 		db.collection(collectionName)
-            .where(whereData)
-            .get({
-                success: res => {
-					if(res.data.length!=0){
+			.where(whereData)
+			.get({
+				success: res => {
+					if (res.data.length != 0) {
 						console.log('[云数据库] [GET] [' + collectionName + '] success: ', res.data)
 						resolve(res)
-					}else if(res.data.length==0){
+					} else if (res.data.length == 0) {
 						console.log('[云数据库] [GET] [' + collectionName + '] success: NULL')
 						resolve2(res)
 					}
-                },
-                fail: err => {
+				},
+				fail: err => {
 					console.error('[云数据库] [GET] [' + collectionName + '] fail: ', err)
 					reject(err)
-                }
-            })
-    });
+				}
+			})
+	});
 }
 
 /**

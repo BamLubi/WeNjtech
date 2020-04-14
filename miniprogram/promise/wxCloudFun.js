@@ -18,11 +18,11 @@ function CallWxCloudFun(funName, data) {
             data: data,
             success: res => {
                 console.log('[云函数] [' + funName + '] success: ', res.result)
-                resolve(res)
+                resolve(res.result)
             },
             fail: err => {
 				console.error('[云函数] [' + funName + '] fail: ', err)
-                reject(res)
+                reject(err)
             }
         })
     });

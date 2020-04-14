@@ -1,14 +1,22 @@
 <!--miniprogram/mePackage/pages/about/about.wxml-->
 <view>
 	<!-- logo & version -->
-	<view class="logo">
-		<image src="/images/me/ngxc.png"></image>
-		<view class="text-bold text-shadow">V 1.2.2</view>
+	<view class="logo margin-top">
+		<image src="https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/lite%E5%8D%97%E5%B7%A5.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
+		<view class="text-bold text-gray text-xl text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
 	</view>
 	<!-- information -->
-	<view class="shadow margin radius bg-white padding">
-		欢迎使用“Lite南工”小程序，本小程序将致力于提供便利的校园生活工具。
+	<view class="shadow margin radius bg-white padding text-lg">
+		<text>欢迎使用“Lite南工”小程序，本小程序将致力于提供便利的校园生活工具。
+
+		现已支持功能板块:
+		[班车时刻]
+		+ 查询任意时刻校车;
+		+ 支持发车前提醒;
+		[太南课表]
+		+ 引用@AutoKaKa作品;
+		</text>
 	</view>
-	<!-- copyright -->
-	<footer></footer>
+	<!-- ad -->
+	<ad unit-id="adunit-83e34b11efd33e33"></ad>
 </view>

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-	  "footer": "../../component/footer/footer"
-  },
-  "navigationBarTitleText": "关于"
-}

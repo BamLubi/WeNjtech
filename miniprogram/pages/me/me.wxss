@@ -23,7 +23,8 @@
 .head .userNickName {
 	color: white;
 	margin-bottom: 20rpx;
-	font-size: 34rpx;
+	font-size: 38rpx;
+	font-weight: 600;
 }
 
 .head .userButton {
@@ -38,37 +39,41 @@
 }
 
 /* 工具条 */
-.btn-area{
-	margin: 50rpx 30rpx 20rpx 30rpx;
-	border-radius: 20rpx;
-	padding: 14rpx;
-	display: flex;
-	flex-direction: column;
-	background-color: white;
-	font-size: 40rpx;
+.child {
+	width: 100%;
 }
 
-.btn-area .child-btn{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: 90%;
-	margin-bottom: 20rpx;
-	margin-left: 30rpx;
-}
-
-.btn-area .child-btn text{
-	width: 200rpx;
-}
-
-.btn-area .child-btn .child-img-1{
-	width: 60rpx;
-	height: 60rpx;
+.child image {
+	width: 50rpx;
+	height: 50rpx;
 	margin-right: 20rpx;
 }
 
-.btn-area .child-btn .child-img-2{
-	width: 40rpx;
-	height: 40rpx;
-	margin-left: 300rpx;
+.child text {
+	font-size: 35rpx;
+}
+
+.me-nav-btn {
+	background-color: rgb(255, 255, 255);
+	border-radius: 0rpx;
+	display: inline-block;
+	line-height: 1;
+	margin-left: 0rpx;
+	padding-left: 0rpx;
+	display: table-cell;
+}
+
+.me-nav-btn::after {
+	/*button的边框样式是通过::after方式实现的*/
+	border: none;
+}
+
+.me-nav-btn image {
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 20rpx;
+}
+
+.me-nav-btn text {
+	font-size: 35rpx;
 }

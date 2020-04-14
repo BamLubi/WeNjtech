@@ -1,110 +1,118 @@
 <!--component/busCard/busCard.wxml-->
 <!-- 主体 -->
-<view class="cardBody radius shadow bg-white">
+<view class="margin cardBody radius shadow bg-white">
 	<!-- 准时发车 -->
-    <block wx:if="{{info.amount == 1}}">
-        <!-- 时间 -->
-        <view class="cardTime">
-            <text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
-            <text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
-            <block wx:if="{{showLeftTime==1}}">
-                <text class="text-shadow" style="font-size: 15px; color: #00a8ff;">{{leftTimeString}}</text>
-            </block>
-            <block wx:else>
-                <text style="visibility: hidden;">象山线</text>
-            </block>
-        </view>
-        <!-- 地点/方向 -->
-        <view class="cardPlace text-shadow text-black">
-            <!-- 象山到校门口 -->
-            <block wx:if="{{info.direction=='forward'}}">
-                <block wx:if="{{line=='象山线'}}">
-                    <text>象</text>
-                    <text>山</text>
-                </block>
-                <block wx:else>
-                    <text>亚</text>
-                    <text>青</text>
-                </block>
-                <image src="/images/row.png"></image>
-                <text>校</text>
-                <text>门</text>
-            </block>
-            <!-- 校门口到象山 -->
-            <block wx:else>
-                <text>校</text>
-                <text>门</text>
-                <image src="/images/row.png"></image>
-                <block wx:if="{{line=='象山线'}}">
-                    <text>象</text>
-                    <text>山</text>
-                </block>
-                <block wx:else>
-                    <text>亚</text>
-                    <text>青</text>
-                </block>
-            </block>
-        </view>
-        <!-- 备注 -->
-        <view class="cardInfo">
-            <!-- 发车时间 -->
-            <view>
-                <text class="cuIcon-time text-gray"> 准点发车</text>
-            </view>
-            <!-- 站点 -->
-            <view class="site">
-                <text class="cuIcon-location text-gray"> 站点</text>
-                <view wx:for="{{site}}" wx:key class="cu-tag bg-blue light round">{{item}}</view>
-            </view>
-        </view>
-    </block>
+	<block wx:if="{{info.amount == 1}}">
+		<!-- 时间 -->
+		<view class="cardTime margin-top-sm">
+			<text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
+			<text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
+			<block wx:if="{{showLeftTime==1}}">
+				<text class="text-shadow" style="font-size: 15px; color: #00a8ff;">{{leftTimeString}}</text>
+			</block>
+			<block wx:else>
+				<text style="visibility: hidden;">象山线</text>
+			</block>
+		</view>
+		<!-- 地点/方向 -->
+		<view class="cardPlace margin-top-xs text-shadow text-black">
+			<!-- 象山到校门口 -->
+			<block wx:if="{{info.direction=='forward'}}">
+				<block wx:if="{{line=='象山线'}}">
+					<text>象</text>
+					<text>山</text>
+				</block>
+				<block wx:else>
+					<text>亚</text>
+					<text>青</text>
+				</block>
+				<image src="/images/row.png"></image>
+				<text>校</text>
+				<text>门</text>
+			</block>
+			<!-- 校门口到象山 -->
+			<block wx:else>
+				<text>校</text>
+				<text>门</text>
+				<image src="/images/row.png"></image>
+				<block wx:if="{{line=='象山线'}}">
+					<text>象</text>
+					<text>山</text>
+				</block>
+				<block wx:else>
+					<text>亚</text>
+					<text>青</text>
+				</block>
+			</block>
+		</view>
+		<!-- 备注 -->
+		<view class="cardInfo padding-sm">
+			<!-- 发车时间 -->
+			<view>
+				<text class="cuIcon-time text-gray"> 准点发车</text>
+			</view>
+			<!-- 站点 -->
+			<view class="flex justify-start align-center margin-top-xs">
+				<text class="cuIcon-location text-gray margin-right"> 站点</text>
+				<view wx:for="{{site}}" wx:key class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
+			</view>
+			<!-- 设置提醒 -->
+			<view class="margin-top-xs">
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒，发车前微信提醒您 ˋ( ° ▽、° ) </text>
+			</view>
+		</view>
+	</block>
 	<!-- 循环发车 -->
-    <block wx:else>
-        <!-- 时间 -->
-        <view class="cardTime">
-            <text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
-            <view>
-                <text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
-                <text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">-</text>
-                <text class="text-shadow text-red" style="font-size: 22px;">{{info.endTime}}</text>
-            </view>
-            <block wx:if="{{showLeftTime==1}}">
-                <text class="text-shadow" style="font-size: 15px;color: #00a8ff;">{{leftTimeString}}</text>
-            </block>
-            <block wx:else>
-                <text style="visibility: hidden;">象山线</text>
-            </block>
-        </view>
-        <!-- 地点/方向 -->
-        <view class="cardPlace text-shadow text-black">
-            <!-- 象山到校门口 -->
-            <block>
-                <text>象</text>
-                <text>山</text>
-                <text>(</text>
-                <text>校</text>
-                <text>门</text>
-                <text>)</text>
-                <image src="/images/row.png"></image>
-                <text>校</text>
-                <text>门</text>
-                <text>(</text>
-                <text>象</text>
-                <text>山</text>
-                <text>)</text>
-            </block>
-        </view>
-        <!-- 备注 -->
-        <view class="cardInfo">
-            <!-- 发车时间 -->
-            <view>
-                <text class="cuIcon-time text-gray"> {{info.amount}}车循环，满员发车</text>
-            </view>
-            <!-- 站点 -->
-            <view class="site">
-                <text class="cuIcon-location text-gray"> 站点 </text>
-                <view wx:for="{{site}}" wx:key class="cu-tag bg-blue light round">{{item}}</view>
-            </view>
-        </view>
-    </block>
+	<block wx:else>
+		<!-- 时间 -->
+		<view class="cardTime">
+			<text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
+			<view>
+				<text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
+				<text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">-</text>
+				<text class="text-shadow text-red" style="font-size: 22px;">{{info.endTime}}</text>
+			</view>
+			<block wx:if="{{showLeftTime==1}}">
+				<text class="text-shadow" style="font-size: 15px;color: #00a8ff;">{{leftTimeString}}</text>
+			</block>
+			<block wx:else>
+				<text style="visibility: hidden;">象山线</text>
+			</block>
+		</view>
+		<!-- 地点/方向 -->
+		<view class="cardPlace text-shadow text-black">
+			<!-- 象山到校门口 -->
+			<block>
+				<text>象</text>
+				<text>山</text>
+				<text>(</text>
+				<text>校</text>
+				<text>门</text>
+				<text>)</text>
+				<image src="/images/row.png"></image>
+				<text>校</text>
+				<text>门</text>
+				<text>(</text>
+				<text>象</text>
+				<text>山</text>
+				<text>)</text>
+			</block>
+		</view>
+		<!-- 备注 -->
+		<view class="cardInfo padding-sm">
+			<!-- 发车时间 -->
+			<view>
+				<text class="cuIcon-time text-gray"> {{info.amount}}车循环，满员发车</text>
+			</view>
+			<!-- 站点 -->
+			<view class="flex justify-start align-center margin-top-xs">
+				<text class="cuIcon-location text-gray margin-right"> 站点</text>
+				<view wx:for="{{site}}" wx:key class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
+			</view>
+			<!-- 设置提醒 -->
+			<view class="margin-top-xs">
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒，发车前微信提醒您 ˋ( ° ▽、° ) </text>
+			</view>
+		</view>
+	</block>
 </view>

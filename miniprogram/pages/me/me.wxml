@@ -13,14 +13,23 @@
     </view>
 
     <!-- 工具条 -->
-    <view class="btn-area shadow shadow-lg">
-        <navigator wx:for="{{service}}" wx:key class="child-btn" url="{{item.url}}" hover-class="navigator-hover">
-                <image class="child-img-1" src="{{item.img}}"></image>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view wx:for="{{service}}" wx:if="{{item.show}}" wx:key class="cu-item arrow">
+            <!-- 自定义跳转页面 -->
+            <navigator wx:if="{{item.type == 'navigator'}}" class="flex justify-start align-center child" hover-class="navigator-hover" url="{{item.url}}">
+                <image class="child-img" src="{{item.img}}"></image>
                 <text class="text-grey">{{item.name}}</text>
-                <image class="child-img-2" src="/images/right-grey.png"></image>
-        </navigator>
+            </navigator>
+            <!-- 开放能力的button，只能用button -->
+            <view wx:if="{{item.type == 'button'}}" style="width: 100%;display: table;">
+                <button class="me-nav-btn" open-type="{{item.opentype}}">
+                    <view class="flex justify-start align-center">
+                        <image class="child-img" src="{{item.img}}"></image>
+                        <text class="text-grey">{{item.name}}</text>
+                    </view>
+                </button>
+                <button class="me-nav-btn" style="width: 50%;" open-type="{{item.opentype}}"></button>
+            </view>
+        </view>
     </view>
-
-	<!-- 广告 -->
-	<ad unit-id="adunit-83e34b11efd33e33" style="margin-top: 100rpx;"></ad>
 </view>

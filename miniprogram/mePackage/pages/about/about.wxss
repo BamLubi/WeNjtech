@@ -4,7 +4,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 100rpx;
 }
 .logo image{
 	width: 400rpx;
@@ -15,8 +14,6 @@
 }
 
 .logo view{
-	font-size: 40rpx;
-	color: grey;
+	/* color: grey; */
 	opacity: 0.6;
-	margin-top: 30rpx;
 }
