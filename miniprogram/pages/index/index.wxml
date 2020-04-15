@@ -1,4 +1,4 @@
-<!--miniprogram/pages/home/home.wxml-->
+<!--miniprogram/pages/index/index.wxml-->
 <view>
 	<scroll-view class="scrollPage nav text-center fixed">
 		<!-- 顶部轮播 -->

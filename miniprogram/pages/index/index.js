@@ -1,4 +1,4 @@
-// miniprogram/pages/home/home.js
+// miniprogram/pages/index/index.js
 const cloudFun = require("../../promise/wxCloudFun.js")
 const cloudDB = require("../../promise/wxCloudDB.js")
 const cloudStore = require("../../promise/wxCloudStore.js")

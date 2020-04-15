@@ -2,12 +2,12 @@
 <view>
 	<!-- logo & version -->
 	<view class="logo margin-top">
-		<image src="https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/lite%E5%8D%97%E5%B7%A5.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
-		<view class="text-bold text-gray text-xl text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
+		<image src="https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/miniNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
+		<view class="text-bold text-gray text-lg text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
 	</view>
 	<!-- information -->
 	<view class="shadow margin radius bg-white padding text-lg">
-		<text>欢迎使用“Lite南工”小程序，本小程序将致力于提供便利的校园生活工具。
+		<text>欢迎使用“微南工”小程序，我们将致力于提供便利的校园生活工具。
 
 		现已支持功能板块:
 		[班车时刻]

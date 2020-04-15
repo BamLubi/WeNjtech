@@ -457,7 +457,7 @@ Page({
                                 })
                         })
                         videoAd.onClose(res => {
-                            if (res.isEnded == true) {
+                            if (res.isEnded == false) {
                                 // 用户未完整观看广告
                                 API.ShowModal('', "未完整观看视频,设置乘车提醒失败T_T", false, '', "朕知道了")
                             } else {
