@@ -1,13 +1,32 @@
 /* miniprogram/pages/me/me.wxss */
 /* 顶部 */
+@import "./stars.wxss";
+
+page {
+	/* background-color: #fff !important; */
+	background: linear-gradient(to bottom, #fff, #f2f2f2);
+}
+
 .head {
+	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/miniNjtech/me-bg-img-3.jpg);
+	background-size: cover;
+	height: 500rpx;
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	background-color: #8a2be2;
-	height: 300rpx;
-	border-bottom-left-radius: 40rpx;
-	border-bottom-right-radius: 40rpx;
+	overflow: hidden;
+	position: relative;
+}
+
+.head .gif-wave {
+	position: absolute;
+	width: 100vw;
+	bottom: 0;
+	left: 0;
+	z-index: 98;
+	mix-blend-mode: screen;
+	height: 200rpx;
 }
 
 .head .userAvatar {
@@ -18,6 +37,7 @@
 	border-radius: 50%;
 	border: 2px solid #fff;
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+	z-index: 99;
 }
 
 .head .userNickName {
@@ -25,6 +45,7 @@
 	margin-bottom: 20rpx;
 	font-size: 38rpx;
 	font-weight: 600;
+	z-index: 99;
 }
 
 .head .userButton {
@@ -36,6 +57,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	z-index: 99;
 }
 
 /* 工具条 */

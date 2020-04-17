@@ -1,35 +1,45 @@
 <!--miniprogram/pages/me/me.wxml-->
 <view>
-    <!-- 顶部背景及个人信息 -->
-    <view class="head shadow-warp">
-        <block wx:if="{{!hasUserInfo}}">
+	<view class='UCenter-bg head'>
+		<view class='space'>
+			<view class="stars ">
+				<view class="star "></view>
+				<view class="star pink "></view>
+				<view class="star blue "></view>
+				<view class="star yellow "></view>
+			</view>
+		</view>
+        <!-- 未登录 -->
+         <block wx:if="{{!hasUserInfo}}">
             <image class="userAvatar" src='/images/wechat.png'></image>
             <button class="userButton" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权登录</button>
         </block>
+        <!-- 已登陆 -->
         <block wx:else>
             <open-data class="userAvatar" type="userAvatarUrl"></open-data>
             <open-data class="userNickName" type="userNickName"></open-data>
         </block>
-    </view>
+		<image src='https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/miniNjtech/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+	</view>
 
-    <!-- 工具条 -->
-    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-        <view wx:for="{{service}}" wx:if="{{item.show}}" wx:key class="cu-item arrow">
-            <!-- 自定义跳转页面 -->
-            <navigator wx:if="{{item.type == 'navigator'}}" class="flex justify-start align-center child" hover-class="navigator-hover" url="{{item.url}}">
-                <image class="child-img" src="{{item.img}}"></image>
-                <text class="text-grey">{{item.name}}</text>
-            </navigator>
-            <!-- 开放能力的button，只能用button -->
-            <view wx:if="{{item.type == 'button'}}" style="width: 100%;display: table;">
-                <button class="me-nav-btn" open-type="{{item.opentype}}">
-                    <view class="flex justify-start align-center">
-                        <image class="child-img" src="{{item.img}}"></image>
-                        <text class="text-grey">{{item.name}}</text>
-                    </view>
-                </button>
-                <button class="me-nav-btn" style="width: 50%;" open-type="{{item.opentype}}"></button>
-            </view>
-        </view>
-    </view>
+	<!-- 工具条 -->
+	<view class="cu-list bg-grey menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<view wx:for="{{service}}" wx:if="{{item.show}}" wx:key class="cu-item arrow">
+			<!-- 自定义跳转页面 -->
+			<navigator wx:if="{{item.type == 'navigator'}}" class="flex justify-start align-center child" hover-class="navigator-hover" url="{{item.url}}">
+				<image class="child-img" src="{{item.img}}"></image>
+				<text class="text-grey">{{item.name}}</text>
+			</navigator>
+			<!-- 开放能力的button，只能用button -->
+			<view wx:if="{{item.type == 'button'}}" style="width: 100%;display: table;">
+				<button class="me-nav-btn" open-type="{{item.opentype}}">
+					<view class="flex justify-start align-center">
+						<image class="child-img" src="{{item.img}}"></image>
+						<text class="text-grey">{{item.name}}</text>
+					</view>
+				</button>
+				<button class="me-nav-btn" style="width: 50%;" open-type="{{item.opentype}}"></button>
+			</view>
+		</view>
+	</view>
 </view>
