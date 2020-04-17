@@ -1,0 +1,43 @@
+/* miniprogram/pages/home/home.wxss */
+
+.sv-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 20rpx 0px;
+  justify-content: space-between;
+}
+
+.sv-li{
+  padding: 10rpx;
+  border-radius: 20rpx;
+	width: 95vw;
+  margin: 0 2% 40rpx;
+  background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/cardBg.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sv-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.sv-title::first-letter {
+  font-size: 40rpx;
+  margin-right: 4rpx;
+}
+
+.sv-name {
+  font-size: 30rpx;
+  text-transform: Capitalize;
+  /* margin-top: 5rpx; */
+  position: relative;
+}
+
+.sv-name::first-letter {
+  font-weight: bolder;
+  font-size: 36rpx;
+  margin-right: 2px;
+}
