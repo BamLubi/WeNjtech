@@ -10,3 +10,8 @@ body{
 .scrollPage {
   height: 100vh;
 }
+
+/* 添加惯性滚动 */
+.cu-modal .show{
+  -webkit-overflow-scrolling: touch;
+}
