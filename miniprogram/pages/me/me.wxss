@@ -4,13 +4,13 @@
 
 page {
 	/* background-color: #fff !important; */
-	background: linear-gradient(to bottom, #fff, #f2f2f2);
+	background: linear-gradient(to bottom, #fff, #f9f9f9, #f2f2f2);
 }
 
 .head {
 	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/miniNjtech/me-bg-img-3.jpg);
 	background-size: cover;
-	height: 500rpx;
+	height: 550rpx;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;

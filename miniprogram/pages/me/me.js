@@ -16,7 +16,7 @@ Page({
             img: "/images/me/log.png",
             url: "/mePackage/pages/log/log"
         }, {
-            name: "个人信息",
+            name: "编辑资料",
             show: true,
             type: "navigator",
             img: "/images/me/info.png",

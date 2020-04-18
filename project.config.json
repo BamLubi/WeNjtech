@@ -74,6 +74,12 @@
 					"pathName": "mePackage/pages/about/about",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改资料",
+					"pathName": "mePackage/pages/info/info",
+					"scene": null
 				}
 			]
 		}
