@@ -2,8 +2,6 @@
 // Package all wx Database function into Promise Object
 
 const Promise = require('es6-promise.min.js')
-const db = wx.cloud.database()
-const _ = db.command
 
 /**
  * call GET functions of Wechat Cloud Database
@@ -13,6 +11,8 @@ const _ = db.command
  * @return Promise Object
  */
 function GetWxCloudDB(collectionName, whereData) {
+	const db = wx.cloud.database()
+	const _ = db.command
 	//return Promise Object
 	return new Promise(function (resolve, resolve2, reject) {
 		db.collection(collectionName)
@@ -43,6 +43,8 @@ function GetWxCloudDB(collectionName, whereData) {
  * @return Promise Object
  */
 function AddWxCloudDB(collectionName, data) {
+	const db = wx.cloud.database()
+	const _ = db.command
 	//return Promise Object
 	return new Promise(function (resolve, reject) {
 		db.collection(collectionName)
@@ -70,6 +72,8 @@ function AddWxCloudDB(collectionName, data) {
  * @return Promise Object
  */
 function UpdateWxCloudDB(collectionName, tableId, data, remark) {
+	const db = wx.cloud.database()
+	const _ = db.command
 	//return Promise Object
 	return new Promise(function (resolve, reject) {
 		db.collection(collectionName)
