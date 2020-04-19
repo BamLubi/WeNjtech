@@ -11,27 +11,7 @@ Page({
      */
     data: {
         cardCur: 0,
-        swiperList: [{
-            id: 0,
-            type: 'image',
-            url: 'https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/bg00.jpg'
-        }, {
-            id: 1,
-            type: 'image',
-            url: 'https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/bg01.jpg',
-        }, {
-            id: 2,
-            type: 'image',
-            url: 'https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/bg02.jpg'
-        }, {
-            id: 3,
-            type: 'image',
-            url: 'https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/bg03.jpg'
-        }, {
-            id: 4,
-            type: 'image',
-            url: 'https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/bg04.jpg'
-        }],
+        swiperList: null,
         services: [{
             title: "班车时刻",
             name: "BusLine",
@@ -49,7 +29,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this
+        // 云端获取dict
+        cloudDB.GetWxCloudDB("LiteNjtech-publicDict",{
+            name: "miniNjtechDict"
+        }).then(res =>{
+            that.setData({
+                swiperList: res.data[0].swiperList
+            })
+        })
     },
 
     /**

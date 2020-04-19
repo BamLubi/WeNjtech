@@ -4,8 +4,7 @@
 		<!-- 顶部轮播 -->
 		<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 			<swiper-item wx:for="{{swiperList}}" wx:key>
-				<image src="{{item.url}}" mode="scaleToFill" wx:if="{{item.type=='image'}}"></image>
-				<video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+				<image src="{{item}}" mode="scaleToFill"></image>
 			</swiper-item>
 		</swiper>
 		<!-- 中部工具栏 -->
