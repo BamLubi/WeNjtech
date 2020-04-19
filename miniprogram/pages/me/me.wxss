@@ -40,6 +40,15 @@ page {
 	z-index: 99;
 }
 
+.head .userAvatar :hover {
+	animation: headRotate 1.5s ease-in-out 1
+}
+
+/* 头像旋转效果  */
+@keyframes headRotate{
+  100% {transform: rotate(360deg) scale(1.3);}
+}
+
 .head .userNickName {
 	color: white;
 	margin-bottom: 20rpx;
@@ -82,12 +91,16 @@ page {
 	line-height: 1;
 	margin-left: 0rpx;
 	padding-left: 0rpx;
-	display: table-cell;
+	width: 100%;
 }
 
 .me-nav-btn::after {
 	/*button的边框样式是通过::after方式实现的*/
 	border: none;
+}
+
+.me-nav-btn:hover{
+	background-color: #ecf0f1;
 }
 
 .me-nav-btn image {

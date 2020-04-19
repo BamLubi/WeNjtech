@@ -1,5 +1,6 @@
 // miniprogram/pages/me/me.js
 const app = getApp()
+const userInfoDB = require("../../utils/userInfoDB.js")
 Page({
 
     /**
@@ -7,27 +8,30 @@ Page({
      */
     data: {
         hasUserInfo: false,
-        userInfo: null,
         openid: null,
         service: [{
+            id: 0,
             name: "日志",
             show: false,
             type: "navigator",
             img: "/images/me/log.png",
             url: "/mePackage/pages/log/log"
         }, {
+            id: 1,
             name: "编辑资料",
             show: true,
             type: "navigator",
             img: "/images/me/info.png",
             url: "/mePackage/pages/info/info"
-        },{
+        }, {
+            id: 2,
             name: "意见反馈",
             show: true,
             type: "button",
             img: "/images/me/react.png",
             opentype: "feedback"
         }, {
+            id: 3,
             name: "关于我们",
             show: true,
             type: "navigator",
@@ -43,7 +47,7 @@ Page({
         // 已经授权下，获取个人信息
         if (app.globalData.hasUserInfo) {
             this.setData({
-                userInfo: app.globalData.userInfo,
+                localUserInfo: app.globalData.localUserInfo,
                 openid: app.globalData.openid,
                 hasUserInfo: true,
             })
@@ -51,7 +55,7 @@ Page({
             // 异步操作
             app.userInfoReadyCallback = res => {
                 this.setData({
-                    userInfo: app.globalData.userInfo,
+                    localUserInfo: app.globalData.localUserInfo,
                     openid: app.globalData.openid,
                     hasUserInfo: true,
                 })
@@ -107,20 +111,32 @@ Page({
     onShareAppMessage: function () {
 
     },
+
     /**
      * 授权
      */
     getUserInfo: function (e) {
-        console.log("[授权][授权成功]")
         if (e.detail.userInfo) {
-            // 当前页面赋值
-            this.setData({
-                userInfo: e.detail.userInfo,
-                hasUserInfo: true
+            app.getUserInfo()
+        }
+    },
+
+    /**
+     * 跳转页面
+     */
+    navigatePage: function (e) {
+        console.log("[me] [跳转页面]", e.target.dataset.url)
+        // 跳转编辑资料页面需保证全局由用户信息
+        if (e.target.dataset.id == 1 && !this.data.hasUserInfo) {
+            wx.showToast({
+                title: '请先授权登录',
+                icon: 'none',
+                duration: 1500
             })
-            // 全局变量赋值
-            app.globalData.userInfo = this.data.userInfo
-            app.globalData.hasUserInfo = true
+        } else {
+            wx.navigateTo({
+                url: e.target.dataset.url,
+            })
         }
     }
 })
