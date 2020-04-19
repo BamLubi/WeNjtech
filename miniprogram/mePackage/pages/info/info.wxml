@@ -1,2 +1,38 @@
 <!--miniprogram/mePackage/pages/info/info.wxml-->
-<text>后续开放</text>
+<view>
+	<!-- 头像 -->
+	<view class="flex justify-center align-center  margin-top margin-bottom">
+		<image src="{{avatarUrl}}" class="userAvatar"></image>
+	</view>
+
+	<form>
+		<view class="cu-form-group">
+			<view class="title text-shadow align-center"><text space="emsp">昵 称 :</text></view>
+			<input value="{{nickName}}" disabled></input>
+		</view>
+		<!-- 学号 -->
+		<view class="cu-form-group">
+			<view class="title text-shadow align-center"><text space="emsp">学 号 :</text></view>
+			<!-- 未设置 -->
+			<block wx:if="{{canEditStuNum}}">
+				<input placeholder="(每90天仅可修改一次)" maxlength="15" type="number" value="{{stuNum}}" bindinput="getStuNum"></input>
+        <button class="cu-btn lines-cyan round shadow" bindtap="submit">提交</button>
+			</block>
+			<!-- 设置了 -->
+			<block wx:else>
+				<input value="{{stuNum}}" disabled></input>
+				<text class="text-gray text-lg">还剩{{leftDay}}天</text>
+			</block>
+		</view>
+	</form>
+
+	<view class="margin-left margin-top">
+		<text class="text-gray text-lg">注意: 
+    1. 头像和昵称跟随微信账户,不可更改
+    2. 学号每90天仅可修改一次
+    3. 若学号变更可联系后台更改
+    4. 本平台承诺用户所有不会泄露,仅用作身份核验
+    </text>
+	</view>
+
+</view>
