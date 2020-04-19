@@ -20,7 +20,7 @@ function DownloadWxCloudStore(fileID) {
                 resolve(res)
 			},
 			fail: err => {
-				console.err("[云存储] [下载] fail: ", err)
+				console.error("[云存储] [下载] fail: ", err)
 				reject(err)
 			}
         });

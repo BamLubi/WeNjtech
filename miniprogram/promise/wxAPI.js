@@ -31,7 +31,7 @@ function ShowModal(title, content, showCancel, cancelText, confirmText) {
                 }
             },
             fail: err => {
-                console.err('[wxAPI] [模态框] [错误]')
+                console.error('[wxAPI] [模态框] [错误]')
                 reject(err)
             }
         })
@@ -43,24 +43,28 @@ function ShowModal(title, content, showCancel, cancelText, confirmText) {
  * @param {*} title 
  * @param {*} icon 
  */
-function ShowToast(title, icon, duration){
+function ShowToast(title, icon, duration) {
     //return Promise Object
     return new Promise(function (resolve, reject) {
-       wx.showToast({
-         title: title,
-         icon: icon,
-         duration: duration,
-         success: (res) => {resolve(res)},
-       })
+        wx.showToast({
+            title: title,
+            icon: icon,
+            duration: duration,
+            success: (res) => {
+                resolve(res)
+            },
+        })
     });
 }
 
-function HideToast(title, icon){
+function HideToast(title, icon) {
     //return Promise Object
     return new Promise(function (resolve, reject) {
-       wx.hideToast({
-         success: (res) => {resolve(res)},
-       })
+        wx.hideToast({
+            success: (res) => {
+                resolve(res)
+            },
+        })
     });
 }
 
@@ -78,7 +82,7 @@ function ChooseAddress() {
                 resolve(res)
             },
             fail: err => {
-                console.err("[wxAPI] [获取地址] fail: ", err)
+                console.error("[wxAPI] [获取地址] fail: ", err)
                 reject(err)
             }
         })
@@ -105,7 +109,7 @@ function GetSetting() {
                 }
             },
             fail: err => {
-                console.err("[wxAPI] [获取用户设置] fail: ", err)
+                console.error("[wxAPI] [获取用户设置] fail: ", err)
                 reject(err)
             }
         })
@@ -130,7 +134,7 @@ function GetUserInfo() {
                 resolve(res)
             },
             fail: err => {
-                console.err("[wxAPI] [获取用户信息] fail: ", err)
+                console.error("[wxAPI] [获取用户信息] fail: ", err)
                 reject(err)
             }
         })
@@ -155,7 +159,7 @@ function SaveFile(tempFilePath, fileName) {
                 resolve(res)
             },
             fail: err => {
-                console.err("[wxAPI] [保存文件] fail: ", err)
+                console.error("[wxAPI] [保存文件] fail: ", err)
                 reject(err)
             }
         })
@@ -178,7 +182,7 @@ function OpenDocument(savedFilePath) {
                 resolve(res)
             },
             fail: err => {
-                console.err("[wxAPI] [打开文件] fail: ", err)
+                console.error("[wxAPI] [打开文件] fail: ", err)
                 reject(err)
             }
         })
@@ -209,6 +213,18 @@ function RequestSubscribeMessage(tmplId) {
     });
 }
 
+function _hideKeyBoard() {
+    return new Promise(function (resolve, reject) {
+        wx.hideKeyboard({
+          complete: (res) => {
+              console.log("[wxAPI] [收起键盘] success")
+              resolve()
+          },
+          fail: err => {}
+        })
+    })
+}
+
 
 module.exports = {
     ShowModal: ShowModal,
@@ -219,5 +235,6 @@ module.exports = {
     OpenDocument: OpenDocument,
     RequestSubscribeMessage: RequestSubscribeMessage,
     ShowToast: ShowToast,
-    HideToast: HideToast
+    HideToast: HideToast,
+    _hideKeyBoard
 }
