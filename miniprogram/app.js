@@ -44,13 +44,16 @@ App({
 	 */
 	getUserInfo: function () {
 		var that = this
-		let userInfo =''
+		let userInfo = ''
 		// 判断用户是否授权
 		API.GetSetting().then(res => {
+			// 此时用户已经授权，显示登陆
+			wx.showLoading({
+				title: '登陆中',
+			})
 			// 获取用户信息
 			return API.GetUserInfo()
 		}).then(res => {
-			// that.globalData.userInfo = res.userInfo
 			userInfo = res.userInfo
 			that.globalData.hasUserInfo = true
 			// 获取用户openid
@@ -59,6 +62,12 @@ App({
 			that.globalData.openid = res.openid
 			return userInfoDB.DownLoadUserInfo(res.openid, userInfo)
 		}).then(res => {
+			// 登陆成功
+			wx.hideLoading()
+			wx.showToast({
+				title: '登陆成功',
+				duration: 1000
+			})
 			// 回调广播函数
 			if (that.userInfoReadyCallback) {
 				that.userInfoReadyCallback()
