@@ -2,7 +2,7 @@
 <view>
 	<!-- logo & version -->
 	<view class="logo margin-top">
-		<image src="https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/miniNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
+		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
 		<view class="text-bold text-gray text-lg text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
 	</view>
 	<!-- information -->
