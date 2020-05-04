@@ -65,7 +65,7 @@
 	<!-- 循环发车 -->
 	<block wx:else>
 		<!-- 时间 -->
-		<view class="cardTime">
+		<view class="cardTime margin-top-sm">
 			<text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
 			<view>
 				<text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
