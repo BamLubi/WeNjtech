@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "openapi": []
+  },
+  "triggers": [{
+    "name": "getEmptyClassroomTrigger",
+    "type": "timer",
+    "config": "0 0 1 * * * *"
+  }]
+}
