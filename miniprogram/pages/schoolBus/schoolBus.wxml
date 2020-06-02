@@ -60,14 +60,6 @@
 	<text class="place" bindtap="ShowPlaceChangeMask">{{position[positionEndIndex]}}</text>
 	<!-- 图标 -->
     <view class="margin-left change" bindtap="ShowPlaceChangeMask">切换出发地</view>
-	<!-- <view style="margin-top:5px;" bindtap="ShowPlaceChangeMask">
-		<block wx:if="{{!isChangePlace}}">
-			<image src="/images/unfold.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
-		</block>
-		<block wx:else>
-			<image src="/images/unfold-reverse.png" style="width: 16px;height: 16px;margin: 5px 0px 5px 10px;"></image>
-		</block>
-	</view> -->
 </view>
 
 <!-- 顶部时间导航 -->
