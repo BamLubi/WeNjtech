@@ -1,0 +1,37 @@
+/* miniprogram/pages/classroom/classroom.wxss */
+
+.topArea {
+  position: relative;
+}
+
+.topArea .card-swiper {
+  height: 420rpx !important;
+}
+
+.fixNav {
+  position: fixed;
+  top: 0px;
+  z-index: 99;
+  width: 100%;
+}
+
+.fixList {
+  position: relative;
+  top: 270rpx;
+  width: 100%;
+}
+
+.classroom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.classroom .location {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
