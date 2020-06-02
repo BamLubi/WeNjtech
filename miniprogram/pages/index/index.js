@@ -11,18 +11,26 @@ Page({
      */
     data: {
         cardCur: 0,
-        swiperList: null,
         services: [{
             title: "班车时刻",
             name: "BusLine",
             type: "navigator",
-            url: "/pages/schoolBus/schoolBus"
+            url: "/pages/schoolBus/schoolBus",
+            bg: "bg-cyan"
+        }, {
+            title: "去哪学习",
+            name: "ForStudy",
+            type: "navigator",
+            url: "/pages/classroom/classroom",
+            bg: "bg-green"
         }, {
             title: "太南课表",
             name: "TooNjtech",
             type: "button",
-            bindtap: "getAPK"
-        }]
+            bindtap: "getAPK",
+            bg: "bg-olive"
+        }],
+        dict: {}
     },
 
     /**
@@ -35,7 +43,7 @@ Page({
             name: "miniNjtechDict"
         }).then(res =>{
             that.setData({
-                swiperList: res.data[0].swiperList
+                dict: res.data[0]
             })
         })
     },
@@ -89,6 +97,9 @@ Page({
 
     },
 
+    /**
+     * 下载apk
+     */
     getAPK: function () {
         let savedFilePath = ''
         API.ShowModal('', "本功能由@AutoKaKa开发\n为独立APP非小程序\n即将跳转下载...", true, '取消下载', '继续下载').then(res => {
@@ -110,5 +121,5 @@ Page({
         }).then(res => {
             return API.OpenDocument(savedFilePath)
         })
-    }
+    },
 })

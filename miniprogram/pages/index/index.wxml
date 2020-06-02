@@ -3,7 +3,7 @@
 	<scroll-view class="scrollPage nav text-center fixed">
 		<!-- 顶部轮播 -->
 		<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-			<swiper-item wx:for="{{swiperList}}" wx:key>
+			<swiper-item wx:for="{{dict.swiperList}}" wx:key>
 				<image src="{{item}}" mode="scaleToFill"></image>
 			</swiper-item>
 		</swiper>
@@ -23,7 +23,7 @@
 			</block>
 		</view>
 		<!-- 测试用按钮 -->
-		<!-- <button bindtap="testButton">下载apk</button> -->
+		<!-- <button bindtap="testButton">测试网络</button> -->
 		<!-- <button bindtap="testButton2">下发订阅</button> -->
 	</scroll-view>
 </view>
