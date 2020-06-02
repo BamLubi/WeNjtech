@@ -20,7 +20,7 @@ const userInfoTemplate = {
   setStuNumDate: new Date("2020-01-01 00:00:00")
 }
 
-const collectionName = "miniNjtech-userInfo"
+const collectionName = "weNjtech-userInfo"
 
 /**
  * 云数据库下载用户个人信息

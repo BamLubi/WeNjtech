@@ -46,7 +46,7 @@ Page({
       })
     }
     // 下载字典
-    cloudDB.GetWxCloudDB('LiteNjtech-publicDict', {
+    cloudDB.GetWxCloudDB('weNjtech-publicDict', {
       name: 'forStudy'
     }).then(res => {
       that.setData({

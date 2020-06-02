@@ -61,7 +61,7 @@ Page({
             todayDate: JSON.parse(JSON.stringify(this.data.selectDate)) //深拷贝对象
         })
         // 下载字典
-        cloudDB.GetWxCloudDB('LiteNjtech-publicDict', {
+        cloudDB.GetWxCloudDB('weNjtech-publicDict', {
             name: 'busLineDict'
         }).then(res => {
             that.setData({
@@ -433,7 +433,7 @@ Page({
                                 // 用户完整观看广告
                                 console.log("设置乘车提醒")
                                 wx.showLoading({title: '设置中'})
-                                cloudDB.AddWxCloudDB("LiteNjtech-messageTask", dbdata).then(res => {
+                                cloudDB.AddWxCloudDB("weNjtech-messageTask", dbdata).then(res => {
                                     wx.hideLoading()
                                     wx.showToast({title: '设置成功'})
                                 })

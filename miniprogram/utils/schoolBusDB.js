@@ -15,7 +15,7 @@ const _ = db.command
  */
 function DownLoadBusLine(season, direction, week, line, time, length) {
     return new Promise(function (resolve, reject) {
-        db.collection('allBusLine')
+        db.collection('weNjtech-allBusLine')
             .where({
                 isValid: true,
                 validDay: week,

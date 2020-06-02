@@ -100,7 +100,7 @@ Page({
 
   submit: function () {
     let that = this
-    var collectionName = "miniNjtech-userInfo"
+    var collectionName = "weNjtech-userInfo"
     API._hideKeyBoard().then(res => {
       return API.ShowModal('', "请确保您使用了您自己的\n学号(" + that.data.stuNum + ")\n每90天仅可修改一次!", true, '我再想想', '我确定了')
     }).then(res => {

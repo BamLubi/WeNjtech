@@ -39,7 +39,7 @@ Page({
     onLoad: function (options) {
         var that = this
         // 云端获取dict
-        cloudDB.GetWxCloudDB("LiteNjtech-publicDict",{
+        cloudDB.GetWxCloudDB("weNjtech-publicDict",{
             name: "miniNjtechDict"
         }).then(res =>{
             that.setData({
