@@ -7,14 +7,18 @@
 	</view>
 	<!-- information -->
 	<view class="shadow margin radius bg-white padding text-lg">
-		<text>欢迎使用“微南工”小程序，我们将致力于提供便利的校园生活工具。
+		<text>欢迎使用“微南工-WeNjtech”小程序，我们将致力于提供便利的校园生活工具。
 
 		现已支持功能板块:
 		[班车时刻]
-		+ 查询任意时刻校车;
+		+ 查询任意日期、时刻校车;
 		+ 支持发车前提醒;
+		[去哪学习]
+		+ 查询当日空教室;
+		+ 支持查询厚学楼、浦江ABC楼、仁智楼和同和楼;
 		[太南课表]
 		+ 引用@AutoKaKa作品;
+		+ 需下载APP;
 		</text>
 	</view>
 	<!-- ad -->
