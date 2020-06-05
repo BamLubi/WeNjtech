@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200128131530.png" width="200" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200605120547.png" width="200" style="margin-bottom: 10px;">
 </p>
 <h3 align="center">专属南工学子的校车查询</h3>
 
@@ -9,18 +9,19 @@
 
 “南工校车”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
 
-- 查询双向的***象山线班车、亚青线班车***
-- 查询指定日期、时间班车
-- 订阅指定校车提醒
+- 【班车查询】
+  - 查询双向的***象山线班车、亚青线班车***
+  - 查询指定日期、时间班车
+  - ***订阅***指定校车提醒
+- 【空闲教室查询】
+  - 查询当日空闲教室信息***厚学楼、浦江楼、仁智楼、同和楼***
 
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200128131648.png" width="500" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200605120315.jpg
+" width="300" style="margin-bottom: 10px;">
 </p>
-
-
-
 
 ## 开发工具
 
@@ -72,6 +73,15 @@
 该项目签署了[MIT 授权许可](http://www.opensource.org/licenses/mit-license.php)，详情请参阅 [LICENSE](LICENSE)
 
 ## 版本
+
+`v2.1.1`， `2020-06-05`
+
+- `修复`  浦江楼教室无法查询问题
+
+`v2.1.0`， `2020-06-03`
+
+- `新增` 查询空闲教室功能
+- `修改` 页面布局，简化逻辑
 
 `v2.0.0`， `2020-04-14`
 
