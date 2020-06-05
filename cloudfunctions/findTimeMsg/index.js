@@ -9,7 +9,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const execTasks = [];
   // 1. 查询是否有定时任务
-  let taskRes = await db.collection('LiteNjtech-messageTask').get()
+  let taskRes = await db.collection('weNjtech-messageTask').get()
   let tasks = taskRes.data;
   // 2. 定时任务是否到达触发时间
   let now = new Date(Date.now() + (8 * 60 * 60 * 1000));
@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
         execTasks.push(tasks[i]);
         console.log("执行下发")
         // 定时任务数据库中删除该任务
-        await db.collection('LiteNjtech-messageTask').doc(tasks[i]._id).remove()
+        await db.collection('weNjtech-messageTask').doc(tasks[i]._id).remove()
       }
     }
   } catch (e) {
