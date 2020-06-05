@@ -194,6 +194,12 @@ Page({
         building.push(this.data.lh[i])
       }
     }
+    // 如果存在浦江楼选项，则拓展为浦江A楼、浦江B楼、浦江C楼
+    if (this.data.tab_lh[2] == 1 || this.data.tab_lh[0] == 1){
+      building.push("浦江A楼")
+      building.push("浦江B楼")
+      building.push("浦江C楼")
+    }
     // 时间信息
     let time = []
     for (let i = 0; i < this.data.tab_time.length; i++) {
