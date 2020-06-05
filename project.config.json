@@ -79,6 +79,13 @@
 					"id": -1,
 					"name": "修改资料",
 					"pathName": "mePackage/pages/info/info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "空教室",
+					"pathName": "pages/classroom/classroom",
 					"scene": null
 				}
 			]
