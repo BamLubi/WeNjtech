@@ -3,8 +3,8 @@
 <scroll-view class="scrollPage nav text-center fixed">
 	<!-- 顶部轮播 -->
 	<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-		<swiper-item wx:for="{{dict.swiperList}}" wx:key>
-			<image src="{{item}}" mode="scaleToFill"></image>
+		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key>
+			<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="scaleToFill"></image>
 		</swiper-item>
 	</swiper>
 	

@@ -3,9 +3,9 @@
 <!-- 顶部教室卡片轮播 -->
 <view class="topArea">
 	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff" bindchange="cardSwiper">
-		<swiper-item wx:for="{{dict.swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key class="{{cardCur==index?'cur':''}}">
 			<view class="swiper-item">
-				<image src="{{item}}" mode="aspectFill"></image>
+				<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="aspectFill"></image>
 			</view>
 		</swiper-item>
 	</swiper>
