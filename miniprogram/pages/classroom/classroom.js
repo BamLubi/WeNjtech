@@ -56,15 +56,15 @@ Page({
         that.getDictCallback()
       }
     })
-    // 获取空教室信息
-    this.setEmptyClassroom()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // 页面渲染完成后，再获取大量信息，以避免渲染拥堵
+    // 获取空教室信息
+    this.setEmptyClassroom()
   },
 
   /**

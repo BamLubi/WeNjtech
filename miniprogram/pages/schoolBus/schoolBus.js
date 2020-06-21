@@ -60,7 +60,7 @@ Page({
         this.setData({
             todayDate: JSON.parse(JSON.stringify(this.data.selectDate)) //深拷贝对象
         })
-        // 下载字典
+        // 下载字典，优先级高
         cloudDB.GetWxCloudDB('weNjtech-publicDict', {
             name: 'busLineDict'
         }).then(res => {
@@ -71,6 +71,13 @@ Page({
                 that.getDictCallback()
             }
         })
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        // 页面渲染完成后，再获取大量信息，以避免渲染拥堵
         // 连接数据库并设置班车信息
         if (this.data.dict) {
             this.setBusLine()
@@ -88,12 +95,6 @@ Page({
             videoAd.onError((err) => {})
             // videoAd.onClose((res) => {})
         }
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
     },
 
     /**
