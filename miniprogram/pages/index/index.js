@@ -24,6 +24,12 @@ Page({
             url: "/pages/classroom/classroom",
             bg: "bg-green"
         }, {
+            title: "校园Q&A",
+            name: "CampusQ&A",
+            type: "navigator",
+            url: "/pages/campusQ&A/campusQ&A",
+            bg: "bg-green"
+        }, {
             title: "太南课表",
             name: "TooNjtech",
             type: "button",

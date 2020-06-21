@@ -86,6 +86,13 @@
 					"id": -1,
 					"name": "空教室",
 					"pathName": "pages/classroom/classroom",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "校园Q&A",
+					"pathName": "pages/campusQ&A/campusQ&A",
 					"scene": null
 				}
 			]

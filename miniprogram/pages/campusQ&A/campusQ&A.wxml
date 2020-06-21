@@ -1,0 +1,11 @@
+<!--miniprogram/pages/campusQ&A/CampusQ&A.wxml-->
+<scroll-view scroll-y scroll-with-animation class="QAList">
+  <view class="margin radius padding QA bg-white" wx:for="{{QAList}}">
+    <!-- Q -->
+    <view class="margin-bottom text-bold text-shadow text-black text-xl">Q: {{item.Q}}</view>
+    <!-- line -->
+    <view class="line"></view>
+    <!-- A -->
+    <view class="margin-top text-lg">A: {{item.A}}</view>
+  </view>
+</scroll-view>
