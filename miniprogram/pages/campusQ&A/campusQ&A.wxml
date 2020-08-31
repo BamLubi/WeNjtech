@@ -1,11 +1,14 @@
 <!--miniprogram/pages/campusQ&A/CampusQ&A.wxml-->
 <scroll-view scroll-y scroll-with-animation class="QAList">
-  <view class="margin radius padding QA bg-white" wx:for="{{QAList}}">
-    <!-- Q -->
-    <view class="margin-bottom text-bold text-shadow text-black text-xl">Q: {{item.Q}}</view>
-    <!-- line -->
-    <view class="line"></view>
-    <!-- A -->
-    <view class="margin-top text-lg">A: {{item.A}}</view>
-  </view>
+	<view class="margin radius padding QA bg-white">
+		<view class="text-lg">欢迎大家一起完善校园Q&A，目前可以通过后台留言的方式为我们提供建议哦~</view>
+	</view>
+	<view class="margin radius padding QA bg-white" wx:for="{{QAList}}">
+		<!-- Q -->
+		<view class="margin-bottom text-bold text-shadow text-black text-xl">Q: {{item.Q}}</view>
+		<!-- line -->
+		<view class="line"></view>
+		<!-- A -->
+		<view class="margin-top text-lg">A: {{item.A}}</view>
+	</view>
 </scroll-view>

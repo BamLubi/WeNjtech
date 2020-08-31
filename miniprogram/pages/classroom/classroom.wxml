@@ -13,7 +13,7 @@
 
 <!-- 中部显示消息 -->
 <view class="margin margin-top-xs radius shadow bg-white padding animation-slide-top">
-	<text class="text-shadow text-grey text-lg">疫情期间教室暂不使用，敬请谅解.\n如有需要请提前预约前往图书馆。\n今日可用教室：{{dict.count}} 间</text>
+	<text class="text-shadow text-grey text-lg">{{dict.message1}}\n数据更新时间：{{dict.time}}\n今日可用教室：{{dict.count}} 间</text>
 </view>
 
 <!-- 显示教学区分割 -->

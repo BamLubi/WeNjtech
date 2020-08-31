@@ -86,7 +86,7 @@
 	<block wx:if="{{dict.emergencyCode == 0}}">
 		<!-- 特殊信息 -->
 		<view class="margin margin-top-xs radius shadow bg-white padding animation-slide-top">
-			<text class="text-shadow text-grey text-lg">{{dict.notices}}</text>
+			<text class="text-shadow text-grey text-lg">{{dict.notices}}\n{{dict.notices2}}</text>
 		</view>
 		<!-- 有班车 -->
 		<block wx:if="{{hasBus==1}}">
