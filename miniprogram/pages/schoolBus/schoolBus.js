@@ -258,8 +258,8 @@ Page({
      */
     DateChange(dateString) {
         console.log("日期改变")
-        let selectDate = new Date(dateString)
-        let date = dateString.split('-')
+        let selectDate = new Date(dateString.detail.value)
+        let date = dateString.detail.value.split('-')
         // 重新设置年月日星期
         this.setData({
             ["selectDate.year"]: date[0],
