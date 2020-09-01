@@ -22,7 +22,7 @@ function DownLoadBusLine(season, direction, week, line, time, length) {
                 validSeason: season,
                 direction: direction,
                 line: _.in(line),
-                startTime: _.gte(parseFloat(time))
+                endTime: _.gte(parseFloat(time))
             })
             .field({
                 startTime: true,
