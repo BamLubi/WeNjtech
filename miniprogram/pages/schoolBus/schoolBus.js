@@ -404,7 +404,7 @@ Page({
         let date = new Date(tmp_date + " " + tmp_time)
         let dbdata = {
             taskType: "行程提醒",
-            execTime: date,
+            execTime: date.getTime(),
             data: {
                 outDate: tmp_date,
                 outTime: e.target.dataset.line.startTime,

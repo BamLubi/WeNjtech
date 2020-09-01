@@ -15,10 +15,10 @@ exports.main = async (event, context) => {
   let now = new Date(Date.now() + (8 * 60 * 60 * 1000));
   try {
     for (let i = 0; i < tasks.length; i++) {
-      let execTime = new Date(tasks[i].execTime.getTime() + (8 * 60 * 60 * 1000))
+      let execTime = tasks[i].execTime
       console.log("当前时间", now)
       console.log("执行时间", execTime)
-      if (execTime <= now) {
+      if (execTime <= now.getTime()) {
         execTasks.push(tasks[i]);
         console.log("执行下发")
         // 定时任务数据库中删除该任务
