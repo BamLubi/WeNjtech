@@ -365,7 +365,8 @@ Page({
      */
     onDayClick: function (e) {
         var that = this
-        this.DateChange(e.detail.id)
+        var data = {detail: {value: e.detail.id}}
+        this.DateChange(data)
         // 设置计时器
         setTimeout(function () {
             // 隐藏日历层
