@@ -12,15 +12,15 @@ exports.main = async (event, context) => {
   let taskRes = await db.collection('weNjtech-messageTask').get()
   let tasks = taskRes.data;
   // 2. 定时任务是否到达触发时间
-  let now = new Date(Date.now() + (8 * 60 * 60 * 1000));
+  let now = new Date(Date.now()).getTime();
+  console.log("当前时间", now)
   try {
     for (let i = 0; i < tasks.length; i++) {
       let execTime = tasks[i].execTime
-      console.log("当前时间", now)
-      console.log("执行时间", execTime)
-      if (execTime <= now.getTime()) {
+      if (execTime <= now) {
+        console.log("执行时间", execTime)
         execTasks.push(tasks[i]);
-        console.log("执行下发")
+        console.log("加入下发队列", tasks[i]._id, tasks[i].outTime)
         // 定时任务数据库中删除该任务
         await db.collection('weNjtech-messageTask').doc(tasks[i]._id).remove()
       }
@@ -38,7 +38,9 @@ exports.main = async (event, context) => {
           name: 'sendBusMsg',
           data: task.data
         })
+        console.log("下发成功", task._id, task.outTime)
       } catch (e) {
+        // 以后可以补充回填到任务队列
         console.error(e)
       }
     }
