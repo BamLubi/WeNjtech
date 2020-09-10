@@ -213,14 +213,39 @@ function RequestSubscribeMessage(tmplId) {
     });
 }
 
+/**
+ * call wx.hideKeyboard()
+ */
 function _hideKeyBoard() {
     return new Promise(function (resolve, reject) {
         wx.hideKeyboard({
-          complete: (res) => {
-              console.log("[wxAPI] [收起键盘] success")
-              resolve()
-          },
-          fail: err => {}
+            complete: (res) => {
+                console.log("[wxAPI] [收起键盘] success")
+                resolve()
+            },
+            fail: err => {}
+        })
+    })
+}
+
+function DownloadFile(url) {
+    //return Promise Object
+    return new Promise(function (resolve, reject) {
+        wx.downloadFile({
+            url: url,
+            success: res => {
+                if (res.statusCode === 200) {
+                    console.log("[wxAPI] [下载] success: ", res)
+                    resolve(res)
+                } else {
+                    console.error("[wxAPI] [下载] fail: ", res.statusCode)
+                    reject(res)
+                }
+            },
+            fail: err => {
+                console.error("[wxAPI] [下载] fail: ", err)
+                reject(err)
+            }
         })
     })
 }
@@ -236,5 +261,6 @@ module.exports = {
     RequestSubscribeMessage: RequestSubscribeMessage,
     ShowToast: ShowToast,
     HideToast: HideToast,
-    _hideKeyBoard
+    _hideKeyBoard,
+    DownloadFile: DownloadFile,
 }

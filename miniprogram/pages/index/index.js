@@ -45,9 +45,9 @@ Page({
     onLoad: function (options) {
         var that = this
         // 云端获取dict
-        cloudDB.GetWxCloudDB("weNjtech-publicDict",{
+        cloudDB.GetWxCloudDB("weNjtech-publicDict", {
             name: "miniNjtechDict"
-        }).then(res =>{
+        }).then(res => {
             that.setData({
                 dict: res.data[0]
             })
@@ -126,6 +126,9 @@ Page({
             }, 1000)
         }).then(res => {
             return API.OpenDocument(savedFilePath)
+        }).catch(err => {
+            wx.hideLoading()
+            return API.ShowToast('下载失败，链接已失效！', 'none', 1000)
         })
     },
 })

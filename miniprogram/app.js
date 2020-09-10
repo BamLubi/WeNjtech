@@ -6,14 +6,16 @@ App({
 	globalData: {
 		systemInfo: null,
 		tabBarHeight: 49,
-		cloudUserInfo: null,
-		localUserInfo: null,
-		openid: null,
-		hasUserInfo: false,
+		cloudUserInfo: null, // 云端用户信息
+		localUserInfo: null, // 本地用户信息
+		openid: null, // 用户openid
+		hasUserInfo: false, // 判定是否获取到用户信息
+		system: null, // 记录用户手机系统
 	},
 
 	onLaunch: function () {
 		var that = this
+
 		// 初始化云开发环境
 		if (!wx.cloud) {
 			console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -23,20 +25,24 @@ App({
 				traceUser: true
 			})
 		}
+
 		// 获取手机信息
 		wx.getSystemInfo({
 			success: function (res) {
 				that.globalData.systemInfo = res
+				// 异步存入缓存
 				wx.setStorageSync('systemInfo', res)
+				// 设置系统
+				that.globalData.system = res.system.split(" ")[0].toUpperCase()
 				// 设置tabBar高度
 				if (that.globalData.systemInfo.model == "iPhone X") {
-					that.tabBarHeight = 83
+					that.globalData.tabBarHeight = 83
 				}
 			}
 		})
 
 		// 获取用户信息
-		this.getUserInfo()
+		that.getUserInfo()
 	},
 
 	/**
@@ -72,6 +78,10 @@ App({
 			if (that.userInfoReadyCallback) {
 				that.userInfoReadyCallback()
 			}
+		}).catch(err => {
+			// 登陆失败
+			wx.hideLoading()
+			return API.ShowToast('登陆失败!部分功能失效', 'none', 1000)
 		})
 	}
 })

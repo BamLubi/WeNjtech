@@ -430,10 +430,11 @@ Page({
                         videoAd.onClose(res => {
                             if (res.isEnded == false) {
                                 // 用户未完整观看广告
+                                console.log("[广告] unfinished")
                                 API.ShowModal('', "未完整观看视频,设置乘车提醒失败T_T", false, '', "朕知道了")
                             } else {
                                 // 用户完整观看广告
-                                console.log("设置乘车提醒")
+                                console.log("[乘车提醒] setting")
                                 wx.showLoading({title: '设置中'})
                                 cloudDB.AddWxCloudDB("weNjtech-messageTask", dbdata).then(res => {
                                     wx.hideLoading()
@@ -441,11 +442,19 @@ Page({
                                 })
                             }
                         })
+                        videoAd.onError(err => {
+                            console.log("[广告加载] fail")
+                            wx.showToast({title: '广告加载失败'})
+                        })
                     }
                 } else {
                     console.log("[授权订阅消息] fail")
                     API.ShowModal('', "授权无效,设置乘车提醒失败T_T", false, '', "朕知道了")
                 }
+            },
+            fail: err => {
+                console.error("[调用订阅通知] fail", err)
+                wx.showToast({title: '调用订阅失败'})
             }
         })
     }
