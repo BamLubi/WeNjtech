@@ -18,18 +18,20 @@
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": [],
-    "useMultiFrameRuntime": true,
-    "useApiHook": false
+    "packNpmRelationList": []
   },
   "appid": "wxe314f48b689deaf6",
   "projectname": "%E5%8D%97%E5%B7%A5%E6%A0%A1%E8%BD%A6",
