@@ -113,7 +113,8 @@ Page({
             wx.showLoading({
                 title: '下载中'
             })
-            return cloudStore.DownloadWxCloudStore("cloud://lyy-production.6c79-lyy-production-1258923430/太南课表.apk")
+            return API.DownloadFile("https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/%E5%A4%AA%E5%8D%97%E8%AF%BE%E8%A1%A8.apk")
+            // return cloudStore.DownloadWxCloudStore("cloud://lyy-production.6c79-lyy-production-1258923430/太南课表.apk")
         }).then(res => {
             return API.SaveFile(res.tempFilePath, "太南课表.apk")
         }).then(res => {

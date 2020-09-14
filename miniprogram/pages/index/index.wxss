@@ -12,7 +12,7 @@
   border-radius: 20rpx;
 	width: 95vw;
   margin: 0 2% 40rpx;
-  background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/Lite%E5%8D%97%E5%B7%A5/cardBg.png);
+  background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/cardBg.png);
   background-size: cover;
   background-position: center;
   position: relative;

@@ -8,7 +8,7 @@ page {
 }
 
 .head {
-	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/miniNjtech/me-bg-img-3.jpg);
+	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/me-bg-img-3.jpg);
 	background-size: cover;
 	height: 550rpx;
 	display: flex;
