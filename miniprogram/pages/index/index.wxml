@@ -1,6 +1,6 @@
 <!--miniprogram/pages/index/index.wxml-->
 
-<scroll-view class="scrollPage nav text-center fixed">
+<view class="nav text-center ">
 	<!-- 顶部轮播 -->
 	<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key>
@@ -23,4 +23,4 @@
 			</view>
 		</block>
 	</view>
-</scroll-view>
+</view>
