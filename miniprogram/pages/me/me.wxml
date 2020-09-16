@@ -22,7 +22,7 @@
 			</view>
 			<open-data class="userNickName" type="userNickName"></open-data>
 		</block>
-		<image src='https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/wave.gif' mode='scaleToFill' class='gif-wave'></image>
+		<image src='cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 	</view>
 
 	<!-- 工具条 -->
