@@ -4,5 +4,5 @@
 	  "backTop": "../../component/backTop/backTop",
 	  "busCard": "../../component/busCard/busCard"
 	},
-  "navigationBarTitleText": "班车时刻"
+	"navigationBarTitleText": "班车时刻"
 }

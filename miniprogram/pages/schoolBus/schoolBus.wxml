@@ -80,12 +80,13 @@
     </view> -->
 </view>
 
+<!-- 这里的scrollTopNum影响布局 -->
 <!-- 车辆信息 -->
 <scroll-view scroll-y scroll-with-animation class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
 	<!-- 正常运营 -->
 	<block wx:if="{{dict.emergencyCode == 0}}">
 		<!-- 特殊信息 -->
-		<view class="margin margin-top-xs radius shadow bg-white padding animation-slide-top">
+		<view class="margin radius shadow bg-white padding animation-slide-top">
 			<text class="text-shadow text-grey text-lg">{{dict.notices}}\n{{dict.notices2}}</text>
 		</view>
 		<!-- 有班车 -->

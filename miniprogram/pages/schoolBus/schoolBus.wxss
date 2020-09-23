@@ -48,7 +48,7 @@
 
 .placeSelect {
     background-color: #2684fe;
-    position: fixed;
+    position: absolute;
     width: 100vw;
     height: 6vh;
 }
@@ -62,7 +62,7 @@
 /* 头部时间选择 */
 .timeSelect {
     background-color: #2684fe;
-    position: fixed;
+    position: relative;
     width: 100vw;
     height: 6vh;
     top: 5vh;
@@ -85,7 +85,7 @@
 
 /* 班车卡片列表 */
 .busInfo{
-    position: fixed;
+    position: relative;
     height: 88vh;
-    top: 12vh;
+    top: 6vh;
 }
