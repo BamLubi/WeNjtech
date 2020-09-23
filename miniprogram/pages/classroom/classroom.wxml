@@ -16,18 +16,31 @@
 	<text class="text-shadow text-grey text-lg">{{dict.message1}}\n数据更新时间：{{dict.time}}\n今日可用教室：{{dict.count}} 间</text>
 </view>
 
+<!-- 模式切换 -->
+<view class="cu-bar bg-white margin-bottom-xs">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange '></text> 考研打野模式(当日最长时间排序)
+  </view>
+  <view class='action'>
+    <switch class='sm radius modeChange' checked='{{mode}}' bindchange='changeMode'></switch>
+  </view>
+</view>
+
 <!-- 显示教学区分割 -->
-<view class="bg-white nav {{isFixedNav ? 'fixNav' : ''}}">
+<view class="bg-white test nav {{isFixedNav ? 'fixNav' : ''}}">
+	<!-- 学区 -->
 	<view class="flex text-center">
 		<view class="cu-item flex-sub {{tab_lh[index]?'text-red cur':''}}" wx:for="{{lh}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lh">
 			{{item}}
 		</view>
 	</view>
-	<view class="flex text-center">
+	<!-- 时间 -->
+	<view wx:if="{{!mode}}" class="flex text-center">
 		<view class="cu-item flex-sub {{tab_time[index]?'text-orange cur':''}}" wx:for="{{time}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_time">
 			{{item}}
 		</view>
 	</view>
+	<!-- 楼层 -->
 	<view class="flex text-center">
 		<view class="cu-item flex-sub {{tab_lc[index]?'text-yellow cur':''}}" wx:for="{{lc}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lc">
 			{{item}}

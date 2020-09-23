@@ -5,7 +5,8 @@
 }
 
 .topArea .card-swiper {
-  height: 420rpx !important;
+  /* height: 420rpx !important; */
+  height: 30vh !important;
 }
 
 .fixNav {
