@@ -58,7 +58,7 @@
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">
-				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒，发车前微信提醒您 ˋ( ° ▽、° ) </text>
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒,发车前微信提醒您 ˋ( ° ▽、° ) </text>
 			</view>
 		</view>
 	</block>
@@ -111,7 +111,7 @@
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">
-				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒，发车前微信提醒您 ˋ( ° ▽、° ) </text>
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒,发车前微信提醒您 ˋ( ° ▽、° ) </text>
 			</view>
 		</view>
 	</block>
