@@ -5,10 +5,10 @@ const Promise = require('es6-promise.min.js')
 
 /**
  * used to call weixin Cloud Function
- * 
- * @params funName , cloud function's name
- * @params data , cloud function's data for POST
- * @return Promise Object
+ * call wx.cloud.callFunction
+ * @param {string} funName cloud function's name
+ * @param {object[]} data cloud function's data for POST
+ * @return {Promise}
  */
 function CallWxCloudFun(funName, data) {
     //return Promise Object

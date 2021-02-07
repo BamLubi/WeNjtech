@@ -4,11 +4,10 @@
 const Promise = require('es6-promise.min.js')
 
 /**
- * used to call weixin Cloud Store Functions
- * 
- * @params funName , cloud function's name
- * @params data , cloud function's data for POST
- * @return Promise Object
+ * used to download file which stored in cloud store
+ * call wx.cloud.downloadFile
+ * @param {string} fileID file id
+ * @return {Promise}
  */
 function DownloadWxCloudStore(fileID) {
     //return Promise Object

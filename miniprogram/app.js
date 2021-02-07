@@ -4,17 +4,17 @@ const userInfoDB = require("./utils/userInfoDB.js")
 const API = require("./promise/wxAPI.js")
 App({
 	globalData: {
-		systemInfo: null,
-		tabBarHeight: 49,
-		cloudUserInfo: null, // 云端用户信息
-		localUserInfo: null, // 本地用户信息
-		openid: null, // 用户openid
-		hasUserInfo: false, // 判定是否获取到用户信息
-		system: null, // 记录用户手机系统
+		systemInfo: null,			// 系统信息
+		tabBarHeight: 49,			// 底部tabBar高度
+		cloudUserInfo: null, 	// 云端用户信息
+		localUserInfo: null, 	// 本地用户信息
+		openid: null, 				// 用户openid
+		hasUserInfo: false, 	// 判定是否获取到用户信息
+		system: null, 				// 记录用户手机系统
 	},
 
 	onLaunch: function () {
-		var that = this
+		let that = this
 
 		// 初始化云开发环境
 		if (!wx.cloud) {
@@ -49,7 +49,7 @@ App({
 	 * 获取用户信息,包括从云端获取信息
 	 */
 	getUserInfo: function () {
-		var that = this
+		let that = this
 		let userInfo = ''
 		// 判断用户是否授权
 		API.GetSetting().then(res => {
@@ -66,9 +66,10 @@ App({
 			return cloudFun.CallWxCloudFun("login", {})
 		}).then(res => {
 			that.globalData.openid = res.openid
+			// 下载用户个人信息
 			return userInfoDB.DownLoadUserInfo(res.openid, userInfo)
 		}).then(res => {
-			// 登陆成功
+			// 登陆成功，显示提示框
 			wx.hideLoading()
 			wx.showToast({
 				title: '登陆成功',
@@ -79,8 +80,8 @@ App({
 				that.userInfoReadyCallback()
 			}
 		}).catch(err => {
-			// 登陆失败
 			wx.hideLoading()
+			// 登陆失败，显示提示框
 			return API.ShowToast('登陆失败!部分功能失效', 'none', 1000)
 		})
 	}

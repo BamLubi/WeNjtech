@@ -153,9 +153,11 @@ Page({
       [arr + '[' + id + ']']: !this.data[arr][id]
     })
     // 重置查询参数
-    this.data.hasMore = true
-    this.data.classroomList = []
-    this.data.classroomListLength = 0
+    this.setData({
+      hasMore: true,
+      classroomList: [],
+      classroomListLength: 0,
+    })
     // 获取空教室信息
     this.setEmptyClassroom()
   },
@@ -256,11 +258,11 @@ Page({
     })
     console.log("[查询空闲教室] 模式", this.data.mode)
     // 重置查询参数
-    this.data.hasMore = true
-    this.data.classroomList = []
-    this.data.classroomListLength = 0
-    this.data.tab_lc[0] = 1
-    this.data.tab_time[0] = 1
+    this.setData({
+      hasMore: true,
+      classroomList: [],
+      classroomListLength: 0,
+    })
     // 获取新的数据
     this.setEmptyClassroom()
   }

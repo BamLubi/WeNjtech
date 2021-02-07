@@ -2,8 +2,8 @@
 
 /**
  * 将数字转换为星期
- * params: number[0,1,2,4,5,6]
- * return: 星期["一","二","三","四","五","六","日"]
+ * @param {number} week [0,1,2,4,5,6]
+ * @return {string} 星期["一","二","三","四","五","六","日"]
  */
 function transToWeek(week) {
     switch (week) {
@@ -23,15 +23,15 @@ function transToWeek(week) {
             return "星期日";
     }
 }
-// END
 
 /**
  * 加减天数
- * params: (date, string["+","-"]], number[天数])
- * return: toDate(number[天数])
+ * @param {string} date 基础日期"yyyy-mm-dd"
+ * @param {string} method '+' || '-'
+ * @param {number} days 天数
+ * @return {Date} 运算后的日期
  */
 function mathChangeDate(date, method, days) {
-    //method:'+' || '-'
     //ios不解析带'-'的日期格式，要转成'/'，不然Nan，切记
     let dateVal = date.replace(/-/g, '/');
     let timestamp = Date.parse(dateVal);
@@ -42,12 +42,11 @@ function mathChangeDate(date, method, days) {
     }
     return toDate(timestamp);
 }
-// END
 
 /**
  * 天数转换成date
- * params: number[天数]
- * return: string[yyyy-mm-dd]
+ * @param {number} days 天数
+ * @return {string} "yyyy-mm-dd"
  */
 function toDate(days) {
     let date = new Date(parseInt(days) * 1000);
@@ -58,12 +57,12 @@ function toDate(days) {
     day = day < 10 ? ('0' + day) : day;
     return year + '-' + month + '-' + day;
 }
-// END
 
 /**
  * 判断是今天/明天/日期
- * params: (object[用户选择的日期], object[今天])
- * return: string["今天","明天","星期几"]
+ * @param {Date} selectDate 
+ * @param {Date} todayDate 
+ * @return {string} ["今天","明天","星期几"]
  */
 function isTodayORTomorrow(selectDate, todayDate) {
     // 判断日期
@@ -80,7 +79,6 @@ function isTodayORTomorrow(selectDate, todayDate) {
         return transToWeek(selectDate.week);
     }
 }
-// END
 
 module.exports = {
     mathChangeDate: mathChangeDate,			// 加减天数

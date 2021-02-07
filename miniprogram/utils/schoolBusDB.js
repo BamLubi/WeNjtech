@@ -6,12 +6,14 @@ const db = wx.cloud.database()
 const _ = db.command
 
 /**
+ * 下载汽车时间安排
  * @param {string} season 'winter'|'summer'
  * @param {string} direction 'forward'|'reverse'
  * @param {string} week 'workingDay'|'weekend'
  * @param {string} line 'busLine_1'|'busLine_2'
  * @param {number} time A double number with 2 decimal,take example,'14.25' equals '14:25'
  * @param {number} length the bus list has got
+ * @return {Promise}
  */
 function DownLoadBusLine(season, direction, week, line, time, length) {
     return new Promise(function (resolve, reject) {
@@ -55,8 +57,9 @@ function DownLoadBusLine(season, direction, week, line, time, length) {
 }
 
 /**
- * 
+ * 格式化时间信息
  * @param {number} int_time A double number with 2 decimal,take example,'14.25' equals '14:25'
+ * @return {string} 时间 "xx:xx"
  */
 function FormatBusTime(int_time) {
     let time = {

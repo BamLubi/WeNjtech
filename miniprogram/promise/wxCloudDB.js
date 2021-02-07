@@ -5,10 +5,9 @@ const Promise = require('es6-promise.min.js')
 
 /**
  * call GET functions of Wechat Cloud Database
- * 
- * @collectionName cloud database collection's name
- * @whereData cloud database where rules
- * @return Promise Object
+ * @param {string} collectionName cloud database collection's name
+ * @param {object[]} whereData cloud database where rules
+ * @return {Promise}
  */
 function GetWxCloudDB(collectionName, whereData) {
 	const db = wx.cloud.database()
@@ -37,10 +36,9 @@ function GetWxCloudDB(collectionName, whereData) {
 
 /**
  * call ADD functions of Wechat Cloud Database
- * 
- * @collectionName Cloud database collection's name
- * @data data for Adding to Cloud Database
- * @return Promise Object
+ * @param {string} collectionName Cloud database collection's name
+ * @param {object[]} data data for Adding to Cloud Database
+ * @return {Promise}
  */
 function AddWxCloudDB(collectionName, data) {
 	const db = wx.cloud.database()
@@ -64,12 +62,11 @@ function AddWxCloudDB(collectionName, data) {
 
 /**
  * call UPDATE functions of Wechat Cloud Database
- * 
- * @collectionName Cloud database collection's name
- * @tableId user table's id
- * @data data for updating to Cloud Database
- * @remark remark for definiting the function
- * @return Promise Object
+ * @param {string} collectionName Cloud database collection's name
+ * @param {string} tableId user table's id
+ * @param {object[]} data data for updating to Cloud Database
+ * @param {string} remark remark for definiting the function
+ * @return {Promise}
  */
 function UpdateWxCloudDB(collectionName, tableId, data, remark) {
 	const db = wx.cloud.database()

@@ -11,6 +11,7 @@ const fs = wx.getFileSystemManager()
  * @param {boolean} showCancel 
  * @param {string} cancelText 
  * @param {string} confirmText 
+ * @return {Promise}
  */
 function ShowModal(title, content, showCancel, cancelText, confirmText) {
     //return Promise Object
@@ -39,9 +40,10 @@ function ShowModal(title, content, showCancel, cancelText, confirmText) {
 }
 
 /**
- * 
- * @param {*} title 
- * @param {*} icon 
+ * call wx.showToast
+ * @param {string} title 
+ * @param {string} icon 'success'|'loading'
+ * @return {Promise}
  */
 function ShowToast(title, icon, duration) {
     //return Promise Object
@@ -53,25 +55,34 @@ function ShowToast(title, icon, duration) {
             success: (res) => {
                 resolve(res)
             },
+            faile: (err) => {
+                reject(err)
+            }
         })
     });
 }
 
-function HideToast(title, icon) {
+/**
+ * call wx.hideToast
+ * @return {Promise}
+ */
+function HideToast() {
     //return Promise Object
     return new Promise(function (resolve, reject) {
         wx.hideToast({
             success: (res) => {
                 resolve(res)
             },
+            fail: (err) => {
+                reject(err)
+            }
         })
     });
 }
 
 /**
  * call wx.chooseAddress
- * 
- * @return Promise Object
+ * @return {Promise}
  */
 function ChooseAddress() {
     //return Promise Object
@@ -91,8 +102,7 @@ function ChooseAddress() {
 
 /**
  * call wx.getSetting
- * 
- * @return Promise Object
+ * @return {Promise}
  */
 function GetSetting() {
     //return Promise Object
@@ -118,8 +128,7 @@ function GetSetting() {
 
 /**
  * call wx.getUserInfo
- * 
- * @return Promise Object
+ * @return {Promise}
  */
 function GetUserInfo() {
     //return Promise Object
@@ -143,10 +152,9 @@ function GetUserInfo() {
 
 /**
  * call wx.getFileSystemManager().saveFile()
- * 
- * @tempFilePath Temp File Path(when download file online,etc..)
- * @fileName File's name
- * @return Promise Object
+ * @param {string} tempFilePath Temp File Path(when download file online,etc..)
+ * @param {string} fileName File's name
+ * @return {Promise}
  */
 function SaveFile(tempFilePath, fileName) {
     //return Promise Object
@@ -168,9 +176,8 @@ function SaveFile(tempFilePath, fileName) {
 
 /**
  * call wx.openDocumnet()
- * 
- * @savedFilePath File Path
- * @return Promise Object
+ * @param {string} savedFilePath File Path
+ * @return {Promise}
  */
 function OpenDocument(savedFilePath) {
     //return Promise Object
@@ -191,7 +198,8 @@ function OpenDocument(savedFilePath) {
 
 /**
  * call wx.requestSubscribeMessage()
- * @param {str} tmplId 
+ * @param {string} tmplId template id , used to subscribe message
+ * @return {Promise}
  */
 function RequestSubscribeMessage(tmplId) {
     //return Promise Object
@@ -215,6 +223,7 @@ function RequestSubscribeMessage(tmplId) {
 
 /**
  * call wx.hideKeyboard()
+ * @return {Promise}
  */
 function _hideKeyBoard() {
     return new Promise(function (resolve, reject) {
@@ -228,6 +237,11 @@ function _hideKeyBoard() {
     })
 }
 
+/**
+ * call wx.downloadFile
+ * @param {string} url 
+ * @return {Promise}
+ */
 function DownloadFile(url) {
     //return Promise Object
     return new Promise(function (resolve, reject) {
@@ -249,7 +263,6 @@ function DownloadFile(url) {
         })
     })
 }
-
 
 module.exports = {
     ShowModal: ShowModal,

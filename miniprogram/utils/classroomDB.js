@@ -6,12 +6,13 @@ const _ = db.command
 const $ = db.command.aggregate
 
 /**
- * 
- * @param {*} lh 
- * @param {*} time 
- * @param {*} lc 
- * @param {*} length 
+ * 下载教室信息
+ * @param {string[]} lh 楼号
+ * @param {number[]} time 时间
+ * @param {number[]} lc 楼层
+ * @param {number} length 已经获取的数据长度
  * @param {boolean} mode 模式，默认为false，考研为true
+ * @return {Promise}
  */
 function DownLoadClassroom(lh, time, lc, length, mode) {
   return new Promise(function (resolve, reject) {

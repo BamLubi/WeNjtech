@@ -10,9 +10,10 @@ const app = getApp() // 设置了不管用...？
  *                -存在-> 覆盖本地数据
  * 
  * 更新流程:
- * 1. 本地数据与云端数据比较 -> 找出需要更新的信息 -> 更新云端和本地数据
+ *    本地数据与云端数据比较 -> 找出需要更新的信息 -> 更新云端和本地数据
  */
 
+// 用户信息模板
 const userInfoTemplate = {
   nickName: '',
   avatarUrl: '',
@@ -20,12 +21,14 @@ const userInfoTemplate = {
   setStuNumDate: new Date("2020-01-01 00:00:00")
 }
 
+// 云数据库集合名称
 const collectionName = "weNjtech-userInfo"
 
 /**
  * 云数据库下载用户个人信息
  * @param {string} openid 用户openid
  * @param {object} userInfo wx.getUserInfo拿到的用户信息
+ * @return {Promise}
  */
 function DownLoadUserInfo(openid, userInfo) {
   return cloudDB.GetWxCloudDB(collectionName, {
@@ -34,22 +37,19 @@ function DownLoadUserInfo(openid, userInfo) {
     console.log("[app] [用户信息]: 云端有信息")
     // 比对云端数据，更新字段
     return UpdateNewKeyUserInfo(res.data[0])
-    // // 利用云端数据,制作cloudUserInfo和localUserInfo
-    // MakeUserInfo(res.data[0])
-    // return new Promise(function (resolve) {
-    //   resolve()
-    // })
   }, res => {
     console.log("[app] [用户信息]: 云端无信息")
     // 利用wx接口获取的公共信息,制作本地localUserInfo和cloudUserInfo
     userInfo = MakeUserInfo(userInfo)
+    // 用户信息上传云端
     return cloudDB.AddWxCloudDB(collectionName, userInfo)
   })
 }
 
 /**
  * 制作cloudUerInfo和localUserInfo
- * @param {object} userInfo 提供的用户信息
+ * @param {object} userInfo 用户信息
+ * @return {object} 完善后的用户信息
  */
 function MakeUserInfo(userInfo) {
   try {
@@ -73,6 +73,7 @@ function MakeUserInfo(userInfo) {
 /**
  * 根据模板,比对云端没有的字段,并更新
  * @param {objetc} cloudUserInfo 云端的信息
+ * @return {Promise}
  */
 function UpdateNewKeyUserInfo(cloudUserInfo){
   let updateItem = {}
