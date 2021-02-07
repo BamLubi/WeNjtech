@@ -4,6 +4,7 @@ const cloudDB = require("../../promise/wxCloudDB.js")
 const cloudStore = require("../../promise/wxCloudStore.js")
 const API = require("../../promise/wxAPI.js")
 const app = getApp()
+
 Page({
 
     /**
@@ -43,7 +44,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that = this
+        let that = this
         // 云端获取dict
         cloudDB.GetWxCloudDB("weNjtech-publicDict", {
             name: "miniNjtechDict"
@@ -113,19 +114,22 @@ Page({
             wx.showLoading({
                 title: '下载中'
             })
-            // return API.DownloadFile("https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/%E5%A4%AA%E5%8D%97%E8%AF%BE%E8%A1%A8.apk")
+            // 下载文件
             return cloudStore.DownloadWxCloudStore("cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/resource/太南课表.apk")
         }).then(res => {
+            // 保存文件
             return API.SaveFile(res.tempFilePath, "太南课表.apk")
         }).then(res => {
             savedFilePath = res.savedFilePath
             wx.hideLoading()
+            // 显示提示框
             return API.ShowToast('下载成功', 'success', 1000)
         }).then(res => {
             setTimeout(function () {
                 return API.HideToast()
             }, 1000)
         }).then(res => {
+            // 打开文件
             return API.OpenDocument(savedFilePath)
         }).catch(err => {
             wx.hideLoading()

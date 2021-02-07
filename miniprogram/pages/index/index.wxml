@@ -11,13 +11,25 @@
 	<!-- 中部工具栏 -->
 	<view class="sv-list margin-top-xl flex justify-center align-center">
 		<block wx:for="{{services}}" wx:key>
-			<!-- 自定义页面跳转 -->
-			<navigator wx:if="{{item.type == 'navigator'}}" class="sv-li {{item.bg}} animation-slide-bottom" style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" open-type="navigate" url="{{item.url}}" role="navigation">
+			<!-- navigator类型使用页面跳转 -->
+			<navigator
+				wx:if="{{item.type == 'navigator'}}"
+				class="sv-li {{item.bg}} animation-slide-bottom"
+				style="animation-delay: {{(index+1)*0.2}}s;"
+				hover-class="navigator-hover"
+				open-type="navigate"
+				url="{{item.url}}"
+				role="navigation">
 				<view class="sv-title">{{item.title}}</view>
 				<view class="sv-name">{{item.name}}</view>
 			</navigator>
-			<!-- 使用js -->
-			<view wx:if="{{item.type == 'button'}}" class="sv-li {{item.bg}} animation-slide-bottom" style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" bindtap="{{item.bindtap}}">
+			<!-- button类型使用js -->
+			<view
+				wx:if="{{item.type == 'button'}}"
+				class="sv-li {{item.bg}} animation-slide-bottom"
+				style="animation-delay: {{(index+1)*0.2}}s;"
+				hover-class="navigator-hover"
+				bindtap="{{item.bindtap}}">
 				<view class="sv-title">{{item.title}}</view>
 				<view class="sv-name">{{item.name}}</view>
 			</view>

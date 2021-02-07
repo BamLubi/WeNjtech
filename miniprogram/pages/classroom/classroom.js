@@ -46,6 +46,7 @@ Page({
         scrollFixHeight: 365,
       })
     }
+
     // 下载字典
     cloudDB.GetWxCloudDB('weNjtech-publicDict', {
       name: 'forStudy'
@@ -53,6 +54,7 @@ Page({
       that.setData({
         dict: res.data[0]
       })
+      // 获取字典后，设置回调
       if (that.getDictCallback) {
         that.getDictCallback()
       }

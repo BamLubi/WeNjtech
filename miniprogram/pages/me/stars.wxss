@@ -62,15 +62,11 @@
   left: 395rpx;
   background: #ff5a99;
   animation-delay: 5s;
-  -webkit-animation-delay: 5s;
-  -moz-animation-delay: 5s;
 }
 
 .pink:after {
   border-color: transparent transparent transparent #ff5a99;
   animation-delay: 5s;
-  -webkit-animation-delay: 5s;
-  -moz-animation-delay: 5s;
 }
 
 .blue {
@@ -78,14 +74,9 @@
   left: 432rpx;
   background: cyan;
   animation-delay: 7s;
-  -webkit-animation-delay: 7s;
-  -moz-animation-delay: 7s;
 }
 
 .blue:after {
-  /* border-color: transpareanimation-delay: 12s; */
-  -webkit-animation-delay: 7s;
-  -moz-animation-delay: 7s;
   animation-delay: 7s;
 }
 
@@ -105,21 +96,15 @@
   0% {
     opacity: 0;
     transform: scale(0) rotate(0) translate3d(0, 0, 0);
-    -webkit-transform: scale(0) rotate(0) translate3d(0, 0, 0);
-    -moz-transform: scale(0) rotate(0) translate3d(0, 0, 0);
   }
 
   50% {
     opacity: 1;
     transform: scale(1) rotate(0) translate3d(-200rpx, 200rpx, 0);
-    -webkit-transform: scale(1) rotate(0) translate3d(-200rpx, 200rpx, 0);
-    -moz-transform: scale(1) rotate(0) translate3d(-200rpx, 200rpx, 0);
   }
 
   100% {
     opacity: 0;
     transform: scale(1) rotate(0) translate3d(-300rpx, 300rpx, 0);
-    -webkit-transform: scale(1) rotate(0) translate3d(-300rpx, 300rpx, 0);
-    -moz-transform: scale(1) rotate(0) translate3d(-300rpx, 300rpx, 0);
   }
 }
