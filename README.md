@@ -31,7 +31,7 @@
 
 ## 使用之前
 
-在开发“南工校车”之前，请确保你已经对微信官方的 [小程序简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/) 和[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)有所了解。
+在开发“南工校车”之前，请确保已经对微信官方的 [小程序简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/) 和[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)有所了解。
 
 ## 开发
 
