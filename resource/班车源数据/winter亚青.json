@@ -1,0 +1,312 @@
+{
+    "_id": "busline0150",
+    "startTime": 7.40,
+    "endTime": 7.40,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0151",
+    "startTime": 7.50,
+    "endTime": 7.50,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0152",
+    "startTime": 7.55,
+    "endTime": 7.55,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0153",
+    "startTime": 9.5,
+    "endTime": 9.5,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0154",
+    "startTime": 10.10,
+    "endTime": 10.10,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0155",
+    "startTime": 12.15,
+    "endTime": 12.15,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0156",
+    "startTime": 12.40,
+    "endTime": 12.40,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0157",
+    "startTime": 13.15,
+    "endTime": 13.15,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0158",
+    "startTime": 15.25,
+    "endTime": 15.25,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0159",
+    "startTime": 17.15,
+    "endTime": 17.15,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0160",
+    "startTime": 17.35,
+    "endTime": 17.35,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0180",
+    "startTime": 18,
+    "endTime": 18,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线正向"
+}
+{
+    "_id": "busline0161",
+    "startTime": 7.35,
+    "endTime": 7.35,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0162",
+    "startTime": 7.45,
+    "endTime": 7.45,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0163",
+    "startTime": 9.40,
+    "endTime": 9.40,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0164",
+    "startTime": 10.0,
+    "endTime": 10.0,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0165",
+    "startTime": 12.05,
+    "endTime": 12.05,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0166",
+    "startTime": 12.25,
+    "endTime": 12.25,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0167",
+    "startTime": 13.05,
+    "endTime": 13.05,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0168",
+    "startTime": 15.15,
+    "endTime": 15.15,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0169",
+    "startTime": 17.05,
+    "endTime": 17.05,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0170",
+    "startTime": 17.25,
+    "endTime": 17.25,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0171",
+    "startTime": 17.45,
+    "endTime": 17.45,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": true,
+    "remark": "亚青线反向"
+}
+{
+    "_id": "busline0172",
+    "startTime": 18.0,
+    "endTime": 18.0,
+    "amount": 1,
+    "line": "busLine_2",
+    "site": "busLine_2_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "winter",
+    "isValid": false,
+    "remark": "亚青线反向"
+}

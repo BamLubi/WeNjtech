@@ -1,0 +1,58 @@
+2021-02-04 06:00:16,717 - uploadData.py[line:408] - INFO: 
+2021-02-04 06:00:16,738 - uploadData.py[line:409] - INFO: ------------START------------
+2021-02-04 06:00:16,738 - uploadData.py[line:410] - INFO: File Date: 20210204
+2021-02-04 06:00:16,738 - uploadData.py[line:411] - INFO: Origin File Path: ./emptyClass.json
+2021-02-04 06:00:16,738 - uploadData.py[line:412] - INFO: Final File Path: ./classroom/20210204.json
+2021-02-04 06:00:16,738 - uploadData.py[line:413] - INFO: WeChat Collection Name: weNjtech-classroom
+2021-02-04 06:00:16,738 - uploadData.py[line:416] - INFO: ------------PART 1------------
+2021-02-04 06:00:16,767 - uploadData.py[line:66] - INFO: Deal origin-file SUCCESS!
+2021-02-04 06:00:16,767 - uploadData.py[line:151] - INFO: Sort empty-classroom by _id SUCCESS!
+2021-02-04 06:00:16,770 - uploadData.py[line:38] - INFO: Write empty-classroom SUCCESS!
+2021-02-04 06:00:16,770 - uploadData.py[line:422] - INFO: Count: 235
+2021-02-04 06:00:16,770 - uploadData.py[line:430] - INFO: ------------PART 2------------
+2021-02-04 06:00:17,007 - uploadData.py[line:216] - INFO: Uploading File ......
+2021-02-04 06:00:17,007 - uploadData.py[line:217] - INFO: Local File Path: ./classroom/20210204.json
+2021-02-04 06:00:17,007 - uploadData.py[line:218] - INFO: Cloud File Path: weNjtech/classroom/20210204.json
+2021-02-04 06:00:17,493 - uploadData.py[line:229] - INFO: Upload File Part 1 SUCCESS!
+2021-02-04 06:00:17,812 - uploadData.py[line:241] - INFO: Upload File Part 2 SUCCESS!
+2021-02-04 06:00:17,812 - uploadData.py[line:286] - INFO: Deleting Collection ......
+2021-02-04 06:00:18,243 - uploadData.py[line:299] - INFO: Delete Collection SUCCESS!
+2021-02-04 06:00:18,243 - uploadData.py[line:337] - INFO: Updating Database ......
+2021-02-04 06:00:18,563 - uploadData.py[line:351] - INFO: Update Database SUCCESS!
+2021-02-04 06:00:18,563 - uploadData.py[line:311] - INFO: Adding Collection ......
+2021-02-04 06:00:18,947 - uploadData.py[line:325] - INFO: Add Collection SUCCESS!
+2021-02-04 06:00:18,947 - uploadData.py[line:256] - INFO: Importing Database ......
+2021-02-04 06:00:19,667 - uploadData.py[line:274] - INFO: Importing Database SUCCESS!
+2021-02-04 06:00:19,667 - uploadData.py[line:337] - INFO: Updating Database ......
+2021-02-04 06:00:19,940 - uploadData.py[line:351] - INFO: Update Database SUCCESS!
+2021-02-04 06:00:19,940 - uploadData.py[line:436] - INFO: ------------END------------
+2021-02-04 06:00:19,941 - uploadData.py[line:437] - INFO: 
+2021-02-05 06:00:15,369 - uploadData.py[line:408] - INFO: 
+2021-02-05 06:00:15,369 - uploadData.py[line:409] - INFO: ------------START------------
+2021-02-05 06:00:15,369 - uploadData.py[line:410] - INFO: File Date: 20210205
+2021-02-05 06:00:15,369 - uploadData.py[line:411] - INFO: Origin File Path: ./emptyClass.json
+2021-02-05 06:00:15,369 - uploadData.py[line:412] - INFO: Final File Path: ./classroom/20210205.json
+2021-02-05 06:00:15,369 - uploadData.py[line:413] - INFO: WeChat Collection Name: weNjtech-classroom
+2021-02-05 06:00:15,369 - uploadData.py[line:416] - INFO: ------------PART 1------------
+2021-02-05 06:00:15,401 - uploadData.py[line:66] - INFO: Deal origin-file SUCCESS!
+2021-02-05 06:00:15,401 - uploadData.py[line:151] - INFO: Sort empty-classroom by _id SUCCESS!
+2021-02-05 06:00:15,403 - uploadData.py[line:38] - INFO: Write empty-classroom SUCCESS!
+2021-02-05 06:00:15,403 - uploadData.py[line:422] - INFO: Count: 235
+2021-02-05 06:00:15,404 - uploadData.py[line:430] - INFO: ------------PART 2------------
+2021-02-05 06:00:15,597 - uploadData.py[line:216] - INFO: Uploading File ......
+2021-02-05 06:00:15,597 - uploadData.py[line:217] - INFO: Local File Path: ./classroom/20210205.json
+2021-02-05 06:00:15,597 - uploadData.py[line:218] - INFO: Cloud File Path: weNjtech/classroom/20210205.json
+2021-02-05 06:00:16,143 - uploadData.py[line:229] - INFO: Upload File Part 1 SUCCESS!
+2021-02-05 06:00:16,462 - uploadData.py[line:241] - INFO: Upload File Part 2 SUCCESS!
+2021-02-05 06:00:16,462 - uploadData.py[line:286] - INFO: Deleting Collection ......
+2021-02-05 06:00:16,889 - uploadData.py[line:299] - INFO: Delete Collection SUCCESS!
+2021-02-05 06:00:16,890 - uploadData.py[line:337] - INFO: Updating Database ......
+2021-02-05 06:00:17,290 - uploadData.py[line:351] - INFO: Update Database SUCCESS!
+2021-02-05 06:00:17,290 - uploadData.py[line:311] - INFO: Adding Collection ......
+2021-02-05 06:00:17,698 - uploadData.py[line:325] - INFO: Add Collection SUCCESS!
+2021-02-05 06:00:17,699 - uploadData.py[line:256] - INFO: Importing Database ......
+2021-02-05 06:00:18,388 - uploadData.py[line:274] - INFO: Importing Database SUCCESS!
+2021-02-05 06:00:18,388 - uploadData.py[line:337] - INFO: Updating Database ......
+2021-02-05 06:00:18,708 - uploadData.py[line:351] - INFO: Update Database SUCCESS!
+2021-02-05 06:00:18,708 - uploadData.py[line:436] - INFO: ------------END------------
+2021-02-05 06:00:18,708 - uploadData.py[line:437] - INFO: 
