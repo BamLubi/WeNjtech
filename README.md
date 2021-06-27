@@ -1,72 +1,56 @@
+---
+
+---
+
 <p align="center">
-  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200605120547.png" width="200" style="margin-bottom: 10px;">
+  <img alt="logo" src="./resource/WeNjtech.png" width="200" style="margin-bottom: 10px;">
 </p>
-<h3 align="center">专属南工学子的校车查询</h3>
+<h3 align="center">专属南工学子的校园查询程序</h3>
 
 [TOC]
 
 ## 介绍
 
-“南工校车”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
+“微南工”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
 
 - 【班车查询】
-  - 查询双向的***象山线班车、亚青线班车***
+  - 查询***象山线班车、亚青线班车***
   - 查询指定日期、时间班车
-  - ***订阅***指定校车提醒
+  - 查询指定车站之间的班车
+  - ***订阅***以获得校车发车提醒（需观看10-15s不等的广告）
 - 【空闲教室查询】
   - 查询当日空闲教室信息***厚学楼、浦江楼、仁智楼、同和楼***
+  - 查询指定学区、时间、楼层的空闲教室
+  - 对全天最长时间空闲教室进行排序
+- 【校园问题查询】
+  - 简单的罗列常见的校园问题
+- 【课表查询】
+  - 使用@Autokaka的校园课表查询APP
+- 【个人资料管理】
+  - 维护个人信息
 
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="https://picgo-1256052225.cos.ap-guangzhou.myqcloud.com/img/20200605120315.jpg
+  <img alt="logo" src="./resource/推广.jpg
 " width="300" style="margin-bottom: 10px;">
 </p>
 
+
 ## 开发工具
 
-[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html )、[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)、[微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)
-
-
+[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html )、[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)、[微信小程序开发文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)、VS Code
 
 ## 使用之前
 
-在开发“南工校车”之前，请确保已经对微信官方的 [小程序简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/) 和[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)有所了解。
+在使用本项目之前，请确保已经对微信官方的 [小程序简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/) 和[微信云开发](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)有所了解。
 
-## 开发
+本小程序分为前后端，前端采用**微信小程序**开发，后端采用微信小程序的**云开发**与自己部署的**服务器**相结合。自己部署的服务器主要用于爬取学校教务处的信息，如空教室信息等，并将这些数据全部存储在小程序云开发中。
 
-1. 导入项目，使用测试号ID。创建自己的云开发环境，并在`app.js`中更改`env属性`。
-2. 打开云开发控制台，创建数据库集合**schoolBusTable**,导入`/resource/schoolBusTable.json`。
+## 主要设计
 
-## 目录结构
-
-```
-├──cloudfunctions			// 云函数
-├──miniprogram				// 主程序
-|  ├──component				// 组件库
-|  ├──images				// 图片库
-|  ├──mePackage				// 我的页面分包
-|  |  ├──pages				// 页面
-|  |  |  ├──about			// 关于
-|  |  |  └──log				// 日志
-|  ├──pages					// 主页面包
-|  |  ├──index				// 主页
-|  |  ├──me					// 我的
-|  |  └──schoolBus			// 班车时刻
-|  ├──utils					// 工具库
-│  ├──app.js
-|  ├──app.json
-|  ├──app.wxss
-|  └──sitemap.json
-├──resource					// 环境资源
-├──.gitignore
-├──.LICENSE
-├──README.md
-└──project.config.json
-
-```
-
-
+1. [校车数据存储设计]("./resource/校车数据存储设计.md")
+2. [空教室信息爬取设计]("./resource/解析[查询空教室]请求.md")
 
 ## 版权信息
 
