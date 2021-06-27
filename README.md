@@ -3,8 +3,6 @@
 </p>
 <h3 align="center">专属南工学子的校园查询程序</h3>
 
-[TOC]
-
 ## 介绍
 
 “微南工”微信小程序，非南京工业大学官方小程序，只致力于服务南京工业大学江浦校区的师生等，同时也是自我磨练的项目。目前主要实现了如下功能：
@@ -28,8 +26,9 @@
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="resource/promote.jpg" width="300" style="margin-bottom: 10px;">
+  <img src="resource/promote.png" width="200" style="margin-bottom: 10px;">
 </p>
+
 
 
 
