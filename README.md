@@ -3,7 +3,7 @@
 ---
 
 <p align="center">
-  <img alt="logo" src="./resource/WeNjtech.png" width="200" style="margin-bottom: 10px;">
+  <img alt="logo" src="resource/WeNjtech.png" width="200" style="margin-bottom: 10px;">
 </p>
 <h3 align="center">专属南工学子的校园查询程序</h3>
 
@@ -32,9 +32,10 @@
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="./resource/推广.jpg
+  <img alt="logo" src="resource/推广.jpg
 " width="300" style="margin-bottom: 10px;">
 </p>
+
 
 
 ## 开发工具
@@ -49,8 +50,8 @@
 
 ## 主要设计
 
-1. [校车数据存储设计]("./resource/校车数据存储设计.md")
-2. [空教室信息爬取设计]("./resource/解析[查询空教室]请求.md")
+1. [校车数据存储设计](resource/校车数据存储设计.md)
+2. [空教室信息爬取设计](resource/解析[查询空教室]请求.md)
 
 ## 版权信息
 
