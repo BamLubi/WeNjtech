@@ -28,8 +28,7 @@
 ## 快速体验
 
 <p align="center">
-  <img alt="logo" src="resource/promote.jpg
-" width="300" style="margin-bottom: 10px;">
+  <img alt="logo" src="resource/promote.jpg" width="300" style="margin-bottom: 10px;">
 </p>
 
 
@@ -46,8 +45,8 @@
 
 ## 主要设计
 
-1. [校车数据存储设计](resource/校车数据存储设计.md)
-2. [空教室信息爬取设计](resource/解析[查询空教室]请求.md)
+1. 查看[校车数据存储设计](resource/校车数据存储设计.md)文档
+2. 查看[空教室信息爬取设计](resource/解析空教室请求.md)文档
 
 ## 版权信息
 
