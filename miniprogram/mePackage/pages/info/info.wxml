@@ -2,25 +2,25 @@
 <view>
 	<!-- 头像 -->
 	<view class="flex justify-center align-center  margin-top margin-bottom">
-		<image src="{{avatarUrl}}" class="userAvatar"></image>
+		<image src="{{userInfo.avatarUrl}}" class="userAvatar"></image>
 	</view>
 
 	<form>
 		<view class="cu-form-group">
 			<view class="title text-shadow align-center"><text space="emsp">昵 称 :</text></view>
-			<input value="{{nickName}}" disabled></input>
+			<input value="{{userInfo.nickName}}" disabled></input>
 		</view>
 		<!-- 学号 -->
 		<view class="cu-form-group">
 			<view class="title text-shadow align-center"><text space="emsp">学 号 :</text></view>
 			<!-- 未设置 -->
 			<block wx:if="{{canEditStuNum}}">
-				<input placeholder="(每90天仅可修改一次)" maxlength="15" type="number" value="{{stuNum}}" bindinput="getStuNum"></input>
+				<input placeholder="(每90天仅可修改一次)" maxlength="15" type="text" value="{{userInfo.stuNum}}" bindinput="getStuNum"></input>
         <button class="cu-btn lines-cyan round shadow" bindtap="submit">提交</button>
 			</block>
 			<!-- 设置了 -->
 			<block wx:else>
-				<input value="{{stuNum}}" disabled></input>
+				<input value="{{userInfo.stuNum}}" disabled></input>
 				<text class="text-gray text-lg">还剩{{leftDay}}天</text>
 			</block>
 		</view>

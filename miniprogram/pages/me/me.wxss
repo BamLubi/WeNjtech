@@ -8,7 +8,7 @@ page {
 }
 
 .head {
-	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/me-bg-img-3.jpg);
+	background-image: url(https://6c79-lyy-production-1258923430.tcb.qcloud.la/weNjtech/me-bg-img-3.jpg?sign=07bc91eb0099b2f456e572e1cc035bd6&t=1625730215);
 	background-size: cover;
 	height: 550rpx;
 	display: flex;
@@ -39,17 +39,6 @@ page {
 	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 	z-index: 99;
 }
-
-/*
-.head .userAvatar :hover {
-	animation: headRotate 10s ease-in-out 1
-}
-
-@keyframes headRotate{
-	0% {transform: rotate(0deg) scale(1);}
-  100% {transform: rotate(360deg) scale(2);}
-}
-*/
 
 .head .userNickName {
 	color: white;

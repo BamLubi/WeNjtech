@@ -2,6 +2,7 @@
 <view>
 	<!-- 顶部头像及背景 -->
 	<view class='head'>
+		<!-- 背景 -->
 		<view class='space'>
 			<view class="stars ">
 				<view class="star "></view>
@@ -10,18 +11,18 @@
 				<view class="star yellow "></view>
 			</view>
 		</view>
-		<!-- 未登录 -->
-		<block wx:if="{{!hasUserInfo}}">
-			<image class="userAvatar" src='/images/wechat.png'></image>
-			<button class="userButton" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权登录</button>
-		</block>
-		<!-- 已登陆 -->
-		<block wx:else>
+		<!-- 头像和用户名,现在不需要授权了 -->
+		<block wx:if="{{hasUserInfo}}">
 			<view class="userAvatar">
 				<open-data class="animation-scale-up" type="userAvatarUrl"></open-data>
 			</view>
 			<open-data class="userNickName" type="userNickName"></open-data>
 		</block>
+		<block wx:else>
+			<image class="userAvatar" src='/images/wechat.png'></image>
+			<button class="userButton" bindtap="getUserInfo">获取头像昵称</button>
+		</block>
+		<!-- 背景 -->
 		<image src='cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 	</view>
 

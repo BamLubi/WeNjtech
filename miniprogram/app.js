@@ -4,13 +4,13 @@ const userInfoDB = require("./utils/userInfoDB.js")
 const API = require("./promise/wxAPI.js")
 App({
 	globalData: {
-		systemInfo: null,			// 系统信息
-		tabBarHeight: 49,			// 底部tabBar高度
-		cloudUserInfo: null, 	// 云端用户信息
-		localUserInfo: null, 	// 本地用户信息
-		openid: null, 				// 用户openid
-		hasUserInfo: false, 	// 判定是否获取到用户信息
-		system: null, 				// 记录用户手机系统
+		systemInfo: null, // 系统信息
+		tabBarHeight: 49, // 底部tabBar高度
+		cloudUserInfo: null, // 云端用户信息
+		localUserInfo: null, // 本地用户信息
+		openid: null, // 用户openid
+		hasUserInfo: null, // true代表有数据,false代表没数据,null代表还在请求
+		system: null, // 记录用户手机系统
 	},
 
 	onLaunch: function () {
@@ -41,48 +41,42 @@ App({
 			}
 		})
 
-		// 获取用户信息
+		// 准备用户信息
 		that.getUserInfo()
 	},
 
 	/**
-	 * 获取用户信息,包括从云端获取信息
+	 * 准备用户信息,包括openid及用户身份信息
+	 * 用户身份信息由云端获取,并对应着hasUserInfo
 	 */
 	getUserInfo: function () {
+		/**
+		 * 获取授权已经没用了
+		 * 是否有用户的信息必须从数据库查,如果没有,就按需访问
+		 */
 		let that = this
-		let userInfo = ''
-		// 判断用户是否授权
-		API.GetSetting().then(res => {
-			// 此时用户已经授权，显示登陆
-			wx.showLoading({
-				title: '登陆中',
-			})
-			// 获取用户信息
-			return API.GetUserInfo()
-		}).then(res => {
-			userInfo = res.userInfo
-			that.globalData.hasUserInfo = true
-			// 获取用户openid
-			return cloudFun.CallWxCloudFun("login", {})
-		}).then(res => {
+		// 获取用户openid
+		cloudFun.CallWxCloudFun("login", {}).then(res => {
 			that.globalData.openid = res.openid
 			// 下载用户个人信息
-			return userInfoDB.DownLoadUserInfo(res.openid, userInfo)
+			return userInfoDB.DownloadUserInfo(res.openid)
 		}).then(res => {
-			// 登陆成功，显示提示框
-			wx.hideLoading()
-			wx.showToast({
-				title: '登陆成功',
-				duration: 1000
-			})
-			// 回调广播函数
-			if (that.userInfoReadyCallback) {
-				that.userInfoReadyCallback()
+			// 如果返回信息不为null
+			if (res != null) {
+				that.globalData.cloudUserInfo = res
+				that.globalData.localUserInfo = res
+				that.globalData.hasUserInfo = true
+				// 回调广播函数
+				if (that.userInfoReadyCallback) {
+					that.userInfoReadyCallback()
+				}
+			}else{
+				// 云端无信息
+				that.globalData.hasUserInfo = false
 			}
 		}).catch(err => {
-			wx.hideLoading()
-			// 登陆失败，显示提示框
-			return API.ShowToast('登陆失败!部分功能失效', 'none', 1000)
+			// 登陆失败
+			console.log("获取用户个人信息失败");
 		})
 	}
 })

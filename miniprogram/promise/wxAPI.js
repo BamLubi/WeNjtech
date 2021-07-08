@@ -153,6 +153,27 @@ function GetUserInfo() {
 }
 
 /**
+ * call wx.getUserProfile
+ * @return {Promise}
+ */
+function GetUserProfile() {
+    //return Promise Object
+    return new Promise(function (resolve, reject) {
+        wx.getUserProfile({
+            desc: "完善用户个人信息",
+            success: res => {
+                console.log("[wxAPI] [获取用户信息] success: ", res.userInfo)
+                resolve(res.userInfo)
+            },
+            fail: err => {
+                console.error("[wxAPI] [获取用户信息] fail: ", err)
+                reject(err)
+            }
+        })
+    });
+}
+
+/**
  * call wx.getFileSystemManager().saveFile()
  * @param {string} tempFilePath Temp File Path(when download file online,etc..)
  * @param {string} fileName File's name
@@ -271,6 +292,7 @@ module.exports = {
     ChooseAddress: ChooseAddress,
     GetSetting: GetSetting,
     GetUserInfo: GetUserInfo,
+    GetUserProfile: GetUserProfile,
     SaveFile: SaveFile,
     OpenDocument: OpenDocument,
     RequestSubscribeMessage: RequestSubscribeMessage,

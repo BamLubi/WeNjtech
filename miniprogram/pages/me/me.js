@@ -1,5 +1,6 @@
 // miniprogram/pages/me/me.js
 const app = getApp()
+const wxAPI = require("../../promise/wxAPI.js")
 const userInfoDB = require("../../utils/userInfoDB.js")
 Page({
 
@@ -7,6 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        localUserInfo: null,
         hasUserInfo: false,
         openid: null,
         service: [{
@@ -44,14 +46,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // 已经授权下，获取个人信息
-        if (app.globalData.hasUserInfo) {
+        // 根据云端是否有记录来决定要不要获取用户头像昵称
+        // 判断获取个人信息
+        if (app.globalData.hasUserInfo == true) {
             this.setData({
                 localUserInfo: app.globalData.localUserInfo,
                 openid: app.globalData.openid,
                 hasUserInfo: true,
             })
-        } else {
+        } else if (app.globalData.hasUserInfo == null) {
             // 异步操作
             app.userInfoReadyCallback = res => {
                 this.setData({
@@ -113,12 +116,27 @@ Page({
     },
 
     /**
-     * 授权
+     * 获取用户个人信息,
      */
-    getUserInfo: function (e) {
-        if (e.detail.userInfo) {
-            app.getUserInfo()
-        }
+    getUserInfo: function () {
+        // 显示loading
+        wx.showLoading({
+            title: '获取中'
+        })
+        wxAPI.GetUserProfile().then(res => userInfoDB.UploadUserInfo(res)).then(res => {
+            app.globalData.cloudUserInfo = JSON.parse(JSON.stringify(res))
+            app.globalData.localUserInfo = JSON.parse(JSON.stringify(res))
+            app.globalData.hasUserInfo = true
+            // 回调广播函数
+            if (app.userInfoReadyCallback) {
+                app.userInfoReadyCallback()
+            }
+            // 显示成功样式
+            wx.hideLoading()
+			wx.showToast({
+				title: '获取成功'
+			})
+        })
     },
 
     /**
@@ -126,10 +144,10 @@ Page({
      */
     navigatePage: function (e) {
         console.log("[me] [跳转页面]", e.target.dataset.url)
-        // 跳转编辑资料页面需保证全局由用户信息
+        // 跳转编辑资料页面需保证全局有用户信息
         if (e.target.dataset.id == 1 && !this.data.hasUserInfo) {
             wx.showToast({
-                title: '请先授权登录',
+                title: '请先点击获取头像昵称',
                 icon: 'none',
                 duration: 1500
             })
