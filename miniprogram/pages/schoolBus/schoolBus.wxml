@@ -82,24 +82,23 @@
 
 <!-- 这里的scrollTopNum影响布局 -->
 <!-- 车辆信息 -->
-<scroll-view scroll-y scroll-with-animation class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll">
+<scroll-view scroll-y scroll-with-animation enable-back-to-top class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll" bindscrolltolower="ScrollToLower">
 	<!-- 正常运营 -->
 	<block wx:if="{{dict.emergencyCode == 0}}">
 		<!-- 特殊信息 -->
 		<view class="margin radius shadow bg-white padding animation-slide-top">
-			<text class="text-shadow text-grey text-lg">{{dict.notices}}\n{{dict.notices2}}</text>
+			<text class="text-shadow text-grey text-lg">{{dict.notices}}\n{{dict.notices1}}\n{{dict.notices2}}</text>
 		</view>
 		<!-- 有班车 -->
 		<block wx:if="{{hasBus==1}}">
 			<!-- 列表渲染 -->
 			<busCard wx:for="{{busLineShow}}" wx:key="unique" info="{{item}}" site="{{dict[item.site]}}" line="{{dict[item.line]}}" showLeftTime="{{(index==0&&selectDate.weekZN=='今天')?1:0}}" bindconfirmSetNotice="setNotice" data-line="{{item}}"></busCard>
 			<!-- 显示更多信息 -->
-			<block>
+			<view class="margin-bottom">
 				<view wx:if="{{!hasMoreBus}}" class="cu-load over" />
 				<view wx:elif="{{isBusLoading}}" class="cu-load loading" />
-				<view wx:else class="cu-load text-center text-black" bindtap="setBusLine">点我点我(￣▽￣)"</view>
-                <view class="margin-top-xl"></view>
-			</block>
+				<view wx:else class="cu-load text-center text-black" bindtap="setBusLine">上拉加载更多(￣▽￣)"</view>
+			</view>
 		</block>
 		<!-- 无班车 -->
 		<block wx:if="{{hasBus==0}}">

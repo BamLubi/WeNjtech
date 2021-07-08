@@ -31,6 +31,7 @@ Page({
         scrollTopNum: 0, //控制scroll-view的顶部距离
         hasMoreBus: true, //是否有更多的班车信息
         isBusLoading: false, //班车信息是否在加载
+        loadMoreTimeout: null
     },
 
     /**
@@ -394,6 +395,18 @@ Page({
         this.setData({
             scrollTopNum: 0
         })
+    },
+    /**
+     * 监听页面到达底部
+     */
+    ScrollToLower: function(){
+        console.log("xiala");
+        // 如果无数据了就不要再发请求了
+        if(!this.data.hasMoreBus) return
+        // 节流
+        if(!this.data.isBusLoading){
+            this.setBusLine()
+        }
     },
 
     setNotice: function (e) {
