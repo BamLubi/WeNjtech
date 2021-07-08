@@ -4,7 +4,8 @@
 
 page {
 	/* background-color: #fff !important; */
-	background: linear-gradient(to bottom, #fff, #f9f9f9, #f2f2f2);
+	background: linear-gradient(to bottom, #fff, #f6f6f6, #f2f2f2);
+	
 }
 
 .head {
