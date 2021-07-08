@@ -100,10 +100,10 @@ function AddNewKeyUserInfo(cloudUserInfo) {
 	}
 	// 如果updateItem长度不为0，则更新
 	if (Object.keys(updateItem).length == 0) {
-		console.log("[app] [用户信息]: 无新增字段")
+		console.log("[userInfoDB] [用户信息]: 无新增字段")
 		return cloudUserInfo
 	} else {
-		console.log("[app] [用户信息]: 上传字段")
+		console.log("[userInfoDB] [用户信息]: 上传字段")
 		return cloudDB.UpdateWxCloudDB(collectionName, cloudUserInfo._id, updateItem, '上传字段').then(res => cloudUserInfo)
 	}
 }
