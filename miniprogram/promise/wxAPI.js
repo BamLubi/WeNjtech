@@ -109,6 +109,7 @@ function GetSetting() {
     return new Promise(function (resolve, resolve2, reject) {
         wx.getSetting({
             success: res => {
+                console.log("[wxAPI] [获取用户设置] success: ", res)
                 // 已经授权
                 if (res.authSetting['scope.userInfo']) {
                     console.log("[wxAPI] [获取用户设置] success: 已经授权")
@@ -128,6 +129,7 @@ function GetSetting() {
 
 /**
  * call wx.getUserInfo
+ * 该接口已经废弃
  * @return {Promise}
  */
 function GetUserInfo() {

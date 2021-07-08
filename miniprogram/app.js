@@ -34,7 +34,7 @@ App({
 				wx.setStorageSync('systemInfo', res)
 				// 设置系统
 				that.globalData.system = res.system.split(" ")[0].toUpperCase()
-				// 设置tabBar高度
+				// TODO: 设置tabBar高度，用于班车页面的下滑监听，需要改善
 				if (that.globalData.systemInfo.model == "iPhone X") {
 					that.globalData.tabBarHeight = 83
 				}
