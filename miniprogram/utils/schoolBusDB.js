@@ -15,7 +15,7 @@ const _ = db.command
  * @param {number} length the bus list has got
  * @return {Promise}
  */
-function DownLoadBusLine(season, direction, week, line, time, length) {
+function DownLoadBusLine(season, direction, week, line, time, length, limit=5) {
     return new Promise(function (resolve, reject) {
         db.collection('weNjtech-allBusLine')
             .where({
@@ -36,7 +36,7 @@ function DownLoadBusLine(season, direction, week, line, time, length) {
             })
             .orderBy('startTime', 'asc')
             .skip(length)
-            .limit(5)
+            .limit(limit)
             .get({
                 success: res => {
                     // 格式化res中时间信息后，在传递给前端

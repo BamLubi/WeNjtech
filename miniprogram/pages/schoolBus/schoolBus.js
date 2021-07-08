@@ -170,14 +170,16 @@ Page({
         } else {
             line = ['busLine_1', 'busLine_2']
         }
+        // 设置每次获取数据的限制
+        let limit = 5
         // 下载
         that.setData({
             isBusLoading: true
         })
-        busDB.DownLoadBusLine(season, direction, week, line, time, that.data.busLineShowLength)
+        busDB.DownLoadBusLine(season, direction, week, line, time, that.data.busLineShowLength, limit)
             .then(res => {
                 let length = that.data.busLineShowLength + res.data.length
-                if (res.data.length == 0) {
+                if (res.data.length == 0 || res.data.length < limit) {
                     that.setData({
                         hasMoreBus: false
                     })
@@ -400,7 +402,6 @@ Page({
      * 监听页面到达底部
      */
     ScrollToLower: function(){
-        console.log("xiala");
         // 如果无数据了就不要再发请求了
         if(!this.data.hasMoreBus) return
         // 节流
