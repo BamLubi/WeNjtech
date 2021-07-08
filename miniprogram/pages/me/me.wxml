@@ -27,7 +27,7 @@
 
 	<!-- 工具条 -->
 	<view class="cu-list bg-grey menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-		<view wx:for="{{service}}" wx:if="{{item.show}}" wx:key class="cu-item arrow" style="width: 100%;">
+		<view wx:for="{{service}}" wx:if="{{item.show}}" wx:key="index" class="cu-item arrow" style="width: 100%;">
 			<!-- navigator类型跳转页面 -->
 			<block wx:if="{{item.type=='navigator'}}">
 				<button class="me-nav-btn" bindtap="navigatePage" data-url="{{item.url}}" data-id="{{item.id}}">
