@@ -4,7 +4,7 @@
 	<view class="logo margin-top">
 		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
 		<view class="text-bold text-gray text-lg text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
-		<view class="text-gray text-lg text-shadow">v 2.3.2</view>
+		<view class="text-gray text-lg text-shadow">v 2.3.3</view>
 	</view>
 	<!-- information -->
 	<view class="shadow margin radius bg-white padding text-lg">
