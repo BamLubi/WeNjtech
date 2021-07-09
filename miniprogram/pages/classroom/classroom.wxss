@@ -6,7 +6,7 @@
 
 .topArea .card-swiper {
   /* height: 420rpx !important; */
-  height: 30vh !important;
+  height: 35vh !important;
 }
 
 .fixNav {
@@ -14,12 +14,11 @@
   top: 0px;
   z-index: 99;
   width: 100%;
+  background-color: #F6F6F6;
 }
 
-.fixList {
-  position: relative;
-  top: 270rpx;
-  width: 100%;
+.display-none {
+  display: none;
 }
 
 .classroom {

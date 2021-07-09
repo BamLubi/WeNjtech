@@ -11,10 +11,11 @@ const $ = db.command.aggregate
  * @param {number[]} time 时间
  * @param {number[]} lc 楼层
  * @param {number} length 已经获取的数据长度
+ * @param {number} limit 每次获取数据长度限制
  * @param {boolean} mode 模式，默认为false，考研为true
  * @return {Promise}
  */
-function DownLoadClassroom(lh, time, lc, length, mode) {
+function DownLoadClassroom(lh, time, lc, length, limit=10, mode) {
   return new Promise(function (resolve, reject) {
     console.log('[云数据库] [GET] [空教室信息] 模式: ', mode)
     if (!mode) {
@@ -59,7 +60,7 @@ function DownLoadClassroom(lh, time, lc, length, mode) {
           count: -1
         })
         .skip(length)
-        .limit(10)
+        .limit(limit)
         .end({
           success: res => {
             console.log('[云数据库] [GET] [空教室信息] success: ', res)

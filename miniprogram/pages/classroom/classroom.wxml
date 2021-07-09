@@ -1,8 +1,9 @@
 <!--miniprogram/pages/classroom/classroom.wxml-->
 
 <!-- 顶部教室卡片轮播 -->
-<view class="topArea">
-	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff" bindchange="cardSwiper">
+<view class="topArea {{isFixedNav ? 'display-none' : ''}}">
+	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+		duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff" bindchange="cardSwiper">
 		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key class="{{cardCur==index?'cur':''}}">
 			<view class="swiper-item">
 				<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="aspectFill"></image>
@@ -12,80 +13,92 @@
 </view>
 
 <!-- 中部显示消息 -->
-<view class="margin margin-top-xs radius shadow bg-white padding animation-slide-top">
+<view
+	class="margin margin-top-xs radius shadow bg-white padding animation-slide-top {{isFixedNav ? 'display-none' : ''}}">
 	<text class="text-shadow text-grey text-lg">{{dict.message1}}\n数据更新时间：{{dict.time}}\n今日可用教室：{{dict.count}} 间</text>
 </view>
 
-<!-- 模式切换 -->
-<view class="cu-bar bg-white margin-bottom-xs">
-  <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 考研打野模式(当日最长时间排序)
-  </view>
-  <view class='action'>
-    <switch class='sm radius modeChange' checked='{{mode}}' bindchange='changeMode'></switch>
-  </view>
-</view>
-
-<!-- 显示教学区分割 -->
-<view class="bg-white test nav {{isFixedNav ? 'fixNav' : ''}}">
-	<!-- 学区 -->
-	<view class="flex text-center">
-		<view class="cu-item flex-sub {{tab_lh[index]?'text-red cur':''}}" wx:for="{{lh}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lh">
-			{{item}}
-		</view>
-	</view>
-	<!-- 时间 -->
-	<view wx:if="{{!mode}}" class="flex text-center">
-		<view class="cu-item flex-sub {{tab_time[index]?'text-orange cur':''}}" wx:for="{{time}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_time">
-			{{item}}
-		</view>
-	</view>
-	<!-- 楼层 -->
-	<view class="flex text-center">
-		<view class="cu-item flex-sub {{tab_lc[index]?'text-yellow cur':''}}" wx:for="{{lc}}" wx:key bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lc">
-			{{item}}
-		</view>
-	</view>
-</view>
-
-<!-- 显示列表 -->
-<scroll-view scroll-y scroll-with-animation bindscroll="PageScroll" class="{{isFixedNav ? 'fixList' : ''}}" bindscrolltolower="test" scroll-top="200">
-	<!-- 数据维护 -->
-	<block wx:if="{{!dict.isAvailable}}">
-		<view class="margin padding flex justify-center">
-			<text class="text-shadow text-blue text-lg">{{dict.notice}}</text>
-		</view>
-	</block>
-	<!-- 教室信息 -->
-	<view wx:for="{{classroomList}}" wx:key data-id="{{index}}">
-		<!-- 内容 margin-top-sm -->
-		<view class="classroom bg-white padding-sm margin radius">
-			<!-- 教室位置 -->
-			<view class="location margin-xs">
-				<!-- 教室号 -->
-				<text class="text-bold text-black text-shadow" style="font-size: 30px;">{{item.name}}</text>
-				<!-- 教学区 -->
-				<text class="margin-right" style="font-size: 18px;">{{item.lh}}</text>
+<!-- 需要固定的区域 -->
+<view id="fix-area" class="{{isFixedNav ? 'fixNav' : ''}}" bindtouchstart="FixAreaTouchStart" bindtouchend="FixAreaTouchEnd">
+	<!-- 工具栏 -->
+	<view id="tools">
+		<!-- 模式切换 -->
+		<view class="cu-bar bg-white margin-bottom-xs">
+			<view class='action'>
+				<text class='cuIcon-titles text-orange '></text> 考研打野模式(当日最长时间排序)
 			</view>
-			<!-- 教室类型 -->
-			<view class="margin-xs">
-				<text class="cuIcon-cascades text-gray margin-right"> 教室类型</text>
-				<text>{{item.cdlb_id}}</text>
+			<view class='action'>
+				<switch class='sm radius modeChange' checked='{{mode}}' bindchange='changeMode'></switch>
 			</view>
-			<!-- 空闲时间 -->
-			<view class="margin-xs">
-				<text class="cuIcon-time text-gray margin-right"> 空闲时间</text>
-				<view wx:for="{{item.emptyTime}}" wx-if="{{idx%2==0}}" wx:for-index="idx" wx:for-item="num" class="cu-tag line-olive bg-blue light round sm">
-					{{num}} - {{num+1}}
+		</view>
+
+		<!-- 显示教学区分割 -->
+		<view id="select-area" class="bg-white nav">
+			<!-- 学区 -->
+			<view class="flex text-center">
+				<view class="cu-item flex-sub {{tab_lh[index]?'text-red cur':''}}" wx:for="{{lh}}" wx:key
+					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lh">
+					{{item}}
+				</view>
+			</view>
+			<!-- 时间 -->
+			<view wx:if="{{!mode}}" class="flex text-center">
+				<view class="cu-item flex-sub {{tab_time[index]?'text-orange cur':''}}" wx:for="{{time}}" wx:key
+					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_time">
+					{{item}}
+				</view>
+			</view>
+			<!-- 楼层 -->
+			<view class="flex text-center">
+				<view class="cu-item flex-sub {{tab_lc[index]?'text-yellow cur':''}}" wx:for="{{lc}}" wx:key
+					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lc">
+					{{item}}
 				</view>
 			</view>
 		</view>
 	</view>
-	<!-- 显示更多信息 -->
-	<block>
-		<view wx:if="{{!hasMore}}" class="cu-load over" />
+	<!-- 显示列表 -->
+	<scroll-view id="scrollview" scroll-y="{{isFixedNav}}" scroll-with-animation enable-back-to-top enhanced fast-deceleration class="{{isFixedNav ? 'fixList' : ''}}" bindscrolltolower="ScrollToLower" scroll-top="{{scrollTopNum}}" style="height: {{listHeight}};">
+		<!-- 数据维护 -->
+		<block wx:if="{{!dict.isAvailable}}">
+			<view class="margin padding flex justify-center">
+				<text class="text-shadow text-blue text-lg">{{dict.notice}}</text>
+			</view>
+		</block>
+		<!-- 显示加载中 -->
 		<view wx:elif="{{isLoading}}" class="cu-load loading" />
-		<view wx:else class="cu-load text-center text-black" bindtap="setEmptyClassroom">点我点我(￣▽￣)"</view>
-		<view class="margin-top-xl"></view>
-	</block>
-</scroll-view>
+		<!-- 教室信息 -->
+		<view wx:for="{{classroomList}}" wx:key data-id="{{index}}">
+			<!-- 内容 margin-top-sm -->
+			<view class="classroom bg-white padding-sm margin radius">
+				<!-- 教室位置 -->
+				<view class="location margin-xs">
+					<!-- 教室号 -->
+					<text class="text-bold text-black text-shadow" style="font-size: 30px;">{{item.name}}</text>
+					<!-- 教学区 -->
+					<text class="margin-right" style="font-size: 18px;">{{item.lh}}</text>
+				</view>
+				<!-- 教室类型 -->
+				<view class="margin-xs">
+					<text class="cuIcon-cascades text-gray margin-right"> 教室类型</text>
+					<text>{{item.cdlb_id}}</text>
+				</view>
+				<!-- 空闲时间 -->
+				<view class="margin-xs">
+					<text class="cuIcon-time text-gray margin-right"> 空闲时间</text>
+					<view wx:for="{{item.emptyTime}}" wx-if="{{idx%2==0}}" wx:for-index="idx" wx:for-item="num"
+						class="cu-tag line-olive bg-blue light round sm">
+						{{num}} - {{num+1}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 显示更多信息 -->
+		<block>
+			<view wx:if="{{!hasMore}}" class="cu-load over" />
+			<view wx:elif="{{isLoading}}" class="cu-load loading" />
+			<view wx:else class="cu-load text-center text-black" bindtap="setEmptyClassroom">上拉加载更多(￣▽￣)"</view>
+			<view class="margin-top-xl"></view>
+		</block>
+	</scroll-view>
+</view>
