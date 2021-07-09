@@ -82,7 +82,7 @@
 
 <!-- 这里的scrollTopNum影响布局 -->
 <!-- 车辆信息 -->
-<scroll-view scroll-y scroll-with-animation enable-back-to-top class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll" bindscrolltolower="ScrollToLower">
+<scroll-view scroll-y scroll-with-animation enable-back-to-top enhanced fast-deceleration class="busInfo" scroll-top="{{scrollTopNum}}" bindscroll="PageScroll" bindscrolltolower="ScrollToLower">
 	<!-- 正常运营 -->
 	<block wx:if="{{dict.emergencyCode == 0}}">
 		<!-- 特殊信息 -->

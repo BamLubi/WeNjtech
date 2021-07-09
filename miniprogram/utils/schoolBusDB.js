@@ -13,6 +13,7 @@ const _ = db.command
  * @param {string} line 'busLine_1'|'busLine_2'
  * @param {number} time A double number with 2 decimal,take example,'14.25' equals '14:25'
  * @param {number} length the bus list has got
+ * @param {number} limit 每次获取数据长度限制
  * @return {Promise}
  */
 function DownLoadBusLine(season, direction, week, line, time, length, limit=5) {
