@@ -10,7 +10,7 @@ App({
 		localUserInfo: null, // 本地用户信息
 		openid: null, // 用户openid
 		hasUserInfo: null, // true代表有数据,false代表没数据,null代表还在请求
-		system: null, // 记录用户手机系统
+		systemInfo: null, // 记录用户手机系统
 	},
 
 	onLaunch: function () {
