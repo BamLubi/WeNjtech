@@ -258,7 +258,6 @@ Page({
 		this.setData({
 			mode: !this.data.mode
 		})
-		console.log("[查询空闲教室] 模式", this.data.mode)
 		// 重置查询参数
 		this.setData({
 			hasMore: true,
@@ -267,6 +266,8 @@ Page({
 		this.data.classroomList = []
 		this.data.classroomListLength = 0
 		// 获取新的数据
-		this.setEmptyClassroom()
+		// 重置固定高度，并获取新数据
+		// 在onReady()中包含了setEmptyClassroom()
+		this.onReady()
 	}
 })
