@@ -60,8 +60,11 @@ Page({
 
 		// 设置scroll-view的高度，由当前页面的高度减去工具栏的高度
 		wx.createSelectorQuery().select('#tools').boundingClientRect(res => {
+			let windowHeight = wx.getSystemInfoSync().windowHeight
+			// console.log("windowHeight",windowHeight,"viewHeight",res.height);
+			// console.log("scroll-view高度", windowHeight - res.height);
 			this.setData({
-				listHeight: app.globalData.systemInfo.windowHeight - res.height + 'px'
+				listHeight: windowHeight - res.height + 'px'
 			})
 		}).exec()
 	},
@@ -124,8 +127,11 @@ Page({
 	 * @param {}  页面滚动长度
 	 */
 	onPageScroll(e) {
+		// 如果页面已经锁定，就不要执行此函数了
+		if (this.data.isFixedNav) return
 		// 获取需要固定区域的top值
 		wx.createSelectorQuery().select('#fix-area').boundingClientRect(res => {
+			// console.log("组件top",res.top);
 			if (res.top <= 5 && !this.data.isFixedNav) {
 				this.setData({
 					isFixedNav: true
@@ -137,7 +143,7 @@ Page({
 	/**
 	 * 监听固定区域的触摸开始
 	 */
-	FixAreaTouchStart: function(e){
+	FixAreaTouchStart: function (e) {
 		let y = e.changedTouches[0].pageY
 		this.data.touch_start = y
 	},
@@ -145,13 +151,16 @@ Page({
 	/**
 	 * 监听固定区域的触摸结束，并在一定条件下接触锁定模式
 	 */
-	FixAreaTouchEnd: function(e){
+	FixAreaTouchEnd: function (e) {
 		let y = e.changedTouches[0]["pageY"]
+		// console.log("start", this.data.touch_start, "end", y);
+		// 判断临界值
+		if (this.data.touch_start == undefined) return
 		// 获取scroll-view滚动条高度
 		wx.createSelectorQuery().select('#scrollview').scrollOffset(res => {
 			// 当滑动距离大于125，且处于锁定模式，且滚动列表已经置顶
 			// 则解除锁定
-			if(y - this.data.touch_start > 125 && this.data.isFixedNav && res.scrollTop <= 2){
+			if (y - this.data.touch_start > 125 && this.data.isFixedNav && res.scrollTop <= 2) {
 				this.setData({
 					isFixedNav: false
 				})

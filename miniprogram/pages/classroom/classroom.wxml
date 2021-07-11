@@ -19,7 +19,7 @@
 </view>
 
 <!-- 需要固定的区域 -->
-<view id="fix-area" class="{{isFixedNav ? 'fixNav' : ''}}" bindtouchstart="FixAreaTouchStart" bindtouchend="FixAreaTouchEnd">
+<view id="fix-area" class="{{isFixedNav ? 'fixNav' : ''}}" bindtouchstart="{{isFixedNav ? 'FixAreaTouchStart' : ''}}" bindtouchend="{{isFixedNav ? 'FixAreaTouchEnd' : ''}}">
 	<!-- 工具栏 -->
 	<view id="tools">
 		<!-- 模式切换 -->
