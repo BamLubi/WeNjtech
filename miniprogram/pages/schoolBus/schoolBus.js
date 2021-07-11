@@ -14,7 +14,6 @@ Page({
      */
     data: {
         windowHeight: null,
-        windowWidth: null,
         todayDate: {}, //今天
         selectDate: {}, //用户选择的时间,默认为当日
         busLineShow: [], //用于显示的列表
@@ -40,10 +39,7 @@ Page({
     onLoad: function (options) {
         var that = this
         // 设置屏幕宽高
-        that.setData({
-            windowHeight: app.globalData.systemInfo.windowHeight + app.globalData.tabBarHeight,
-            windowWidth: app.globalData.systemInfo.windowWidth
-        })
+        this.data.windowHeight = wx.getSystemInfoSync().windowHeight
         // 设置时间
         let nowDate = new Date()
         this.setData({
