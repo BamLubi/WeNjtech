@@ -37,7 +37,8 @@ Page({
             bindtap: "getAPK",
             bg: "bg-olive"
         }],
-        dict: {}
+        dict: {},
+        isNotice: true, // 是否显示公告栏
     },
 
     /**
@@ -136,4 +137,10 @@ Page({
             return API.ShowToast('下载失败，链接已失效！', 'none', 1000)
         })
     },
+
+    HideNotice: function () {
+        this.setData({
+            isNotice: false
+        })
+    }
 })

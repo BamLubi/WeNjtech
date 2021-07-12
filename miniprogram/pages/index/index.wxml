@@ -1,5 +1,6 @@
 <!--miniprogram/pages/index/index.wxml-->
 
+<!-- 主体页面 -->
 <view class="nav text-center ">
 	<!-- 顶部轮播 -->
 	<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
@@ -7,32 +8,34 @@
 			<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="scaleToFill" lazy-load></image>
 		</swiper-item>
 	</swiper>
-	
+
 	<!-- 中部工具栏 -->
 	<view class="sv-list margin-top-xl flex justify-center align-center">
 		<block wx:for="{{services}}" wx:key="index">
 			<!-- navigator类型使用页面跳转 -->
-			<navigator
-				wx:if="{{item.type == 'navigator'}}"
-				class="sv-li {{item.bg}} animation-slide-bottom"
-				style="animation-delay: {{(index+1)*0.2}}s;"
-				hover-class="navigator-hover"
-				open-type="navigate"
-				url="{{item.url}}"
-				role="navigation">
+			<navigator wx:if="{{item.type == 'navigator'}}" class="sv-li {{item.bg}} animation-slide-bottom"
+				style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" open-type="navigate"
+				url="{{item.url}}" role="navigation">
 				<view class="sv-title">{{item.title}}</view>
 				<view class="sv-name">{{item.name}}</view>
 			</navigator>
 			<!-- button类型使用js -->
-			<view
-				wx:if="{{item.type == 'button'}}"
-				class="sv-li {{item.bg}} animation-slide-bottom"
-				style="animation-delay: {{(index+1)*0.2}}s;"
-				hover-class="navigator-hover"
-				bindtap="{{item.bindtap}}">
+			<view wx:if="{{item.type == 'button'}}" class="sv-li {{item.bg}} animation-slide-bottom"
+				style="animation-delay: {{(index+1)*0.2}}s;" hover-class="navigator-hover" bindtap="{{item.bindtap}}">
 				<view class="sv-title">{{item.title}}</view>
 				<view class="sv-name">{{item.name}}</view>
 			</view>
 		</block>
 	</view>
+</view>
+
+<!-- 公告栏 -->
+<view wx:if="{{isNotice}}" class="notice margin-top-xs padding-xs text-lg animation-slide-top">
+	<text class="cuIcon-notice xl text-shadow notice-title">公告:</text>
+	<swiper class="margin-left-xs margin-right-xs" autoplay='false' vertical='true' circular='true' interval='6000'>
+		<swiper-item wx:for='{{dict.noticeList}}'>
+			<view>{{item}}</view>
+		</swiper-item>
+	</swiper>	
+	<text class="cuIcon-close xl notice-close margin-right-xs" bindtap="HideNotice"></text>
 </view>

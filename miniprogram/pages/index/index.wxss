@@ -1,43 +1,96 @@
 /* miniprogram/pages/index/index.wxss */
 
+/* 工具栏 */
 .sv-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0px 20rpx 0px;
-  justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px 20rpx 0px;
+	justify-content: space-between;
 }
 
-.sv-li{
-  padding: 10rpx;
-  border-radius: 20rpx;
+.sv-li {
+	padding: 10rpx;
+	border-radius: 20rpx;
 	width: 95vw;
-  margin: 0 2% 40rpx;
-  background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/cardBg.png);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 1;
+	margin: 0 2% 40rpx;
+	background-image: url(https://wxapp-1256052225.cos.ap-nanjing.myqcloud.com/weNjtech/img/cardBg.png);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	z-index: 1;
 }
 
 .sv-title {
-  font-size: 34rpx;
-  font-weight: bold;
+	font-size: 34rpx;
+	font-weight: bold;
 }
 
 .sv-title::first-letter {
-  font-size: 40rpx;
-  margin-right: 4rpx;
+	font-size: 40rpx;
+	margin-right: 4rpx;
 }
 
 .sv-name {
-  font-size: 30rpx;
-  text-transform: Capitalize;
-  /* margin-top: 5rpx; */
-  position: relative;
+	font-size: 30rpx;
+	text-transform: Capitalize;
+	/* margin-top: 5rpx; */
+	position: relative;
 }
 
 .sv-name::first-letter {
-  font-weight: bolder;
-  font-size: 36rpx;
-  margin-right: 2px;
+	font-weight: bolder;
+	font-size: 36rpx;
+	margin-right: 2px;
+}
+
+/* 公告栏 */
+.notice{
+	position: fixed;
+	top: 0px;
+	height: 5vh;
+	width: 94vw;
+	margin-left: 3vw;
+	margin-right: 3vw;
+	line-height: 100%;
+	background-color: #fffbe8;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	border-radius: 10rpx;
+	color: #ed6a0c;
+}
+
+.notice-title, .notice-close{
+	float: left;
+}
+
+.notice-title{
+	white-space: nowrap;
+}
+
+.notice swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.notice swiper-item view{
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	/* text-overflow: ellipsis; */
+	white-space: nowrap;
+	/* overflow: hidden; */
+	animation: notice_move 10s linear infinite normal;
+}
+
+@keyframes notice_move{
+	0%{
+		transform: translateX(0px);
+	}
+	100%{
+		transform: translateX(-380px);
+	}
 }
