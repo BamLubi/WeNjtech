@@ -11,7 +11,6 @@ App({
 	},
 
 	onLaunch: function () {
-		console.time("A")
 		let that = this
 
 		// 初始化云开发环境
@@ -26,8 +25,6 @@ App({
 
 		// 准备用户信息
 		that.getUserInfo()
-
-		console.timeEnd("A")
 	},
 
 	/**
