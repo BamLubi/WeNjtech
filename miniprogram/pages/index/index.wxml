@@ -10,7 +10,6 @@
 <!-- 工具栏 -->
 <view class="cu-list grid col-4 no-border">
     <view class="cu-item" wx:for="{{services}}" wx:key="id" bindtap="Navigate" data-url="{{item.url}}">
-      	<!-- <view class="cuIcon-{{item.icon}} text-{{item.color}}"></view> -->
 		<view><image class="service-img" src="{{item.img}}"></image></view>
       	<view class="text-sub text-shadow">{{item.name}}</view>
     </view>
