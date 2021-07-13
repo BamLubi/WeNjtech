@@ -13,29 +13,35 @@ Page({
     data: {
         cardCur: 0,
         services: [{
-            title: "班车时刻",
-            name: "BusLine",
-            type: "navigator",
+            id: 0,
+            name: "班车时刻",
+            img: "/images/index/banche.png",
             url: "/pages/schoolBus/schoolBus",
-            bg: "bg-cyan"
         }, {
-            title: "去哪学习",
-            name: "ForStudy",
-            type: "navigator",
+            id: 1,
+            name: "去哪学习",
+            img: "/images/index/jiaoshi.png",
             url: "/pages/classroom/classroom",
-            bg: "bg-green"
         }, {
-            title: "校园Q&A",
-            name: "CampusQ&A",
-            type: "navigator",
+            id: 2,
+            name: "校园Q&A",
+            img: "/images/index/QA.png",
             url: "/pages/campusQ&A/campusQ&A",
-            bg: "bg-green"
         }, {
-            title: "太南课表",
-            name: "TooNjtech",
-            type: "button",
-            bindtap: "getAPK",
-            bg: "bg-olive"
+            id: 3,
+            name: "我的课表",
+            img: "/images/index/kebiao.png",
+            url: "",
+        }, {
+            id: 4,
+            name: "校园拼车",
+            img: "/images/index/pinche.png",
+            url: ""
+        }, {
+            id: 5,
+            name: "二手交易",
+            img: "/images/index/ershou.png",
+            url: ""
         }],
         dict: {},
         isNotice: true, // 是否显示公告栏
@@ -142,5 +148,18 @@ Page({
         this.setData({
             isNotice: false
         })
+    },
+
+    /**
+     * 跳转页面
+     */
+    Navigate: function (e) {
+        if (e.currentTarget.dataset.url != '') {
+            wx.navigateTo({
+                url: e.currentTarget.dataset.url,
+            })
+        } else {
+            API.ShowToast('正在施工中...', 'none', 2000)
+        }
     }
 })
