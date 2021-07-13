@@ -1,4 +1,9 @@
 /* miniprogram/pages/index/index.wxss */
+/* 轮播 */
+swiper{
+	height: 37vh;
+}
+
 /* 工具栏 */
 .service-img{
 	width: 75rpx;
