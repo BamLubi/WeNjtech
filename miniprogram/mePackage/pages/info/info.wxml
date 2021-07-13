@@ -15,8 +15,9 @@
 			<view class="title text-shadow align-center"><text space="emsp">学 号 :</text></view>
 			<!-- 未设置 -->
 			<block wx:if="{{canEditStuNum}}">
-				<input placeholder="(每90天仅可修改一次)" maxlength="15" type="text" value="{{userInfo.stuNum}}" bindinput="getStuNum"></input>
-        <button class="cu-btn lines-cyan round shadow" bindtap="submit">提交</button>
+				<input placeholder="(每90天仅可修改一次)" maxlength="15" type="text" value="{{userInfo.stuNum}}"
+					bindinput="getStuNum"></input>
+				<button class="cu-btn lines-cyan round shadow" bindtap="submit">提交</button>
 			</block>
 			<!-- 设置了 -->
 			<block wx:else>
@@ -27,12 +28,12 @@
 	</form>
 
 	<view class="margin-left margin-top">
-		<text class="text-gray text-lg">注意: 
-    1. 头像和昵称跟随微信账户,不可更改
-    2. 学号每90天仅可修改一次
-    3. 若学号变更可联系后台更改
-    4. 本平台承诺用户所有不会泄露,仅用作身份核验
-    </text>
+		<text class="text-gray text-lg">注意:
+			1. 头像和昵称跟随微信账户,不可更改
+			2. 学号每90天仅可修改一次
+			3. 若学号变更可联系后台更改
+			4. 本平台承诺用户所有不会泄露,仅用作身份核验
+		</text>
 	</view>
 
 </view>
