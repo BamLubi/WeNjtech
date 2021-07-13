@@ -5,17 +5,18 @@
 	<block wx:if="{{info.amount == 1}}">
 		<!-- 时间 -->
 		<view class="cardTime margin-top-sm">
-			<text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
-			<text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
+			<text class="text-shadow text-blue text-lg">{{line}}</text>
+			<text class="text-shadow text-red text-xl">{{info.startTime}}</text>
+			<!-- 是否显示剩余时间 -->
 			<block wx:if="{{showLeftTime==1}}">
-				<text class="text-shadow" style="font-size: 15px; color: #00a8ff;">{{leftTimeString}}</text>
+				<text class="text-shadow text-lg text-blue">{{leftTimeString}}</text>
 			</block>
 			<block wx:else>
 				<text style="visibility: hidden;">象山线</text>
 			</block>
 		</view>
 		<!-- 地点/方向 -->
-		<view class="cardPlace margin-top-xs text-shadow text-black">
+		<view class="cardPlace margin-top-xs margin-bottom-sm text-shadow text-black text-lg">
 			<!-- 象山到校门口 -->
 			<block wx:if="{{info.direction=='forward'}}">
 				<block wx:if="{{line=='象山线'}}">
@@ -46,7 +47,7 @@
 			</block>
 		</view>
 		<!-- 备注 -->
-		<view class="cardInfo padding-sm">
+		<view class="cardInfo padding-sm text-sub">
 			<!-- 发车时间 -->
 			<view>
 				<text class="cuIcon-time text-gray"> 准点发车</text>
@@ -58,7 +59,7 @@
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">
-				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒,发车前微信提醒您 ˋ( ° ▽、° ) </text>
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击订阅乘车通知,发车前微信提醒您 ˋ( ° ▽、° ) </text>
 			</view>
 		</view>
 	</block>
@@ -66,21 +67,21 @@
 	<block wx:else>
 		<!-- 时间 -->
 		<view class="cardTime margin-top-sm">
-			<text class="text-shadow" style="font-size: 17px;color: #00a8ff;">{{line}}</text>
-			<view>
-				<text class="text-shadow text-red" style="font-size: 22px;">{{info.startTime}}</text>
-				<text class="text-shadow text-red" style="margin: 0px 3px 0px 3px;font-size: 22px;">-</text>
-				<text class="text-shadow text-red" style="font-size: 22px;">{{info.endTime}}</text>
+			<text class="text-shadow text-blue text-lg">{{line}}</text>
+			<view class="text-xl text-shadow text-red">
+				<text>{{info.startTime}}</text>
+				<text>~</text>
+				<text>{{info.endTime}}</text>
 			</view>
 			<block wx:if="{{showLeftTime==1}}">
-				<text class="text-shadow" style="font-size: 15px;color: #00a8ff;">{{leftTimeString}}</text>
+				<text class="text-shadow text-lg text-blue">{{leftTimeString}}</text>
 			</block>
 			<block wx:else>
 				<text style="visibility: hidden;">象山线</text>
 			</block>
 		</view>
 		<!-- 地点/方向 -->
-		<view class="cardPlace text-shadow text-black">
+		<view class="cardPlace margin-top-xs margin-bottom-sm text-shadow text-black text-lg">
 			<!-- 象山到校门口 -->
 			<block>
 				<text>象</text>
@@ -99,7 +100,7 @@
 			</block>
 		</view>
 		<!-- 备注 -->
-		<view class="cardInfo padding-sm">
+		<view class="cardInfo padding-sm text-sub">
 			<!-- 发车时间 -->
 			<view>
 				<text class="cuIcon-time text-gray"> {{info.amount}}车循环，满员发车</text>
@@ -111,7 +112,7 @@
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">
-				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击设置乘车提醒,发车前微信提醒您 ˋ( ° ▽、° ) </text>
+				<text class="cuIcon-notice text-gray margin-right" bindtap="setNotice"> 点击订阅乘车通知,发车前微信提醒您 ˋ( ° ▽、° ) </text>
 			</view>
 		</view>
 	</block>
