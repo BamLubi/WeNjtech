@@ -22,7 +22,7 @@
 		<swiper-item wx:for='{{dict.noticeList}}' wx:key="index">
 			<view>{{item}}</view>
 		</swiper-item>
-	</swiper>	
+	</swiper>
 	<text class="cuIcon-close xl notice-close margin-right-xs" bindtap="HideNotice"></text>
 </view>
 

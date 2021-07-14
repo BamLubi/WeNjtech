@@ -31,7 +31,7 @@ Page({
             id: 3,
             name: "我的课表",
             img: "/images/index/kebiao.png",
-            url: "",
+            url: "/pages/kebiao/kebiao",
         }, {
             id: 4,
             name: "校园拼车",
