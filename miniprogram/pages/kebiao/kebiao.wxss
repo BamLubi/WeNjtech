@@ -1,0 +1,47 @@
+/* pages/kebiao/kebiao.wxss */
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #2684fe;
+}
+
+swiper{
+    width: 100vw;
+    height: 5vh;
+    background-color: white;
+}
+
+swiper-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select{
+    color: #0984e3;
+    animation: select_week 0.2s linear forwards;
+    font-weight: bold;
+}
+
+.unselect{
+    color: #b2bec3;
+    opacity: 0.7;
+}
+
+@keyframes select_week{
+	100%{
+		font-size: 44rpx;
+	}
+}
+
+scroll-view{
+    width: 100vw;
+    background-color: white;
+}
+
+scroll-view view{
+    /* 取消cu-item里的左边距 */
+    margin-left: 0px!important;
+}

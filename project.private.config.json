@@ -1,0 +1,65 @@
+{
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "班车时刻",
+                    "pathName": "pages/schoolBus/schoolBus",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 1,
+                    "name": "我的页面",
+                    "pathName": "pages/me/me",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "关于我们",
+                    "pathName": "mePackage/pages/about/about",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "修改资料",
+                    "pathName": "mePackage/pages/info/info",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "空教室",
+                    "pathName": "pages/classroom/classroom",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "校园Q&A",
+                    "pathName": "pages/campusQ&A/campusQ&A",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "课表",
+                    "pathName": "pages/kebiao/kebiao",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

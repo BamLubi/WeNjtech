@@ -1,0 +1,18 @@
+<!--pages/kebiao/kebiao.wxml-->
+
+<!-- 显示学期 -->
+<view class="title text-lg text-shadow">2020-2021学年度 第二学期</view>
+
+<!-- 周数选择 -->
+<swiper circular='true' display-multiple-items="5" current="{{current}}" bindchange="SwiperChange">
+    <swiper-item wx:for='{{26}}' wx:key="index" item-id="{{item+1}}" class="text-xl text-shadow {{item+1==select ? 'select' : 'unselect'}}" data-id="{{item+1}}" bindtap="SelectWeeks">
+        <view>第{{item+1}}周</view>
+    </swiper-item>
+</swiper>
+
+<!-- 星期选择 -->
+<scroll-view scroll-x class="nav flex text-center">
+    <view class="cu-item text-sub text-bold {{index==weekSelect-1?'cur':''}}" wx:for="{{week}}" wx:key="id" bindtap="SelectWeek" data-id="{{item.id}}">
+        {{item.name}}
+    </view>
+</scroll-view>
