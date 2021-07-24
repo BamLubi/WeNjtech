@@ -12,9 +12,11 @@ Page({
 			avatarUrl: '',
 			nickName: '',
 			stuNum: '',
+			stuPwd: ''
 		},
 		canEditStuNum: false,
-		leftDay: null
+		leftDay: null,
+		canEditStuPwd: false,
 	},
 
 	/**
@@ -35,6 +37,12 @@ Page({
 			leftDay: leftDay,
 			userInfo: app.globalData.localUserInfo
 		})
+		// 如果密码为空,则可以修改
+		if (this.data.userInfo.stuPwd == ''){
+			this.setData({
+				canEditStuPwd: true
+			})
+		}
 		// 关闭下拉动作
 		wx.stopPullDownRefresh()
 	},
@@ -97,13 +105,14 @@ Page({
 		})
 	},
 
-	submit: function () {
-		console.log("提交");
+	submitStuNum: function () {
+		console.log("提交学号");
 		let that = this
 		var collectionName = "weNjtech-userInfo"
-		API._hideKeyBoard().then(res => {
-			return API.ShowModal('', "请确保您使用了您自己的\n学号(" + that.data.userInfo.stuNum + ")\n每90天仅可修改一次!", true, '我再想想', '我确定了')
-		}).then(res => {
+		// 隐藏键盘
+		API._hideKeyBoard()
+		// 显示确认框
+		API.ShowModal('', "请确保您使用了您自己的\n学号(" + that.data.userInfo.stuNum + ")\n每90天仅可修改一次!", true, '我再想想', '我确定了').then(res => {
 			wx.showLoading({
 				title: '提交中'
 			})
@@ -128,7 +137,42 @@ Page({
 		})
 	},
 
-	edit: function () {
+	editStuPwd: function () {
+		this.setData({
+			canEditStuPwd: true
+		})
+	},
 
+	getStuPwd: function(e){
+		this.setData({
+			["userInfo.stuPwd"]: e.detail.value
+		})
+	},
+
+	submitStuPwd: function(){
+		console.log("提交密码");
+		let that = this
+		var collectionName = "weNjtech-userInfo"
+		// 隐藏键盘
+		API._hideKeyBoard()
+		// 显示确认框
+		wx.showLoading({
+			title: '提交中'
+		})
+		cloudDB.GetWxCloudDB(collectionName, {
+			_openid: app.globalData.openid
+		}).then(res => {
+			return cloudDB.UpdateWxCloudDB(collectionName, res.data[0]._id, {
+				stuPwd: that.data.userInfo.stuPwd
+			}, '更新密码')
+		}).then(res => {
+			wx.hideLoading()
+			wx.showToast({
+				title: '设置成功'
+			})
+			that.setData({
+				canEditStuPwd: false
+			})
+		})
 	}
 })

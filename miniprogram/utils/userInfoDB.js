@@ -19,6 +19,7 @@ const userInfoTemplate = {
 	nickName: '',
 	avatarUrl: '',
 	stuNum: '',
+	stuPwd: '',
 	setStuNumDate: new Date("2020-01-01 00:00:00")
 }
 
