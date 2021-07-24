@@ -3,12 +3,12 @@
 	<!-- logo & version -->
 	<view class="logo margin-top">
 		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
-		<view class="text-bold text-gray text-lg text-shadow margin-top">Copyright © 2019-2020 BamLubi</view>
-		<view class="text-gray text-lg text-shadow">v 2.3.4</view>
+		<view class="text-gray text-lg text-shadow margin-top">v 2.3.4</view>
+		<view class="text-bold text-gray text-lg text-shadow margin-top-xs">Copyright © 2019-2021 BamLubi</view>
 	</view>
 	<!-- information -->
 	<view class="shadow margin radius bg-white padding text-lg">
-		<text>欢迎使用“微南工-WeNjtech”小程序，我们致力于便利化校园生活。
+		<text>欢迎使用“微南工-weNjtech”小程序,本程序由我校计算机学院2021届毕业生制作完成,旨在为在校师生提供尽可能的方便。
 
 		现已支持功能板块:
 		[班车时刻]
@@ -20,9 +20,7 @@
 		+ 支持查询厚学楼、浦江ABC楼、仁智楼和同和楼;
 		[校园Q&A]
 		+ 校园内的常见问题与解答;
-		[太南课表]
-		+ 引用@AutoKaKa作品;
-		+ 需下载APP;
+		[我的课表][校园拼车][二手交易]正在开发中
 		</text>
 	</view>
 	<!-- ad -->
