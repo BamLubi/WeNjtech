@@ -67,6 +67,9 @@ Page({
 				listHeight: windowHeight - res.height + 'px'
 			})
 		}).exec()
+
+		// 显示公告弹窗,临时的,开学前要删除,但是得先获取到账号密码
+		API.ShowModal('', "放假期间,本功能暂时关闭...", false, '', '我知道了')
 	},
 
 	/**
