@@ -3,7 +3,7 @@
 	<!-- logo & version -->
 	<view class="logo margin-top">
 		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
-		<view class="text-gray text-lg text-shadow margin-top">v 2.3.4</view>
+		<view class="text-gray text-lg text-shadow margin-top">v 2.3.5</view>
 		<view class="text-bold text-gray text-lg text-shadow margin-top-xs">Copyright © 2019-2021 BamLubi</view>
 	</view>
 	<!-- information -->
@@ -20,6 +20,10 @@
 		+ 支持查询厚学楼、浦江ABC楼、仁智楼和同和楼;
 		[校园Q&A]
 		+ 校园内的常见问题与解答;
+		[疫情服务-均跳转第三方小程序]
+		+ 核酸检测结果查询
+		+ 通信行程卡查询
+		+ 疫情地图
 		[我的课表][校园拼车][二手交易]正在开发中
 		</text>
 	</view>
