@@ -14,34 +14,81 @@ Page({
         cardCur: 0,
         services: [{
             id: 0,
-            name: "班车时刻",
-            img: "/images/index/banche.png",
-            url: "/pages/schoolBus/schoolBus",
+            name: '校园生活',
+            children: [{
+                id: 0,
+                name: "班车时刻",
+                img: "/images/index/banche.png",
+                url: "/pages/schoolBus/schoolBus",
+                type: 'page'
+            }, {
+                id: 1,
+                name: "去哪学习",
+                img: "/images/index/jiaoshi.png",
+                url: "/pages/classroom/classroom",
+                type: 'page'
+            }, {
+                id: 2,
+                name: "校园Q&A",
+                img: "/images/index/QA.png",
+                url: "/pages/campusQ&A/campusQ&A",
+                type: 'page'
+            }, {
+                id: 3,
+                name: "我的课表",
+                img: "/images/index/kebiao.png",
+                url: "/pages/kebiao/kebiao",
+                type: 'page'
+            }, {
+                id: 4,
+                name: "校园拼车",
+                img: "/images/index/pinche.png",
+                url: "",
+                type: 'page'
+            }, {
+                id: 5,
+                name: "二手交易",
+                img: "/images/index/ershou.png",
+                url: "",
+                type: 'page'
+            }]
         }, {
             id: 1,
-            name: "去哪学习",
-            img: "/images/index/jiaoshi.png",
-            url: "/pages/classroom/classroom",
-        }, {
-            id: 2,
-            name: "校园Q&A",
-            img: "/images/index/QA.png",
-            url: "/pages/campusQ&A/campusQ&A",
-        }, {
-            id: 3,
-            name: "我的课表",
-            img: "/images/index/kebiao.png",
-            url: "/pages/kebiao/kebiao",
-        }, {
-            id: 4,
-            name: "校园拼车",
-            img: "/images/index/pinche.png",
-            url: ""
-        }, {
-            id: 5,
-            name: "二手交易",
-            img: "/images/index/ershou.png",
-            url: ""
+            name: '疫情服务',
+            children: [{
+                id: 0,
+                name: '核酸检测结果',
+                img: '/images/index/hesuan.png',
+                src: '/',
+                type: 'naviToMini',
+                data: {
+                    appId: 'wx2eec5fb00157a603',
+                    envVersion: 'release',
+                    shortLink: "#小程序://国家政务服务平台/核酸和抗体检测结果查询/UKhozm70xQjKBRa"
+                }
+            }, {
+                id: 1,
+                name: '通信行程卡',
+                img: '/images/index/xingcheng.png',
+                src: '/',
+                type: 'naviToMini',
+                data: {
+                    appId: 'wx8f446acf8c4a85f5',
+                    envVersion: 'release',
+                    shortLink: ''
+                }
+            },{
+                id: 2,
+                name: '疫情地图',
+                img: '/images/index/map.png',
+                src: '/',
+                type: 'naviToMini',
+                data: {
+                    appId: 'wxccb972bedb041af4',
+                    envVersion: 'release',
+                    shortLink: ''
+                }
+            }]
         }],
         dict: {},
         isNotice: true, // 是否显示公告栏
@@ -144,6 +191,9 @@ Page({
         })
     },
 
+    /**
+     * 隐藏公告栏
+     */
     HideNotice: function () {
         this.setData({
             isNotice: false
@@ -153,13 +203,29 @@ Page({
     /**
      * 跳转页面
      */
-    Navigate: function (e) {
+    navigatePage: function (e) {
+        // 判断地址是否为空
         if (e.currentTarget.dataset.url != '') {
-            wx.navigateTo({
-                url: e.currentTarget.dataset.url,
-            })
+            if (e.currentTarget.dataset.type == 'page') {
+                // 跳转页面
+                wx.navigateTo({
+                    url: e.currentTarget.dataset.url,
+                })
+            } else if (e.currentTarget.dataset.type == 'naviToMini') {
+                // 跳转小程序
+                let data = e.currentTarget.dataset.data
+                wx.navigateToMiniProgram({
+                    appId: data.appId,
+                    envVersion: data.envVersion,
+                    shortLink: data.shortLink
+                })
+            } else {
+                wx.switchTab({
+                    url: e.currentTarget.dataset.url,
+                })
+            }
         } else {
             API.ShowToast('正在施工中...', 'none', 2000)
         }
-    }
+    },
 })

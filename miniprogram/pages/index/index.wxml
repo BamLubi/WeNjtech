@@ -1,18 +1,32 @@
 <!--miniprogram/pages/index/index.wxml-->
 
 <!-- 顶部轮播 -->
-<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+	duration="500">
 	<swiper-item wx:for="{{dict.swiperListCount}}" wx:key="index">
 		<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="scaleToFill" lazy-load></image>
 	</swiper-item>
 </swiper>
 
 <!-- 工具栏 -->
-<view class="cu-list grid col-4 no-border">
-    <view class="cu-item" wx:for="{{services}}" wx:key="id" bindtap="Navigate" data-url="{{item.url}}">
-		<view><image class="service-img" src="{{item.img}}"></image></view>
-      	<view class="text-sub text-shadow">{{item.name}}</view>
-    </view>
+<view wx:for="{{services}}" wx:key="id">
+	<!-- 工具栏标题 -->
+	<view class="cu-bar bg-white {{index==0?'':'margin-top'}}">
+		<view class="action">
+			<text class="cuIcon-titles text-blue"></text>
+			<text class="text-xl text-bold">{{item.name}}</text>
+		</view>
+	</view>
+
+	<!-- 工具 -->
+	<view class="cu-list radius grid col-4 no-border shadow bg-white">
+		<view class="cu-item" wx:for="{{item.children}}" wx:for-index="_index" wx:for-item="_item" wx:key="id" bindtap="navigatePage" data-url="{{_item.url}}" data-data="{{_item.data}}" data-type="{{_item.type}}">
+			<view>
+				<image class="service-img" src="{{_item.img}}"></image>
+			</view>
+			<view class="text-sub text-shadow">{{_item.name}}</view>
+		</view>
+	</view>
 </view>
 
 <!-- 公告栏 -->
