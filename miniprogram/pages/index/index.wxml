@@ -11,7 +11,7 @@
 <!-- 工具栏 -->
 <view wx:for="{{services}}" wx:key="id">
 	<!-- 工具栏标题 -->
-	<view class="cu-bar bg-white {{index==0?'':'margin-top'}}">
+	<view class="cu-bar bg-white">
 		<view class="action">
 			<text class="cuIcon-titles text-blue"></text>
 			<text class="text-xl text-bold">{{item.name}}</text>
@@ -19,7 +19,7 @@
 	</view>
 
 	<!-- 工具 -->
-	<view class="cu-list radius grid col-4 no-border shadow bg-white">
+	<view class="cu-list radius grid col-4 no-border shadow bg-white margin-bottom">
 		<view class="cu-item" wx:for="{{item.children}}" wx:for-index="_index" wx:for-item="_item" wx:key="id" bindtap="navigatePage" data-url="{{_item.url}}" data-data="{{_item.data}}" data-type="{{_item.type}}">
 			<view>
 				<image class="service-img" src="{{_item.img}}"></image>
