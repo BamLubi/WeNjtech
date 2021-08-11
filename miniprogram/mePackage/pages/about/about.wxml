@@ -25,7 +25,13 @@
 		+ 通信行程卡查询
 		+ 疫情地图
 		[我的课表][校园拼车][二手交易]正在开发中
+
 		</text>
+		<view class="text-sub">
+			<text>项目开源地址如下
+			</text>
+			<text class="cuIcon-github">BamLubi/WeNjtech</text>
+		</view>
 	</view>
 	<!-- ad -->
 	<ad unit-id="adunit-83e34b11efd33e33"></ad>
