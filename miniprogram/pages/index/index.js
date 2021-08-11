@@ -37,7 +37,7 @@ Page({
                 id: 3,
                 name: "我的课表",
                 img: "/images/index/kebiao.png",
-                url: "/pages/kebiao/kebiao",
+                url: "",
                 type: 'page'
             }, {
                 id: 4,

@@ -2,7 +2,7 @@
 const dateControl = require("../../utils/dateControl.js")
 const cloudDB = require("../../promise/wxCloudDB.js")
 const API = require("../../promise/wxAPI.js")
-const busDB = require("../../utils/schoolBusDB.js")
+const busDB = require("../../db/schoolBusDB.js")
 
 const app = getApp()
 const db = wx.cloud.database()

@@ -1,7 +1,7 @@
 // miniprogram/pages/me/me.js
 const app = getApp()
 const wxAPI = require("../../promise/wxAPI.js")
-const userInfoDB = require("../../utils/userInfoDB.js")
+const userInfoDB = require("../../db/userInfoDB.js")
 Page({
 
     /**

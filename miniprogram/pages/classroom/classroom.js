@@ -1,7 +1,7 @@
 // miniprogram/pages/classroom/classroom.js
 const cloudDB = require("../../promise/wxCloudDB.js")
 const API = require("../../promise/wxAPI.js")
-const classroomDB = require("../../utils/classroomDB.js")
+const classroomDB = require("../../db/classroomDB.js")
 
 const app = getApp()
 const db = wx.cloud.database()
