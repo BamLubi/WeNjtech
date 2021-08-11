@@ -3,7 +3,7 @@
 	<!-- logo & version -->
 	<view class="logo margin-top">
 		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
-		<view class="text-gray text-lg text-shadow margin-top">v 2.3.6</view>
+		<view class="text-gray text-lg text-shadow margin-top">v 2.3.7</view>
 		<view class="text-bold text-gray text-lg text-shadow margin-top-xs">Copyright © 2019-2021 BamLubi</view>
 	</view>
 	<!-- information -->
