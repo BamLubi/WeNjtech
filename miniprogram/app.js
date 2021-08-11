@@ -1,6 +1,6 @@
 //app.js
 const cloudFun = require("./promise/wxCloudFun.js")
-const userInfoDB = require("./utils/userInfoDB.js")
+const userInfoDB = require("./db/userInfoDB.js")
 const API = require("./promise/wxAPI.js")
 App({
 	globalData: {
