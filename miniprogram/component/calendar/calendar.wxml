@@ -10,12 +10,12 @@
             <image src='images/btn_next.svg' bindtap='next' />
         </view>
         <view class='container-days'>
-            <view class='day day-header' wx:for='{{weekdays}}' wx:for-index='index' wx:for-item='weekday' wx:key='{{index}}'>
+            <view class='day day-header' wx:for='{{weekdays}}' wx:for-index='index' wx:for-item='weekday' wx:key='index'>
                 {{weekday}}
             </view>
-            <view class='day{{day.currentMonth? " day-current-month" : ""}}' wx:for='{{days}}' wx:for-index='index' wx:for-item='day' wx:key='{{day.id}}' data-index='{{index}}' bindtap='onDayClick'>
+            <view class='day{{day.currentMonth? " day-current-month" : ""}}' wx:for='{{days}}' wx:for-index='index' wx:for-item='day' wx:key='id' data-index='{{index}}' bindtap='onDayClick'>
                 <view class='day-range {{day.rangeClassName}}'>
-                    <view class='day-content {{day.className}}' style='{{day.style}}'>
+                    <view class='day-content {{day.className}}'>
                         <text>{{day.text}}</text>
                         <view class='content-sub'>
                             <view class='content-sub-dot' wx:if='{{day.showDot}}' />

@@ -55,7 +55,7 @@
 			<!-- 站点 -->
 			<view class="flex justify-start align-center margin-top-xs">
 				<text class="cuIcon-location text-gray margin-right"> 站点</text>
-				<view wx:for="{{site}}" wx:key class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
+				<view wx:for="{{site}}" wx:key="index" class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">
@@ -108,7 +108,7 @@
 			<!-- 站点 -->
 			<view class="flex justify-start align-center margin-top-xs">
 				<text class="cuIcon-location text-gray margin-right"> 站点</text>
-				<view wx:for="{{site}}" wx:key class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
+				<view wx:for="{{site}}" wx:key="index" class="cu-tag line-olive bg-blue light round sm">{{item}}</view>
 			</view>
 			<!-- 设置提醒 -->
 			<view class="margin-top-xs">

@@ -4,7 +4,7 @@
 <view class="topArea {{isFixedNav ? 'display-none' : ''}}">
 	<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
 		duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff" bindchange="cardSwiper">
-		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key class="{{cardCur==index?'cur':''}}">
+		<swiper-item wx:for="{{dict.swiperListCount}}" wx:key="index" class="{{cardCur==index?'cur':''}}">
 			<view class="swiper-item">
 				<image src="{{dict.swiperListBaseUrl + index + '.jpg'}}" mode="aspectFill" lazy-load></image>
 			</view>
@@ -36,22 +36,19 @@
 		<view id="select-area" class="bg-white nav">
 			<!-- 学区 -->
 			<view class="flex text-center">
-				<view class="cu-item flex-sub {{tab_lh[index]?'text-red cur':''}}" wx:for="{{lh}}" wx:key
-					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lh">
+				<view class="cu-item flex-sub {{tab_lh[index]?'text-red cur':''}}" wx:for="{{lh}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lh">
 					{{item}}
 				</view>
 			</view>
 			<!-- 时间 -->
 			<view wx:if="{{!mode}}" class="flex text-center">
-				<view class="cu-item flex-sub {{tab_time[index]?'text-orange cur':''}}" wx:for="{{time}}" wx:key
-					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_time">
+				<view class="cu-item flex-sub {{tab_time[index]?'text-orange cur':''}}" wx:for="{{time}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}" data-arr="tab_time">
 					{{item}}
 				</view>
 			</view>
 			<!-- 楼层 -->
 			<view class="flex text-center">
-				<view class="cu-item flex-sub {{tab_lc[index]?'text-yellow cur':''}}" wx:for="{{lc}}" wx:key
-					bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lc">
+				<view class="cu-item flex-sub {{tab_lc[index]?'text-yellow cur':''}}" wx:for="{{lc}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}" data-arr="tab_lc">
 					{{item}}
 				</view>
 			</view>
@@ -68,7 +65,7 @@
 		<!-- 显示加载中 -->
 		<view wx:if="{{isLoading}}" class="cu-load loading" />
 		<!-- 教室信息 -->
-		<view wx:for="{{classroomList}}" wx:key data-id="{{index}}">
+		<view wx:for="{{classroomList}}" wx:key="index" data-id="{{index}}">
 			<!-- 内容 margin-top-sm -->
 			<view class="classroom bg-white padding-sm margin radius">
 				<!-- 教室位置 -->
@@ -86,8 +83,7 @@
 				<!-- 空闲时间 -->
 				<view class="margin-xs">
 					<text class="cuIcon-time text-gray margin-right"> 空闲时间</text>
-					<view wx:for="{{item.emptyTime}}" wx-if="{{idx%2==0}}" wx:for-index="idx" wx:for-item="num"
-						class="cu-tag line-olive bg-blue light round sm">
+					<view wx:for="{{item.emptyTime}}" wx-if="{{idx%2==0}}" wx:for-index="idx" wx:for-item="num" wx:key="idx" class="cu-tag line-olive bg-blue light round sm">
 						{{num}} - {{num+1}}
 					</view>
 				</view>
