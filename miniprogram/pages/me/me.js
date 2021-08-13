@@ -27,13 +27,20 @@ Page({
             url: "/mePackage/pages/info/info"
         }, {
             id: 2,
+            name: "我的闲置",
+            show: true,
+            type: "navigator",
+            img: "/images/me/xianzhi.png",
+            url: "/mePackage/pages/info/info"
+        }, {
+            id: 3,
             name: "意见反馈",
             show: true,
             type: "button",
             img: "/images/me/react.png",
             opentype: "feedback"
         }, {
-            id: 3,
+            id: 4,
             name: "关于我们",
             show: true,
             type: "navigator",
@@ -145,13 +152,15 @@ Page({
     navigatePage: function (e) {
         console.log("[me] [跳转页面]", e.target.dataset.url)
         // 跳转编辑资料页面需保证全局有用户信息
-        if (e.target.dataset.id == 1 && !this.data.hasUserInfo) {
+        if (e.target.dataset.id == 2 && !this.data.hasUserInfo) {
             wx.showToast({
                 title: '请先点击获取头像昵称',
                 icon: 'none',
                 duration: 1500
             })
-        } else {
+        } else if (e.target.dataset.id == 2){
+            wxAPI.ShowToast('正在施工中...', 'none', 2000)
+        }else {
             wx.navigateTo({
                 url: e.target.dataset.url,
             })

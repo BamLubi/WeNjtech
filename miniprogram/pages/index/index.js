@@ -36,19 +36,25 @@ Page({
             }, {
                 id: 3,
                 name: "我的课表",
-                img: "/images/index/kebiao.png",
+                img: "/images/index/un_kebiao.png",
                 url: "",
                 type: 'page'
             }, {
                 id: 4,
-                name: "校园拼车",
-                img: "/images/index/pinche.png",
+                name: "校园组团",
+                img: "/images/index/un_zutuan.png",
                 url: "",
                 type: 'page'
             }, {
                 id: 5,
-                name: "二手交易",
-                img: "/images/index/ershou.png",
+                name: "校园闲置",
+                img: "/images/index/un_ershou.png",
+                url: "",
+                type: 'page'
+            }, {
+                id: 6,
+                name: "猫猫狗狗",
+                img: "/images/index/un_pets.png",
                 url: "",
                 type: 'page'
             }]
