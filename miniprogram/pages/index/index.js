@@ -42,8 +42,8 @@ Page({
             }, {
                 id: 4,
                 name: "校园组团",
-                img: "/images/index/un_zutuan.png",
-                url: "",
+                img: "/images/index/zutuan.png",
+                url: "/pages/zutuan/zutuan",
                 type: 'page'
             }, {
                 id: 5,

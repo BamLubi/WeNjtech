@@ -1,4 +1,5 @@
 {
+    "setting": {},
     "condition": {
         "plugin": {
             "list": []
@@ -56,6 +57,12 @@
                 {
                     "name": "课表",
                     "pathName": "pages/kebiao/kebiao",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "校园组团",
+                    "pathName": "pages/zutuan/zutuan",
                     "query": "",
                     "scene": null
                 }

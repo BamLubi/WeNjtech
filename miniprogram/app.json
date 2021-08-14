@@ -5,7 +5,8 @@
         "pages/schoolBus/schoolBus",
         "pages/classroom/classroom",
         "pages/campusQ&A/campusQ&A",
-        "pages/kebiao/kebiao"
+        "pages/kebiao/kebiao",
+        "pages/zutuan/zutuan"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
