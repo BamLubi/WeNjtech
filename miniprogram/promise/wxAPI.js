@@ -13,7 +13,7 @@ const fs = wx.getFileSystemManager()
  * @param {string} confirmText 
  * @return {Promise}
  */
-function ShowModal(title, content, showCancel, cancelText, confirmText) {
+function ShowModal(title, content, showCancel = true, cancelText = "取消", confirmText = "确认") {
     //return Promise Object
     return new Promise(function (confirm, cancel, reject) {
         wx.showModal({
@@ -42,10 +42,11 @@ function ShowModal(title, content, showCancel, cancelText, confirmText) {
 /**
  * call wx.showToast
  * @param {string} title 
- * @param {string} icon 'success'|'loading'
+ * @param {string} icon 'success'|'loading'|'error'|'none'
+ * @param {number} duration
  * @return {Promise}
  */
-function ShowToast(title, icon, duration) {
+function ShowToast(title, icon = '', duration = 1500) {
     //return Promise Object
     return new Promise(function (resolve, reject) {
         wx.showToast({
@@ -136,6 +137,7 @@ function GetUserInfo() {
     //return Promise Object
     return new Promise(function (resolve, reject) {
         wx.getUserInfo({
+            lang: "zh_CN",
             success: res => {
                 console.log("[wxAPI] [获取用户信息] success: ", res.userInfo)
                 // console.log({
@@ -161,6 +163,7 @@ function GetUserProfile() {
     return new Promise(function (resolve, reject) {
         wx.getUserProfile({
             desc: "完善用户个人信息",
+            lang: "zh_CN",
             success: res => {
                 console.log("[wxAPI] [获取用户信息] success: ", res.userInfo)
                 resolve(res.userInfo)
@@ -239,7 +242,7 @@ function RequestSubscribeMessage(tmplId) {
                     console.log("[wxAPI] [授权订阅消息] fail")
                 }
             },
-            fail: err => {}
+            fail: err => { }
         })
     });
 }
@@ -255,7 +258,7 @@ function _hideKeyBoard() {
                 console.log("[wxAPI] [收起键盘] success")
                 resolve()
             },
-            fail: err => {}
+            fail: err => { }
         })
     })
 }
@@ -287,6 +290,50 @@ function DownloadFile(url) {
     })
 }
 
+/**
+ * call wx.scanCode()
+ * @return {Promise}
+ */
+function ScanCode() {
+    return new Promise(function (resolve, reject) {
+        wx.scanCode({
+            success(res) {
+                console.log("[wxAPI] [扫码] success: ", res)
+                resolve(JSON.parse(res.result))
+            },
+            fail(err) {
+                console.error("[wxAPI] [扫码] fail: ", err)
+                reject(err)
+            }
+        })
+    })
+}
+
+/**
+ * call wx.request()
+ * @return {Promise}
+ */
+function Request(url = '', data = {}, method = 'GET', remark) {
+    return new Promise(function (resolve, reject) {
+        wx.request({
+            url: url,
+            method: method,
+            data: data,
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+                console.log(`[wxAPI] [网络请求] [${remark}] success: `, res.data);
+                resolve(res.data)
+            },
+            fail(err) {
+                console.error(`[wxAPI] [网络请求] [${remark}] fail: ${err}`)
+                reject(err)
+            }
+        })
+    })
+}
+
 module.exports = {
     ShowModal: ShowModal,
     ChooseAddress: ChooseAddress,
@@ -300,4 +347,6 @@ module.exports = {
     HideToast: HideToast,
     _hideKeyBoard,
     DownloadFile: DownloadFile,
+    ScanCode: ScanCode,
+    Request: Request
 }

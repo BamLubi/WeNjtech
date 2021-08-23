@@ -28,6 +28,37 @@ function CallWxCloudFun(funName, data) {
     });
 }
 
+/**
+ * 内容安全检测
+ * @param {string} openid 
+ * @param {string} content 
+ * @return {Promise}
+ */
+function msgSecCheck(openid, content) {
+    //return Promise Object
+    return new Promise(function(resolve1, resolve2, reject) {
+        let data = {
+			openid: openid,
+			content: content
+		}
+        CallWxCloudFun("msgSecCheck", data).then(res=>{
+            if(res.result.suggest == "pass"){
+                console.log("内容安全检测通过");
+                // 言论没有问题
+                resolve1(res)
+            }else{
+                console.log("内容安全检测未通过");
+                // 有风险
+                resolve2(res)
+            }
+        }).catch(err=>{
+            console.log("错误");
+            reject(err)
+        })
+    });
+}
+
 module.exports = {
-    CallWxCloudFun: CallWxCloudFun
+    CallWxCloudFun: CallWxCloudFun,
+    msgSecCheck: msgSecCheck
 }

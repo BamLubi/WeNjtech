@@ -89,7 +89,34 @@ function UpdateWxCloudDB(collectionName, tableId, data, remark = '') {
 }
 
 /**
- * call CONT functions of Wechat Cloud Database
+ * call WATCH functions of Wechat Cloud Database
+ * @param {string} collectionName Cloud database collection's name
+ * @param {object[]} whereData cloud database where rules
+ * @param {string} remark remark for definiting the function
+ * @return {promise}
+ */
+function DeleteWxCloudDB(collectionName, whereData, remark = '') {
+	const db = wx.cloud.database();
+	const _ = db.command;
+	//return Promise Object
+	return new Promise(function (resolve, reject) {
+		db.collection(collectionName)
+			.where(whereData)
+			.remove({
+				success: res => {
+					console.log(`[云数据库] [DELETE] [${collectionName}] [${remark}] success: `, res);
+					resolve(res);
+				},
+				fail: err => {
+					console.error(`[云数据库] [DELETE] [${collectionName}] [${remark}] fail: `, err);
+					reject(err);
+				}
+			});
+	});
+}
+
+/**
+ * call COUNT functions of Wechat Cloud Database
  * @param {string} collectionName Cloud database collection's name
  * @param {object[]} whereData cloud database where rules
  * @param {string} remark remark for definiting the function
@@ -115,6 +142,13 @@ function CountWxCloudDB(collectionName, whereData, remark = '') {
 	});
 }
 
+/**
+ * call WATCH functions of Wechat Cloud Database
+ * @param {string} collectionName Cloud database collection's name
+ * @param {object[]} whereData cloud database where rules
+ * @param {string} remark remark for definiting the function
+ * @return {promise}
+ */
 function WatchWxCloudDB(collectionName, whereData, remark = '') {
 	const db = wx.cloud.database();
 	const _ = db.command;
@@ -141,4 +175,5 @@ module.exports = {
 	UpdateWxCloudDB: UpdateWxCloudDB,
 	CountWxCloudDB: CountWxCloudDB,
 	WatchWxCloudDB: WatchWxCloudDB,
+	DeleteWxCloudDB: DeleteWxCloudDB
 };
