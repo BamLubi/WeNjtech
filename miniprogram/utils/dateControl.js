@@ -80,7 +80,26 @@ function isTodayORTomorrow(selectDate, todayDate) {
     }
 }
 
+/**
+ * Date转换成YYYY-MM-DD
+ * @param {*} date Date
+ * @return {string} "YYYY-MM-DD"
+ */
+function date2YMD(date) {
+    try {
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        month = month < 10 ? ('0' + month) : month;
+        let day = date.getDate();
+        day = day < 10 ? ('0' + day) : day;
+        return year + '-' + month + '-' + day;
+    } catch (e) {
+        return '2021-01-01'
+    }
+}
+
 module.exports = {
-    mathChangeDate: mathChangeDate,			// 加减天数
-    isTodayORTomorrow: isTodayORTomorrow	// 判断今天、明天
+    mathChangeDate: mathChangeDate, // 加减天数
+    isTodayORTomorrow: isTodayORTomorrow, // 判断今天、明天
+    date2YMD: date2YMD,
 }

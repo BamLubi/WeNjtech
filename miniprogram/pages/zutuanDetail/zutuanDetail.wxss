@@ -1,0 +1,19 @@
+/* pages/zutuanDetail/zutuanDetail.wxss */
+input {
+    text-align: right;
+}
+
+/* 提交按钮组 */
+.btn_group {
+    position: fixed;
+    bottom: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    z-index: 999;
+}
+
+.btn_group view{
+    width: 40vw;
+}

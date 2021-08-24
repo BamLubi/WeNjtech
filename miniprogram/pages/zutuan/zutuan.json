@@ -1,4 +1,12 @@
 {
   "navigationBarTitleText": "校园组团",
-  "usingComponents": {}
+  "onReachBottomDistance": 2,
+  "usingComponents": {
+    "van-tab": "../../component/vantui/tab/index",
+    "van-tabs": "../../component/vantui/tabs/index",
+    "van-divider": "../../component/vantui/divider/index",
+    "van-dropdown-menu": "../../component/vantui/dropdown-menu/index",
+    "van-dropdown-item": "../../component/vantui/dropdown-item/index",
+    "van-button": "../../component/vantui/button/index"
+  }
 }

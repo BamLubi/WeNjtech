@@ -1,4 +1,3 @@
-
 /**
  * 格式化时间输出格式：YYYY-MM-DD HH-MM-SS
  * @param {Date} date 
@@ -28,16 +27,25 @@ const formatNumber = n => {
  * 生成16位UUID
  * @return {string}
  */
-function makeUUID(){
-    let a,b,c;
-    [a,b,c] = [a,b,c].map(()=>{
-        return Math.floor(Math.random()*10);
+function makeUUID() {
+    let a, b, c;
+    [a, b, c] = [a, b, c].map(() => {
+        return Math.floor(Math.random() * 10);
     })
     const time = new Date().getTime();
     return '' + a + time + b + c;
 }
 
+/**
+ * 特殊字符替换
+ * @param {*} src 
+ */
+function checkIllegalText(src) {
+    return src.replace(new RegExp("[\\/, \\\\, \\<, \\>, \\`]|script|view|text|input|block|form|textarea|button|!--|-->|map", "gm"), "")
+}
+
 module.exports = {
     formatTime: formatTime,
-    makeUUID: makeUUID
+    makeUUID: makeUUID,
+    checkIllegalText: checkIllegalText
 }

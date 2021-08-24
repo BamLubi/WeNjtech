@@ -1,0 +1,54 @@
+<!--pages/zutuanDetail/zutuanDetail.wxml-->
+<!-- 表单 -->
+<form>
+    <!-- 类型 -->
+    <view class="cu-form-group">
+		<view class="title">类型</view>
+		<picker bindchange="typeChange" value="{{selectType}}" range="{{typePicker}}">
+			<view class="picker">
+				{{typePicker[selectType]}}
+			</view>
+		</picker>
+	</view>
+    <!-- 人数 -->
+    <view class="cu-form-group">
+		<view class="title">人数</view>
+		<input type="number" value="{{num}}" placeholder="预计需要的队友人数" bindblur="numInput"></input>
+        <view>人</view>
+	</view>
+    <!-- 联系方式 -->
+    <view class="cu-form-group">
+		<view class="title">联系方式</view>
+		<input value="{{tel}}" placeholder="如: QQ(xxxxx),TEL(xxxxx)" bindblur="telInput"></input>
+		<text class="cuIcon-phone text-blue"></text>
+	</view>
+    <!-- 截止时间 -->
+    <view class="cu-form-group">
+		<view class="title">截止日期</view>
+		<picker mode="date" value="{{selectDate}}" start="{{nowDate}}" bindchange="dateChange">
+			<view class="picker">
+				{{selectDate}}
+			</view>
+		</picker>
+	</view>
+    <!-- 详情 -->
+    <view class="cu-form-group align-start">
+		<view class="title">详情</view>
+		<textarea value="{{detail}}" maxlength="-1" auto-height placeholder="描述组团信息的基本需求" bindblur="detailInput"></textarea>
+	</view>
+</form>
+<!-- 注意事项 -->
+<view class="margin">
+    <text>注意事项:
+    </text>
+    <text>1. 请注意发布信息的真实有效，切勿发表不当言论。
+    </text>
+    <text>2. 您的发布信息将经过腾讯内容安全审查，如若存在不当言论将禁止发布。
+	</text>
+	<text>3. 当发布超过截止时间时，将不可在“校园发布”页面中查看，您依旧可以在“我的发布”中操作。</text>
+</view>
+<!-- 按钮组 -->
+<view class="btn_group">
+    <view class="cu-btn shadow bg-blue lg round" bindtap="confirm">确认</view>
+    <view class="cu-btn shadow bg-green lg round" bindtap="cancel">取消</view>
+</view>

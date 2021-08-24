@@ -1,2 +1,129 @@
 <!--pages/zutuan/zutuan.wxml-->
-<text>pages/zutuan/zutuan.wxml</text>
+<van-tabs type="line" sticky animated swipeable color="#fff" title-active-color="#fff" title-inactive-color="#000"
+    active="{{activeTab}}" bind:change="tabChange">
+    <!-- 第一标签页-校园发布 -->
+    <van-tab title="校园发布">
+        <!-- 工具栏 -->
+        <van-dropdown-menu active-color="#2684fe">
+            <van-dropdown-item id="dropdownitem_1" value="{{ selectType }}" options="{{ typeOptions }}" bind:change="typeChange"/>
+            <van-dropdown-item id="dropdownitem_2" value="{{ selectSort }}" options="{{ sortOptions }}" bind:change="sortChange"/>
+        </van-dropdown-menu>
+        <!-- 卡片 -->
+        <view wx:for="{{zutuanList}}" wx:key="_openid"
+            class="zutuan-card margin-top margin-bottom padding bg-white shadow">
+            <!-- 左侧-头像、昵称、认证状态、组团类型 -->
+            <view class="left margin-right-sm">
+                <view class="top">
+                    <block wx:if="{{item.type=='拼车'}}">
+                        <view class="cu-tag radius line-blue">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='竞赛'}}">
+                        <view class="cu-tag radius line-green">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='吃喝玩乐'}}">
+                        <view class="cu-tag radius line-orange">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='其他'}}">
+                        <view class="cu-tag radius line-gray">{{item.type}}</view>
+                    </block>
+                </view>
+                <view class="main">
+                    <image src="{{item.avatarUrl}}"></image>
+                    <view class="text-black text-shadow text-sub text-cut margin-top-xs">{{item.nickName}}</view>
+                </view>
+            </view>
+            <!-- 右侧-组团信息 -->
+            <view class="right">
+                <view class="flex align-end text-sub">
+                    <view class="text-black">人数：</view>
+                    <view>{{item.num}}</view>
+                </view>
+                <view class="info flex align-start text-sub padding-right-sm">
+                    <view class="text-black" style="white-space: nowrap;">联系方式：</view>
+                    <view>{{item.tel}}</view>
+                    <view class="text-sm text-red margin-left-xs" data-data="{{item.tel}}" bindtap="copyToClipboard">复制</view>
+                </view>
+                <view class="info flex align-start text-sub padding-right-sm">
+                    <view class="text-black" style="white-space: nowrap;">详情：</view>
+                    <view>{{item.detail}}</view>
+                    <!-- <view class="text-red text-sub margin-left-sm">详情</view> -->
+                </view>
+                <van-divider />
+                <view class="text-gray text-sm">截止时间: {{item.deadTime}}</view>
+                <view class="text-gray text-sm">发布时间: {{item.updateTime}}</view>
+            </view>
+        </view>
+        <!-- 加载信息 -->
+        <block>
+            <view wx:if="{{!hasMore}}" class="cu-load over" />
+            <view wx:elif="{{isLoading}}" class="cu-load loading" />
+            <view wx:else class="cu-load text-center text-black">上拉加载更多(￣▽￣)"</view>
+        </block>
+    </van-tab>
+
+    <!-- 第二标签页-我的发布 -->
+    <van-tab title="我的发布">
+        <!-- 卡片 -->
+        <view wx:for="{{zutuanList}}" wx:key="_openid"
+            class="zutuan-card margin-top margin-bottom padding bg-white shadow">
+            <!-- 左侧-头像、昵称、认证状态、组团类型 -->
+            <view class="left margin-right-sm">
+                <view class="top">
+                    <block wx:if="{{item.type=='拼车'}}">
+                        <view class="cu-tag radius line-blue">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='竞赛'}}">
+                        <view class="cu-tag radius line-green">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='吃喝玩乐'}}">
+                        <view class="cu-tag radius line-orange">{{item.type}}</view>
+                    </block>
+                    <block wx:if="{{item.type=='其他'}}">
+                        <view class="cu-tag radius line-gray">{{item.type}}</view>
+                    </block>
+                </view>
+                <view class="main">
+                    <image src="{{item.avatarUrl}}"></image>
+                    <view class="text-black text-shadow text-sub text-cut margin-top-xs">{{item.nickName}}</view>
+                </view>
+            </view>
+            <!-- 右侧-组团信息 -->
+            <view class="right">
+                <view class="flex align-end text-sub">
+                    <view class="text-black">人数：</view>
+                    <view>{{item.num}}</view>
+                </view>
+                <view class="info flex align-start text-sub padding-right-sm">
+                    <view class="text-black" style="white-space: nowrap;">联系方式：</view>
+                    <view>{{item.tel}}</view>
+                </view>
+                <view class="info flex align-start text-sub padding-right-sm">
+                    <view class="text-black" style="white-space: nowrap;">详情：</view>
+                    <view>{{item.detail}}</view>
+                    <!-- <view class="text-red text-sub margin-left-sm">详情</view> -->
+                </view>
+                <van-divider />
+                <view class="text-gray text-sm">截止时间: {{item.deadTime}}</view>
+                <view class="text-gray text-sm">发布时间: {{item.updateTime}}</view>
+                <!-- 按钮组 -->
+                <view class="button-group margin-top-xs">
+                    <!-- 取消按钮 -->
+                    <van-button plain icon="cross" type="danger" size="small" class="margin-right" data-id="{{item._id}}" bindtap="delete">删除</van-button>
+                    <!-- 修改按钮 -->
+                    <van-button icon="edit" type="info" size="small" data-index="{{index}}" bindtap="modify">修改</van-button>
+                </view>
+            </view>
+            <!-- 已过期组件 -->
+            <image wx:if="{{!item.isAvailable}}" class="expire" mode="aspectFit" src="/images/zutuan/expire.png"></image>
+        </view>
+        <!-- 加载信息 -->
+        <block>
+            <view wx:if="{{!hasMore}}" class="cu-load over" />
+            <view wx:elif="{{isLoading}}" class="cu-load loading" />
+            <view wx:else class="cu-load text-center text-black">上拉加载更多(￣▽￣)"</view>
+        </block>
+    </van-tab>
+</van-tabs>
+
+<!-- 新增按钮 -->
+<view wx:if="{{activeTab}}" class="publish cu-btn bg-red shadow" bindtap="publish">+</view>

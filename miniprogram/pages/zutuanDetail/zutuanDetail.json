@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "校园组团",
+  "usingComponents": {
+    "van-button": "../../component/vantui/button/index"
+  }
+}

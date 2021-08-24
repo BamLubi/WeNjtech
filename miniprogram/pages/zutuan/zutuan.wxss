@@ -1,1 +1,95 @@
 /* pages/zutuan/zutuan.wxss */
+.van-tabs__wrap{
+    z-index: 999;
+    opacity: 1;
+}
+
+/* 顶部标签页背景色 */
+.van-tabs__nav {
+    background-color: #2684fe;
+}
+
+/* 分隔线 */
+.van-divider {
+    margin-top: 10rpx !important;
+    margin-bottom: 10rpx !important;
+}
+
+/* 组团卡片 */
+.zutuan-card {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+/* 组团卡片-左侧个人信息 */
+.zutuan-card .left {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zutuan-card .left .top view{
+    z-index: 0;
+}
+
+.zutuan-card .left .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}
+
+.zutuan-card .left .main view {
+    width: 100%;
+    text-align: center;
+}
+
+
+.zutuan-card .left image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+/* 组团卡片-右侧组团信息 */
+.zutuan-card .right {
+    width: 75vw;
+    /* white-space: nowrap; */
+}
+
+.zutuan-card .right .info {
+    width: 100%;
+}
+
+/* 按钮组 */
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/* add按钮 */
+.publish {
+    position: fixed;
+    bottom: 100rpx;
+    right: 50rpx;
+    width: 85rpx;
+    height: 85rpx;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 70rpx;
+}
+
+/* 已过期组件 */
+.expire{
+    position: absolute;
+    width: 125rpx;
+    height: 125rpx;
+    right: 0rpx;
+    top: 0rpx;
+}
