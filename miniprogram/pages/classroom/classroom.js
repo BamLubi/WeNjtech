@@ -70,6 +70,16 @@ Page({
 	},
 
 	/**
+     * 转发
+     */
+    onShareAppMessage() {
+        return {
+            title: '空教室查询',
+            path: '/pages/classroom/classroom',
+        }
+    },
+
+	/**
 	 * 顶部轮播图片的触摸
 	 * @param {*} e 
 	 */
