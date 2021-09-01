@@ -223,5 +223,42 @@ Page({
         })
         // 过滤数据
         this.filterList()
+    },
+
+    refresh: function(e){
+        let that = this
+        let time = wx.getStorageSync('pre_refresh_kebiao_time')
+        let now_time = new Date().getTime()
+        // 不用判断time为空就可以直接相减
+        let deltaT = parseInt((now_time - time) / (1000 * 60 * 60))
+        if (deltaT < 24 ){
+            // 禁止刷新
+            return API.ShowModal('冷却期未到', '冷却期间还有'+parseInt(24-deltaT)+'小时，在此期间不可以刷新课表', false)
+        }
+        // 除此以外可以刷新
+        // 判断刷新冷却期
+        return API.ShowModal('刷新课表', '刷新课表将从教务处重新获取新的课表。为维护服务器正常使用，每48h仅可刷新一次，敬请谅解！').then(()=>{
+            // 设置本地缓存
+            wx.setStorageSync('pre_refresh_kebiao_time', now_time)
+            // 显示加载
+            wx.showLoading({
+              title: '获取中'
+            })
+            // 刷新数据,从服务器重新获取
+            crawlKebiao(app.globalData.openid).then(res => {
+                wx.hideLoading().then(() => {
+                    API.ShowToast('成功', 'success')
+                })
+                // 设置课表数据
+                that.setKebiaoList(res)
+                // 过滤数据
+                that.filterList()
+            }).catch(err => {
+                console.log("刷新课表失败", err);
+                wx.hideLoading().then(() => {
+                    API.ShowToast('失败', 'error')
+                })
+            })
+        })
     }
 })

@@ -87,3 +87,15 @@ scroll-view view{
     align-items: center;
     width: 100%;
 }
+
+/* 刷新按钮 */
+.refresh {
+    position: fixed;
+    bottom: 100rpx;
+    right: 50rpx;
+    width: 85rpx;
+    height: 85rpx;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 60rpx;
+}

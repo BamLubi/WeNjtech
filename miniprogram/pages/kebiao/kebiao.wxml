@@ -49,3 +49,6 @@
 <view wx:else class="default">
     <image src="../../images/kebiao/nocourse.png" mode="aspectFit"></image>
 </view>
+
+<!-- 刷新按钮 -->
+<view class="refresh cu-btn bg-blue shadow cuIcon-refresh" bindtap="refresh"></view>

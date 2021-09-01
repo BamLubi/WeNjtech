@@ -21,7 +21,7 @@ function getKebiaoList(openid) {
             .where({
                 _openid: openid
             })
-            .orderBy('year', 'desc')
+            .orderBy('update_time', 'desc')
             .get({
                 success: res => {
                     if (res.data.length != 0) {
