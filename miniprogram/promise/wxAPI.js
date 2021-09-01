@@ -313,15 +313,13 @@ function ScanCode() {
  * call wx.request()
  * @return {Promise}
  */
-function Request(url = '', data = {}, method = 'GET', remark) {
+function Request(url = '', data = {}, method = 'GET', header={'content-type': 'application/json'},remark='') {
     return new Promise(function (resolve, reject) {
         wx.request({
             url: url,
             method: method,
             data: data,
-            header: {
-                'content-type': 'application/json' // 默认值
-            },
+            header: header,
             success(res) {
                 console.log(`[wxAPI] [网络请求] [${remark}] success: `, res.data);
                 resolve(res.data)
