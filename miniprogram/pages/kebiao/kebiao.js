@@ -65,10 +65,10 @@ Page({
             current: (term_week - 3 + 26) % 26
         })
         // 判断是否有用户的学号和密码信息
-        if (app.globalData.localUserInfo.stuNum == "" || app.globalData.localUserInfo.stuPwd == "") {
-            API.ShowModal('缺少信息', '请至"我的页面/编辑资料"完善您的学号和教务处密码，将用于获取您的课表！点击确定将自动跳转', false).then(() => {
-                wx.redirectTo({
-                    url: '/mePackage/pages/info/info',
+        if (app.globalData.hasUserInfo != true ||  app.globalData.localUserInfo.stuNum == "" || app.globalData.localUserInfo.stuNum == null || app.globalData.localUserInfo.stuPwd == "" || app.globalData.localUserInfo.stuPwd == null) {
+            return API.ShowModal('缺少信息', '请至"我的页面/编辑资料"检查是否完善学号和教务处密码，这将用于获取您的课表！点击确定将自动跳转', false).then(() => {
+                wx.switchTab({
+                    url: '/pages/me/me',
                 })
             })
         } else {
