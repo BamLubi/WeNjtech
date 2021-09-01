@@ -1,7 +1,7 @@
 <!--pages/kebiao/kebiao.wxml-->
 
 <!-- 显示学期 -->
-<view class="title text-lg text-shadow">2020-2021学年度 第二学期</view>
+<view class="title text-lg text-shadow padding-bottom-xs">{{year}}学年度 第{{term}}学期</view>
 
 <!-- 周数选择 -->
 <swiper circular='true' display-multiple-items="5" current="{{current}}" bindchange="SwiperChange">
@@ -16,3 +16,36 @@
         {{item.name}}
     </view>
 </scroll-view>
+
+<!-- 课表信息 -->
+<view wx:if="{{showList.length != 0}}">
+    <view wx:for="{{showList}}" wx:key="index" class="kebiao cu-card shadow bg-white margin-top-sm">
+        <!-- 左侧显示数字 -->
+        <view class="left text-bold">
+            <view wx:for="{{item.time}}" wx:for-item="_item" wx:for-index="_index" wx:key="_index">{{_item}}</view>
+        </view>
+        <!-- 主体部分 -->
+        <view class="main padding">
+            <view class="name">
+                <!-- 课程名 -->
+                <view class="text-shadow text-black text-xl">{{item.course_name}}</view>
+                <!-- 教室 -->
+                <view class="text-lg">{{item.address}}</view>
+            </view>
+            <!-- 老师 -->
+            <view class="text-sub text-gray margin-top-xs">授课教师: {{item.teacher}}</view>
+            <!-- 总周数 -->
+            <view class="text-sub text-gray">上课周数: {{item.term_week_str}}</view>
+            <!-- 标签 -->
+            <view class="margin-top-xs">
+                <view class="cu-tag line-olive light round sm  {{item.type=='必修' ? 'bg-blue' : 'bg-orange'}}">{{item.type}}</view>
+                <view class="cu-tag line-olive bg-blue light round sm">{{item.kclb}}</view>
+                <view class="cu-tag line-olive bg-blue light round sm">{{item.require}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 默认图片 -->
+<view wx:else class="default">
+    <image src="../../images/kebiao/nocourse.png" mode="aspectFit"></image>
+</view>

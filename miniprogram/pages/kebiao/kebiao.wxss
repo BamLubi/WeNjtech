@@ -45,3 +45,45 @@ scroll-view view{
     /* 取消cu-item里的左边距 */
     margin-left: 0px!important;
 }
+
+/* 默认图片 */
+.default{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100vw;
+}
+
+.default image{
+    width: 100%;
+}
+
+/* 课表 */
+.kebiao{
+    display: flex;
+    flex-direction: row;
+}
+
+.kebiao .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 5vw;
+    background-color: #2684fe;
+    color: white;
+    border-radius: 0 20rpx 20rpx 0;
+}
+
+.kebiao .main{
+    width: 95vw;
+}
+
+.kebiao .main .name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
