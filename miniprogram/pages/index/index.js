@@ -36,8 +36,8 @@ Page({
             }, {
                 id: 3,
                 name: "我的课表",
-                img: "/images/index/un_kebiao.png",
-                url: "",
+                img: "/images/index/kebiao.png",
+                url: "/pages/kebiao/kebiao",
                 type: 'page'
             }, {
                 id: 4,
@@ -116,85 +116,10 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
 
-    },
-
-    /**
-     * 下载apk
-     */
-    getAPK: function () {
-        let savedFilePath = ''
-        API.ShowModal('', "本功能由@AutoKaKa开发\n为独立APP非小程序\n即将跳转下载...", true, '取消下载', '继续下载').then(res => {
-            console.log("[home] [太南课表] [下载]")
-            wx.showLoading({
-                title: '下载中'
-            })
-            // 下载文件
-            return cloudStore.DownloadWxCloudStore("cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/resource/太南课表.apk")
-        }).then(res => {
-            // 保存文件
-            return API.SaveFile(res.tempFilePath, "太南课表.apk")
-        }).then(res => {
-            savedFilePath = res.savedFilePath
-            wx.hideLoading()
-            // 显示提示框
-            return API.ShowToast('下载成功', 'success', 1000)
-        }).then(res => {
-            setTimeout(function () {
-                return API.HideToast()
-            }, 1000)
-        }).then(res => {
-            // 打开文件
-            return API.OpenDocument(savedFilePath)
-        }).catch(err => {
-            wx.hideLoading()
-            return API.ShowToast('下载失败，链接已失效！', 'none', 1000)
-        })
     },
 
     /**

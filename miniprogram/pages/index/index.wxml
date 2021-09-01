@@ -39,8 +39,3 @@
 	</swiper>
 	<text class="cuIcon-close xl notice-close margin-right-xs" bindtap="HideNotice"></text>
 </view>
-
-<!-- 角标写法 -->
-<!-- <view class="cu-tag badge">
-	<block>20</block>
-</view> -->
