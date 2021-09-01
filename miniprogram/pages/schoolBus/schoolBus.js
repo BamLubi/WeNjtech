@@ -93,7 +93,17 @@ Page({
             // videoAd.onClose((res) => {})
         }
     },
-    
+
+    /**
+     * 转发
+     */
+    onShareAppMessage() {
+        return {
+            title: '校车查询',
+            path: '/pages/schoolBus/schoolBus',
+        }
+    },
+
     /**
      * 产生班车列表
      */
@@ -296,7 +306,7 @@ Page({
             isChangePlace: false
         })
     },
-    
+
     HideDateChangeMask: function () {
         console.log("隐藏遮罩")
         this.setData({
@@ -317,7 +327,11 @@ Page({
      */
     onDayClick: function (e) {
         var that = this
-        var data = {detail: {value: e.detail.id}}
+        var data = {
+            detail: {
+                value: e.detail.id
+            }
+        }
         this.DateChange(data)
         // 设置计时器
         setTimeout(function () {
@@ -350,11 +364,11 @@ Page({
     /**
      * 监听页面到达底部
      */
-    ScrollToLower: function(){
+    ScrollToLower: function () {
         // 如果无数据了就不要再发请求了
-        if(!this.data.hasMoreBus) return
+        if (!this.data.hasMoreBus) return
         // 节流
-        if(!this.data.isBusLoading){
+        if (!this.data.isBusLoading) {
             this.setBusLine()
         }
     },
@@ -398,16 +412,22 @@ Page({
                             } else {
                                 // 用户完整观看广告
                                 console.log("[乘车提醒] setting")
-                                wx.showLoading({title: '设置中'})
+                                wx.showLoading({
+                                    title: '设置中'
+                                })
                                 cloudDB.AddWxCloudDB("weNjtech-messageTask", dbdata).then(res => {
                                     wx.hideLoading()
-                                    wx.showToast({title: '设置成功'})
+                                    wx.showToast({
+                                        title: '设置成功'
+                                    })
                                 })
                             }
                         })
                         videoAd.onError(err => {
                             console.log("[广告加载] fail")
-                            wx.showToast({title: '广告加载失败'})
+                            wx.showToast({
+                                title: '广告加载失败'
+                            })
                         })
                     }
                 } else {
@@ -417,7 +437,9 @@ Page({
             },
             fail: err => {
                 console.error("[调用订阅通知] fail", err)
-                wx.showToast({title: '调用订阅失败'})
+                wx.showToast({
+                    title: '调用订阅失败'
+                })
             }
         })
     }

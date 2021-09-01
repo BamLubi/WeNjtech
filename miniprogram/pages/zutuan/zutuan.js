@@ -74,6 +74,16 @@ Page({
     }
   },
 
+  /**
+   * 转发
+   */
+  onShareAppMessage() {
+    return {
+      title: '校园组团',
+      path: '/pages/zutuan/zutuan',
+    }
+  },
+
   onReachBottom: function () {
     // 节流
     if (!this.data.isLoading && this.data.hasMore) {
