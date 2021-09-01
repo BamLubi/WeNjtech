@@ -46,20 +46,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let that = this
         // 根据云端是否有记录来决定要不要获取用户头像昵称
         // 判断获取个人信息
         if (app.globalData.hasUserInfo == true) {
-            this.setData({
-                localUserInfo: app.globalData.localUserInfo,
-                openid: app.globalData.openid,
+            that.data.localUserInfo = app.globalData.localUserInfo
+            that.data.openid = app.globalData.openid
+            that.setData({
                 hasUserInfo: true,
             })
         } else if (app.globalData.hasUserInfo == null) {
             // 异步操作
             app.userInfoReadyCallback = res => {
-                this.setData({
-                    localUserInfo: app.globalData.localUserInfo,
-                    openid: app.globalData.openid,
+                that.data.localUserInfo = app.globalData.localUserInfo
+                that.data.openid = app.globalData.openid
+                that.setData({
                     hasUserInfo: true,
                 })
             }
@@ -119,6 +120,7 @@ Page({
      * 获取用户个人信息,
      */
     getUserInfo: function () {
+        let that = this
         // 显示loading
         wx.showLoading({
             title: '获取中'
@@ -127,15 +129,24 @@ Page({
             app.globalData.cloudUserInfo = JSON.parse(JSON.stringify(res))
             app.globalData.localUserInfo = JSON.parse(JSON.stringify(res))
             app.globalData.hasUserInfo = true
+            that.data.localUserInfo = app.globalData.localUserInfo
+            that.data.openid = app.globalData.openid
+            that.setData({
+                hasUserInfo: true,
+            })
             // 回调广播函数
             if (app.userInfoReadyCallback) {
                 app.userInfoReadyCallback()
             }
             // 显示成功样式
-            wx.hideLoading()
-			wx.showToast({
-				title: '获取成功'
-			})
+            wx.hideLoading().then(()=>{
+                API.ShowToast('获取成功', 'success')
+            })
+        }).catch(err=>{
+            console.log("获取个人信息失败",err);
+            wx.hideLoading().then(()=>{
+                API.ShowToast('获取失败', 'error')
+            })
         })
     },
 
