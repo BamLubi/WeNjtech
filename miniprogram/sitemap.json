@@ -6,6 +6,10 @@
 			"page": "pages/me/me"
 		},
 		{
+			"action": "disallow",
+			"page": "pages/kebiao/kebiao"
+		},
+		{
 			"action": "allow",
 			"page": "*"
 		}
