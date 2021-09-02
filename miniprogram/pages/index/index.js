@@ -42,8 +42,8 @@ Page({
             }, {
                 id: 4,
                 name: "校园组团",
-                img: "/images/index/zutuan.png",
-                url: "/pages/zutuan/zutuan",
+                img: "/images/index/un_zutuan.png",
+                url: "",
                 type: 'page'
             }, {
                 id: 5,
@@ -112,6 +112,12 @@ Page({
             that.setData({
                 dict: res.data[0]
             })
+            if(that.data.dict.lock){
+                that.setData({
+                    ["services[0].children[4].url"]: '/pages/zutuan/zutuan',
+                    ["services[0].children[4].img"]: '/images/index/zutuan.png'
+                })
+            }
         })
     },
 
