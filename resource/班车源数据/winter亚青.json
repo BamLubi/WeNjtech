@@ -297,16 +297,3 @@
     "isValid": true,
     "remark": "亚青线反向"
 }
-{
-    "_id": "busline0172",
-    "startTime": 18.0,
-    "endTime": 18.0,
-    "amount": 1,
-    "line": "busLine_2",
-    "site": "busLine_2_reverseSite",
-    "direction": "reverse",
-    "validDay": "workingDay",
-    "validSeason": "winter",
-    "isValid": false,
-    "remark": "亚青线反向"
-}

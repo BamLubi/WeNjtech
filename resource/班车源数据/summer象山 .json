@@ -183,7 +183,7 @@
 {
     "_id": "busline0215",
     "startTime": 12.0,
-    "endTime": 13.3,
+    "endTime": 14.0,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -196,7 +196,7 @@
 {
     "_id": "busline0216",
     "startTime": 12.0,
-    "endTime": 13.30,
+    "endTime": 14.0,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -205,32 +205,6 @@
     "validSeason": "summer",
     "isValid": true,
     "remark": "象山线反向三车循环"
-}
-{
-    "_id": "busline0221",
-    "startTime": 13.45,
-    "endTime": 13.45,
-    "amount": 1,
-    "line": "busLine_1",
-    "site": "busLine_1_forwardSite",
-    "direction": "forward",
-    "validDay": "workingDay",
-    "validSeason": "summer",
-    "isValid": true,
-    "remark": "象山线正向"
-}
-{
-    "_id": "busline0222",
-    "startTime": 13.3,
-    "endTime": 13.3,
-    "amount": 1,
-    "line": "busLine_1",
-    "site": "busLine_1_reverseSite",
-    "direction": "reverse",
-    "validDay": "workingDay",
-    "validSeason": "summer",
-    "isValid": true,
-    "remark": "象山线反向"
 }
 {
     "_id": "busline0217",
@@ -283,11 +257,36 @@
     "validSeason": "summer",
     "isValid": true,
     "remark": "象山线反向"
+}{
+    "_id": "busline0221",
+    "startTime": 15.15,
+    "endTime": 15.15,
+    "amount": 1,
+    "line": "busLine_1",
+    "site": "busLine_1_forwardSite",
+    "direction": "forward",
+    "validDay": "workingDay",
+    "validSeason": "summer",
+    "isValid": true,
+    "remark": "象山线正向"
+}
+{
+    "_id": "busline0222",
+    "startTime": 15.0,
+    "endTime": 15.0,
+    "amount": 1,
+    "line": "busLine_1",
+    "site": "busLine_1_reverseSite",
+    "direction": "reverse",
+    "validDay": "workingDay",
+    "validSeason": "summer",
+    "isValid": true,
+    "remark": "象山线反向"
 }
 {
     "_id": "busline0223",
-    "startTime": 15.00,
-    "endTime": 15.40,
+    "startTime": 15.30,
+    "endTime": 16.10,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -299,8 +298,8 @@
 }
 {
     "_id": "busline0224",
-    "startTime": 15.00,
-    "endTime": 15.40,
+    "startTime": 15.30,
+    "endTime": 16.10,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -312,8 +311,8 @@
 }
 {
     "_id": "busline0225",
-    "startTime": 16.1,
-    "endTime": 16.1,
+    "startTime": 16.25,
+    "endTime": 16.25,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -325,8 +324,8 @@
 }
 {
     "_id": "busline0226",
-    "startTime": 15.55,
-    "endTime": 15.55,
+    "startTime": 16.4,
+    "endTime": 16.4,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -338,8 +337,8 @@
 }
 {
     "_id": "busline0227",
-    "startTime": 16.4,
-    "endTime": 16.4,
+    "startTime": 16.55,
+    "endTime": 16.55,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -351,34 +350,8 @@
 }
 {
     "_id": "busline0228",
-    "startTime": 16.25,
-    "endTime": 16.25,
-    "amount": 1,
-    "line": "busLine_1",
-    "site": "busLine_1_reverseSite",
-    "direction": "reverse",
-    "validDay": "workingDay",
-    "validSeason": "summer",
-    "isValid": true,
-    "remark": "象山线反向"
-}
-{
-    "_id": "busline1228",
-    "startTime": 17,
-    "endTime": 17,
-    "amount": 1,
-    "line": "busLine_1",
-    "site": "busLine_1_forwardSite",
-    "direction": "forward",
-    "validDay": "workingDay",
-    "validSeason": "summer",
-    "isValid": true,
-    "remark": "象山线正向"
-}
-{
-    "_id": "busline1229",
-    "startTime": 16.55,
-    "endTime": 16.55,
+    "startTime": 17.1,
+    "endTime": 17.1,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -390,8 +363,8 @@
 }
 {
     "_id": "busline0229",
-    "startTime": 17,
-    "endTime": 18.30,
+    "startTime": 17.15,
+    "endTime": 18.45,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -403,8 +376,8 @@
 }
 {
     "_id": "busline0230",
-    "startTime": 17,
-    "endTime": 18.30,
+    "startTime": 17.15,
+    "endTime": 18.45,
     "amount": 3,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -416,8 +389,8 @@
 }
 {
     "_id": "busline0231",
-    "startTime": 18.45,
-    "endTime": 18.45,
+    "startTime": 19.0,
+    "endTime": 19.0,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_forwardSite",
@@ -429,8 +402,8 @@
 }
 {
     "_id": "busline0232",
-    "startTime": 18.45,
-    "endTime": 18.45,
+    "startTime": 19.0,
+    "endTime": 19.0,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -455,8 +428,8 @@
 }
 {
     "_id": "busline0234",
-    "startTime": 19.0,
-    "endTime": 19.0,
+    "startTime": 19.3,
+    "endTime": 19.3,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -481,8 +454,8 @@
 }
 {
     "_id": "busline0236",
-    "startTime": 19.30,
-    "endTime": 19.30,
+    "startTime": 20.0,
+    "endTime": 20.0,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -507,8 +480,8 @@
 }
 {
     "_id": "busline0238",
-    "startTime": 20.0,
-    "endTime": 20.0,
+    "startTime": 20.3,
+    "endTime": 20.3,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -533,8 +506,8 @@
 }
 {
     "_id": "busline0240",
-    "startTime": 20.30,
-    "endTime": 20.30,
+    "startTime": 21.0,
+    "endTime": 21.0,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -559,8 +532,8 @@
 }
 {
     "_id": "busline0242",
-    "startTime": 21.0,
-    "endTime": 21.0,
+    "startTime": 21.3,
+    "endTime": 21.3,
     "amount": 1,
     "line": "busLine_1",
     "site": "busLine_1_reverseSite",
@@ -582,19 +555,6 @@
     "validSeason": "summer",
     "isValid": true,
     "remark": "象山线正向"
-}
-{
-    "_id": "busline0244",
-    "startTime": 21.3,
-    "endTime": 21.3,
-    "amount": 1,
-    "line": "busLine_1",
-    "site": "busLine_1_reverseSite",
-    "direction": "reverse",
-    "validDay": "workingDay",
-    "validSeason": "summer",
-    "isValid": true,
-    "remark": "象山线反向"
 }
 {
     "_id": "busline0245",
