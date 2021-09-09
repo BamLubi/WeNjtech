@@ -3,12 +3,12 @@
 	<!-- logo & version -->
 	<view class="logo margin-top">
 		<image src="cloud://lyy-production.6c79-lyy-production-1258923430/weNjtech/weNjtech.png" class="animation-scale-up" style="animation-delay: 0.4s;"></image>
-		<view class="text-gray text-lg text-shadow margin-top">v 2.5.0</view>
-		<view class="text-bold text-gray text-lg text-shadow margin-top-xs">Copyright © 2019-2021 BamLubi</view>
+		<view class="text-gray text-lg text-shadow margin-top">v 2.5.2</view>
+		<view class="text-bold text-gray text-lg text-shadow margin-top-xs">Copyright © 2019-2021 weNjtech</view>
 	</view>
 	<!-- information -->
 	<view class="shadow margin radius bg-white padding text-lg">
-		<text>欢迎使用“微南工-weNjtech”小程序,本程序由我校计算机学院2021届毕业生制作完成,旨在为在校师生提供尽可能的方便。
+		<text>欢迎使用“微南工-weNjtech”小程序,本程序由我校计算机学院2021届毕业生带头制作完成,旨在为在校师生提供尽可能的方便。
 
 		现已支持功能板块:
 		[班车时刻]
@@ -24,6 +24,8 @@
 		+ 查询个人课表，仅支持当前学期;
 		[校园组团]
 		+ 发布校园组团信息，如：拼车，竞赛，吃喝玩乐等
+		[校园新闻]
+		+ 查看校园教务处发布的通告
 		[疫情服务-均跳转第三方小程序]
 		+ 核酸检测结果查询
 		+ 通信行程卡查询
@@ -31,10 +33,31 @@
 		[校园闲置][猫猫狗狗]正在开发中
 
 		</text>
+
+		<!-- 开源地址 -->
 		<view class="text-sub">
-			<text>项目开源地址如下
+			<text>项目开源地址
 			</text>
-			<text class="cuIcon-github">BamLubi/WeNjtech</text>
+			<text class="cuIcon-github">BamLubi/WeNjtech
+
+			</text>
+		</view>
+
+		<!-- 联系方式 -->
+		<view class="text-sub">
+			<text>联系方式
+			</text>
+			<text class="cuIcon-service">1126458447@qq.com
+
+			</text>
+		</view>
+
+		<!-- 开发人员 -->
+		<view class="text-sub">
+			<text>开发人员
+			</text>
+			<text>@BamLubi</text>
+			<text>@shaxiu</text>
 		</view>
 	</view>
 	<!-- ad -->
