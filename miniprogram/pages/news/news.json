@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "校园新闻",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 1,
+  "usingComponents": {}
+}
