@@ -7,9 +7,7 @@
         "pages/campusQ&A/campusQ&A",
         "pages/kebiao/kebiao",
         "pages/zutuan/zutuan",
-        "pages/zutuanDetail/zutuanDetail",
-        "pages/news/news",
-        "pages/newsDetail/newsDetail"
+        "pages/zutuanDetail/zutuanDetail"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -26,12 +24,6 @@
                 "text": "首页",
                 "iconPath": "images/tabbar/home.png",
                 "selectedIconPath": "images/tabbar/home_click.png"
-            },
-            {
-                "pagePath": "pages/news/news",
-                "text": "校园新闻",
-                "iconPath": "images/tabbar/news.png",
-                "selectedIconPath": "images/tabbar/news_click.png"
             },
             {
                 "pagePath": "pages/me/me",

@@ -57,6 +57,17 @@ Page({
                 img: "/images/index/un_pets.png",
                 url: "",
                 type: 'page'
+            }, {
+                id: 7,
+                name: "校园通知",
+                img: "/images/index/notice.png",
+                url: "/",
+                type: 'naviToMini',
+                data: {
+                    appId: 'wx5bbb6643aaa3d79a',
+                    envVersion: 'release',
+                    shortLink: ""
+                }
             }]
         }, {
             id: 1,
