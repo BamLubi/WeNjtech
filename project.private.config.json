@@ -65,6 +65,18 @@
                     "pathName": "pages/zutuan/zutuan",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "组团详情页",
+                    "pathName": "pages/zutuanDetail/zutuanDetail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "校园新闻",
+                    "pathName": "pages/news/news",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
