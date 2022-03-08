@@ -51,7 +51,7 @@ Page({
     onLoad: function (options) {
         let that = this
         // 判断当前第几周
-        let start_date = new Date("2021-08-30 00:00:00")
+        let start_date = new Date("2022-02-21 00:00:00")
         let now_date = new Date()
         let term_week = parseInt((now_date.getTime() - start_date.getTime()) / (86400000 * 7) + 1)
         term_week = term_week < 20 ? term_week : 20
