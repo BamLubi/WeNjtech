@@ -1,7 +1,7 @@
 <p align="center">
   <img alt="logo" src="resource/weNjtech.png" width="200" style="margin-bottom: 10px;">
 </p>
-<h3 align="center">专属南工学子的校园查询程序</h3>
+<h3 align="center">专属南工学子的校园小程序</h3>
 
 ![](https://img.shields.io/badge/%E7%B4%AF%E8%AE%A1%E7%94%A8%E6%88%B7-5.0k-green)
 
@@ -49,6 +49,7 @@
 
 1. 查看[校车数据存储设计](resource/校车数据存储设计.md)文档
 2. 查看[空教室信息爬取设计](resource/解析空教室请求.md)文档
+2. 后端设计至，[BamLubi/WeNjtech.server](https://github.com/BamLubi/WeNjtech.server)
 
 ## 版权信息
 
