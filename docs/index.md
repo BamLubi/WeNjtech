@@ -1,3 +1,5 @@
+## WeNjtech
+
 ## 介绍
 
 “微南工”微信小程序，非南京工业大学官方小程序，致力于服务南京工业大学江浦校区的师生。目前主要实现了如下功能：
@@ -22,8 +24,9 @@
 ## 快速体验
 
 <p align="center">
-  <img src="../resource/promote.png" width="200" style="margin-bottom: 10px;">
+  <img src="https://github.com/BamLubi/resource/promote.png" width="200" style="margin-bottom: 10px;">
 </p>
+
 
 ## 开发工具
 
