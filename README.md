@@ -5,6 +5,8 @@
 
 ![](https://img.shields.io/badge/%E7%B4%AF%E8%AE%A1%E7%94%A8%E6%88%B7-6.7k-green)
 
+[![Security Status](https://www.murphysec.com/platform3/v3/badge/1610173079825240064.svg)](https://www.murphysec.com/accept?code=862844e6ef0940909baa68a007002345&type=1&from=2&t=1)
+
 ## 介绍
 
 由于微信云开发的开销问题，现项目已经无法正常使用，后续若有机会将会继续上线，感谢曾经大家的支持和关注。
